@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "@testing-library/react": "^9.3.2",
+    "docz": "^2.0.0-rc.71",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-promise": "^4.2.1",
@@ -39,10 +40,10 @@
     "eslint-plugin-standard": "^4.0.1",
     "husky": "^3.0.9"
   },
-    "dependencies": {
-      "react": "^16.11.0",
-      "react-dom": "^16.11.0",
-      "react-scripts": "3.2.0",
-      "styled-components": "^4.4.1"
-    }
+  "dependencies": {
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-scripts": "3.2.0",
+    "styled-components": "^4.4.1"
+  }
 }
