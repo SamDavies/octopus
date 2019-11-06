@@ -1,0 +1,50 @@
+{
+    "extends": [
+        "standard",
+        "plugin:react/recommended",
+        "react-app"
+    ],
+    "env": {
+        "browser": true,
+        "es6": true,
+        "jest": true
+    },
+    "globals": {
+        "NODE_ENV": true
+    },
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "plugins": ["react"],
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "rules": {
+        "no-console": [
+            "warn",
+            {
+                "allow": ["log", "warn", "info", "error"]
+            }
+        ],
+        // Indent with 4 spaces
+        "indent": [
+            "error",
+            4
+        ],
+        // Indent JSX with 4 spaces
+        "react/jsx-indent": [
+            "error",
+            4
+        ],
+        // Indent props with 4 spaces
+        "react/jsx-indent-props": [
+            "error",
+            4
+        ]
+    }
+}
