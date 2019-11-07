@@ -1,3 +1,1 @@
-const Foo = ''
-
-export default Foo
+export * from './styles'
