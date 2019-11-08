@@ -1,0 +1,32 @@
+---
+name: Colors
+menu: Styles
+route: '/styles/colors'
+---
+
+
+import { colors, accentColors, uiColors, primaryColors } from './';
+import ColorBox from '../components/docs/ColorBox'
+
+# Colors 
+
+### Primary 
+<div>
+{Object.entries(primaryColors).map(([name, hex]) => (
+    <ColorBox name={name} hex={hex} />
+))}
+</div>
+
+### UI
+<div>
+{Object.entries(uiColors).map(([name, hex]) => (
+    <ColorBox name={name} hex={hex} />
+))}
+</div>
+
+### Accent
+<div>
+{Object.entries(accentColors).map(([name, hex]) => (
+    <ColorBox name={name} hex={hex} />
+))}
+</div>

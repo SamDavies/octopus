@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Unna:400,400i&display=swap');
+
+@font-face {
+    font-family: 'CeraPro';
+    src: url('../fonts/CeraPro-BoldItalic.eot');
+    src: url('../fonts/CeraPro-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/CeraPro-BoldItalic.woff2') format('woff2'),
+        url('../fonts/CeraPro-BoldItalic.woff') format('woff'),
+        url('../fonts/CeraPro-BoldItalic.ttf') format('truetype'),
+        url('../fonts/CeraPro-BoldItalic.svg#CeraPro-BoldItalic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'CeraPro';
+    src: url('../fonts/CeraPro-MediumItalic.eot');
+    src: url('../fonts/CeraPro-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/CeraPro-MediumItalic.woff2') format('woff2'),
+        url('../fonts/CeraPro-MediumItalic.woff') format('woff'),
+        url('../fonts/CeraPro-MediumItalic.ttf') format('truetype'),
+        url('../fonts/CeraPro-MediumItalic.svg#CeraPro-MediumItalic') format('svg');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'CeraPro';
+    src: url('../fonts/CeraPro-Medium.eot');
+    src: url('../fonts/CeraPro-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/CeraPro-Medium.woff2') format('woff2'),
+        url('../fonts/CeraPro-Medium.woff') format('woff'),
+        url('../fonts/CeraPro-Medium.ttf') format('truetype'),
+        url('../fonts/CeraPro-Medium.svg#CeraPro-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CeraPro';
+    src: url('../fonts/CeraPro-Bold.eot');
+    src: url('../fonts/CeraPro-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/CeraPro-Bold.woff2') format('woff2'),
+        url('../fonts/CeraPro-Bold.woff') format('woff'),
+        url('../fonts/CeraPro-Bold.ttf') format('truetype'),
+        url('../fonts/CeraPro-Bold.svg#CeraPro-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
