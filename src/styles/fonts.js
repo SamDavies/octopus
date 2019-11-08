@@ -9,17 +9,20 @@ export const legacyFonts = {
     millerBold: 'MillerBanner-Bold, serif'
 }
 
+/**
+ * FONTS
+ * Cera Medium: Headers
+ * Cera Medium Italic: Body text
+ * Cera Bold: Subheaders + links + button labels
+ * Unna: Body Text
+ * Unna Italic: Body Text
+ **/
+
 const fonts = {
     // headers
-    cera: "'Cera Pro Medium', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif",
+    cera: "'CeraPro', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif",
     // body text
-    ceraItalic: "'Cera Pro Medium Italic', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif",
-    // subheaders + links + button labels
-    ceraBold: "'Cera Pro Bold', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif",
-    // body text
-    unna: "'Unna', serif",
-    // body text
-    unnaItalic: "'Unna Italic', serif"
+    unna: "'Unna', serif"
 
 }
 

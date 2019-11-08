@@ -15,16 +15,14 @@ const StyledBox = styled.div`
     align-content: center;
 `
 
-const ColorBox = props => {
-    return (
-        <div>
-            <StyledBox name={props.name} hex={props.hex}>
-                <span>{props.name}</span>
-                <span>{props.hex}</span>
-            </StyledBox>
-        </div>
-    )
-}
+const ColorBox = props => (
+    <div>
+        <StyledBox name={props.name} hex={props.hex}>
+            <span>{props.name}</span>
+            <span>{props.hex}</span>
+        </StyledBox>
+    </div>
+)
 
 ColorBox.propTypes = {
     name: PropTypes.string,
