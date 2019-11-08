@@ -1,0 +1,11 @@
+Static Modal Layout example
+
+```js
+<StaticModalLayout>
+  Exercitation esse ipsum occaecat laborum tempor. Proident nulla est nisi velit
+  dolore quis adipisicing eu tempor ipsum. Mollit sint consequat anim Lorem
+  culpa non exercitation esse esse esse dolor culpa. Consequat ad nulla
+  consectetur ut esse magna labore anim qui aliqua. Sint aliqua ipsum laborum ad
+  dolor do officia.
+</StaticModalLayout>
+```

@@ -1,0 +1,25 @@
+Logo example:
+
+```js
+<Logo />
+```
+
+Logo without link
+
+```js
+<Logo link={false} />
+```
+
+Logo link with normal size
+
+```js
+<Logo size="normal" />
+```
+
+Invert Logo example:
+
+```js
+<div style={{ background: '#000' }}>
+  <Logo color="white" />
+</div>
+```

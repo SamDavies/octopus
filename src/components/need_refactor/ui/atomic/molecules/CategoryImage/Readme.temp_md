@@ -1,0 +1,29 @@
+Homepage bottom item example:
+
+```js
+<div style={{ width: '250px' }}>
+  <CategoryImage
+    item={{
+      'image-url': 'https://dummyimage.com/400x400/000/fff',
+      title: 'title',
+      'destination-path': '/',
+    }}
+    imageSize={500}
+  />
+</div>
+```
+
+Homepage bottom item larger example:
+
+```js
+<div style={{ width: '500px' }}>
+  <CategoryImage
+    item={{
+      'image-url': 'https://dummyimage.com/400x400/000/fff',
+      title: 'large',
+      'destination-path': '/',
+    }}
+    imageSize={500}
+  />
+</div>
+```

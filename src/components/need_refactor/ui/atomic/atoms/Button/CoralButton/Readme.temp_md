@@ -1,0 +1,9 @@
+CoralButton button examples (small, normal, large):
+
+```js
+<div style={{ display: 'flex', justifyContent: 'space-around' }}>
+  <CoralButton size="small">SAVE</CoralButton>
+  <CoralButton>SAVE</CoralButton>
+  <CoralButton size="large">SAVE</CoralButton>
+</div>
+```

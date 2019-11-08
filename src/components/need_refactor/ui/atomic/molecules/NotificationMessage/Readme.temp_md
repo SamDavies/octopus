@@ -1,0 +1,5 @@
+Notification example:
+
+```js
+<NotificationMessage text="Dolore velit aute dolore irure amet veniam" />
+```

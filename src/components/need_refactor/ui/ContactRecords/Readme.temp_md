@@ -1,0 +1,34 @@
+ContactRecords example
+
+```js
+const records = [
+      {
+        name: 'Art + Commerce',
+        departments: [
+          {
+            phone_number: '', website: 'http://www.artandcommerce.com', name: '', job_role: '', fax_number: '', address: '', email: '',
+          },
+          {
+            phone_number: '+1 212 206 0737', website: '', name: 'New York', job_role: '', fax_number: '', address: '531 West 25th Street, 4th Floor  New York, NY 10001', email: '',
+          },
+          {
+            phone_number: '+33 (0)1 73 09 98 00', website: '', name: 'Paris', job_role: '', fax_number: '', address: '20 Rue de la Baume, 5th floor  75008 Paris, France', email: '',
+          },
+          {
+            phone_number: '+44 (0) 20 7031 7301', website: '', name: 'London', job_role: '', fax_number: '', address: 'Arundel Street Building, 5th floor, 180 The Strand, London, WC2R 3DA', email: '',
+          },
+          {
+            phone_number: '', website: '', name: 'Image Archive and General Inquiries', job_role: '', fax_number: '', address: '', email: 'info@artandcommerce.com',
+          },
+          {
+            phone_number: '', website: '', name: 'Employment Inquiries', job_role: 'General Contact', fax_number: '', address: '', email: 'employment@artandcommerce.com',
+          },
+          {
+            phone_number: '', website: '', name: 'Portfolio Review Inquiries', job_role: '', fax_number: '', address: '', email: 'Submissions@artandcommerce.com',
+          },
+        ],
+      },
+    ];
+
+<ContactRecords records={records} />
+```

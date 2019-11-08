@@ -1,0 +1,13 @@
+AddIcon example:
+
+```js
+<AddIcon width="24px" height="24px" onClick={() => {}} />
+```
+
+AddIcon white example:
+
+```js
+<div style={{ backgroundColor: '#000' }}>
+  <AddIcon width="24px" height="24px" color="white" onClick={() => {}} />
+</div>
+```

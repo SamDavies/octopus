@@ -1,0 +1,51 @@
+Heading h1 example:
+
+```js
+<Heading>Make Beautiful Work</Heading>
+```
+
+Heading h2 inverted example:
+
+```js
+<div style={{ backgroundColor: '#000' }}>
+  <Heading level={2} inverted>
+    Make Beautiful Work
+  </Heading>
+</div>
+```
+
+Heading h3 underline example:
+
+```js
+<Heading level={3} underline>
+  Make Beautiful Work
+</Heading>
+```
+
+Heading h4 example:
+
+```js
+<Heading level={4}>Make Beautiful Work</Heading>
+```
+
+Heading h5 example:
+
+```js
+<Heading level={5}>Make Beautiful Work</Heading>
+```
+
+Heading h5 bold example:
+
+```js
+<Heading level={5} bold>
+  Make Beautiful Work
+</Heading>
+```
+
+Heading h5 uppercase example:
+
+```js
+<Heading level={5} uppercase>
+  Make Beautiful Work
+</Heading>
+```

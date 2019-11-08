@@ -1,0 +1,6 @@
+CircleLogo examples:
+
+```js
+  <CircleLogo />
+  <CircleLogo maxWidth="32px" />
+```
