@@ -1,0 +1,5 @@
+AddNewItemCard example:
+
+```js
+<AddNewItemCard onClick={() => {}} />
+```

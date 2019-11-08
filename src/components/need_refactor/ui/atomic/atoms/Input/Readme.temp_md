@@ -1,0 +1,40 @@
+Disabled Input example:
+
+```js
+<Input
+  onChange={() => {
+    /** receives event.target.value */
+  }}
+  placeholder="Disabled text field"
+  value=""
+  disabled
+  name="foo"
+/>
+```
+
+Input example:
+
+```js
+<Input
+  onChange={() => {
+    /** receives event.target.value */
+  }}
+  placeholder="Hint text"
+  value=""
+  name="foo"
+/>
+```
+
+Input with error example:
+
+```js
+<Input
+  onChange={() => {
+    /** receives event.target.value */
+  }}
+  placeholder="Hint text"
+  value="Input text"
+  error="Username or Password is incorrect"
+  name="foo"
+/>
+```

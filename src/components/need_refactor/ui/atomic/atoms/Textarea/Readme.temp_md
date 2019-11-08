@@ -1,0 +1,39 @@
+Atomic Textarea default examples:
+
+```js
+initialState = { foo: 'Elit culpa sint Lorem sunt qui ad est.' };
+<Textarea
+  onChange={e => setState({ foo: e.target.value })}
+  id="foo"
+  name="foo"
+  value={state.foo}
+/>;
+```
+
+Atomic Textarea placeholder examples:
+
+```js
+initialState = { foo: '' };
+<Textarea
+  onChange={e => setState({ foo: e.target.value })}
+  id="foo"
+  name="foo"
+  value={state.foo}
+  placeholder="placeholder"
+/>;
+```
+
+Atomic Textarea maxLength examples:
+
+```js
+initialState = {
+  foo: 'Dolore cillum sit',
+};
+<Textarea
+  onChange={e => setState({ foo: e.target.value })}
+  id="foo"
+  name="foo"
+  value={state.foo}
+  maxLength={20}
+/>;
+```

@@ -1,0 +1,40 @@
+Carousel componet examples
+
+```js
+const props = {
+  renderItem: ({ item, index }) => (
+    <div key={index} order={index}>
+      {item}
+    </div>
+  ),
+  pauseOnHover: true,
+  interval: 1000,
+  items: [1, 2, 3, 4],
+};
+<Carousel {...props} height="30px" />;
+```
+
+```js
+const props = {
+  renderItem: ({ item, index }) => (
+    <div key={index} order={index}>
+      <img src={item.image} alt={item.title} />
+    </div>
+  ),
+  pauseOnHover: true,
+  interval: 2000,
+  items: [
+    {
+      image:
+        'https://lh3.googleusercontent.com/JnNeWU0Aw0M0zc8eyyOlcQq5hDjgkyIgZVZrOcawAoOWvXHhMqxg45gCYxxqr02MbPdnz_whoj3cMG-vAUM1xOhA9A=s600',
+      title: 'title',
+    },
+    {
+      image:
+        'https://lh3.googleusercontent.com/NrMVLQLOxQ_bhV5K7zJ9-es0QnJxPP_mAG4jcvMIFfI6cIyXYyu5nmllEZfemtrK_s82oZqhRjAyZo1h85HfaMC2Yw=s600',
+      title: 'title 2',
+    },
+  ],
+};
+<Carousel {...props} height="auto" />;
+```

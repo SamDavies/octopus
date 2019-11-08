@@ -1,0 +1,25 @@
+Accordion example:
+
+```js
+<div>
+  <AccordionItem title="who is behind stylindex?">
+    Fugiat ea id amet pariatur exercitation eiusmod adipisicing minim nulla.
+  </AccordionItem>
+  <AccordionItem title="are you hiring?">
+    Lorem sit minim laboris ad duis magna sunt officia sint labore excepteur
+    sint. Sint irure amet ea nisi id enim ad. Ea commodo amet et proident anim
+    commodo. Reprehenderit dolor duis culpa ut fugiat anim magna elit ad ut qui
+    deserunt laboris. Anim proident sint quis adipisicing ex do deserunt.
+  </AccordionItem>
+
+  <AccordionItem
+    lastItem
+    title="Aliqua veniam in veniam proident magna mollit aliquip occaecat."
+  >
+    In pariatur nisi sint reprehenderit Lorem id nostrud minim mollit velit
+    Lorem veniam officia aliqua. Minim ipsum adipisicing amet in cillum
+    adipisicing. Fugiat ex consequat tempor irure sit fugiat fugiat commodo
+    voluptate ad occaecat ut aute ea.
+  </AccordionItem>
+</div>
+```

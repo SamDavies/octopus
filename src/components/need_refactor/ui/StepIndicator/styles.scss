@@ -1,0 +1,22 @@
+.steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 16px;
+  left: 0;
+  right: 0;
+
+  &__single {
+    width: 8px;
+    height: 8px;
+    margin: 8px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    border: solid 2px #000000;
+  }
+
+  &__active {
+    background-color: #000000;
+  }
+}

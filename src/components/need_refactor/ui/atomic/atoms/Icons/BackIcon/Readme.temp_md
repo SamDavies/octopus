@@ -1,0 +1,13 @@
+BackIcon example:
+
+```js
+<BackIcon width="24px" height="24px" onClick={() => {}} />
+```
+
+BackIcon white example:
+
+```js
+<div style={{ backgroundColor: '#000' }}>
+  <BackIcon width="24px" height="24px" color="white" onClick={() => {}} />
+</div>
+```

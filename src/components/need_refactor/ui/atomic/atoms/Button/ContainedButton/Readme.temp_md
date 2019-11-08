@@ -1,0 +1,11 @@
+Contained button (small, normal, large) example:
+
+```js
+<div style={{ display: 'flex', justifyContent: 'space-around' }}>
+  <ContainedButton size="small" uppercase>
+    Show
+  </ContainedButton>
+  <ContainedButton>Show</ContainedButton>
+  <ContainedButton size="large">Show</ContainedButton>
+</div>
+```

@@ -1,0 +1,9 @@
+Twitter icon example:
+
+```js
+<TwitterIcon width="24px" height="24px" />
+```
+
+```js
+<TwitterIcon width="24px" height="24px" color="red" />
+```

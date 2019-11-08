@@ -1,0 +1,11 @@
+Default Notification example:
+
+```js
+<Notification text="Dolore velit aute dolore irure amet veniam" />
+```
+
+Warning notification example:
+
+```js
+<Notification isWarning text="Dolore velit aute dolore irure amet veniam" />
+```

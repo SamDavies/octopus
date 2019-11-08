@@ -1,0 +1,13 @@
+SelectIcon examples:
+
+```js
+<WarningIcon width="24px" height="24px" />
+```
+
+```js
+<WarningIcon width="54px" height="54px" />
+```
+
+```js
+<WarningIcon color="black" width="24px" height="24px" />
+```

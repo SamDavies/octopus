@@ -1,0 +1,64 @@
+Atomic Text examples:
+
+```js
+<Text>Default Styled Text</Text>
+```
+
+```js
+<Text textAlign="center">Styled Text align center</Text>
+```
+
+```js
+<Text textAlign="right">Styled Text align right</Text>
+```
+
+```js
+<Text size="small">Styled Text small</Text>
+```
+
+```js
+<Text size="large">Styled Text large</Text>
+```
+
+```js
+<Text size="extraLarge">Styled Text extra large</Text>
+```
+
+```js
+<div style={{ background: 'black' }}>
+  <Text inverted>Styled Text extra Large</Text>
+</div>
+```
+
+```js
+<Text bold>Styled Text bold</Text>
+```
+
+```js
+<Text uppercase>Styled Text uppercase</Text>
+```
+
+```js
+<Text uppercase bold>
+  Styled Text uppercase and bold
+</Text>
+```
+
+```js
+<Text uppercase bold size="large">
+  Styled Text uppercase, bold and large
+</Text>
+```
+
+Atomic Text long text examples:
+
+```js
+<Text>
+  Ut ipsum aliqua et occaecat nostrud et nostrud velit reprehenderit sunt quis
+  duis. Aute magna quis dolor sunt cupidatat sint ex do aliquip ipsum velit
+  adipisicing non. Mollit adipisicing dolore veniam est laborum dolore. Commodo
+  qui eu consectetur non culpa non fugiat fugiat reprehenderit est ullamco.
+  Fugiat in excepteur deserunt amet do adipisicing mollit aliquip occaecat sunt
+  occaecat.t
+</Text>
+```

@@ -1,0 +1,15 @@
+FavoriteIcon examples:
+
+```js
+<FavoriteIcon
+  width="24px"
+  height="24px"
+  color="red"
+  borderColor="black"
+  onClick={() => {}}
+/>
+```
+
+```js
+<FavoriteIcon width="24px" height="24px" onClick={() => {}} />
+```
