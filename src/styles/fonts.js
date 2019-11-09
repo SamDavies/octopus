@@ -14,15 +14,15 @@ export const legacyFonts = {
  * Cera Medium: Headers
  * Cera Medium Italic: Body text
  * Cera Bold: Subheaders + links + button labels
- * Unna: Body Text
- * Unna Italic: Body Text
+ * Literata: Body Text
+ * Literata Italic: Body Text
  **/
 
 const fonts = {
     // headers
     cera: "'CeraPro', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif",
     // body text
-    unna: "'Unna', serif"
+    literata: "'Literata', serif"
 
 }
 

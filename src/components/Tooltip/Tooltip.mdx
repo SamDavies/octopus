@@ -1,0 +1,35 @@
+---
+name: Tooltip
+menu: Components
+route: '/components/tooltip'
+---
+
+
+
+import Tooltip, { StyledTooltip } from './'
+import { Playground, Props } from 'docz'
+
+# Tooltip
+
+This is the ratings toggle component used inside the note form modals.
+ 
+## Properties
+<Props of={Tooltip} />
+
+## Basic usage
+
+<Playground>
+  <Tooltip tipText='Top tooltip' position='bottom'><button>Top toolip</button></Tooltip>
+  {/* <Tooltip tipText='Bottom tooltip' position='bottom'><button>Bottom toolip</button></Tooltip>
+  <Tooltip tipText='Left tooltip' position='left'><button>Left toolip</button></Tooltip>
+  <Tooltip tipText='Right tooltip' position='right'><button>Right toolip</button></Tooltip> */}
+  
+</Playground>
+
+
+<div style={{
+    position: 'relative',
+    width: '500px'
+}}>
+<StyledTooltip showTip={true}>Blah</StyledTooltip>
+</div>
