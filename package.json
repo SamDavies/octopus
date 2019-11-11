@@ -11,7 +11,9 @@
     "lint-fix": "eslint src --fix",
     "eject": "react-scripts eject",
     "docz:dev": "docz dev",
-    "docz:build": "docz build"
+    "docz:build": "docz build",
+    "storybook": "start-storybook -p 9009",
+    "build-storybook": "build-storybook"
   },
   "husky": {
     "hooks": {
@@ -31,6 +33,10 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^5.2.6",
+    "@storybook/addon-links": "^5.2.6",
+    "@storybook/addons": "^5.2.6",
+    "@storybook/react": "^5.2.6",
     "@testing-library/react": "^9.3.2",
     "docz": "^2.0.0-rc.71",
     "eslint-config-standard": "^14.1.0",
@@ -44,5 +50,7 @@
     "react-scripts": "^3.2.0",
     "styled-components": "^4.4.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "react-popper-tooltip": "^2.10.0"
+  }
 }

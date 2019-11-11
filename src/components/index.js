@@ -1,2 +1,2 @@
-export { default as App } from './App'
-export { default as Root } from './root'
+export { default as RatingPicker } from './RatingPicker'
+export { default as Tooltip } from './Tooltip'
