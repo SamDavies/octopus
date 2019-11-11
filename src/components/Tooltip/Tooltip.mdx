@@ -11,7 +11,7 @@ import { Playground, Props } from 'docz'
 
 # Tooltip
 
-This is the ratings toggle component used inside the note form modals.
+This is a wrapper that adds a tooltip to a child element.
  
 ## Properties
 <Props of={Tooltip} />
@@ -19,17 +19,11 @@ This is the ratings toggle component used inside the note form modals.
 ## Basic usage
 
 <Playground>
-  <Tooltip tipText='Top tooltip' position='bottom'><button>Top toolip</button></Tooltip>
-  {/* <Tooltip tipText='Bottom tooltip' position='bottom'><button>Bottom toolip</button></Tooltip>
-  <Tooltip tipText='Left tooltip' position='left'><button>Left toolip</button></Tooltip>
-  <Tooltip tipText='Right tooltip' position='right'><button>Right toolip</button></Tooltip> */}
+  <Tooltip tipText='Top tooltip' position='top'><button>Top tooltip</button></Tooltip>
+  <Tooltip tipText='Bottom tooltip' position='bottom'><button>Bottom tooltip</button></Tooltip>
+  <Tooltip tipText='Left tooltip' position='left'><button>Left tooltip</button></Tooltip>
+  <Tooltip tipText='Right tooltip' position='right'><button>Right tooltip</button></Tooltip>
+  <Tooltip tipText='Right tooltip' position='right' hideTip={true}><button>Tooltip wrapper with tip disabled</button></Tooltip>
+  <Tooltip tipText='One\nTwo\nThree' position='right'><button>Tooltip with new lines</button></Tooltip>
   
 </Playground>
-
-
-<div style={{
-    position: 'relative',
-    width: '500px'
-}}>
-<StyledTooltip showTip={true}>Blah</StyledTooltip>
-</div>
