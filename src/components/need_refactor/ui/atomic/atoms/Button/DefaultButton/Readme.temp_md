@@ -1,9 +1,0 @@
-Default button exampleы (small, normal, large):
-
-```js
-<div style={{ display: 'flex', justifyContent: 'space-around' }}>
-  <DefaultButton size="small">SAVE</DefaultButton>
-  <DefaultButton>SAVE</DefaultButton>
-  <DefaultButton size="large">SAVE</DefaultButton>
-</div>
-```
