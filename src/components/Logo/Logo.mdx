@@ -1,0 +1,35 @@
+---
+name: Logo
+menu: Components
+route: '/components/Logo'
+---
+
+
+
+import Logo from './'
+import BlockContainer from '../docs/BlockContainer'
+import { Playground, Props } from 'docz'
+
+# Logo
+
+Logo components
+ 
+## Properties
+<Props of={Logo} />
+
+## Basic usage
+<Playground>
+    <BlockContainer>
+        <Logo size='default' />
+    </BlockContainer>
+    <BlockContainer>
+        <Logo size='normal' />
+    </BlockContainer>
+    <BlockContainer>
+        <Logo size='header' />
+    </BlockContainer>
+    <BlockContainer inverted>
+         <Logo size='default' color="white" />
+    </BlockContainer>
+</Playground>
+

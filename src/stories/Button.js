@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
 import { MemoryRouter } from 'react-router-dom'
-import Link from '../components/Link'
+import Logo from '../components/Logo'
 
 // const Wrapper = styled.div`
 //     // width: 100%;
@@ -32,6 +32,6 @@ storiesOf('components/Button', module)
 
     .add('Normal disalbed2', () => (
         <MemoryRouter>
-            <Link to="/a">Normal disable</Link>
+            <Logo to="/a" color='coral'>Normal disable</Logo>
         </MemoryRouter>
     ))
