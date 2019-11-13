@@ -1,3 +1,7 @@
+export { default as CircleLogo } from '. CircleLogo'
 export { default as Button, StyledButton } from './Button'
+export { default as Link, StyledLink } from './Link'
+export { default as Logo } from './Logo'
 export { default as RatingPicker } from './RatingPicker'
+export { default as Text, StyledText } from './Text'
 export { default as Tooltip } from './Tooltip'
