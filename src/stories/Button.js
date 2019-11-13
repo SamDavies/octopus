@@ -1,6 +1,7 @@
 import { storiesOf } from '@storybook/react'
 import React from 'react'
-import Button, { StyledButton } from '../components/Button'
+import { MemoryRouter } from 'react-router-dom'
+import Link from '../components/Link'
 
 // const Wrapper = styled.div`
 //     // width: 100%;
@@ -28,32 +29,9 @@ import Button, { StyledButton } from '../components/Button'
 // `
 
 storiesOf('components/Button', module)
-    .add('Normal', () => (
-        <StyledButton>Normal</StyledButton>
-    ))
-    .add('Normal disalbed', () => (
-        <StyledButton disabled={true}>Normal disable</StyledButton>
-    ))
-    .add('Secondary', () => (
-        <StyledButton buttonStyle='secondary'>Normal disable</StyledButton>
-    ))
-    .add('Secondary disable', () => (
-        <StyledButton buttonStyle='secondary' disabled={true}>Normal disable</StyledButton>
-    ))
-    .add('Normal2', () => (
-        <Button disabled={false}>Normal</Button>
-    ))
+
     .add('Normal disalbed2', () => (
-        <Button disabled={true}>Normal disable</Button>
-    ))
-    .add('Secondary2', () => (
-        <Button buttonStyle='secondary'>Normal disable</Button>
-    ))
-    .add('Secondary disable2', () => (
-        <div>
-            <Button buttonStyle='coral'>Normal disable</Button>
-            <Button buttonStyle='coral' inverse>Normal disable</Button>
-            <Button buttonStyle='contained'>Normal disable</Button>
-            <Button buttonStyle='underlined'>Normal disable</Button>
-        </div>
+        <MemoryRouter>
+            <Link to="/a">Normal disable</Link>
+        </MemoryRouter>
     ))
