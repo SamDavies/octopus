@@ -1,0 +1,35 @@
+---
+name: CircleLogo
+menu: Components
+route: '/components/CircleLogo'
+---
+
+
+
+import CircleLogo from './'
+import BlockContainer from '../docs/BlockContainer'
+import { Playground, Props } from 'docz'
+
+# CircleLogo
+
+CircleLogo components
+ 
+## Properties
+<Props of={CircleLogo} />
+
+## Basic usage
+<Playground>
+    <BlockContainer>
+        <CircleLogo />
+    </BlockContainer>
+    <BlockContainer>
+        <CircleLogo size='small' />
+    </BlockContainer>
+    <BlockContainer>
+        <CircleLogo size='medium' />
+    </BlockContainer>
+    <BlockContainer>
+        <CircleLogo inverted />
+    </BlockContainer>
+</Playground>
+

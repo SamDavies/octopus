@@ -5,4 +5,8 @@ export default styled.div`
     &:not(:last-child) {
         margin-bottom: 10px;
     }
+    ${({ inverted }) => inverted && `
+        background: black;
+        color: white;
+    `}
 `
