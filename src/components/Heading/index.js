@@ -46,7 +46,6 @@ export const StyledHeading = styled(({ children, level, ...props }) =>
 )`
   font-family: ${fonts.cera};
   font-weight: ${({ bold }) => (bold ? 600 : 500)};
-  color: $black;
   line-height: 1.3;
   letter-spacing: 0.5px;
   margin-bottom: 8px;
