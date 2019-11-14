@@ -1,5 +1,6 @@
 export { default as CircleLogo } from '. CircleLogo'
 export { default as Button, StyledButton } from './Button'
+export { default as Heading, StyledHeading } from './Heading'
 export { default as Link, StyledLink } from './Link'
 export { default as Logo } from './Logo'
 export { default as RatingPicker } from './RatingPicker'
