@@ -1,0 +1,97 @@
+---
+name: Select
+menu: Components
+route: '/components/Select'
+---
+
+
+
+import Select from './'
+import BlockContainer from '../docs/BlockContainer'
+import FunctionalSelect from '../docs/FunctionalSelect'
+import { Playground, Props } from 'docz'
+
+# Select
+
+Select component. For the most part, the components below are not functional because adding functionality requires abstraction which prevents the JSX from displaying in full in docz.
+ 
+## Properties
+<Props of={Select} />
+
+## Basic usage
+
+### Functional select demo
+<FunctionalSelect />
+
+### Primary style
+<Playground>
+<BlockContainer>
+<Select   
+        options={[
+            {id: '1', name: '1', value: '1'},
+            {id: '2', name: '2', value: '2'}
+        ]}
+        selectedValue={''}
+        resetSelectedValue={() =>  {}}
+        handleSelectChange={() => {}}
+        id='selectone'
+        label='Normal select'
+/>
+</BlockContainer>
+<BlockContainer>
+<Select   
+        options={[
+            {id: '1', name: '1', value: '1'},
+            {id: '2', name: 'Select with selected value', value: '2'}
+        ]}
+        selectedValue='2'
+        resetSelectedValue={() =>  {}}
+        handleSelectChange={() => {}}
+        id='select_two'
+        label='Select with selected value'
+/>
+</BlockContainer>
+<BlockContainer>
+<Select   
+        options={[
+            {id: '1', name: '1', value: '1'},
+            {id: '2', name: 'Select with selected value and no reset controls', value: '2'}
+        ]}
+        selectedValue='2'
+        resetSelectedValue={() =>  {}}
+        handleSelectChange={() => {}}
+        id='select_noreset'
+        showResetControls={false}
+        label='Select with selected value and no reset controls'
+/>
+</BlockContainer>
+<BlockContainer>
+<Select   
+        options={[]}
+        selectedValue=''
+        resetSelectedValue={() =>  {}}
+        handleSelectChange={() => {}}
+        id='empty_select'
+        showResetControls={false}
+        label='Empty select with no options'
+/>
+</BlockContainer>
+</Playground>
+
+### Secondary style
+<Playground>
+<BlockContainer>
+<Select   
+        options={[
+            {id: '1', name: '1', value: '1'},
+            {id: '2', name: '2', value: '2'}
+        ]}
+        selectedValue={''}
+        resetSelectedValue={() =>  {}}
+        handleSelectChange={() => {}}
+        id='empty'
+        label='Select with secondary style'
+        selectType='secondary'
+/>
+</BlockContainer>
+</Playground>

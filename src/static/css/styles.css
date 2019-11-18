@@ -47,3 +47,8 @@
     font-weight: bold;
     font-style: normal;
 }
+
+
+* {
+    box-sizing: border-box;
+}
