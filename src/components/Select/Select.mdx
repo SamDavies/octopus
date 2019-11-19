@@ -1,0 +1,111 @@
+---
+name: Select
+menu: Components
+route: '/components/Select'
+---
+
+
+
+import Select from './'
+import { useState, Fragment } from 'react'
+import BlockContainer from '../docs/BlockContainer'
+import { Playground, Props } from 'docz'
+
+# Select
+
+Select component. 
+ 
+## Properties
+<Props of={Select} />
+
+## Basic usage
+
+### Primary style
+<Playground>
+{() => {
+    const [value, setValue] = useState('2')
+    const [value2, setValue2] = useState('2')
+    const [nullValue, setNullValue] = useState(null)
+    return (
+        <Fragment>
+         <BlockContainer>
+            <Select
+                options={[
+                {id: '1', name: '1', value: '1'},
+                {id: '2', name: '2', value: '2'}
+                ]}
+                id='functional_select'
+                selectedValue={nullValue}
+                resetSelectedValue={() => setNullValue(null)}
+                handleSelectChange={(_, val) => setNullValue(val)}
+                label='Normal select'
+            />
+        </BlockContainer>
+        <BlockContainer>
+            <Select
+                options={[
+                    {id: '1', name: '1', value: '1'},
+                    {id: '2', name: 'Select with selected value', value: '2'}
+                ]}
+                id='functional_select'
+                selectedValue={value2}
+                resetSelectedValue={() => setValue2(null)}
+                handleSelectChange={(_, val) => setValue2(val)}
+                label='Select with selected value'
+            />
+        </BlockContainer>
+        <BlockContainer>
+            <Select
+                options={[
+                    {id: '1', name: '1', value: '1'},
+                    {id: '2', name: 'Select with selected value and no reset controls', value: '2'}
+                ]}
+                id='functional_select'
+                selectedValue={value}
+                resetSelectedValue={() => setValue(null)}
+                handleSelectChange={(_, val) => setValue(val)}
+                label='Select with selected value and no reset controls'
+                showResetControls={false}
+            />
+        </BlockContainer>
+          <BlockContainer>
+            <Select   
+                    options={[]}
+                    selectedValue=''
+                    resetSelectedValue={() =>  {}}
+                    handleSelectChange={() => {}}
+                    id='empty_select'
+                    showResetControls={false}
+                    label='Empty select with no options'
+            />
+            </BlockContainer>
+        </Fragment>
+    )    
+}}
+</Playground>
+
+
+### Secondary style
+<Playground>
+{() => {
+    const [value, setValue] = useState(null)
+    return (
+        <Fragment>
+         <BlockContainer>
+            <Select
+                options={[
+                    {id: '1', name: '1', value: '1'},
+                    {id: '2', name: '2', value: '2'}
+                ]}
+                id='functional_select'
+                selectedValue={value}
+                resetSelectedValue={() => setValue(null)}
+                handleSelectChange={(_, val) => setValue(val)}
+                label='Secondary style select'
+                selectType='secondary'
+            />
+        </BlockContainer>
+        </Fragment>
+    )    
+}}
+</Playground>

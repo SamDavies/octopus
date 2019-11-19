@@ -1,0 +1,18 @@
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+class="icon-container"
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <g fill="none" fill-rule="evenodd">
+            <g transform="translate(-4 -4)">
+                <rect width="24" height="24" />
+                <polygon
+                    points="20 11 7.8 11 13.4 5.4 12 4 4 12 12 20 13.4 18.6 7.8 13 20 13"
+                    class="fill-color"
+                />
+            </g>
+        </g>
+    </svg>

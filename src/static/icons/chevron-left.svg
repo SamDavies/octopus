@@ -1,0 +1,24 @@
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+class="icon-container"
+        viewBox="0 0 8 12"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <title>icon_chevron_left</title>
+        <desc>Created with Sketch.</desc>
+        <defs />
+        <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="icon_chevron_left" transform="translate(-8.000000, -6.000000)">
+                <g>
+                    <polygon
+                        id="Shape"
+                        class="fill-color"
+                        points="15.4 7.4 14 6 8 12 14 18 15.4 16.6 10.8 12"
+                    />
+                    <rect id="bounds" x="0" y="0" width="24" height="24" />
+                </g>
+            </g>
+        </g>
+    </svg>
