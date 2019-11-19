@@ -14,7 +14,7 @@ const icons = iconSvgs.keys().reduce((collectedIcons, iconPath) => {
     return collectedIcons
 }, {})
 
-export const StyledIconWrapper = styled.div`
+export const StyledIconWrapper = styled.span`
     display: inline-block;
     svg, .icon-container {
         ${({ height, width }) => `
