@@ -1,0 +1,75 @@
+---
+name: TextArea
+menu: Components
+route: '/components/TextArea'
+---
+
+
+
+import Textarea from './'
+import { useState, Fragment } from 'react'
+import BlockContainer from '../docs/BlockContainer'
+import { Playground, Props } from 'docz'
+
+# Textarea
+
+Textarea component.
+ 
+## Properties
+<Props of={Textarea} />
+
+## Basic usage
+
+
+### Normal textarea
+<Playground>
+{() => {
+  const [value, setValue] = useState('This is some text')
+  return (
+    <Fragment>
+      <Textarea   
+        onChange={val => setValue(val)}
+        id="foo"
+        name="foo"
+        value={value}
+    />
+    </Fragment>
+  )  
+}}
+</Playground>
+
+### Textarea with placeholder
+<Playground>
+{() => {
+  const [value, setValue] = useState('')
+  return (
+    <Fragment>
+      <Textarea   
+        onChange={val => setValue(val)}
+        id="foo"
+        name="foo"
+        placeholder="Textarea with placeholder"
+        value={value}
+    />
+    </Fragment>
+  )  
+}}
+</Playground>
+
+### Disabled textarea
+<Playground>
+{() => {
+  const [value, setValue] = useState('This is some ttext')
+  return (
+    <Fragment>
+      <Textarea   
+        onChange={val => setValue(val)}
+        id="foo"
+        name="foo"
+        disabled
+        value={value}
+    />
+    </Fragment>
+  )  
+}}
+</Playground>
