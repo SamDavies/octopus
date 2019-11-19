@@ -1,7 +1,8 @@
 import { storiesOf } from '@storybook/react'
-import React from 'react'
+import React, { useState } from 'react'
 import { MemoryRouter } from 'react-router-dom'
-import Logo from '../components/Logo'
+import Textarea from '../components/Textarea'
+// import CloseButton from '../components/___need_refactor/ui/atomic/atoms/CloseButton'
 
 // const Wrapper = styled.div`
 //     // width: 100%;
@@ -28,10 +29,36 @@ import Logo from '../components/Logo'
 //     margin: auto;
 // `
 
+const CoolDiv = () => {
+    const [thing, setThing] = useState('')
+    const options = Array.from(Array(6).keys()).map(x => ({
+        id: String(x),
+        name: String(x),
+        value: String(x)
+    }))
+
+    return <Textarea value={thing} error="not cool" onChange={e => setThing(e.target.value) } maxLength={50} />
+}
+const CoolDiv2 = () => {
+    const [thing, setThing] = useState('')
+    const options = Array.from(Array(6).keys()).map(x => ({
+        id: String(x),
+        name: String(x),
+        value: String(x)
+    }))
+
+    return <Textarea value={thing} onChange={e => setThing(e.target.value) } maxLength={50} />
+}
+
 storiesOf('components/Button', module)
 
     .add('Normal disalbed2', () => (
         <MemoryRouter>
-            <Logo to="/a" color='coral'>Normal disable</Logo>
+            <CoolDiv />
+        </MemoryRouter>
+    ))
+    .add('Normal disalbed', () => (
+        <MemoryRouter>
+            <CoolDiv2 />
         </MemoryRouter>
     ))
