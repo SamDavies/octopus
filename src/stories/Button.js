@@ -2,6 +2,8 @@ import { storiesOf } from '@storybook/react'
 import React, { useState } from 'react'
 import { MemoryRouter } from 'react-router-dom'
 import Textarea from '../components/Textarea'
+import '../static/css/fonts.css'
+import '../static/css/styles.css'
 // import CloseButton from '../components/___need_refactor/ui/atomic/atoms/CloseButton'
 
 // const Wrapper = styled.div`
