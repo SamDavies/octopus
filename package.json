@@ -1,8 +1,9 @@
 {
-  "name": "octopus",
+  "name": "@stylindex/octopus",
   "version": "0.1.0",
   "private": true,
-  "main": "src/index.js",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -14,6 +15,12 @@
     "docz:build": "docz build",
     "storybook": "start-storybook -p 9009",
     "build-storybook": "build-storybook"
+  },
+  "files": [
+    "lib/"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@alexlitel"
   },
   "husky": {
     "hooks": {
@@ -38,6 +45,7 @@
     "@storybook/addons": "^5.2.6",
     "@storybook/react": "^5.2.6",
     "@testing-library/react": "^9.3.2",
+    "babel-loader": "^8.0.6",
     "docz": "^2.0.0-rc.73",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-node": "^10.0.0",
@@ -46,6 +54,14 @@
     "eslint-plugin-standard": "^4.0.1",
     "gatsby-plugin-svgr": "^2.0.2",
     "husky": "^3.0.9",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "^3.2.0",
+    "styled-components": "^4.4.1",
+    "webpack-cli": "^3.3.10"
+  },
+  "peerDependencies": {
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",

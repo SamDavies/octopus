@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Literata:400,400i&display=swap');
+
+@font-face {
+    font-family: 'CeraPro';
+    src: url('./fonts/CeraPro-BoldItalic.woff2') format('woff2'),
+        url('./fonts/CeraPro-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'CeraPro';
+    src: url('./fonts/CeraPro-MediumItalic.woff2') format('woff2'),
+        url('./fonts/CeraPro-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'CeraPro';
+    src: url('./fonts/CeraPro-Medium.woff2') format('woff2'),
+        url('./fonts/CeraPro-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CeraPro';
+    src: url('./fonts/CeraPro-Bold.woff2') format('woff2'),
+        url('./fonts/CeraPro-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
