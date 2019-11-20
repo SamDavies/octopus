@@ -20,7 +20,7 @@
     "lib/"
   ],
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@alexlitel"
+    "registry": "https://npm.pkg.github.com/@stylindex"
   },
   "husky": {
     "hooks": {
