@@ -31,7 +31,9 @@ export const uiColors = {
     // red
     scarlet: '#FF2400',
     // gray
-    cloud: '#DBDDDD'
+    cloud: '#DBDDDD',
+    // gray
+    lightGray: 'rgba(0,0,0,.35)'
 }
 
 export const accentColors = {
