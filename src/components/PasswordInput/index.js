@@ -1,14 +1,73 @@
-import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import Input from '../../atoms/Input'
+import React, { useState } from 'react'
+import styled from 'styled-components'
+import { colors, device, fonts } from '../../styles'
+import Input from '../Input'
 
-import {
-    PasswordWrapper,
-    TogglePasswordVisibility
-} from './StyledPasswordInput'
+export const PasswordWrapper = styled.div`
+  position: relative;
+  width: 100%;
+`
+
+export const TogglePasswordVisibility = styled.button`
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  font-family: ${fonts.cora};
+  position: absolute;
+  right: 0.25rem;
+  top: 7px;
+  height: 28px;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 24px;
+  color: ${colors.white};
+  padding: 0;
+  width: 60px;
+  display: inline-block;
+  background: ${colors.black};
+  margin-top: 8px;
+`
+
+export const ValidatePasswordLabels = styled.div`
+  column-count: 1;
+  width: 100%;
+  margin-bottom: 40px;
+  text-align: left;
+  @media ${device.desktop} {
+    column-count: 2;
+  }
+`
+
+export const ValidateTitle = styled.span`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 1.45;
+  color: ${colors.black};
+  text-transform: uppercase;
+  margin-bottom: 8px;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 8px;
+    background-color: ${colors.coral};
+    margin-right: 4px;
+    ${({ valid }) => `background-color: ${valid ? colors.black : colors.persimmon}`};
+  }
+`
 
 const PasswordInput = (props) => {
-    const { placeholder, password, name, onChange, error } = props
+    const { placeholder, password, name, onChange, error, label } = props
     const [buttonVisible, setButtonVisible] = useState(false)
     const [passwordVisible, setPasswordVisible] = useState(false)
 
@@ -30,6 +89,7 @@ const PasswordInput = (props) => {
                 value={password}
                 placeholder={placeholder}
                 error={error}
+                label={label}
                 hideLabel
                 onFocus={() => {
                     togglePasswordButton(password)
@@ -56,7 +116,9 @@ PasswordInput.propTypes = {
     /** Input name */
     name: PropTypes.string.isRequired,
     /** Input placeholder */
-    placeholder: PropTypes.string.isRequired,
+    placeholder: PropTypes.string,
+    /** Input label */
+    label: PropTypes.string.isRequired,
     /** Password value */
     password: PropTypes.string.isRequired,
     /** Function that handles password change */
