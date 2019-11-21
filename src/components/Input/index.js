@@ -29,8 +29,7 @@ export const StyledLabel = styled.label`
   ${({ isPlaceholder, hasValue }) => isPlaceholder && `
     top: 25px;
     color: ${colors.black};
-    opacity: ${hasValue ? 0.5 : 0.5};
-   
+    opacity: ${hasValue ? 0 : 0.5}; 
   `}
   
   ${({ disabled }) => disabled && `
