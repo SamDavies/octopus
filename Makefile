@@ -15,7 +15,8 @@ publish:
 	docker build \
 		--build-arg GITHUB_TOKEN=${GITHUB_TOKEN} \
 		--target publish \
-		--tag octopus .
+		--tag octopus . \
+		&& docker run -it octopus
 
 remove:
 	docker rm website
