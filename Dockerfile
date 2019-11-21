@@ -23,6 +23,9 @@ CMD ["yarn", "test"]
 
 FROM base as publish
 
+ARG GITHUB_TOKEN
+ENV GITHUB_TOKEN=$GITHUB_TOKEN
+
 RUN echo "//npm.pkg.github.com/:_authToken=$GITHUB_TOKEN" > ~/.npmrc
 
 CMD ["npm", "publish"]
