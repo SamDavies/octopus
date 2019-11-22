@@ -104,16 +104,13 @@ export const ControlPlaceholder = styled.div`
   `}
   
     
-    ${({ selectType, isFilterSelected }) => selectType === 'secondary' && `
+    ${({ selectType }) => selectType === 'secondary' && `
       border-width: 0 0 2px 0 !important;
       padding: 2px 2px 0 2px;
       .icon-wrapper {
         top: 1px;
         right: 11px;
       }
-      ${isFilterSelected && `
-        border-width: 0 0 2px 0 !important;
-      `}
   `};
 `
 
@@ -123,6 +120,7 @@ export const ControlDropdown = styled.div`
   border-top-width: 0;
   box-shadow: none;
   padding-bottom: 10px;
+  font-family: ${fonts.cera};
   position: relative;
   padding-top: 10px;
   z-index: 99;

@@ -4,13 +4,14 @@ import Icon from '../Icon'
 import { ControlDropdown, ControlItem, ControlPlaceholder, StyledDefaultOption, StyledEmptyOption, StyledFilter, StyledViewAllOption } from './styles'
 
 const Select = (props) => {
-    const [isOpened, setIsOpened] = useState(false)
+    const [isOpened, setIsOpened] = useState(props.isOpened || false)
     const [selectedFilterName, setSelectedFilterName] = useState('')
     const control = useRef()
     const title = useRef()
     const showViewAll = props.showResetControls && props.selectedValue
     const offset = control.current ? control.current.offsetTop : 0
     const handleUserClick = (e) => {
+        console.log(title)
         if (!isOpened && title.current.contains(e.target)) {
             setIsOpened(true)
         } else if (isOpened) {
@@ -52,18 +53,20 @@ const Select = (props) => {
                 id={`dropdown__${props.id}`}
                 data-role='dropdown-filter'
             >
-                <ControlPlaceholder
-                    data-testid={`selected-${selectedFilterName}`}
-                    ref={title}
-                    isOpened={isOpened}
-                    data-role='dropdown-value-display'
-                    selectType={props.selectType}
-                    data-opened={isOpened}
-                    isFilterSelected={selectedFilterName}
-                >
-                    {selectedFilterName || props.label}
-                    <Icon icon="dropdown-arrow" width={22} height={22} />
-                </ControlPlaceholder>
+                {props.customPlaceholder ? props.renderCustomPlaceholder(title) : (
+                    <ControlPlaceholder
+                        data-testid={`selected-${selectedFilterName}`}
+                        ref={title}
+                        isOpened={isOpened}
+                        data-role='dropdown-value-display'
+                        selectType={props.selectType}
+                        data-opened={isOpened}
+                        isFilterSelected={selectedFilterName}
+                    >
+                        {selectedFilterName || props.label}
+                        <Icon icon="dropdown-arrow" width={22} height={22} />
+                    </ControlPlaceholder>
+                )}
                 <ControlDropdown offset={offset + 45} isVisible={isOpened}>
                     {showViewAll && (
                         <StyledViewAllOption
@@ -124,7 +127,10 @@ Select.propTypes = {
     resetSelectedValue: PropTypes.func.isRequired,
     /** Whether to render close icon and select all button */
     showResetControls: PropTypes.bool,
-    label: PropTypes.string.isRequired,
+    label: PropTypes.string,
+    customPlaceholder: PropTypes.bool,
+    renderCustomPlaceholder: PropTypes.func,
+    isOpened: PropTypes.bool,
     options: PropTypes.array.isRequired,
     selectedValue: PropTypes.oneOfType([
         PropTypes.string,
@@ -142,7 +148,9 @@ Select.propTypes = {
 
 Select.defaultProps = {
     showResetControls: true,
+    customPlaceholder: false,
     selectedValue: '',
+    isOpened: false,
     isFetching: false,
     id: '',
     selectType: 'primary'
