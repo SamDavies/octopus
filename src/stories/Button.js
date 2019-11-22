@@ -1,7 +1,8 @@
 import { storiesOf } from '@storybook/react'
 import React, { useState } from 'react'
 import { MemoryRouter } from 'react-router-dom'
-import Textarea from '../components/Textarea'
+import BlockContainer from '../components/docs/BlockContainer'
+import Input from '../components/Input'
 // import CloseButton from '../components/___need_refactor/ui/atomic/atoms/CloseButton'
 
 // const Wrapper = styled.div`
@@ -29,36 +30,74 @@ import Textarea from '../components/Textarea'
 //     margin: auto;
 // `
 
-const CoolDiv = () => {
-    const [thing, setThing] = useState('')
-    const options = Array.from(Array(6).keys()).map(x => ({
-        id: String(x),
-        name: String(x),
-        value: String(x)
-    }))
 
-    return <Textarea value={thing} error="not cool" onChange={e => setThing(e.target.value) } maxLength={50} />
-}
-const CoolDiv2 = () => {
-    const [thing, setThing] = useState('')
-    const options = Array.from(Array(6).keys()).map(x => ({
-        id: String(x),
-        name: String(x),
-        value: String(x)
-    }))
-
-    return <Textarea value={thing} onChange={e => setThing(e.target.value) } maxLength={50} />
+const InputContainer = ({exist = '', inputProps = {}}) => {
+    const [value, setValue] = useState(exist)
+    return (
+        <BlockContainer>
+            <Input name='foo' value={value} onChange={e => setValue(e.target.value || '')} {...inputProps} />
+        </BlockContainer>
+    )
 }
 
 storiesOf('components/Button', module)
 
     .add('Normal disalbed2', () => (
         <MemoryRouter>
-            <CoolDiv />
+        <div style={{
+            width: '500px'
+        }}>
+            <InputContainer exist='Entering text' inputProps={{
+                placeholder: 'cool',
+                name: 'cool',
+                label: 'cool'
+            }} />
+            <InputContainer exist='' inputProps={{
+                placeholder: 'With no text',
+                name: 'w_nt',
+                label: 'With no text'
+            }} />
+            <InputContainer exist='' inputProps={{
+                placeholder: 'disabled',
+                name: 'disabled',
+                label: 'disabled',
+                disabled: true
+            }} />
+            <InputContainer inputProps={{
+                placeholder: 'hide label',
+                name: 'hide_label',
+                label: 'hide label',
+                hideLabel: true
+            }} />
+            <InputContainer inputProps={{
+                placeholder: 'hide label password',
+                name: 'l_password',
+                label: 'hide label password',
+                hideLabel: true,
+                type: 'password'
+            }} />
+            <InputContainer exist='who there' inputProps={{
+                placeholder: 'disabled',
+                name: 'disabled',
+                label: 'disabled',
+                disabled: true
+            }} />
+            <InputContainer exist='erro me' inputProps={{
+                placeholder: 'error',
+                name: 'error',
+                label: 'error',
+                error: 'Tthis error'
+            }} />
+           
+            </div>
+        </MemoryRouter>
+    ))
+    .add('Normal 2', () => (
+        <MemoryRouter>
+            
         </MemoryRouter>
     ))
     .add('Normal disalbed', () => (
         <MemoryRouter>
-            <CoolDiv2 />
         </MemoryRouter>
     ))
