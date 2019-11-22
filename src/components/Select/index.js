@@ -11,7 +11,6 @@ const Select = (props) => {
     const showViewAll = props.showResetControls && props.selectedValue
     const offset = control.current ? control.current.offsetTop : 0
     const handleUserClick = (e) => {
-        console.log(title)
         if (!isOpened && title.current.contains(e.target)) {
             setIsOpened(true)
         } else if (isOpened) {
@@ -53,7 +52,7 @@ const Select = (props) => {
                 id={`dropdown__${props.id}`}
                 data-role='dropdown-filter'
             >
-                {props.customPlaceholder ? props.renderCustomPlaceholder(title) : (
+                {props.customPlaceholder ? props.renderCustomPlaceholder(title, isOpened) : (
                     <ControlPlaceholder
                         data-testid={`selected-${selectedFilterName}`}
                         ref={title}

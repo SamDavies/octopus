@@ -1,74 +1,54 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import styled from 'styled-components'
-import { colors } from '../../styles'
-import Icon from '../Icon'
-import Input, { StyledInput } from '../Input'
 import Select from '../Select'
+import SearchInput from './SearchInput'
 
-const InputWrapper = styled.div`
-    width: 100%;
-    position: relative;
-    .icon-wrapper {
-        position: absolute;
-        top: 18px;
+const Search = props => {
+    if (props.hasDropdown) {
+        return (
+            <Select
+                resetSelectedValue={() => {}}
+                showResetControls={false}
+                selectedValue={props.selectedValue}
+                options={props.options}
+                handleSelectChange={props.onSelectChange}
+                customPlaceholder={true}
+                renderCustomPlaceholder={(title, isOpened) => (
+                    <SearchInput
+                        inputRef={title}
+                        hasOptions={!!props.options.length}
+                        isOpened={isOpened}
+                        placeholder={props.placeholder}
+                        name={props.name}
+                        value={props.value}
+                        disabled={props.disabled}
+                        onChange={props.onInputChange}
+                        onKeyPress={props.onKeyPress}
+                        onFocus={props.onFocus}
+                        onBlur={props.onBlur}
+                    />
+                )}
+            />
+        )
     }
 
-    ${StyledInput} {
-        padding-left: 23px;
-        &:active {
-            border-color: ${colors.black};
-        }
-    }
-`
-
-const Search = props => (props.hasDropdown ? (
-    <Select
-        selectedValue={props.selectedValue}
-        options={props.options}
-        handleSelectChange={props.onSelectChange}
-        customPlaceholder={true}
-        renderCustomPlaceholder={(title) => (
-            <InputWrapper ref={title} hasOptions={props.options} hasDropdown={props.hasDropdown}>
-                <Input
-                    placeholder='Search'
-                    data-testid={props.name}
-                    name={props.name}
-                    id={props.name}
-                    value={props.value}
-                    disabled={props.disabled}
-                    onChange={props.onInputChange}
-                    hideLabel={false}
-                    onKeyPress={props.onKeyPress}
-                    onFocus={props.onFocus}
-                    onBlur={props.onBlur}
-                />
-                <Icon icon="search" width={15} height={15} />
-            </InputWrapper>
-
-        )}
-    />
-) : (
-    <InputWrapper>
-        <Input
-            placeholder='Search'
-            data-testid={props.name}
+    return (
+        <SearchInput
+            hasDropdown={false}
+            placeholder={props.placeholder}
             name={props.name}
-            id={props.name}
             value={props.value}
             disabled={props.disabled}
             onChange={props.onInputChange}
-            hideLabel={false}
             onKeyPress={props.onKeyPress}
             onFocus={props.onFocus}
             onBlur={props.onBlur}
         />
-        <Icon icon="search" width={15} height={15} />
-    </InputWrapper>
-)
-)
+    )
+}
 
 Search.propTypes = {
+    placeholder: PropTypes.string,
     selectedValue: PropTypes.string,
     onSelectChange: PropTypes.func,
     options: PropTypes.array,
@@ -83,11 +63,15 @@ Search.propTypes = {
 }
 
 Search.defaultProps = {
+    placeholder: 'Search',
+    options: [],
     selectedValue: '',
     hasDropdown: true,
-    onKeyPress: () => {},
-    onSelectChange: () => {},
-    onInputChange: () => {}
+    onKeyPress: () => { },
+    onSelectChange: () => { },
+    onInputChange: () => { },
+    onBlur: () => { },
+    onFocus: () => { }
 }
 
 export default Search
