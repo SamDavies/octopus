@@ -112,6 +112,16 @@ export const ControlPlaceholder = styled.div`
         right: 11px;
       }
   `};
+
+    ${({ selectType }) => selectType === 'inline' && `
+      border-width: 0 !important;
+      padding: 2px 40px 0 2px;
+      text-align: right;
+      .icon-wrapper {
+        top: 1px;
+        right: 11px;
+      }
+  `};
 `
 
 export const ControlDropdown = styled.div`

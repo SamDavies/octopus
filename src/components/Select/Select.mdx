@@ -140,3 +140,29 @@ Select component.
     )    
 }}
 </Playground>
+
+### Inline Select
+<Playground>
+{() => {
+    const [value, setValue] = useState(null)
+    return (
+        <Fragment>
+         <BlockContainer>
+            <Select
+                options={[
+                    {id: '1', name: '1', value: '1'},
+                    {id: '2', name: '2', value: '2'}
+                ]}
+                id='functional_select'
+                showResetControls={false}
+                selectedValue={value}
+                resetSelectedValue={() => setValue(null)}
+                handleSelectChange={(_, val) => setValue(val)}
+                label='Inline select'
+                selectType='inline'
+            />
+        </BlockContainer>
+        </Fragment>
+    )    
+}}
+</Playground>

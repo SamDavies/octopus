@@ -141,7 +141,8 @@ Select.propTypes = {
     id: PropTypes.string,
     selectType: PropTypes.oneOf([
         'primary',
-        'secondary'
+        'secondary',
+        'inline'
     ])
 }
 
