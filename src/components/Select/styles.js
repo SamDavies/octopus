@@ -19,7 +19,7 @@ export const StyledFilter = styled.div`
     letter-spacing: 0.8px;
 `
 
-export const ControlItem = styled.div`
+export const StyledControlItem = styled.div`
   position: relative;
   width: 100%;
   font-size: 18px;
@@ -37,7 +37,7 @@ export const ControlItem = styled.div`
   ${({ isFetching }) => isFetching && UnavailableItem};
 `
 
-export const ControlPlaceholder = styled.div`
+export const StyledControlPlaceholder = styled.div`
   color: ${colors.black};
   border: 2px solid ${colors.black};
   cursor: pointer;
@@ -124,7 +124,7 @@ export const ControlPlaceholder = styled.div`
   `};
 `
 
-export const ControlDropdown = styled.div`
+export const StyledControlDropdown = styled.div`
   padding-left: 9px;
   padding-right: 11px;
   border-top-width: 0;
