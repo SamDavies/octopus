@@ -22,6 +22,7 @@ CMD ["yarn", "test"]
 
 
 FROM base as publish
+RUN npm install && npm run build
 
 ARG GITHUB_TOKEN
 ENV GITHUB_TOKEN=$GITHUB_TOKEN
