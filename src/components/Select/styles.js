@@ -48,11 +48,11 @@ export const StyledControlPlaceholder = styled.div`
 
   .icon-wrapper {
     position: absolute;
-        right: 9px;
-        top: 0px;
-        display: flex;
-        align-items: center;
-        height: 100%;
+    right: 9px;
+    top: 0px;
+    display: flex;
+    align-items: center;
+    height: 100%;
 
     .fill-color {
       fill: ${colors.salmon}
