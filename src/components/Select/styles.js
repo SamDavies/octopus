@@ -19,7 +19,7 @@ export const StyledFilter = styled.div`
     letter-spacing: 0.8px;
 `
 
-export const ControlItem = styled.div`
+export const StyledControlItem = styled.div`
   position: relative;
   width: 100%;
   font-size: 18px;
@@ -37,7 +37,7 @@ export const ControlItem = styled.div`
   ${({ isFetching }) => isFetching && UnavailableItem};
 `
 
-export const ControlPlaceholder = styled.div`
+export const StyledControlPlaceholder = styled.div`
   color: ${colors.black};
   border: 2px solid ${colors.black};
   cursor: pointer;
@@ -104,25 +104,33 @@ export const ControlPlaceholder = styled.div`
   `}
   
     
-    ${({ selectType, isFilterSelected }) => selectType === 'secondary' && `
+    ${({ selectType }) => selectType === 'secondary' && `
       border-width: 0 0 2px 0 !important;
       padding: 2px 2px 0 2px;
       .icon-wrapper {
         top: 1px;
         right: 11px;
       }
-      ${isFilterSelected && `
-        border-width: 0 0 2px 0 !important;
-      `}
+  `};
+
+    ${({ selectType }) => selectType === 'inline' && `
+      border-width: 0 !important;
+      padding: 2px 40px 0 2px;
+      text-align: right;
+      .icon-wrapper {
+        top: 1px;
+        right: 11px;
+      }
   `};
 `
 
-export const ControlDropdown = styled.div`
+export const StyledControlDropdown = styled.div`
   padding-left: 9px;
   padding-right: 11px;
   border-top-width: 0;
   box-shadow: none;
   padding-bottom: 10px;
+  font-family: ${fonts.cera};
   position: relative;
   padding-top: 10px;
   z-index: 99;

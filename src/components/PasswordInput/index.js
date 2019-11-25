@@ -3,13 +3,15 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { colors, device, fonts } from '../../styles'
 import Input from '../Input'
+import { StyledLink } from '../Link'
 
 export const PasswordWrapper = styled.div`
   position: relative;
   width: 100%;
 `
 
-export const TogglePasswordVisibility = styled.button`
+export const TogglePasswordVisibility = styled(StyledLink)`
+  color: inherit;
   font-style: normal;
   font-stretch: normal;
   line-height: normal;
@@ -24,12 +26,11 @@ export const TogglePasswordVisibility = styled.button`
   text-align: center;
   text-transform: uppercase;
   line-height: 24px;
-  color: ${colors.white};
   padding: 0;
   width: 60px;
   display: inline-block;
-  background: ${colors.black};
-  margin-top: 8px;
+  margin-top: 13px;
+  outline: none;
 `
 
 export const ValidatePasswordLabels = styled.div`
@@ -75,7 +76,7 @@ const PasswordInput = (props) => {
         setButtonVisible(password && !!password.length)
     }
 
-    const togglePasswordVisibility = () => {
+    const togglePasswordVisibility = (e) => {
         setPasswordVisible(!passwordVisible)
     }
 
@@ -101,6 +102,7 @@ const PasswordInput = (props) => {
 
             {buttonVisible && (
                 <TogglePasswordVisibility
+                    as='button'
                     type='button'
                     className='noFocus'
                     onClick={togglePasswordVisibility}
