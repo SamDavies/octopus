@@ -1,9 +1,9 @@
 {
     "name": "@stylindex/octopus",
-    "version": "0.1.3",
+    "version": "0.2.0",
     "main": "lib/index.js",
     "module": "lib/index.js",
-    "repository": "https://npm.pkg.github.com/@stylindex/octopus.git",
+    "repository": "git://github.com/stylindex/octopus.git",
     "scripts": {
         "start": "docz:dev",
         "build": "rimraf lib && webpack --mode=production",
