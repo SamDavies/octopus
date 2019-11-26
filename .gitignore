@@ -12,7 +12,7 @@
 # production
 # /build
 # /dist
-# /lib
+/lib
 
 # build files at root for css
 /fonts.css
