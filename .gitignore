@@ -14,6 +14,11 @@
 /dist
 /lib
 
+# build files at root for css
+/fonts.css
+/reset.css
+/styles.css
+
 # misc
 .DS_Store
 .env.local

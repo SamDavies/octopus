@@ -14,8 +14,7 @@
         "docz:dev": "docz dev",
         "docz:build": "docz build",
         "storybook": "start-storybook -p 9009",
-        "build-storybook": "build-storybook",
-        "postinstall": "rimraf lib && webpack --mode=production"
+        "build-storybook": "build-storybook"
     },
     "files": [
         "lib/"
@@ -71,6 +70,7 @@
         "styled-components": "^4.4.1"
     },
     "dependencies": {
+        "copy-webpack-plugin": "^5.0.5",
         "react-popper-tooltip": "^2.10.0"
     }
 }
