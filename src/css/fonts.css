@@ -1,7 +1,7 @@
 /*
  * This looks like weŕe loading all the fonts
- * However, browsers are smart and normally only load fonts
- * that are used directly in the mark-up.
+ * However, browsers are smart and normally prioritise fonts
+ * that are used on the page.
  * 
  * All of these fonts will be required in the App.
  */
