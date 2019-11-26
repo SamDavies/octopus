@@ -8,7 +8,7 @@ const Select = props => {
     const [selectedFilterName, setSelectedFilterName] = useState('')
     const control = useRef()
     const title = useRef()
-    const showViewAll = props.showResetStyledControls && props.selectedValue
+    const showViewAll = props.showResetControls && props.selectedValue
     const offset = control.current ? control.current.offsetTop : 0
     const handleUserClick = e => {
         if (!isOpened && title.current.contains(e.target)) {
@@ -104,7 +104,7 @@ const Select = props => {
                                         data-role="dropdown-option"
                                     >
                                         {name}
-                                        {props.showResetStyledControls && value === props.selectedValue && (
+                                        {props.showResetControls && value === props.selectedValue && (
                                             <div
                                                 onClick={handleResetItem}
                                                 data-testid={`cancel-${value}`}
@@ -134,7 +134,7 @@ const Select = props => {
 Select.propTypes = {
     resetSelectedValue: PropTypes.func.isRequired,
     /** Whether to render close icon and select all button */
-    showResetStyledControls: PropTypes.bool,
+    showResetControls: PropTypes.bool,
     label: PropTypes.string,
     customPlaceholder: PropTypes.bool,
     renderCustomPlaceholder: PropTypes.func,
@@ -152,7 +152,7 @@ Select.propTypes = {
 }
 
 Select.defaultProps = {
-    showResetStyledControls: true,
+    showResetControls: true,
     customPlaceholder: false,
     selectedValue: '',
     isOpened: false,
