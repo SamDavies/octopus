@@ -4,7 +4,7 @@ on:
   push
 
 env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   NOW_TOKEN: ${{ secrets.NOW_TOKEN }}
 
 jobs:
@@ -27,7 +27,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - run: GITHUB_TOKEN=$GITHUB_TOKEN make publish
+      - run: NPM_TOKEN=$NPM_TOKEN make publish
 
   deploy-static:
     timeout-minutes: 30
