@@ -7,6 +7,7 @@ RUN yarn install
 
 COPY .eslintignore .eslintignore
 COPY .eslintrc .eslintrc
+COPY now.json now.json
 COPY .doczrc.js .doczrc.js
 COPY gatsby-config.js gatsby-config.js
 COPY webpack.config.js webpack.config.js
@@ -38,5 +39,16 @@ ENV NPM_TOKEN=$NPM_TOKEN
 RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
 
 CMD ["npm", "publish"]
+
+#################
+# Deploy Static #
+#################
+FROM base as deploy-static
+RUN yarn global add now
+
+ARG NOW_TOKEN
+ENV NOW_TOKEN=$NOW_TOKEN
+
+CMD now --token $NOW_TOKEN --prod
 
 
