@@ -10,9 +10,9 @@
 /coverage
 
 # production
-/build
-/dist
-/lib
+# /build
+# /dist
+# /lib
 
 # build files at root for css
 /fonts.css

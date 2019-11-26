@@ -13,8 +13,15 @@ lint:
 
 publish:
 	docker build \
-		--build-arg GITHUB_TOKEN=${GITHUB_TOKEN} \
+		--build-arg NPM_TOKEN=${NPM_TOKEN} \
 		--target publish \
+		--tag octopus . \
+		&& docker run octopus
+
+deploy-static:
+	docker build \
+		--build-arg NOW_TOKEN=${NOW_TOKEN} \
+		--target deploy-static \
 		--tag octopus . \
 		&& docker run octopus
 
