@@ -1,0 +1,20 @@
+{
+    "version": 2,
+    "name": "octopus-static",
+    "scope": "stylindex",
+    "builds": [
+        {
+            "src": "/src/static/**/*",
+            "use": "@now/static"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "headers": {
+                "cache-control": "s-maxage=31536000,immutable"
+            },
+            "dest": "/src/static/$1"
+        }
+    ]
+}
