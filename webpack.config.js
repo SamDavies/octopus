@@ -1,6 +1,7 @@
 
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
     mode: 'production',
@@ -11,7 +12,13 @@ module.exports = {
         library: 'octopus',
         libraryTarget: 'amd'
     },
+    optimization: {
+        minimize: false
+    },
     plugins: [
+        new CopyWebpackPlugin([
+            { from: 'src/css', to: '../' }
+        ]),
         new MiniCssExtractPlugin({
             // Options similar to the same options in webpackOptions.output
             // all options are optional

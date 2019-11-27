@@ -109,3 +109,60 @@ Select component.
     )    
 }}
 </Playground>
+
+### Custom Placeholder
+<Playground>
+{() => {
+    const [value, setValue] = useState(null)
+    return (
+        <Fragment>
+         <BlockContainer>
+            <Select
+                options={[
+                    {id: '1', name: '1', value: '1'},
+                    {id: '2', name: '2', value: '2'}
+                ]}
+                id='functional_select'
+                customPlaceholder={true}
+                renderCustomPlaceholder={(title) => (
+                    <button
+                        ref={title}
+                    >Custom placeholder</button>
+                )}
+                selectedValue={value}
+                resetSelectedValue={() => setValue(null)}
+                handleSelectChange={(_, val) => setValue(val)}
+                label='Secondary style select'
+                selectType='secondary'
+            />
+        </BlockContainer>
+        </Fragment>
+    )    
+}}
+</Playground>
+
+### Inline Select
+<Playground>
+{() => {
+    const [value, setValue] = useState(null)
+    return (
+        <Fragment>
+         <BlockContainer>
+            <Select
+                options={[
+                    {id: '1', name: '1', value: '1'},
+                    {id: '2', name: '2', value: '2'}
+                ]}
+                id='functional_select'
+                showResetControls={false}
+                selectedValue={value}
+                resetSelectedValue={() => setValue(null)}
+                handleSelectChange={(_, val) => setValue(val)}
+                label='Inline select'
+                selectType='inline'
+            />
+        </BlockContainer>
+        </Fragment>
+    )    
+}}
+</Playground>

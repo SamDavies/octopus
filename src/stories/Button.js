@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/react'
 import React, { useState } from 'react'
 import { MemoryRouter } from 'react-router-dom'
 import BlockContainer from '../components/docs/BlockContainer'
-import Input from '../components/Input'
+import Search from '../components/Search'
 // import CloseButton from '../components/___need_refactor/ui/atomic/atoms/CloseButton'
 
 // const Wrapper = styled.div`
@@ -34,8 +34,8 @@ import Input from '../components/Input'
 const InputContainer = ({exist = '', inputProps = {}}) => {
     const [value, setValue] = useState(exist)
     return (
-        <BlockContainer>
-            <Input name='foo' value={value} onChange={e => setValue(e.target.value || '')} {...inputProps} />
+        <BlockContainer id="blah">
+            <Search value={value} onChange={e => setValue(e.target.value)} />
         </BlockContainer>
     )
 }
@@ -47,57 +47,16 @@ storiesOf('components/Button', module)
         <div style={{
             width: '500px'
         }}>
-            <InputContainer exist='Entering text' inputProps={{
-                placeholder: 'cool',
-                name: 'cool',
-                label: 'cool'
-            }} />
-            <InputContainer exist='' inputProps={{
-                placeholder: 'With no text',
-                name: 'w_nt',
-                label: 'With no text'
-            }} />
-            <InputContainer exist='' inputProps={{
-                placeholder: 'disabled',
-                name: 'disabled',
-                label: 'disabled',
-                disabled: true
-            }} />
-            <InputContainer inputProps={{
-                placeholder: 'hide label',
-                name: 'hide_label',
-                label: 'hide label',
-                hideLabel: true
-            }} />
-            <InputContainer inputProps={{
-                placeholder: 'hide label password',
-                name: 'l_password',
-                label: 'hide label password',
-                hideLabel: true,
-                type: 'password'
-            }} />
-            <InputContainer exist='who there' inputProps={{
-                placeholder: 'disabled',
-                name: 'disabled',
-                label: 'disabled',
-                disabled: true
-            }} />
-            <InputContainer exist='erro me' inputProps={{
-                placeholder: 'error',
-                name: 'error',
-                label: 'error',
-                error: 'Tthis error'
-            }} />
-           
-            </div>
+        <InputContainer />
+        </div>
         </MemoryRouter>
     ))
-    .add('Normal 2', () => (
-        <MemoryRouter>
+    // .add('Normal 2', () => (
+    //     <MemoryRouter>
             
-        </MemoryRouter>
-    ))
-    .add('Normal disalbed', () => (
-        <MemoryRouter>
-        </MemoryRouter>
-    ))
+    //     </MemoryRouter>
+    // ))
+    // .add('Normal disalbed', () => (
+    //     <MemoryRouter>
+    //     </MemoryRouter>
+    // ))

@@ -66,7 +66,7 @@ export const StyledInput = styled.input`
       text-decoration: none;
       color: ${colors.lightGray};
       font-family: ${fonts.literata};
-      ${({ hideLabel }) => hideLabel && `
+      ${({ hideLabel, name }) => hideLabel && !name && `
         opacity: 0;
       `}
     }
@@ -144,7 +144,7 @@ Input.propTypes = {
     /** Input placeholder text */
     placeholder: PropTypes.string,
     /** Input label text */
-    label: PropTypes.string.isRequired,
+    label: PropTypes.string,
     /** Input value */
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     /** Function that changes input value */
