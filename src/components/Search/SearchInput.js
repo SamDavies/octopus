@@ -5,9 +5,10 @@ import { colors } from '../../styles'
 import Icon from '../Icon'
 import Input, { StyledInput } from '../Input'
 
-const InputWrapper = styled.div`
+export const InputWrapper = styled.div`
     width: 100%;
     position: relative;
+    line-height: 32px;
     .icon-wrapper {
         position: absolute;
         top: 18px;
