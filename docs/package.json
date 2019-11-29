@@ -1,0 +1,18 @@
+{
+    "name": "octopus-docs",
+    "version": "0.0.1",
+    "scripts": {
+        "start": "docz dev",
+        "build": "kill-port 3000 && (docz dev &) && wait-on http-get://localhost:3000 && kill-port 3000 && docz build"
+    },
+    "dependencies": {
+        "@svgr/webpack": "^4.3.3",
+        "gatsby-plugin-svgr": "^2.0.2",
+        "react-dom": "^16.12.0",
+        "react-router-dom": "^5.1.2"
+    },
+    "devDependencies": {
+        "docz": "^2.2.0-alpha.1",
+        "kill-port": "^1.5.1"
+    }
+}

@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { MemoryRouter } from 'react-router-dom'
-import '../../public/public/fonts.css'
-import '../../public/public/styles.css'
+import '../../src/static/css/fonts.css'
+import '../../src/static/css/styles.css'
 
 const Wrapper = (props) => (
     <MemoryRouter>
