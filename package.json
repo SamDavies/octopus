@@ -1,6 +1,6 @@
 {
     "name": "@stylindex/octopus",
-    "version": "0.3.1",
+    "version": "0.3.2",
     "main": "lib/index.js",
     "module": "lib/index.js",
     "repository": "git://github.com/stylindex/octopus.git",
@@ -17,7 +17,12 @@
         "build-storybook": "build-storybook"
     },
     "files": [
-        "lib/"
+        "lib/",
+        "reset.css",
+        "styles.css",
+        "reset.css",
+        "fonts.css",
+        "package.json"
     ],
     "husky": {
         "hooks": {
