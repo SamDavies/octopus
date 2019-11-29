@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import Icon from '../../../components/Icon'
 import { colors, device } from '../../../styles'
-import Icon from '../../Icon'
 
 const iconSvgs = require.context('!@svgr/webpack!../../../static/icons/', true, /\.svg$/)
 

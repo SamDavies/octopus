@@ -99,7 +99,7 @@ const Select = props => {
                                         bordered={false}
                                         selected={value === props.selectedValue}
                                         onClick={() =>
-                                            props.handleSelectChange(props.filterId, value)
+                                            props.handleSelectChange(props.filterId, value, option)
                                         }
                                         data-role="dropdown-option"
                                     >
@@ -132,14 +132,23 @@ const Select = props => {
 }
 
 Select.propTypes = {
-    resetSelectedValue: PropTypes.func.isRequired,
+    resetSelectedValue: PropTypes.func,
     /** Whether to render close icon and select all button */
     showResetControls: PropTypes.bool,
     label: PropTypes.string,
     customPlaceholder: PropTypes.bool,
     renderCustomPlaceholder: PropTypes.func,
     isOpened: PropTypes.bool,
-    options: PropTypes.array.isRequired,
+    /** Options to be passed to dropdown */
+    options: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number
+        ]),
+        ids: PropTypes.any,
+        onClick: PropTypes.func,
+        name: PropTypes.string.isRequired
+    })).isRequired,
     selectedValue: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.arrayOf(PropTypes.string)
@@ -148,6 +157,7 @@ Select.propTypes = {
     isFetching: PropTypes.bool,
     filterId: PropTypes.string,
     id: PropTypes.string,
+    /** Style of select component */
     selectType: PropTypes.oneOf(['primary', 'secondary', 'inline'])
 }
 
