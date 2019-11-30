@@ -1,7 +1,6 @@
+import { colors, device, Icon, icons } from '@stylindex/octopus'
 import React from 'react'
 import styled from 'styled-components'
-import Icon from '../../components/Icon'
-import { colors, device } from '../../styles'
 
 const StyledWrapper = styled.div`
     display: grid;
@@ -25,6 +24,12 @@ const StyledWrapper = styled.div`
 `
 const IconDisplay = () => (
     <StyledWrapper>
+        {icons.map(key => (
+            <div key={key} className="icon-block">
+                <div className="icon-label">{key}</div>
+                <Icon icon={key} strokeColor='none'/>
+            </div>
+        ))}
     </StyledWrapper>
 )
 
