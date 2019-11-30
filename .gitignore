@@ -12,7 +12,7 @@
 # production
 # /build
 # /dist
-/lib
+/octopus/build
 
 # build files at root for css
 /fonts.css

@@ -7,12 +7,10 @@ RUN yarn install
 
 COPY .eslintignore .eslintignore
 COPY .eslintrc .eslintrc
+COPY .babelrc .babelrc
 COPY now.json now.json
-COPY .doczrc.js .doczrc.js
-COPY gatsby-config.js gatsby-config.js
-COPY webpack.config.js webpack.config.js
+COPY rollup.config.js rollup.config.js
 COPY ./src src/
-COPY ./public public/
 
 
 ########

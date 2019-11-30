@@ -1,7 +1,15 @@
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef, useState } from 'react'
 import Icon from '../Icon'
-import { StyledControlDropdown, StyledControlItem, StyledControlPlaceholder, StyledDefaultOption, StyledEmptyOption, StyledFilter, StyledViewAllOption } from './styles'
+import {
+    StyledControlDropdown,
+    StyledControlItem,
+    StyledControlPlaceholder,
+    StyledDefaultOption,
+    StyledEmptyOption,
+    StyledFilter,
+    StyledViewAllOption
+} from './styles'
 
 const Select = props => {
     const [isOpened, setIsOpened] = useState(props.isOpened || false)
@@ -41,11 +49,13 @@ const Select = props => {
     }, [props.options, props.selectedValue])
 
     useEffect(() => {
-        window.addEventListener('click', handleUserClick)
-        return () => {
-            window.removeEventListener('click', handleUserClick)
+        if (typeof window !== 'undefined') {
+            window.addEventListener('click', handleUserClick)
+            return () => {
+                window.removeEventListener('click', handleUserClick)
+            }
         }
-    })
+    }, [])
 
     return (
         <StyledFilter>
@@ -70,7 +80,7 @@ const Select = props => {
                         isFilterSelected={selectedFilterName}
                     >
                         {selectedFilterName || props.label}
-                        <Icon icon="dropdown-arrow" width={22} height={22} />
+                        <Icon icon="dropdown-arrow" width={22} height={22}/>
                     </StyledControlPlaceholder>
                 )}
                 <StyledControlDropdown offset={offset + 45} isVisible={isOpened}>

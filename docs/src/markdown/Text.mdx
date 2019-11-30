@@ -1,0 +1,65 @@
+---
+name: Text
+menu: Components
+route: '/components/Text'
+---
+
+
+
+import {Text, StyledText} from '@stylindex/octopus'
+import BlockContainer from '../components/BlockContainer'
+import { Playground, Props } from 'docz'
+
+# Text
+
+Text components
+ 
+## Properties
+<Props of={Text} />
+
+## Basic usage
+
+### Cera (default) text
+<Playground>
+   <BlockContainer>
+      <Text size="small">Default small Text</Text>
+ </BlockContainer>
+  <BlockContainer inverted>
+      <Text color='white' size="normal">Inverted normal size text</Text>
+ </BlockContainer>
+  <BlockContainer>
+      <Text underline size="large">Underline large Text</Text>
+ </BlockContainer>
+  <BlockContainer>
+      <Text uppercase italic size="extraLarge">Uppercase italic extra large text</Text>
+ </BlockContainer>
+  <BlockContainer>
+      <Text uppercase bold size="large">Uppercase bold large text</Text>
+ </BlockContainer>
+  <BlockContainer>
+      <Text uppercase bold size="large" color="coral">Uppercase coral large text</Text>
+ </BlockContainer>
+</Playground>
+
+### Literata text
+<Playground>
+   <BlockContainer>
+      <Text font="literata" size="small">Default small Text</Text>
+ </BlockContainer>
+  <BlockContainer inverted>
+      <Text font="literata" color='white' size="normal">Inverted normal size text</Text>
+ </BlockContainer>
+  <BlockContainer>
+      <Text font="literata" underline size="large">Underline large Text</Text>
+ </BlockContainer>
+  <BlockContainer>
+      <Text font="literata" uppercase italic size="extraLarge">Uppercase italic extra large text</Text>
+ </BlockContainer>
+  <BlockContainer>
+      <Text font="literata" uppercase bold size="large">Uppercase bold large text</Text>
+ </BlockContainer>
+  <BlockContainer>
+      <Text font="literata" uppercase bold size="large" color="coral">Uppercase coral large text</Text>
+ </BlockContainer>
+</Playground>
+

@@ -1,0 +1,32 @@
+---
+name: UserAvatar
+menu: Components
+route: '/components/UserAvatar'
+---
+
+
+
+import {UserAvatar} from '@stylindex/octopus'
+import BlockContainer from '../components/BlockContainer'
+import { Playground, Props } from 'docz'
+
+# UserAvatar
+
+This is a wrapper that adds a UserAvatar to a child element.
+ 
+## Properties
+<Props of={UserAvatar} />
+
+## Basic usage
+
+<Playground>
+  <BlockContainer>
+    <UserAvatar text="Test Person" size="small" />
+    </BlockContainer>
+  <BlockContainer>
+    <UserAvatar text="Test Person" size="normal" />
+    </BlockContainer>
+  <BlockContainer>
+    <UserAvatar text="Test Person" size="large" />
+    </BlockContainer>
+</Playground>

@@ -1,0 +1,29 @@
+---
+name: Tooltip
+menu: Components
+route: '/components/tooltip'
+---
+
+
+
+import {Tooltip, StyledTooltip } from '@stylindex/octopus'
+import { Playground, Props } from 'docz'
+
+# Tooltip
+
+This is a wrapper that adds a tooltip to a child element.
+ 
+## Properties
+<Props of={Tooltip} />
+
+## Basic usage
+
+<Playground>
+  <Tooltip tipText='Top tooltip' position='top'><button>Top tooltip</button></Tooltip>
+  <Tooltip tipText='Bottom tooltip' position='bottom'><button>Bottom tooltip</button></Tooltip>
+  <Tooltip tipText='Left tooltip' position='left'><button>Left tooltip</button></Tooltip>
+  <Tooltip tipText='Right tooltip' position='right'><button>Right tooltip</button></Tooltip>
+  <Tooltip tipText='Right tooltip' position='right' hideTip={true}><button>Tooltip wrapper with tip disabled</button></Tooltip>
+  <Tooltip tipText='One\nTwo\nThree' position='right'><button>Tooltip with new lines</button></Tooltip>
+  
+</Playground>

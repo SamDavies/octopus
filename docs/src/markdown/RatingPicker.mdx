@@ -1,0 +1,24 @@
+---
+name: RatingPicker
+menu: Components
+route: '/components/rating-picker'
+---
+
+
+
+import {RatingPicker} from '@stylindex/octopus'
+import { Playground, Props } from 'docz'
+
+# RatingPicker
+
+This is the ratings toggle component used inside the note form modals.
+ 
+## Properties
+<Props of={RatingPicker} />
+
+## Basic usage
+
+<Playground>
+  <RatingPicker inputName="rating1" />
+  <RatingPicker inputName="rating2" defaultValue={4} />
+</Playground>

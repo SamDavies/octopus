@@ -1,0 +1,58 @@
+---
+name: InputWithDropdown
+menu: Components
+route: '/components/InputWithDropdown'
+---
+
+
+
+import {InputWithDropdown} from '@stylindex/octopus'
+import BlockContainer from '../components/BlockContainer'
+import { useState, useEffect, Fragment } from 'react'
+import { Playground, Props } from 'docz'
+
+# InputWithDropdown
+
+InputWithDropdown component. 
+ 
+## Properties
+<Props of={InputWithDropdown} />
+
+## Basic usage
+
+<Playground>
+{() => {
+    const [value, setValue] = useState('')
+    const options = [1,2,3].map(num => ({
+        name: String(num),
+        id: String(num),
+        value: String(num)
+    }))
+    const [value2, setValue2] = useState('')
+  
+    return (
+        <Fragment>
+         <BlockContainer style={{
+             marginBottom: '25px'
+         }}>
+             <InputWithDropdown
+                inputLabel='Input Field'
+                selectLabel='Test' 
+                options={options}
+                value={value}
+                name='search'
+                onInputChange={e => { 
+                    const inputVal = e.target.value
+                    setValue(inputVal)
+                }}
+                onSelectChange={e => {
+                    setValue2(e.target.value)
+                }}
+                selectedValue={value2}
+                hasDropdown
+             />
+         </BlockContainer>
+        </Fragment>
+    )    
+}}
+</Playground>
