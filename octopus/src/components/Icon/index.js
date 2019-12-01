@@ -26,7 +26,6 @@ export const StyledIconWrapper = styled.span`
     `}
 `
 
-
 const Icon = (props) => {
     const iconPath = `${config.staticUrl}/icons/${props.icon}.svg`
     return <StyledIconWrapper
