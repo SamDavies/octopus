@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - run: make lint
+      - run: cd octopus && make lint
 #      - run: make test
 
 
