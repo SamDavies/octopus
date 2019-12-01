@@ -18,12 +18,5 @@ publish:
 		--tag octopus . \
 		&& docker run octopus
 
-deploy-static:
-	docker build \
-		--build-arg NOW_TOKEN=${NOW_TOKEN} \
-		--target deploy-static \
-		--tag octopus . \
-		&& docker run octopus
-
 remove:
-	docker rm website
+	docker rm octopus
