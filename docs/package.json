@@ -14,7 +14,7 @@
         "styled-components": "^4.4.1"
     },
     "devDependencies": {
-        "docz": "^2.2.0-alpha.1",
+        "docz": "^2.1.0",
         "kill-port": "^1.5.1"
     }
 }

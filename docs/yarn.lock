@@ -4183,10 +4183,10 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
-docz-core@^2.2.0-alpha.1:
-  version "2.2.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/docz-core/-/docz-core-2.2.0-alpha.1.tgz#f645227c3549eb5cf590df9e0107991d073a6600"
-  integrity sha512-ykVqwgJxa/UdytNVd1lJqu4hS71xbljwuGMGAMnvcMRt08/JS4imipD+F24KJRo1lNbU37V/KHc1DSIyY8yffA==
+docz-core@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/docz-core/-/docz-core-2.1.1.tgz#2c74949db380860f2dd047aae46b27ab754b5160"
+  integrity sha512-fpBoyyqYA+bDAJF6QFoQaT0Hug4g5hlGwAho2Rh7CR8CrccnCfZ8nJrRu/8BUc5GkwEtR7gxIciSijfkIJe7KQ==
   dependencies:
     "@sindresorhus/slugify" "^0.9.1"
     chalk "^2.4.2"
@@ -4247,21 +4247,21 @@ docz-utils@^2.1.0:
     unist-util-is "^3.0.0"
     unist-util-visit "^1.4.1"
 
-docz@^2.2.0-alpha.1:
-  version "2.2.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/docz/-/docz-2.2.0-alpha.1.tgz#25047325df3272e1530d5bd3ec7a0de20fdec6bf"
-  integrity sha512-h6zg/woiths3At7w0e+pXrHwCbyIp3bcNO7dArY51aBqkI02+UsCQFRTpaCNwjHBYnSL9DwFjpuuX1mk2jqY5w==
+docz@^2.1.0:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/docz/-/docz-2.1.1.tgz#9995cad42ac8e0053dfb9adf64ef760a23555626"
+  integrity sha512-R1Ibub9FLVvWV8NTzIxlsAXGGUcaOXDF6a3BBPGDHqoRg1WDfhyl/fzK44FCmlPORguY0VBTjNIOKq/fOJ8idw==
   dependencies:
     "@emotion/core" "^10.0.16"
     "@mdx-js/react" "^1.0.27"
     array-sort "^1.0.0"
     capitalize "^2.0.0"
-    docz-core "^2.2.0-alpha.1"
+    docz-core "^2.1.1"
     fast-deep-equal "^2.0.1"
     gatsby "^2.13.27"
     gatsby-plugin-eslint "^2.0.5"
     gatsby-plugin-typescript "^2.1.6"
-    gatsby-theme-docz "^2.2.0-alpha.1"
+    gatsby-theme-docz "^2.1.0"
     lodash "^4.17.14"
     marksy "^8.0.0"
     match-sorter "^3.1.1"
@@ -5721,10 +5721,10 @@ gatsby-telemetry@^1.1.40:
     stack-utils "1.0.2"
     uuid "3.3.3"
 
-gatsby-theme-docz@^2.2.0-alpha.1:
-  version "2.2.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/gatsby-theme-docz/-/gatsby-theme-docz-2.2.0-alpha.1.tgz#0b05eb59bebde718858dad11e093648da7ebef14"
-  integrity sha512-cRmNjunD4UXi6ILNYbN8eK+eka8i3QxHQxreAZUgz9Dv98oAt8mAm43HefwgamNHYr32PQ4hS9qbcCXJzpnIlQ==
+gatsby-theme-docz@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/gatsby-theme-docz/-/gatsby-theme-docz-2.1.0.tgz#5033d2d4225146034bc0875d9d583511cf822779"
+  integrity sha512-oyiDQqwKCUFulaDUwz0Kzcmxq9jlLEYdo7IE0KDn0jpCn3g0qhNuvhcvXw0LrLeqDHV9ZbPfc8bwWVT61TYg+Q==
   dependencies:
     "@emotion/core" "^10.0.14"
     "@emotion/styled" "^10.0.14"

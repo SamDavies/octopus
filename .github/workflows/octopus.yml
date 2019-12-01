@@ -30,7 +30,7 @@ jobs:
 
   deploy-static:
     timeout-minutes: 30
-#    if: github.ref == 'refs/heads/release'
+    if: github.ref == 'refs/heads/release'
     runs-on: ubuntu-latest
     needs:
       - lint-and-test
@@ -38,4 +38,15 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: cd static && NOW_TOKEN=$NOW_TOKEN make deploy-static
+
+  deploy-docs:
+    timeout-minutes: 30
+#    if: github.ref == 'refs/heads/release'
+    runs-on: ubuntu-latest
+    needs:
+      - lint-and-test
+
+    steps:
+      - uses: actions/checkout@v1
+      - run: cd docs && NOW_TOKEN=$NOW_TOKEN make deploy-docs
 
