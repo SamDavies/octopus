@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import SVG from 'react-inlinesvg'
 import styled from 'styled-components'
 import { colors } from '../../styles'
-import icons from '../Icons'
 
 export const StyledIconWrapper = styled.span`
     display: inline-block;
@@ -26,18 +26,16 @@ export const StyledIconWrapper = styled.span`
 `
 
 const Icon = (props) => {
-    const SvgIcon = icons[props.icon]
-    return (
-        <StyledIconWrapper
-            className="icon-wrapper"
-            height={props.height}
-            width={props.width}
-            fillColor={props.fillColor}
-            strokeColor={props.strokeColor}
-        >
-            <SvgIcon />
-        </StyledIconWrapper>
-    )
+    const iconPath = `https://octopus-static.stylindex.now.sh/icons/${props.icon}.svg`
+    return <StyledIconWrapper
+        className="icon-wrapper"
+        height={props.height}
+        width={props.width}
+        fillColor={props.fillColor}
+        strokeColor={props.strokeColor}
+    >
+        <SVG src={iconPath} />
+    </StyledIconWrapper>
 }
 
 Icon.propTypes = {

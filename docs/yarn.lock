@@ -1172,14 +1172,15 @@
   resolved "https://registry.yarnpkg.com/@styled-system/css/-/css-5.0.23.tgz#35ad4f34fe0fec9b011a5468ac0821f12f5e4b1a"
   integrity sha512-yC3S0Iox8OTPAyrP1t5yY9nURUICcUdhVYOkwffftuxa5+txxI4qkT2e9JNCc2aaem+DG8mlXTdnYefjqge5wg==
 
-"@stylindex/octopus@^0.4.2":
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/@stylindex/octopus/-/octopus-0.4.2.tgz#246bb227d989a338c84df499af5ca45af5ba9df3"
-  integrity sha512-hR7tU7WtMHgpS+IhiliH9FCV4FsFxrMJYzkS4qCXkU3+hQEo3fktHdrr2haiE5EYK28lAK+9ZEQEXmTiJD9WbA==
+"@stylindex/octopus@^0.4.11":
+  version "0.4.11"
+  resolved "https://registry.yarnpkg.com/@stylindex/octopus/-/octopus-0.4.11.tgz#96dfc20c236996457a4300a857ed79ea10b5c632"
+  integrity sha512-KcLaFloSjsY6px6GPcFhLHiBt4bjJiP9xAvXR++u3McwalHohZLzRKLBsRdOkHnHJwkwifKX0n5CcYyoBtOs4Q==
   dependencies:
     babel-plugin-styled-components "^1.10.6"
     copy-webpack-plugin "^5.0.5"
     initials "^3.0.1"
+    react-inlinesvg "^1.2.0"
     react-popper-tooltip "^2.10.0"
 
 "@svgr/babel-plugin-add-jsx-attribute@^4.2.0":
@@ -4940,6 +4941,11 @@ execa@^3.4.0:
     p-finally "^2.0.0"
     signal-exit "^3.0.2"
     strip-final-newline "^2.0.0"
+
+exenv@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/exenv/-/exenv-1.2.2.tgz#2ae78e85d9894158670b03d47bec1f03bd91bb9d"
+  integrity sha1-KueOhdmJQVhnCwPUe+wfA72Ru50=
 
 expand-brackets@^2.1.4:
   version "2.1.4"
@@ -10459,6 +10465,11 @@ react-feather@^2.0.3:
   dependencies:
     prop-types "^15.7.2"
 
+react-from-dom@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/react-from-dom/-/react-from-dom-0.3.0.tgz#559b2706fba072bf686e30e064369011b727bddf"
+  integrity sha512-oC4j6rJfEoIbDVlz0KAcgdn/EH6/UYlzfUaeaFDXplMACqSIPReGPPkSi9g1Q3Kd3KvCpMF67XzseanPLSrRYw==
+
 react-helmet-async@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/react-helmet-async/-/react-helmet-async-1.0.4.tgz#079ef10b7fefcaee6240fefd150711e62463cc97"
@@ -10483,6 +10494,14 @@ react-hot-loader@^4.12.18:
     react-lifecycles-compat "^3.0.4"
     shallowequal "^1.1.0"
     source-map "^0.7.3"
+
+react-inlinesvg@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-inlinesvg/-/react-inlinesvg-1.2.0.tgz#fa63bda004ed941449a034574269ad4819cdbc8d"
+  integrity sha512-IsznU+UzpUwDGzBWbf0bfSRA5Jbqz87xeoqLM/nSIDPkoHksInF1wCGybTSn4sIui+30TqboRQP1wAelNTkdog==
+  dependencies:
+    exenv "^1.2.2"
+    react-from-dom "^0.3.0"
 
 react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
   version "16.12.0"

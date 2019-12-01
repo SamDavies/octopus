@@ -6,7 +6,7 @@
         "build": "kill-port 3000 && (docz dev &) && wait-on http-get://localhost:3000 && kill-port 3000 && docz build"
     },
     "dependencies": {
-        "@stylindex/octopus": "^0.4.2",
+        "@stylindex/octopus": "^0.4.11",
         "@svgr/webpack": "^4.3.3",
         "gatsby-plugin-svgr": "^2.0.2",
         "react-dom": "^16.12.0",

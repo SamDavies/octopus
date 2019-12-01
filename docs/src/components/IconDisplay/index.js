@@ -1,4 +1,4 @@
-import { colors, device, Icon, icons } from '@stylindex/octopus'
+import { colors, device, Icon } from '@stylindex/octopus'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -22,15 +22,40 @@ const StyledWrapper = styled.div`
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 `
-const IconDisplay = () => (
+
+const icons = [
+    'add',
+    'back',
+    'check',
+    'chevron-left',
+    'chevron-right',
+    'close',
+    'dropdown-arrow',
+    'edit',
+    'facebook',
+    'favorite',
+    'flash',
+    'instagram',
+    'linkedin',
+    'lock',
+    'menu',
+    'pinterest',
+    'search',
+    'select',
+    'start',
+    'twitter',
+    'warning',
+    'youtube'
+]
+
+const IconDisplay = () =>
     <StyledWrapper>
-        {icons.map(key => (
-            <div key={key} className="icon-block">
-                <div className="icon-label">{key}</div>
-                <Icon icon={key} strokeColor='none'/>
+        {icons.map(icon =>
+            <div key={`icon-${icon}`} className="icon-block">
+                <div className="icon-label">{icon}</div>
+                <Icon icon={icon} strokeColor='none'/>
             </div>
-        ))}
+        )}
     </StyledWrapper>
-)
 
 export default IconDisplay
