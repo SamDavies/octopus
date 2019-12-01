@@ -3,6 +3,7 @@ import React from 'react'
 import SVG from 'react-inlinesvg'
 import styled from 'styled-components'
 import { colors } from '../../styles'
+import config from '../../config'
 
 export const StyledIconWrapper = styled.span`
     display: inline-block;
@@ -25,8 +26,9 @@ export const StyledIconWrapper = styled.span`
     `}
 `
 
+
 const Icon = (props) => {
-    const iconPath = `https://octopus-static.stylindex.now.sh/icons/${props.icon}.svg`
+    const iconPath = `${config.staticUrl}/icons/${props.icon}.svg`
     return <StyledIconWrapper
         className="icon-wrapper"
         height={props.height}

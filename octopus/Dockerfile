@@ -8,7 +8,6 @@ RUN yarn install
 COPY .eslintignore .eslintignore
 COPY .eslintrc .eslintrc
 COPY .babelrc .babelrc
-COPY now.json now.json
 COPY rollup.config.js rollup.config.js
 COPY ./src src/
 
@@ -37,16 +36,5 @@ ENV NPM_TOKEN=$NPM_TOKEN
 RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
 
 CMD ["npm", "publish"]
-
-#################
-# Deploy Static #
-#################
-FROM base as deploy-static
-RUN yarn global add now
-
-ARG NOW_TOKEN
-ENV NOW_TOKEN=$NOW_TOKEN
-
-CMD now --token $NOW_TOKEN --prod
 
 

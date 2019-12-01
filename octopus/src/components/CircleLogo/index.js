@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import SVG from 'react-inlinesvg'
 import { Link } from 'react-router-dom'
 import styled, { css } from 'styled-components'
-import { ReactComponent as LogoImage } from '../../static/images/logo_stacked.svg'
+import config from '../../config'
 import { colors } from '../../styles'
 
 const logoSizes = {
@@ -57,7 +58,7 @@ const StyledLink = styled(Link)`
 const CircleLogo = ({ inverted, link, size }) => (
     <StyledCircleLogoWrapper inverted={inverted} size={size}>
         <StyledLink to='/' link={link.toString()}>
-            <LogoImage />
+            <SVG src={`${config.staticUrl}/images/logo_stacked.svg`} />
         </StyledLink>
     </StyledCircleLogoWrapper>
 )

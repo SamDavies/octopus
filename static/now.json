@@ -4,7 +4,7 @@
     "scope": "stylindex",
     "builds": [
         {
-            "src": "/src/static/**/*",
+            "src": "/src/**/*",
             "use": "@now/static"
         }
     ],
@@ -14,7 +14,7 @@
             "headers": {
                 "cache-control": "s-maxage=31536000,immutable"
             },
-            "dest": "/src/static/$1"
+            "dest": "/src/$1"
         }
     ]
 }

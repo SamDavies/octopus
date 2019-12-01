@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import SVG from 'react-inlinesvg'
 import { Link } from 'react-router-dom'
 import styled, { css } from 'styled-components'
-import { ReactComponent as LogoImage } from '../../static/images/logo.svg'
+import config from '../../config'
 import { colors } from '../../styles'
 
 const logoSizes = {
@@ -41,7 +42,7 @@ const StyledLink = styled(Link)`
 const Logo = ({ color, link, size }) => (
     <StyledLogoWrapper size={size} color={color}>
         <StyledLink to='/' link={link.toString()}>
-            <LogoImage />
+            <SVG src={`${config.staticUrl}/images/logo.svg`} />
         </StyledLink>
     </StyledLogoWrapper>
 )
