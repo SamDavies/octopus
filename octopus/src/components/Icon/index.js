@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import SVG from 'react-inlinesvg'
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { colors } from '../../constants'
 import config from '../../config'
 
 export const StyledIconWrapper = styled.span`

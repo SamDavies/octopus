@@ -1,2 +1,3 @@
 export * from './components'
-export * from './styles'
+export * from './constants'
+export GlobalStyles from './css'

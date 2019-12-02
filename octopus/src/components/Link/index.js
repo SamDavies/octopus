@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 import styled from 'styled-components'
-import { colors, fonts } from '../../styles'
+import { colors, fonts } from '../../constants'
 
 export const StyledLink = styled.a`
   text-transform: uppercase;

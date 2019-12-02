@@ -1,3 +1,6 @@
+import { createGlobalStyle } from 'styled-components'
+
+const GlobalReset = createGlobalStyle`
 html,
 body,
 div,
@@ -122,3 +125,7 @@ article,
 figure {
     display: block;
 }
+
+`
+
+export default GlobalReset

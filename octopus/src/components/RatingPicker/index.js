@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { colors } from '../../constants'
 import StarInput from './StarInput'
 
 export const StyledFieldset = styled.fieldset`

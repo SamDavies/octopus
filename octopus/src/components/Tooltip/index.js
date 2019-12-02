@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, { cloneElement } from 'react'
 import TooltipTrigger from 'react-popper-tooltip'
 import styled from 'styled-components'
-import { colors, fonts } from '../../styles'
+import { colors, fonts } from '../../constants'
 
 export const StyledTooltip = styled.div`
     width: 100%;

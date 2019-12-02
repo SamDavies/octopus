@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { colors } from '../../constants'
 
 export const StyledRadioInput = styled.input`
     display: none;

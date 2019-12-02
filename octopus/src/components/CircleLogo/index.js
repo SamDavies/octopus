@@ -4,7 +4,7 @@ import SVG from 'react-inlinesvg'
 import { Link } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 import config from '../../config'
-import { colors } from '../../styles'
+import { colors } from '../../constants'
 
 const logoSizes = {
     small: css`

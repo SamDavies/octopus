@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { MemoryRouter } from 'react-router-dom'
+import { GlobalStyles } from '@stylindex/octopus'
 
 const Wrapper = (props) => (
     <MemoryRouter>
+        <GlobalStyles/>
         {props.children}
     </MemoryRouter>
 )

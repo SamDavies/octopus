@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { colors, device, fonts } from '../../styles'
+import { colors, device, fonts } from '../../constants'
 import Input from '../Input'
 import { StyledLink } from '../Link'
 
