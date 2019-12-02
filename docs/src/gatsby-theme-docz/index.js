@@ -2,15 +2,15 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { MemoryRouter } from 'react-router-dom'
 import { GlobalStyles } from '@stylindex/octopus'
+import { theme } from 'docz'
 
-const Wrapper = (props) => (
+const Theme = props =>
     <MemoryRouter>
         <GlobalStyles/>
         {props.children}
     </MemoryRouter>
-)
 
-Wrapper.propTypes = {
+Theme.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node,
@@ -18,4 +18,4 @@ Wrapper.propTypes = {
     ])
 }
 
-export default Wrapper
+export default theme()(Theme)

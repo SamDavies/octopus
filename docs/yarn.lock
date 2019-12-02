@@ -1172,10 +1172,8 @@
   resolved "https://registry.yarnpkg.com/@styled-system/css/-/css-5.0.23.tgz#35ad4f34fe0fec9b011a5468ac0821f12f5e4b1a"
   integrity sha512-yC3S0Iox8OTPAyrP1t5yY9nURUICcUdhVYOkwffftuxa5+txxI4qkT2e9JNCc2aaem+DG8mlXTdnYefjqge5wg==
 
-"@stylindex/octopus@^0.4.15":
-  version "0.4.15"
-  resolved "https://registry.yarnpkg.com/@stylindex/octopus/-/octopus-0.4.15.tgz#8ff2bcbce4e43d7ad7a8e404b12aae616e0ef810"
-  integrity sha512-cCjomgQ7cdXWLhhr+hckU0BVH9fafSE3Y4KZdG4i1lASt6Pnsv4BuajCM5eu4mbTQYIi6T/nuzL1NHad9NuxEQ==
+"@stylindex/octopus@file:../octopus":
+  version "0.4.17"
   dependencies:
     babel-plugin-styled-components "^1.10.6"
     copy-webpack-plugin "^5.0.5"

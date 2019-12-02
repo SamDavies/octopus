@@ -8,7 +8,6 @@ route: '/components/CircleLogo'
 
 import {CircleLogo} from '@stylindex/octopus'
 import BlockContainer from '../components/BlockContainer'
-import Wrapper from '../components/Wrapper'
 import { Playground, Props } from 'docz'
 
 # CircleLogo
@@ -20,19 +19,17 @@ CircleLogo components
 
 ## Basic usage
 <Playground>
-    <Wrapper>
-        <BlockContainer>
-            <CircleLogo />
-        </BlockContainer>
-        <BlockContainer>
-            <CircleLogo size='small' />
-        </BlockContainer>
-        <BlockContainer>
-            <CircleLogo size='medium' />
-        </BlockContainer>
-        <BlockContainer>
-            <CircleLogo inverted />
-        </BlockContainer>
-    </Wrapper>
+    <BlockContainer>
+        <CircleLogo />
+    </BlockContainer>
+    <BlockContainer>
+        <CircleLogo size='small' />
+    </BlockContainer>
+    <BlockContainer>
+        <CircleLogo size='medium' />
+    </BlockContainer>
+    <BlockContainer>
+        <CircleLogo inverted />
+    </BlockContainer>
 </Playground>
 
