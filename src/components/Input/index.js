@@ -126,7 +126,7 @@ const Input = props => (
             disabled={props.disabled}
             onChange={props.onChange}
             hideLabel={props.hideLabel}
-            onKeyPress={props.onKeyPress}
+            onKeyDown={props.onKeyDown}
             onFocus={props.onFocus}
             onBlur={props.onBlur}
             error={props.error && !props.disabled}
@@ -154,7 +154,7 @@ Input.propTypes = {
     /** input type */
     type: PropTypes.string,
     /** onPress event callback function */
-    onKeyPress: PropTypes.func,
+    onKeyDown: PropTypes.func,
     /** onFocus event callback function */
     onFocus: PropTypes.func,
     /** onBlur event callback function */
@@ -176,7 +176,7 @@ Input.defaultProps = {
     onChange: () => { },
     createRef: { current: null },
     type: 'text',
-    onKeyPress: () => { },
+    onKeyDown: () => { },
     onFocus: () => { },
     onBlur: () => { },
     hideLabel: false
