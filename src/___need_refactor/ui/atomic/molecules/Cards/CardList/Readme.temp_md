@@ -1,7 +1,0 @@
-CardList with AddNewItemCard example:
-
-```js
-<CardList>
-  <AddNewItemCard onClick={() => {}} />
-</CardList>
-```
