@@ -162,13 +162,14 @@ const Button = ({ children, ...buttonProps }) => (
 
 Button.propTypes = {
     children: PropTypes.oneOfType([
+        PropTypes.string,
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node
     ]).isRequired,
     disabled: PropTypes.bool,
     inverse: PropTypes.bool,
     buttonType: PropTypes.oneOf([
-        'default',
+        'primary',
         'secondary',
         'underlined',
         'coral',
@@ -183,7 +184,7 @@ Button.defaultProps = {
     size: 'normal',
     disabled: false,
     inverse: false,
-    buttonType: 'default',
+    buttonType: 'primary',
     onClick: () => {}
 }
 
