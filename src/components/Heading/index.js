@@ -41,9 +41,7 @@ const headingStyles = {
   `
 }
 
-export const StyledHeading = styled(({ children, level, ...props }) =>
-    React.createElement(`h${level}`, props, children)
-)`
+export const StyledHeading = styled.div`
   font-family: ${fonts.cera};
   font-weight: ${({ bold }) => (bold ? 600 : 500)};
   line-height: 1.3;
@@ -55,16 +53,12 @@ export const StyledHeading = styled(({ children, level, ...props }) =>
   ${({ level }) => headingStyles[`h${level}`]};
 `
 
-const Heading = (props) => (
+const Heading = ({ children, ...props }) => (
     <StyledHeading
-        inverted={props.inverted ? 1 : 0}
-        level={props.level}
-        underline={props.underline ? 1 : 0}
-        uppercase={props.uppercase ? 1 : 0}
-        bold={props.bold ? 1 : 0}
-        style={props.style || {}}
+        as={`h${props.level}`}
+        {...props}
     >
-        {props.children}
+        {children}
     </StyledHeading>
 )
 
