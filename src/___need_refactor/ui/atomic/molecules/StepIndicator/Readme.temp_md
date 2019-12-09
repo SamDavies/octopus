@@ -1,5 +1,0 @@
-StepIndicator example:
-
-```js
-<StepIndicator progressData={{ activeStep: 1, totalSteps: 3 }} />
-```
