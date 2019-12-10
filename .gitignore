@@ -1,7 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+/**/node_modules
 /.pnp
 .pnp.js
 .docz
@@ -10,9 +10,12 @@
 /coverage
 
 # production
-# /build
-# /dist
-/lib
+/build
+/dist
+build
+dist
+lib
+/octopus/build
 
 # build files at root for css
 /fonts.css

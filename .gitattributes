@@ -1,2 +1,4 @@
 lib/ -diff -merge
 lib/* -diff -merge
+docs/ -diff -merge
+docs/* -diff -merge
