@@ -1,6 +1,7 @@
 export { default as Button, StyledButton } from './Button'
 export { default as Checkbox } from './Checkbox'
 export { default as CircleLogo } from './CircleLogo'
+export { default as GlobalStyles, GlobalBody, GlobalFonts, GlobalReset } from './GlobalStyles'
 export { default as Heading, StyledHeading } from './Heading'
 export { default as Icon } from './Icon'
 export { default as ImagePlaceholder } from './ImagePlaceholder'
