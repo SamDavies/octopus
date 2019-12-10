@@ -1,5 +1,14 @@
-import '!style-loader!css-loader!../src/static/css/fonts.css';
-import '!style-loader!css-loader!../src/static/css/styles.css';
-import { configure } from '@storybook/react';
+import {setOptions} from "@storybook/addon-options";
+import {configure} from "@storybook/react";
 
-configure(require.context('../src/stories/', false, /\.js$/), module);
+const req = require.context('../src', true, /((?!(abc|def)).)*stories\.js$/);
+
+function loadStories() {
+    req.keys().forEach((filename) => req(filename))
+}
+
+setOptions({
+    hierarchySeparator: '\\.'
+});
+
+configure(loadStories, module);

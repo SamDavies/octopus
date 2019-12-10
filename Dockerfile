@@ -11,9 +11,10 @@ COPY now.json now.json
 COPY .doczrc.js .doczrc.js
 COPY gatsby-config.js gatsby-config.js
 COPY webpack.config.js webpack.config.js
+COPY .babelrc .babelrc
+COPY rollup.config.js rollup.config.js
 COPY ./src src/
 COPY ./public public/
-
 
 ########
 # Lint #
