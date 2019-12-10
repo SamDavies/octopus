@@ -1,8 +1,7 @@
 {
     "extends": [
         "standard",
-        "plugin:react/recommended",
-        "react-app"
+        "plugin:react/recommended"
     ],
     "env": {
         "browser": true,

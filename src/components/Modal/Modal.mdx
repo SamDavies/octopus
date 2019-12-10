@@ -1,0 +1,103 @@
+---
+name: Modal
+menu: Components
+route: '/components/Modal'
+---
+
+
+
+import Modal from './'
+import ModalComponent from './ModalComponent'
+import { useState, Fragment } from 'react'
+import ModalBlock from '../../docs/components/ModalBlock'
+import { Playground, Props } from 'docz'
+
+# Modal
+
+Modal component. Uses React Portal to append the modal content outside the normal React flow
+ 
+## Properties
+<Props of={ModalComponent} />
+
+## Basic usage
+
+### Modals
+<Playground>
+<ModalBlock
+    buttonText="Show modal with title + action buttons"
+>
+{(showModal, setShowModal) => (
+    <Modal
+        appId='___gatsby'
+        visible={showModal}
+        onClose={() => setShowModal(false)}
+        title="Modal Title"
+        primaryButton={{
+            children: 'Primary Button', 
+            onClick: () => true
+        }}
+        secondaryButton={{
+            children: 'Secondary Button', 
+            onClick: () => true
+        }}
+    >
+    Child Text
+    </Modal>
+)}
+</ModalBlock>
+<ModalBlock
+    buttonText="Show modal with logo"
+>
+{(showModal, setShowModal) => (
+    <Modal
+        appId='___gatsby'
+        visible={showModal}
+        onClose={() => setShowModal(false)}
+        modalType="withLogo"
+    >
+    Child Text
+    </Modal>
+)}
+</ModalBlock>
+<ModalBlock
+    buttonText="Show contact style modal"
+>
+{(showModal, setShowModal) => (
+    <Modal
+        appId='___gatsby'
+        visible={showModal}
+        onClose={() => setShowModal(false)}
+        modalType="contact"
+    >
+    Child Text
+    </Modal>
+)}
+</ModalBlock>
+<ModalBlock
+    buttonText="Show invisible style modal w/o close buttton"
+>
+{(showModal, setShowModal) => (
+    <Modal
+        appId='___gatsby'
+        visible={showModal}
+        modalType="invisible"
+    >
+    <button onClick={() => setShowModal(false)}>Close Modal</button>
+    </Modal>
+)}
+</ModalBlock>
+<ModalBlock
+    buttonText="Show minimal style modal"
+>
+{(showModal, setShowModal) => (
+    <Modal
+        appId='___gatsby'
+        visible={showModal}
+        onClose={() => setShowModal(false)}
+        modalType='minimal'
+    >
+    <button onClick={() => setShowModal(false)}>Close Modal</button>
+    </Modal>
+)}
+</ModalBlock>
+</Playground>

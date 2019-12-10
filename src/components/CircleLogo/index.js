@@ -63,7 +63,7 @@ const CircleLogo = ({ inverted, link, size }) => (
 )
 
 CircleLogo.propTypes = {
-    inverted: false,
+    inverted: PropTypes.bool,
     link: PropTypes.bool,
     size: PropTypes.oneOf(['small', 'medium', 'large'])
 }
