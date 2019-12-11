@@ -63,7 +63,7 @@ export const ValidateTitle = styled.span`
     border-radius: 8px;
     background-color: ${colors.coral};
     margin-right: 4px;
-    ${({ valid }) => `background-color: ${valid ? colors.black : colors.persimmon}`};
+    ${({ valid }) => `background-color: ${valid ? colors.black : colors.coral}`};
   }
 `
 

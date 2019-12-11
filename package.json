@@ -1,6 +1,6 @@
 {
     "name": "@stylindex/octopus",
-    "version": "0.5.3",
+    "version": "0.5.4",
     "description": "",
     "author": "stylindex",
     "license": "MIT",
@@ -27,10 +27,6 @@
     },
     "files": [
         "lib/",
-        "reset.css",
-        "styles.css",
-        "reset.css",
-        "fonts.css",
         "package.json"
     ],
     "husky": {
@@ -51,19 +47,15 @@
         ]
     },
     "dependencies": {
-        "copy-webpack-plugin": "^5.0.5",
-        "initials": "^3.0.1",
         "react-inlinesvg": "^1.2.0",
         "react-popper-tooltip": "^2.10.0"
     },
     "peerDependencies": {
-        "copy-webpack-plugin": "^5.0.5",
         "initials": "^3.0.1",
         "lodash": "^4.17.15",
         "prop-types": "^15.5.4",
         "react": "^15.0.0 || ^16.0.0",
         "react-dom": "^15.0.0 || ^16.0.0",
-        "react-popper-tooltip": "^2.10.0",
         "react-router-dom": "^5.1.2",
         "styled-components": "^4.4.1"
     },
