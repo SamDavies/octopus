@@ -7,35 +7,51 @@ import postcss from 'rollup-plugin-postcss'
 import url from 'rollup-plugin-url'
 import pkg from './package.json'
 
-
-export default {
-  input: 'src/index.js',
-  output: [
-    {
-      file: pkg.main,
-      format: 'cjs',
-      sourcemap: true
+const createCssFileConfig = (file) => ({
+    input: `src/static/css/${file}.css`,
+    output: {
+        file: `lib/${file}.css`,
+        format: 'es'
     },
+    plugins: [
+        postcss({
+            minimize: true,
+            extract: true
+        })
+    ]
+})
+
+export default [
     {
-      file: pkg.module,
-      format: 'es',
-      sourcemap: true
-    }
-  ],
-  plugins: [
-    resolve(),
-    external(),
-    postcss({
-      modules: true
-    }),
-    url(),
-    svgr(),
-    babel({
-      exclude: 'node_modules/**',
-      plugins: [
-        'external-helpers',                         'babel-plugin-styled-components'
-      ]
-    }),
-    commonjs()
-  ]
-}
+        input: 'src/index.js',
+        output: [
+            {
+                file: pkg.main,
+                format: 'cjs',
+                sourcemap: true
+            },
+            {
+                file: pkg.module,
+                format: 'es',
+                sourcemap: true
+            }
+        ],
+        plugins: [
+            resolve(),
+            external(),
+            postcss({
+                modules: true
+            }),
+            url(),
+            svgr(),
+            babel({
+                exclude: 'node_modules/**',
+                plugins: [
+                    'external-helpers', 'babel-plugin-styled-components'
+                ]
+            }),
+            commonjs()
+        ]
+    },
+    ...['reset', 'styles'].map(createCssFileConfig)
+]
