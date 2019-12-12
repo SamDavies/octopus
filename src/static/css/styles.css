@@ -66,3 +66,7 @@ body {
 body, button {
     font-family: "CeraPro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 }
+
+.literata-subtype {
+    font-family: "Literata";
+}
