@@ -1,11 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { colors, device } from '../../../styles'
-import Icon from './Icon'
-
-const iconSvgs = require.context('!@svgr/webpack!../../../static/icons/', true, /\.svg$/)
-
-const icons = iconSvgs.keys().map(key => key.match(/\/(.+)\.svg$/i).pop())
+import Icon, { iconNames } from './Icon'
 
 const StyledWrapper = styled.div`
     display: grid;
@@ -30,7 +26,7 @@ const StyledWrapper = styled.div`
 `
 const IconDisplay = () => (
     <StyledWrapper>
-        {icons.map(key => (
+        {iconNames.map(key => (
             <div key={key} className="icon-block">
                 <div className="icon-label">{key}</div>
                 <Icon icon={key} strokeColor='none' />
