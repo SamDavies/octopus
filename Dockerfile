@@ -32,7 +32,7 @@ CMD ["yarn", "test"]
 # Publish #
 ###########
 FROM base as publish
-RUN yarn build
+RUN yarn build:package
 
 ARG NPM_TOKEN
 ENV NPM_TOKEN=$NPM_TOKEN
@@ -49,6 +49,8 @@ RUN yarn global add now
 
 ARG NOW_TOKEN
 ENV NOW_TOKEN=$NOW_TOKEN
+
+RUN now --token $NOW_TOKEN -A now-docs.json --prod
 
 CMD now --token $NOW_TOKEN --prod
 
