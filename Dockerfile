@@ -7,7 +7,8 @@ RUN yarn install
 
 COPY .eslintignore .eslintignore
 COPY .eslintrc .eslintrc
-COPY now.json now.json
+COPY now-static.json now-static.json
+COPY now-docs.json now-docs.json
 COPY .doczrc.js .doczrc.js
 COPY gatsby-config.js gatsby-config.js
 COPY webpack.config.js webpack.config.js
@@ -50,7 +51,7 @@ RUN yarn global add now
 ARG NOW_TOKEN
 ENV NOW_TOKEN=$NOW_TOKEN
 
-CMD now --token $NOW_TOKEN --prod
+CMD now --token $NOW_TOKEN -A now-static.json --prod
 
 
 #################
