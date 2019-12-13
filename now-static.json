@@ -1,6 +1,7 @@
 {
     "version": 2,
     "name": "octopus-static",
+    "scope": "stylindex",    
     "builds": [
         {
             "src": "/src/static/**/*",
