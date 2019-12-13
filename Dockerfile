@@ -50,8 +50,18 @@ RUN yarn global add now
 ARG NOW_TOKEN
 ENV NOW_TOKEN=$NOW_TOKEN
 
-RUN now --token $NOW_TOKEN -A now-docs.json --prod
-
 CMD now --token $NOW_TOKEN --prod
+
+
+#################
+# Deploy Docs #
+#################
+FROM base as deploy-docs
+RUN yarn global add now
+
+ARG NOW_TOKEN
+ENV NOW_TOKEN=$NOW_TOKEN
+
+CMD now --token $NOW_TOKEN -A now-docs.json --prod
 
 
