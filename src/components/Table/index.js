@@ -15,6 +15,7 @@ const TableWrapper = styled.div`
     font-size: 18px;
     letter-spacing: 0.5px;
     line-height: 23px;
+    text-indent: 0px;
   }
 
   ${InputWrapper} {
@@ -60,7 +61,7 @@ const StyledHeaderCell = styled.th`
     position: relative;
     ${({ isSortedDesc }) => isSortedDesc && `
             transform: rotate(180deg);
-        `}
+    `}
   }
 `
 const StyledTableBody = styled.tbody`
@@ -79,13 +80,7 @@ const StyledTableBody = styled.tbody`
     `}
   }
 
-  ${({ hideOnMobile }) => hideOnMobile && `
-        display: none;
-        @media ${device.tablet} {
-            display: flex;
-        }
-    `}
-  .options-cell ${StyledControlDropdown} {
+.options-cell ${StyledControlDropdown} {
     min-width: 200px;
     right: 155px;
     top: -6px;
@@ -101,6 +96,13 @@ const StyledTableCell = styled.td`
             margin-left: auto;
             width: 50px;
         `}
+        
+    ${({ hideOnMobile }) => hideOnMobile && `
+        display: none;
+        @media ${device.tablet} {
+            display: flex;
+        }
+    `}
 `
 
 const OptionsButton = styled.button`
@@ -189,7 +191,7 @@ const Table = props => {
                     }}
                 />
             )}
-            <StyledTable>
+            <StyledTable id={props.id}>
                 <StyledTableHeader>
                     <tr>
                         {props.columns.map(column => {
@@ -223,8 +225,11 @@ const Table = props => {
                             {props.columns.map(column => {
                                 const value = get(row, column.accessor, '')
                                 const cellPath = row.id + column.accessor
+                                const cellId = cellPath.split('.').join('-')
                                 return (
                                     <StyledTableCell
+                                        id={cellId}
+                                        data-testid={cellId}
                                         key={cellPath}
                                         hasData={true}
                                         hideOnMobile={column.hideOnMobile}
@@ -293,6 +298,7 @@ Table.propTypes = {
     /** Data array, any objects inside should have an id key for uniqueness */
     data: PropTypes.array,
     title: PropTypes.string,
+    id: PropTypes.string.isRequired,
     placeholder: PropTypes.string,
     /** Whether there is a search box rendered */
     hasSearch: PropTypes.bool
