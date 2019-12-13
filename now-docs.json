@@ -1,6 +1,7 @@
 {
     "version": 2,
     "name": "octopus-docs",
+    "scope": "stylindex",    
     "builds": [
         {
             "src": "package.json",
