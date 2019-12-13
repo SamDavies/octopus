@@ -1,13 +1,12 @@
 {
     "version": 2,
     "name": "octopus-docs",
-    "scope": "stylindex",    
     "builds": [
         {
             "src": "package.json",
             "use": "@now/static-build",
             "config": {
-                "distDir": ".docz/dist"
+                "distDir": ".docz/public"
             }
         }
     ]
