@@ -1,6 +1,6 @@
 {
     "name": "@stylindex/octopus",
-    "version": "0.5.10",
+    "version": "0.5.11",
     "description": "",
     "author": "stylindex",
     "license": "MIT",
@@ -85,6 +85,7 @@
         "gatsby-plugin-svgr": "^2.0.2",
         "gh-pages": "^1.2.0",
         "husky": "^3.0.9",
+        "initials": "^3.0.1",
         "lodash": "^4.17.15",
         "react": "^16.4.1",
         "react-dom": "^16.4.1",

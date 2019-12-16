@@ -36,6 +36,9 @@ const StyledCircleLogoWrapper = styled.div`
   align-items: center;
   border-radius: 100%;
   svg {
+    max-height: 100%;
+    height: 55px;
+    width: 123px;
     margin: auto;
     max-width: 100%;
   }
@@ -55,7 +58,7 @@ const StyledLink = styled(Link)`
 `
 
 const CircleLogo = ({ inverted, link, size }) => (
-    <StyledCircleLogoWrapper inverted={inverted} size={size}>
+    <StyledCircleLogoWrapper inverted={inverted} size={size} className="logo-wrapper">
         <StyledLink to='/' link={link.toString()}>
             <LogoImage />
         </StyledLink>
@@ -75,3 +78,8 @@ CircleLogo.defaultProps = {
 }
 
 export default CircleLogo
+
+export const Foo = styled(CircleLogo)`
+  background: red;
+
+`
