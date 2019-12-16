@@ -5,7 +5,7 @@ route: '/components/rating-picker'
 ---
 
 
-
+import { useState } from 'react'
 import RatingPicker from './'
 import { Playground, Props } from 'docz'
 
@@ -17,8 +17,15 @@ This is the ratings toggle component used inside the note form modals.
 <Props of={RatingPicker} />
 
 ## Basic usage
-
 <Playground>
-  <RatingPicker inputName="rating1" />
-  <RatingPicker inputName="rating2" defaultValue={4} />
+{() => {
+    const [rating, setRating] = useState(null)
+    const [rating2, setRating2] = useState(4)
+    return (
+      <div>
+      <RatingPicker inputName="rating1" rating={rating} onChange={value => setRating(value)} />
+      <RatingPicker inputName="rating2" rating={rating2} onChange={value => setRating2(value)} />
+      </div>
+    )
+}}
 </Playground>
