@@ -69,7 +69,7 @@ const RatingPicker = ({ onChange, defaultValue, inputName }) => {
                             number={number}
                             inputName={inputName}
                             title={ratingTitles[i]}
-                            onChange={e => setRating(+e.target.value)}
+                            onChange={e => changeRating(+e.target.value)}
                             isChecked={rating === number}
                         />
                     ))}
