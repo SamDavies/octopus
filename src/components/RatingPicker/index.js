@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { colors } from '../../styles'
 import StarInput from './StarInput'
@@ -46,48 +46,35 @@ export const StyledClearButton = styled.p`
 
 const ratingTitles = ['Sucks big time', 'Kinda bad', 'Meh', 'Pretty good', 'Awesome']
 
-const RatingPicker = ({ onChange, defaultValue, inputName }) => {
-    const [rating, setRating] = useState(null)
-    const changeRating = (value) => {
-        setRating(value)
-        onChange(value)
-    }
+const RatingPicker = ({ onChange, rating, inputName }) => (
+    <StyledRatingInner>
+        <StyledFieldset role="group" aria-label="Star Rating">
+            <div>
+                {[1, 2, 3, 4, 5].reverse().map((number, i) => (
+                    <StarInput
+                        key={number}
+                        number={number}
+                        inputName={inputName}
+                        title={ratingTitles[i]}
+                        onChange={e => onChange(+e.target.value)}
+                        isChecked={rating === number}
+                    />
+                ))}
+            </div>
 
-    useEffect(() => {
-        if (defaultValue) {
-            setRating(defaultValue)
-        }
-    }, [defaultValue])
-
-    return (
-        <StyledRatingInner>
-            <StyledFieldset role="group" aria-label="Star Rating">
-                <div>
-                    {[1, 2, 3, 4, 5].reverse().map((number, i) => (
-                        <StarInput
-                            key={number}
-                            number={number}
-                            inputName={inputName}
-                            title={ratingTitles[i]}
-                            onChange={e => changeRating(+e.target.value)}
-                            isChecked={rating === number}
-                        />
-                    ))}
-                </div>
-
-            </StyledFieldset>
-            {rating && <StyledClearButton
-                onClick={() => changeRating(null)}
-            >
+        </StyledFieldset>
+        {rating && <StyledClearButton
+            onClick={() => onChange(null)}
+        >
                 Clear
-            </StyledClearButton>}
-        </StyledRatingInner>
-    )
-}
+        </StyledClearButton>}
+    </StyledRatingInner>
+)
+
 RatingPicker.propTypes = {
     onChange: PropTypes.func.isRequired,
     inputName: PropTypes.string,
-    defaultValue: PropTypes.number
+    rating: PropTypes.number
 }
 
 RatingPicker.defaultProps = {
