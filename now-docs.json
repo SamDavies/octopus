@@ -7,8 +7,21 @@
             "src": "package.json",
             "use": "@now/static-build",
             "config": {
-                "distDir": ".docz/public"
+                "distDir": ".docz/dist"
             }
+        }
+    ],
+    "routes": [
+        {
+            "handle": "filesystem"
+        },
+        {
+            "src": "/(.*\\.(js|css|svg)$)",
+            "dest": "/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/index.html"
         }
     ]
    

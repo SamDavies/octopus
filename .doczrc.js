@@ -1,4 +1,3 @@
 export default {
-  dest: '/public',
-  public: '/'
+    public: '/'
 }
