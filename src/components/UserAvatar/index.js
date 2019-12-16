@@ -14,18 +14,18 @@ const avatarStyles = (size, bordered, borderColor) => `
   width: ${sizes[size]};
   height: ${sizes[size]};
   border-radius: 50%;
-  border: ${bordered ? `2px solid ${borderColor}` : 0};
+  border: ${bordered ? `2px solid ${colors[borderColor]}` : 0};
 `
 
 export const StyledImageAvatar = styled.div`
-  ${({ size, bordered, borderColor }) =>
-        avatarStyles(size, bordered, borderColor)} background-size: cover;
+  ${({ size, bordered, borderColor }) => avatarStyles(size, bordered, borderColor)} 
+  background-size: cover;
   background-image: url(${({ src }) => src || 'none'});
 `
 
 export const StyledTextAvatar = styled.div`
-  ${({ size, bordered, borderColor }) =>
-        avatarStyles(size, bordered, borderColor)} display: flex;
+  ${({ size, bordered, borderColor }) => avatarStyles(size, bordered, borderColor)}
+  display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
@@ -39,7 +39,7 @@ export const StyledTextAvatar = styled.div`
   text-align: center;
   cursor: pointer;
   color: ${colors.white};
-  background-color: ${({ bgColor }) => bgColor};
+  background-color: ${({ bgColor }) => colors[bgColor]};
 `
 
 const UserAvatar = ({ src, text, size, bordered, borderColor, bgColor }) => (
@@ -84,8 +84,8 @@ UserAvatar.defaultProps = {
     text: '',
     size: 'normal',
     bordered: false,
-    borderColor: colors.white,
-    bgColor: colors.black
+    borderColor: 'white',
+    bgColor: 'black'
 }
 
 export default UserAvatar

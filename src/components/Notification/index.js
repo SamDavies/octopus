@@ -14,9 +14,9 @@ const NotificationContainer = styled.div`
     align-items: center;
     background-color: ${colors.black};
     padding: 5px 25px;
-    width: max-content;
+    max-width: 400px;
     line-height: 15px;
-    height: 50px;
+    min-height: 50px;
     font-family: ${fonts.cera};
 
     .icon-wrapper {
@@ -41,7 +41,7 @@ const NotificationText = styled(StyledText).attrs(() => ({
     font-size: 14px;
     line-height: 15px;
     letter-spacing: 1px;
-    
+    overflow-wrap: break-word;
 
 `
 
