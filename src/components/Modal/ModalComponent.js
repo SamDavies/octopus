@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
-import styled, { css } from 'styled-components'
+import { createPortal } from 'react-dom'
+import styled, { css, keyframes } from 'styled-components'
 import { colors, device, headerHeight, headerMobileHeight } from '../../styles'
 import Button, { StyledButton } from '../Button'
 import Heading, { StyledHeading } from '../Heading'
@@ -37,6 +38,20 @@ const modalContentStyles = {
         }`
 }
 
+const modalAnimation = keyframes`
+  0% {
+    transform: scale(0.95);
+    opacity: 0.0;       
+  }
+  90% {
+    opacity: 1; 
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1; 
+  } 
+`
+
 const ModalWrapper = styled.div`
     position: fixed;
     top: 0;
@@ -47,6 +62,8 @@ const ModalWrapper = styled.div`
     display: flex;
     flex-direction: column;
     background: rgba(255,255,255, 0.5);
+    backdrop-filter: blur(8px);
+    animation: ${modalAnimation} 0.2s ease-out;
     overflow: scroll;
 `
 
@@ -174,7 +191,7 @@ const ModalComponent = props => {
         }
     })
 
-    return (
+    return createPortal(
         <ModalWrapper id="modalWrapper">
             {props.modalType === 'withLogo' && (
                 <StyledModalHead>
@@ -210,7 +227,8 @@ const ModalComponent = props => {
                     )}
                 </ModalActions>
             </ModalContent>
-        </ModalWrapper>
+        </ModalWrapper>,
+        modalContainer
     )
 }
 
