@@ -99,7 +99,9 @@ const ModalContent = styled.div`
     
 `
 const ModalChildren = styled.div`
-    margin-top: 16px;
+    &:not(:first-child) {
+        margin-top: 16px;
+    }
     &:not(:last-child) {
         margin-bottom: 26px;
     }
@@ -173,6 +175,7 @@ export const StyledLogoContainer = styled.div`
 const ModalComponent = props => {
     const modalContainer = document.createElement('div')
     const appContainer = document.getElementById(props.appId)
+    const hasActions = props.primaryButton || props.secondaryButton
     modalContainer.setAttribute('id', 'modalContainer')
 
     useEffect(() => {
@@ -207,25 +210,32 @@ const ModalComponent = props => {
                     </CloseButton>
                 )
                 }
-                {props.title && <Heading level={5} uppercase>{props.title}</Heading>}
-                <ModalChildren>
-                    {props.children}
-                </ModalChildren>
-                <ModalActions>
-                    {props.primaryButton && (
-                        <Button
-                            buttonType="primary"
-                            onClick={props.primaryButton.onClick}>
-                            {props.primaryButton.children}
-                        </Button>
+                <div>
+                    {props.title && <Heading level={5} uppercase>{props.title}</Heading>}
+                    <ModalChildren>
+                        {props.children}
+                    </ModalChildren>
+                    {hasActions && (
+                        <ModalActions>
+                            {props.primaryButton && (
+                                <Button
+                                    buttonType="primary"
+                                    disabled={props.primaryButton.disabled || false}
+                                    onClick={props.primaryButton.onClick}>
+                                    {props.primaryButton.children}
+                                </Button>
+                            )}
+                            {props.secondaryButton && (
+                                <SecondaryButton
+                                    onClick={props.secondaryButton.onClick}
+                                    disabled={props.secondaryButton.disabled || false}
+                                >
+                                    {props.secondaryButton.children}
+                                </SecondaryButton>
+                            )}
+                        </ModalActions>
                     )}
-                    {props.secondaryButton && (
-                        <SecondaryButton
-                            onClick={props.secondaryButton.onClick}>
-                            {props.secondaryButton.children}
-                        </SecondaryButton>
-                    )}
-                </ModalActions>
+                </div>
             </ModalContent>
         </ModalWrapper>,
         modalContainer
@@ -256,7 +266,8 @@ ModalComponent.propTypes = {
             PropTypes.node,
             PropTypes.element
         ]),
-        onClick: PropTypes.func
+        onClick: PropTypes.func,
+        disabled: PropTypes.bool
     }),
     /** Secondary action button for the modal. If you need a footer, add a button on your own */
     secondaryButton: PropTypes.shape({
@@ -265,7 +276,8 @@ ModalComponent.propTypes = {
             PropTypes.node,
             PropTypes.element
         ]),
-        onClick: PropTypes.func
+        onClick: PropTypes.func,
+        disabled: PropTypes.bool
     }),
     children: PropTypes.oneOfType([
         PropTypes.string,
