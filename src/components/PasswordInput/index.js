@@ -68,7 +68,15 @@ export const ValidateTitle = styled.span`
 `
 
 const PasswordInput = (props) => {
-    const { placeholder, password, name, onChange, error, label } = props
+    const {
+        placeholder,
+        password,
+        name,
+        onChange,
+        error,
+        label,
+        hideLabel
+    } = props
     const [buttonVisible, setButtonVisible] = useState(false)
     const [passwordVisible, setPasswordVisible] = useState(false)
 
@@ -81,7 +89,7 @@ const PasswordInput = (props) => {
     }
 
     return (
-        <PasswordWrapper>
+        <PasswordWrapper data-testid={`${name}-wrapper`}>
             <Input
                 name={name}
                 id={name}
@@ -91,7 +99,7 @@ const PasswordInput = (props) => {
                 placeholder={placeholder}
                 error={error}
                 label={label}
-                hideLabel
+                hideLabel={hideLabel}
                 onFocus={() => {
                     togglePasswordButton(password)
                 }}
@@ -126,11 +134,14 @@ PasswordInput.propTypes = {
     /** Function that handles password change */
     onChange: PropTypes.func.isRequired,
     /** Error message about input value */
-    error: PropTypes.string
+    error: PropTypes.string,
+    /** Hide the label of input */
+    hideLabel: PropTypes.bool
 }
 
 PasswordInput.defaultProps = {
-    error: ''
+    error: '',
+    hideLabel: true
 }
 
 export default PasswordInput
