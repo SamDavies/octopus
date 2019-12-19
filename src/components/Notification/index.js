@@ -1,12 +1,9 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-// import errorIcon from '../../static/images/ui/notifications/error.svg'
-// import successIcon from '../../static/images/ui/notifications/success.svg'
 import styled from 'styled-components'
 import { colors, fonts } from '../../styles'
 import Icon from '../Icon'
 import { StyledText } from '../Text'
-// import CloseNotificationMessage from './CloseNotificationMessage'
 
 const NotificationContainer = styled.div`
     display: flex;
