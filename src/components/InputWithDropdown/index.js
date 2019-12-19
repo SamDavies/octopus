@@ -22,35 +22,33 @@ const StyledWrapper = styled.div`
     }
 `
 
-const InputWithDropdown = props => {
-    return (
-        <StyledWrapper>
-            <Input
-                placeholder={props.placeholder}
-                data-testid={props.name}
-                name={props.name}
-                label={props.inputLabel}
-                id={props.name}
-                value={props.value}
-                disabled={props.disabled}
-                onChange={props.onInputChange}
-                hideLabel={false}
-                onKeyPress={props.onKeyPress}
-                onFocus={props.onFocus}
-                onBlur={props.onBlur}
-            />
-            <Select
-                label={props.selectLabel}
-                resetSelectedValue={() => { }}
-                showResetControls={false}
-                selectedValue={props.selectedValue}
-                options={props.options}
-                handleSelectChange={props.onSelectChange}
-                selectType='inline'
-            />
-        </StyledWrapper>
-    )
-}
+const InputWithDropdown = props => (
+    <StyledWrapper className="dropdown-wrapper">
+        <Input
+            placeholder={props.placeholder}
+            data-testid={props.name}
+            name={props.name}
+            label={props.inputLabel}
+            id={props.name}
+            value={props.value}
+            disabled={props.disabled}
+            onChange={props.onInputChange}
+            hideLabel={false}
+            onKeyPress={props.onKeyPress}
+            onFocus={props.onFocus}
+            onBlur={props.onBlur}
+        />
+        <Select
+            label={props.selectLabel}
+            resetSelectedValue={() => { }}
+            showResetControls={false}
+            selectedValue={props.selectedValue}
+            options={props.options}
+            handleSelectChange={props.onSelectChange}
+            selectType='inline'
+        />
+    </StyledWrapper>
+)
 
 InputWithDropdown.propTypes = {
     selectLabel: PropTypes.string,

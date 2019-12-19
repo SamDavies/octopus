@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { colors, device, fonts } from '../../styles'
 import ErrorMessage from '../ErrorMessage'
 
-export const InputSection = styled.div`
+export const StyledInputSection = styled.div`
   position: relative;
   text-align: left;
   width: 100%;
@@ -103,7 +103,7 @@ export const StyledInput = styled.input`
 `
 
 const Input = props => (
-    <InputSection>
+    <StyledInputSection>
         <StyledLabel
             htmlFor={props.name}
             isPlaceholder={props.hideLabel}
@@ -122,18 +122,21 @@ const Input = props => (
             type={props.type}
             ref={props.createRef}
             value={props.value}
+            readonly={props.readOnly}
             placeholder={props.placeholder}
             disabled={props.disabled}
             onChange={props.onChange}
             hideLabel={props.hideLabel}
             onKeyDown={props.onKeyDown}
+            onClick={props.onClick}
             onFocus={props.onFocus}
             onBlur={props.onBlur}
             error={props.error && !props.disabled}
             autoComplete={props.autoComplete}
+
         />
         {props.error && !props.disabled && <ErrorMessage>{props.error}</ErrorMessage>}
-    </InputSection>
+    </StyledInputSection>
 )
 
 Input.propTypes = {
@@ -159,12 +162,16 @@ Input.propTypes = {
     onFocus: PropTypes.func,
     /** onBlur event callback function */
     onBlur: PropTypes.func,
+    /** onClick event callback function */
+    onClick: PropTypes.func,
     /** input name */
     name: PropTypes.string.isRequired,
     /** is label hidden */
     hideLabel: PropTypes.bool,
-    /** is form required */
+    /** is field required */
     required: PropTypes.bool,
+    /** is readOnly required */
+    readOnly: PropTypes.bool,
     autoComplete: PropTypes.string
 }
 
@@ -173,12 +180,14 @@ Input.defaultProps = {
     value: '',
     placeholder: '',
     disabled: false,
+    readOnly: false,
     onChange: () => { },
     createRef: { current: null },
     type: 'text',
     onKeyDown: () => { },
     onFocus: () => { },
     onBlur: () => { },
+    onClick: () => { },
     hideLabel: false
 }
 
