@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { colors, fonts } from '../../styles'
 
 const UnavailableItem = `
@@ -35,6 +35,15 @@ export const StyledControlItem = styled.div`
   outline: none;
 
   ${({ isFetching }) => isFetching && UnavailableItem};
+`
+const isOpened = css`
+  ${props => props.isOpened && `
+     background: ${colors.white};
+      color: ${colors.coral} !important;
+      .fill-color {
+        fill: ${colors.coral} !important;
+      }
+  `}
 `
 
 export const StyledControlPlaceholder = styled.div`
@@ -73,7 +82,7 @@ export const StyledControlPlaceholder = styled.div`
     }
   `};
 
-  ${({ isFilterSelected, isOpened }) => isFilterSelected && `
+  ${(props) => props.isFilterSelected && `
     color: ${colors.white};
     background-color: ${colors.black};
     .icon-wrapper {
@@ -94,13 +103,7 @@ export const StyledControlPlaceholder = styled.div`
       }
     }
 
-    ${isOpened && `
-      background: ${colors.white};
-      color: ${colors.coral} !important;
-      .fill-color {
-        fill: ${colors.coral} !important;
-      }
-    `}
+    ${isOpened}
   `}
   
     

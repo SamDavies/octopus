@@ -24,6 +24,17 @@ const sizesStyles = {
     `
 }
 
+const inverseStyle = css`
+    ${props => props.inverse && `
+            background: transparent;
+            color: ${colors.coral};
+            border-width: 2px;
+            @media ${device.tablet} {
+                border-width: 0;
+            }
+        `}
+`
+
 export const StyledButton = styled.button`
   line-height: 1.55;
   font-size: 13px;
@@ -110,7 +121,7 @@ export const StyledButton = styled.button`
         }
   `}
 
-  ${({ buttonType, inverse }) => buttonType === 'coral' && `
+  ${props => props.buttonType === 'coral' && `
         position: relative;
         color: ${colors.white};
         background: ${colors.coral};
@@ -121,14 +132,7 @@ export const StyledButton = styled.button`
             border-color: ${colors.cloud};
         }
 
-        ${inverse && `
-            background: transparent;
-            color: ${colors.coral};
-            border-width: 2px;
-            @media ${device.tablet} {
-                border-width: 0;
-            }
-        `}
+        ${inverseStyle}
 
         &:active {
             background: ${colors.black};
