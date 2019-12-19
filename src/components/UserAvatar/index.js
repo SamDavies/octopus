@@ -42,8 +42,12 @@ export const StyledTextAvatar = styled.div`
   background-color: ${({ bgColor }) => colors[bgColor]};
 `
 
+const StyledAvatarWrapper = styled.div`
+    position: relative;
+`
+
 const UserAvatar = ({ src, text, size, bordered, borderColor, bgColor }) => (
-    <div>
+    <StyledAvatarWrapper className='avatar-wrapper'>
         {src ? (
             <StyledImageAvatar
                 size={size}
@@ -61,7 +65,7 @@ const UserAvatar = ({ src, text, size, bordered, borderColor, bgColor }) => (
                 {initials(text)}
             </StyledTextAvatar>
         )}
-    </div>
+    </StyledAvatarWrapper>
 )
 
 UserAvatar.propTypes = {
