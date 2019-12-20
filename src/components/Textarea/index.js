@@ -38,7 +38,6 @@ const StyledTextarea = styled.textarea`
   }
   &:focus {
       border-color: ${colors.lightSalmon};
-    //   box-shadow: 0 0 0 4px ${colors.aqua};
       outline: none;
   }
   &:disabled {
