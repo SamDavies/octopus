@@ -1,64 +1,84 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
-import { colors, fonts } from '../../styles'
+import { fonts } from '../../styles'
 
-const sizes = {
-    small: {
-        fontSize: 11,
-        lineHeight: 1.27
-    },
-    normal: {
-        fontSize: 13,
-        lineHeight: 1.25
-    },
-    large: {
-        fontSize: 16,
-        lineHeight: 1.25
-    },
-    extraLarge: {
-        fontSize: 40,
-        lineHeight: 1.25
-    }
-}
-
-export const StyledText = styled.p`
+export const StyledText = styled.div`
   position: relative;
   font-family: ${({ font }) => fonts[font]};
-  font-size: ${({ size }) => sizes[size].fontSize}px;
-  font-weight: ${({ bold }) => (bold ? 'bold' : 500)};
+  font-weight: ${({ bold }) => (bold ? 'bold' : 800)};
   font-style: ${({ italic }) => (italic ? 'italic' : 'normal')};
   font-stretch: normal;
-  line-height: ${({ size }) => sizes[size].lineHeight};
   letter-spacing: normal;
-  color: ${({ color }) => colors[color]};
   text-transform: ${({ uppercase }) => (uppercase ? 'uppercase' : 'none')};
-  margin: ${({ size }) => `0 0 ${sizes[size].fontSize / 2}px 0`};
-  ${({ underline, color }) => underline && `
-        &:after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: ${colors[color]};
-        }
-    `};
 `
 
-const Text = ({ children, ...props }) => (
-    <StyledText {...props}>{children}</StyledText>
-)
+const Text1 = styled(StyledText)`
+    font-size: calc(30px + 1vw);
+`
+
+const Text2 = styled(StyledText)`
+    font-size: calc(24px + 1vw);
+`
+
+const Text3 = styled(StyledText)`
+    font-size: calc(20px + 1vw);
+`
+
+const Text4 = styled(StyledText)`
+    font-size: calc(16px + 1vw);
+`
+
+const Text5 = styled(StyledText)`
+    font-size: calc(13px + 1vw);
+`
+
+const Text6 = styled(StyledText)`
+    font-size: calc(11px + 1vw);
+`
+
+const Text = props => {
+    if (props.level === 1) {
+        return <Text1 {...props}>
+            {props.children}
+        </Text1>
+    }
+
+    if (props.level === 2) {
+        return <Text2 {...props}>
+            {props.children}
+        </Text2>
+    }
+
+    if (props.level === 3) {
+        return <Text3 {...props}>
+            {props.children}
+        </Text3>
+    }
+
+    if (props.level === 4) {
+        return <Text4 {...props}>
+            {props.children}
+        </Text4>
+    }
+
+    if (props.level === 6) {
+        return <Text6 {...props}>
+            {props.children}
+        </Text6>
+    }
+
+    return <Text5 {...props}>
+        {props.children}
+    </Text5>
+}
 
 Text.propTypes = {
-    size: PropTypes.oneOf(['small', 'normal', 'large', 'extraLarge']),
+    level: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
     font: PropTypes.oneOf(['cera', 'literata']),
     bold: PropTypes.bool,
     uppercase: PropTypes.bool,
-    underline: PropTypes.bool,
     italic: PropTypes.bool,
-    color: PropTypes.string,
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node
@@ -67,10 +87,8 @@ Text.propTypes = {
 
 Text.defaultProps = {
     size: 'normal',
-    color: 'black',
     font: 'cera',
     bold: false,
-    underline: false,
     italic: false,
     uppercase: false
 }
