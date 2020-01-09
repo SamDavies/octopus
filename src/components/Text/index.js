@@ -6,7 +6,7 @@ import { fonts } from '../../styles'
 export const StyledText = styled.div`
   position: relative;
   font-family: ${({ font }) => fonts[font]};
-  font-weight: ${({ bold }) => (bold ? 'bold' : 800)};
+  font-weight: ${({ bold }) => (bold ? 800 : 500)};
   font-style: ${({ italic }) => (italic ? 'italic' : 'normal')};
   font-stretch: normal;
   letter-spacing: normal;
