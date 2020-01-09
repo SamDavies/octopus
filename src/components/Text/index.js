@@ -22,19 +22,19 @@ const Text2 = styled(StyledText)`
 `
 
 const Text3 = styled(StyledText)`
-    font-size: calc(20px + 1vw);
+    font-size: calc(20px);
 `
 
 const Text4 = styled(StyledText)`
-    font-size: calc(16px + 1vw);
+    font-size: calc(16px);
 `
 
 const Text5 = styled(StyledText)`
-    font-size: calc(13px + 1vw);
+    font-size: calc(13px);
 `
 
 const Text6 = styled(StyledText)`
-    font-size: calc(11px + 1vw);
+    font-size: calc(11px);
 `
 
 const Text = props => {
