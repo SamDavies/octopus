@@ -14,27 +14,27 @@ export const StyledText = styled.div`
 `
 
 const Text1 = styled(StyledText)`
-    font-size: calc(30px + 1vw);
+    font-size: 42px;
 `
 
 const Text2 = styled(StyledText)`
-    font-size: calc(24px + 1vw);
+    font-size: 32px
 `
 
 const Text3 = styled(StyledText)`
-    font-size: 20px
+    font-size: 28px
 `
 
 const Text4 = styled(StyledText)`
-    font-size: 16px;
+    font-size: 24px;
 `
 
 const Text5 = styled(StyledText)`
-    font-size: 13px;
+    font-size: 16px;
 `
 
 const Text6 = styled(StyledText)`
-    font-size: 11px;
+    font-size: 13px;
 `
 
 const Text = props => {
