@@ -172,6 +172,10 @@ export const StyledLogoContainer = styled.div`
   margin: 0 auto;
 `
 
+export const StyledModalContent = styled.div`
+    width: 100%;
+`
+
 const ModalComponent = props => {
     const modalContainer = document.createElement('div')
     const appContainer = document.getElementById(props.appId)
@@ -210,7 +214,7 @@ const ModalComponent = props => {
                     </CloseButton>
                 )
                 }
-                <div>
+                <StyledModalContent>
                     {props.title && <Heading level={5} uppercase>{props.title}</Heading>}
                     <ModalChildren>
                         {props.children}
@@ -235,7 +239,7 @@ const ModalComponent = props => {
                             )}
                         </ModalActions>
                     )}
-                </div>
+                </StyledModalContent>
             </ModalContent>
         </ModalWrapper>,
         modalContainer
