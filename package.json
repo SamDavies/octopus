@@ -16,7 +16,7 @@
         "test": "cross-env CI=1 react-scripts test --env=jsdom",
         "test:watch": "react-scripts test --env=jsdom",
         "build:package": "rollup -c",
-        "start": "rollup -c -w",
+        "start": "docz dev",
         "lint": "eslint src",
         "eject": "react-scripts eject",
         "docz:dev": "docz dev",
