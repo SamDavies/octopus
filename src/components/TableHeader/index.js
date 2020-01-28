@@ -3,7 +3,6 @@ import { colors } from '../../styles'
 
 export const TableHeader = styled.div`
     display: flex;
-    flex-direction: row;
     background-color: ${colors.grey9};
     border-bottom: 1px solid ${colors.grey8};
     &:last-child { 
