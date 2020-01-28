@@ -16,8 +16,18 @@ export const legacyColors = {
     gold: '#F0D52D'
 }
 
-export const primaryColors = {
+export const greyScaleColors = {
     white: '#fff',
+    grey10: '#fafafa',
+    grey9: '#f3f3f3',
+    grey8: '#eaeaea',
+    grey7: '#d0d0d0',
+    grey6: '#999',
+    grey5: '#888',
+    grey4: '#666',
+    grey3: '#444',
+    grey2: '#333',
+    grey1: '#111',
     black: '#000'
 }
 
@@ -44,7 +54,7 @@ export const accentColors = {
 }
 
 const colors = {
-    ...primaryColors,
+    ...greyScaleColors,
     ...uiColors,
     ...accentColors
 }
