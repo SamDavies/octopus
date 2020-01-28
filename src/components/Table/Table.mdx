@@ -8,6 +8,7 @@ import { useState, Fragment } from 'react'
 import BlockContainer from '../../docs/components/BlockContainer'
 import mockTableData from '../../docs/helpers/mockTableData'
 import Panel from '../Panel'
+import Checkbox from '../Checkbox'
 import TableSearchCell from '../TableSearchCell'
 import TableHeaderCell from '../TableHeaderCell'
 import TableHeader from '../TableHeader'
@@ -41,6 +42,9 @@ import { Playground, Props } from 'docz'
         
         return (<Panel noPadding>
             <TableHeader>
+                <TableHeaderCell width="60px">
+                    <Checkbox/>
+                </TableHeaderCell>
                 <TableHeaderCell width="80px">
                     ID
                 </TableHeaderCell>
@@ -59,6 +63,9 @@ import { Playground, Props } from 'docz'
             </TableHeader>
             {rows.map(row => 
                 <TableRow key={row.id}>
+                    <TableCell width="60px">
+                        <Checkbox/>
+                    </TableCell>
                     <TableCell width="80px">
                         {row.id}
                     </TableCell>

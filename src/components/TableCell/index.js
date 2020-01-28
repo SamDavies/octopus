@@ -15,6 +15,8 @@ export const TableCell = styled.div`
     padding-bottom: 8px;
     font-family: ${fonts.cera};
     font-size: 14px;
+    display: flex;
+    align-items: center;
 `
 
 TableCell.propTypes = {
