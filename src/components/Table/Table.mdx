@@ -4,54 +4,81 @@ menu: Components
 route: '/components/Table'
 ---
 
-
-
-import Table from './'
 import { useState, Fragment } from 'react'
 import BlockContainer from '../../docs/components/BlockContainer'
 import mockTableData from '../../docs/helpers/mockTableData'
+import Panel from '../Panel'
+import Checkbox from '../Checkbox'
+import TableSearchCell from '../TableSearchCell'
+import TableHeaderCell from '../TableHeaderCell'
+import TableHeader from '../TableHeader'
+import TableRow from '../TableRow'
+import TableCell from '../TableCell'
 import { Playground, Props } from 'docz'
 
 # Table
 
-Table component. Loosely inspired by the react-table library. The component supports filtering, sorting, custom cell components, and extra dropdown actions per row.
- 
-## Properties
-<Props of={Table} />
-
 ## Basic usage
 
-### Normal table
 <Playground>
-<Table
-    columns={mockTableData.columns}
-    data={mockTableData.data}
-/>
-</Playground>
-
-### Table with title and search and options
-<Playground>
-<Table
-    title="Table title"
-    hasSearch={true}
-    columns={mockTableData.columns}
-    data={mockTableData.data}
-    options={[{
-        id: 'test',
-        name: 'Test Option',
-        onClick: () => alert('You clicked me!')
-    }]}
-/>
-</Playground>
-
-
-### Table with custom cells
-<Playground>
-<Table
-    columns={mockTableData.columns}
-    data={mockTableData.data}
-    customComponents={{
-        cell: (value) => <button>{value}</button>
+    {() => {
+        const [title, setTitle] = useState('')
+        const rows = [{
+            id: 1,
+            name: 'Sam',
+            title: 'CTO',
+            description: 'Some longer text'
+        }, {
+            id: 2,
+            name: 'Holly',
+            title: 'CTO',
+            description: 'Some more text'
+        }, {
+            id: 3,
+            name: 'Brenden',
+            title: 'COO',
+            description: 'Some other text'
+        }]
+        
+        return (<Panel noPadding>
+            <TableHeader>
+                <TableHeaderCell width="60px">
+                    <Checkbox/>
+                </TableHeaderCell>
+                <TableHeaderCell width="80px">
+                    ID
+                </TableHeaderCell>
+                <TableHeaderCell flex={1}>
+                    Name
+                </TableHeaderCell>
+                <TableSearchCell 
+                    flex={1}
+                    placeholder='Title'
+                    value={title}
+                    onChange={e => setTitle(e.target.value)}
+                />
+                <TableHeaderCell flex={2}>
+                    Description
+                </TableHeaderCell>
+            </TableHeader>
+            {rows.map(row => 
+                <TableRow key={row.id}>
+                    <TableCell width="60px">
+                        <Checkbox/>
+                    </TableCell>
+                    <TableCell width="80px">
+                        {row.id}
+                    </TableCell>
+                    <TableCell flex={1}>
+                        {row.name}
+                    </TableCell>
+                    <TableCell flex={1}>
+                        {row.title}
+                    </TableCell>
+                    <TableCell flex={2}>
+                        {row.description}
+                    </TableCell>
+                </TableRow>)}
+        </Panel>)
     }}
-/>
 </Playground>
