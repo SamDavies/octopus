@@ -61,10 +61,11 @@ const ModalWrapper = styled.div`
     z-index: 100000;
     display: flex;
     flex-direction: column;
-    background: rgba(255,255,255, 0.5);
+    background: rgba(255,255,255, 0.8);
     backdrop-filter: blur(8px);
     animation: ${modalAnimation} 0.2s ease-out;
     overflow: scroll;
+    width: 100vw;
 `
 
 const ModalContent = styled.div`
@@ -75,7 +76,6 @@ const ModalContent = styled.div`
     padding: 40px;
     position: relative;
     height: ${({ isAutoHeight }) => (isAutoHeight ? 'auto' : '100%')};
-    width: 100%;
 
     @media ${device.tablet} {
         margin: auto;
