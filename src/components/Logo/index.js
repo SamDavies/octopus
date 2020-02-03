@@ -7,17 +7,16 @@ import { colors } from '../../styles'
 
 const logoSizes = {
     default: css`
-    width: 100%;
-  `,
+        width: 100%;
+    `,
     normal: css`
-    margin: 0 auto;
-    width: 320px;
-  `,
+        margin: 0 auto;
+        width: 320px;
+    `,
     header: css`
-    margin: 0 auto;
-    width: 250px;
-    max-width: 80%;
-  `
+        margin: 0 auto;
+        max-width: 80%;
+    `
 }
 
 const StyledLogoWrapper = styled.div`
