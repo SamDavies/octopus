@@ -47,7 +47,7 @@ export default [
             babel({
                 exclude: 'node_modules/**',
                 plugins: [
-                    'external-helpers', 'babel-plugin-styled-components'
+                    '@babel/plugin-external-helpers', 'babel-plugin-styled-components'
                 ]
             }),
             commonjs()
