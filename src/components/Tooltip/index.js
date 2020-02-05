@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React, { cloneElement } from 'react'
 import TooltipTrigger from 'react-popper-tooltip'
 import styled from 'styled-components'
+import isString from 'lodash/isString'
 import { colors, fonts } from '../../styles'
 
 export const StyledTooltip = styled.div`
@@ -60,8 +61,15 @@ export const StyledTooltip = styled.div`
     }
 `
 
-const Tooltip = props => (
-    <TooltipTrigger
+const Tooltip = props => {
+    const tooltipContent = isString(props.tipText)
+        ? props.tipText
+            .split('\n').map(item => (
+                <p key={item}>{item}</p>
+            ))
+        : props.tipText
+
+    return <TooltipTrigger
         {...(
             props.hideTip
                 ? { tooltipShown: false }
@@ -77,9 +85,7 @@ const Tooltip = props => (
                     position: tooltip.placement
                 })}
             >
-                {props.tipText.split('\n').map(item => (
-                    <p key={item}>{item}</p>
-                ))}
+                {tooltipContent}
             </StyledTooltip>
         )}
     >
@@ -92,7 +98,7 @@ const Tooltip = props => (
             )
         }
     </TooltipTrigger>
-)
+}
 
 Tooltip.propTypes = {
     /* Hides the tooltip */
