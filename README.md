@@ -8,3 +8,8 @@ In addition to components, this repo contains two CSS files - one with reset sty
 
 Fonts are currently hosted on our static assets url (see src/css/fonts.css). These fonts, and additional CSS can be used by simply importing `@stylindex/octopus/fonts.css` at the top level of your application, providing you have [css-loading](https://webpack.js.org/loaders/css-loader/) in your build pipeline.
 
+## Development
+
+This project uses [Docz](https://github.com/doczjs/docz) to generate the development playground and environment. To run the development env use `yarn start`.
+
+To create a component entry in the documentation simply create an `<ComponentName>.mdx` file in the same directory as the component. Full details on using docz can be found on the above link.
