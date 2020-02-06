@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types'
-import React, { cloneElement } from 'react'
+import React from 'react'
 import TooltipTrigger from 'react-popper-tooltip'
 import styled from 'styled-components'
+import isFunction from 'lodash/isFunction'
 import { colors, fonts } from '../../styles'
 
 export const StyledTooltip = styled.div`
@@ -60,15 +61,18 @@ export const StyledTooltip = styled.div`
     }
 `
 
-const Tooltip = props => (
-    <TooltipTrigger
-        {...(
-            props.hideTip
-                ? { tooltipShown: false }
-                : {}
-        )}
+const Tooltip = props => {
+    const tooltipContent = isFunction(props.renderContent)
+        ? props.renderContent(props)
+        : props.renderContent
+
+    const tooltipTrigger = isFunction(props.renderTrigger)
+        ? props.renderTrigger(props)
+        : props.renderTrigger
+
+    return <TooltipTrigger
         placement={props.position}
-        trigger="hover"
+        trigger='hover'
         tooltip={tooltip => (
             <StyledTooltip
                 {...tooltip.getTooltipProps({
@@ -77,27 +81,33 @@ const Tooltip = props => (
                     position: tooltip.placement
                 })}
             >
-                {props.tipText.split('\n').map(item => (
-                    <p key={item}>{item}</p>
-                ))}
+                {tooltipContent}
             </StyledTooltip>
         )}
     >
         {trigger =>
-            cloneElement(
-                props.children,
-                trigger.getTriggerProps({
+            <span
+                {...trigger.getTriggerProps({
                     ref: trigger.triggerRef
-                })
-            )
+                })}
+            >
+                {tooltipTrigger}
+            </span>
         }
     </TooltipTrigger>
-)
+}
 
 Tooltip.propTypes = {
     /* Hides the tooltip */
     hideTip: PropTypes.bool,
-    tipText: PropTypes.oneOfType([
+    renderContent: PropTypes.oneOfType([
+        PropTypes.element,
+        PropTypes.string,
+        PropTypes.arrayOf(
+            PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+        )
+    ]).isRequired,
+    renderTrigger: PropTypes.oneOfType([
         PropTypes.element,
         PropTypes.string,
         PropTypes.arrayOf(

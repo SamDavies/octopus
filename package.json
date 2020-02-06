@@ -1,6 +1,6 @@
 {
     "name": "@stylindex/octopus",
-    "version": "0.7.0",
+    "version": "0.8.0",
     "description": "",
     "author": "stylindex",
     "license": "MIT",
@@ -19,6 +19,7 @@
         "start": "docz dev",
         "lint": "eslint src",
         "eject": "react-scripts eject",
+        "serve": "docz build && docs serve",
         "docz:dev": "docz dev",
         "docz:build": "docz build",
         "build": "yarn docz:build",
@@ -67,6 +68,7 @@
         "@babel/preset-env": "^7.8.4",
         "@babel/preset-react": "^7.8.3",
         "@svgr/rollup": "^2.4.1",
+        "@svgr/webpack": "^5.1.0",
         "@testing-library/react": "^9.3.2",
         "babel-eslint": "^8.2.5",
         "babel-loader": "^8.0.6",
