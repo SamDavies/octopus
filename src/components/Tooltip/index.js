@@ -63,11 +63,11 @@ export const StyledTooltip = styled.div`
 
 const Tooltip = props => {
     const tooltipContent = isFunction(props.renderContent)
-        ? props.renderContent()
+        ? props.renderContent(props)
         : props.renderContent
 
     const tooltipTrigger = isFunction(props.renderTrigger)
-        ? props.renderTrigger()
+        ? props.renderTrigger(props)
         : props.renderTrigger
 
     return <TooltipTrigger
