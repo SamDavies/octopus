@@ -19,6 +19,7 @@
         "start": "docz dev",
         "lint": "eslint src",
         "eject": "react-scripts eject",
+        "serve": "docz build && docs serve",
         "docz:dev": "docz dev",
         "docz:build": "docz build",
         "build": "yarn docz:build",
