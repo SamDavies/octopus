@@ -8,7 +8,8 @@ route: '/components/tooltip'
 import { Fragment } from 'react'
 import Tooltip, { StyledTooltip } from './'
 import { Playground, Props } from 'docz'
-import { DemoContent, DemoTrigger } from './DemoElements'
+import Button from '../../docs/components/Button'
+import Image from '../../docs/components/Image'
 
 # Tooltip
 
@@ -30,15 +31,15 @@ This is a wrapper that adds a tooltip to a child element.
     </li>
     <li>
         <Tooltip
-            renderTrigger={<DemoTrigger text="a demo tooltip with more complex content and trigger" />}
-            renderContent={<DemoContent src='https://lesbaa.github.io/img/z-loki.gif' text='an image!' />}
+            renderTrigger={<Button text="a demo tooltip with more complex content and trigger" />}
+            renderContent={<Image src='https://lesbaa.github.io/img/z-loki.gif' text='an image!' />}
             position='right'
         />
     </li>
     <li>
         <Tooltip
-            renderTrigger={<DemoTrigger text="a demo tooltip with a function render prop" />}
-            renderContent={() => <DemoContent src='https://lesbaa.github.io/img/z-loki.gif' text='an image but in a functional render prop!' />}
+            renderTrigger={<Button text="a demo tooltip with a function render prop" />}
+            renderContent={() => <Image src='https://lesbaa.github.io/img/z-loki.gif' text='an image but in a functional render prop!' />}
             position='right'
         />
     </li>
