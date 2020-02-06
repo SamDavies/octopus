@@ -23,7 +23,7 @@ const StyledWrapper = styled.div`
 `
 
 const InputWithDropdown = props => (
-    <StyledWrapper className="dropdown-wrapper">
+    <StyledWrapper className='dropdown-wrapper'>
         <Input
             placeholder={props.placeholder}
             data-testid={props.name}

@@ -7,6 +7,13 @@ export const TableRow = styled.div`
     &:last-child { 
         border-bottom: none; 
     }
+    
+    ${props => props.onClick && `
+        cursor: pointer;
+        &:hover {
+            background-color: ${colors.grey10}
+        }
+    `}
 `
 
 export default TableRow

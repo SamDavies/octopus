@@ -27,8 +27,8 @@ const StyledWrapper = styled.div`
 const IconDisplay = () => (
     <StyledWrapper>
         {iconNames.map(key => (
-            <div key={key} className="icon-block">
-                <div className="icon-label">{key}</div>
+            <div key={key} className='icon-block'>
+                <div className='icon-label'>{key}</div>
                 <Icon icon={key} strokeColor='none' />
             </div>
         ))}

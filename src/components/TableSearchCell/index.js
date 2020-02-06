@@ -34,7 +34,7 @@ export const StyledTableSearchCell = styled.div`
 
 const TableSearchCell = props =>
     <StyledTableSearchCell {...props}>
-        <Icon fillColor='grey5' icon="search" width={15} height={15} />
+        <Icon fillColor='grey5' icon='search' width={15} height={15} />
         <StyledInput
             value={props.value}
             placeholder={props.placeholder}

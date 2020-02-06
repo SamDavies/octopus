@@ -52,10 +52,10 @@ const Select = props => {
             <StyledControlItem
                 ref={control}
                 isFetching={props.isFetching}
-                role="option"
+                role='option'
                 tabIndex={0}
                 id={`dropdown__${props.id}`}
-                data-role="dropdown-filter"
+                data-role='dropdown-filter'
             >
                 {props.customPlaceholder ? (
                     props.renderCustomPlaceholder(title, isOpened)
@@ -64,22 +64,22 @@ const Select = props => {
                         data-testid={`selected-${selectedFilterName}`}
                         ref={title}
                         isOpened={isOpened}
-                        data-role="dropdown-value-display"
+                        data-role='dropdown-value-display'
                         selectType={props.selectType}
                         data-opened={isOpened}
                         isFilterSelected={selectedFilterName}
                     >
                         {selectedFilterName || props.label}
-                        <Icon icon="dropdown-arrow" width={22} height={22} />
+                        <Icon icon='dropdown-arrow' width={22} height={22} />
                     </StyledControlPlaceholder>
                 )}
                 <StyledControlDropdown offset={offset + 45} isVisible={isOpened}>
                     {showViewAll && (
                         <StyledViewAllOption
-                            role="option"
+                            role='option'
                             tabIndex={0}
-                            key="reset"
-                            value="@@resetFilter"
+                            key='reset'
+                            value='@@resetFilter'
                             onClick={handleResetItem}
                         >
                             View all
@@ -94,14 +94,14 @@ const Select = props => {
                                     <StyledDefaultOption
                                         key={value}
                                         data-testid={`option-${value}`}
-                                        role="option"
+                                        role='option'
                                         tabIndex={0}
                                         bordered={false}
                                         selected={value === props.selectedValue}
                                         onClick={() =>
                                             props.handleSelectChange(props.filterId, value, option)
                                         }
-                                        data-role="dropdown-option"
+                                        data-role='dropdown-option'
                                     >
                                         {name}
                                         {props.showResetControls && value === props.selectedValue && (
@@ -112,8 +112,8 @@ const Select = props => {
                                                 <Icon
                                                     width={10}
                                                     height={10}
-                                                    fillColor="white"
-                                                    icon="close"
+                                                    fillColor='white'
+                                                    icon='close'
                                                 />
                                             </div>
                                         )}
