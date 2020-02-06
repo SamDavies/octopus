@@ -199,7 +199,7 @@ const ModalComponent = props => {
     })
 
     return createPortal(
-        <ModalWrapper id="modalWrapper">
+        <ModalWrapper id='modalWrapper'>
             {props.modalType === 'withLogo' && (
                 <StyledModalHead>
                     <StyledLogoContainer>
@@ -209,8 +209,8 @@ const ModalComponent = props => {
             )}
             <ModalContent {...props}>
                 {props.onClose && (
-                    <CloseButton onClick={props.onClose} type="button">
-                        <Icon icon="close" width={16} height={16} fillColor='black' />
+                    <CloseButton onClick={props.onClose} type='button'>
+                        <Icon icon='close' width={16} height={16} fillColor='black' />
                     </CloseButton>
                 )
                 }
@@ -223,7 +223,7 @@ const ModalComponent = props => {
                         <ModalActions>
                             {props.primaryButton && (
                                 <Button
-                                    buttonType="primary"
+                                    buttonType='primary'
                                     disabled={props.primaryButton.disabled || false}
                                     onClick={props.primaryButton.onClick}>
                                     {props.primaryButton.children}

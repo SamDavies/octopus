@@ -72,7 +72,7 @@ const SearchInput = props => {
                     props.onBlur(e)
                 }}
             />
-            <Icon icon="search" width={15} height={15} />
+            <Icon icon='search' width={15} height={15} />
         </InputWrapper>
     )
 }

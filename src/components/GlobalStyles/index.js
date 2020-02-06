@@ -5,9 +5,9 @@ import GlobalReset from './GlobalReset'
 
 const GlobalStyles = () =>
     <Fragment>
-        <GlobalFonts/>
-        <GlobalReset/>
-        <GlobalBody/>
+        <GlobalFonts />
+        <GlobalReset />
+        <GlobalBody />
     </Fragment>
 
 export default GlobalStyles

@@ -32,7 +32,7 @@ export const StyledIconWrapper = styled.span`
 const Icon = (props) => {
     return (
         <StyledIconWrapper
-            className="icon-wrapper"
+            className='icon-wrapper'
             height={props.height}
             width={props.width}
             fillColor={props.fillColor}
