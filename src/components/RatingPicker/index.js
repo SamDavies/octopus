@@ -48,7 +48,7 @@ const ratingTitles = ['Sucks big time', 'Kinda bad', 'Meh', 'Pretty good', 'Awes
 
 const RatingPicker = ({ onChange, rating, inputName }) => (
     <StyledRatingInner>
-        <StyledFieldset role="group" aria-label="Star Rating">
+        <StyledFieldset role='group' aria-label='Star Rating'>
             <div>
                 {[1, 2, 3, 4, 5].reverse().map((number, i) => (
                     <StarInput

@@ -16,8 +16,8 @@ const StyledCustomCheckbox = styled.span`
         position: relative;
         margin: auto;
         display: inline-block;
-        width: 6.5px;
-        height: 6.5px;
+        width: 6px;
+        height: 6px;
         background: ${colors.salmon};
         opacity: 0;
     }
@@ -53,6 +53,7 @@ const StyledLabelText = styled(StyledText).attrs(() => ({
 `
 
 const StyledWrapper = styled.label`
+    cursor: pointer;
     display: flex;
     align-items: center;
     input {
@@ -74,39 +75,45 @@ const StyledWrapper = styled.label`
 `
 
 const Checkbox = props => {
+    const onClick = e => {
+        e.stopPropagation()
+    }
+
     const handleKeyPress = (e) => {
+        e.stopPropagation()
         const enterOrSpace = e.key === 'Enter' || e.key === 'Space'
         if (enterOrSpace && !props.disabled) {
             return props.onChange()
         }
     }
-    return (
-        <StyledWrapper htmlFor={props.id}>
-            <input
-                type={props.inputType}
-                id={props.id}
-                name={props.name}
-                value={props.value}
-                disabled={props.disabled}
-                checked={props.checked}
-                onChange={props.onChange}
-            />
-            <StyledCustomCheckbox
-                role="checkbox"
-                tabIndex={props.disabled ? '-1' : '0'}
-                onKeyDown={handleKeyPress}
-                aria-checked={props.checked}
-                aria-labelledby={`${props.id}_label`}
-            />
-            <StyledLabelText
-                as='span'
-                id={`${props.id}_label`}
-                className='label-text'
-            >
-                {props.labelText}
-            </StyledLabelText>
-        </StyledWrapper>
-    )
+
+    return <StyledWrapper htmlFor={props.id}>
+        <input
+            type={props.inputType}
+            id={props.id}
+            name={props.name}
+            value={props.value}
+            disabled={props.disabled}
+            checked={props.checked}
+            onChange={props.onChange}
+            onClick={onClick}
+        />
+        <StyledCustomCheckbox
+            role='checkbox'
+            tabIndex={props.disabled ? '-1' : '0'}
+            onKeyDown={handleKeyPress}
+            aria-checked={props.checked}
+            aria-labelledby={`${props.id}_label`}
+            onClick={onClick}
+        />
+        <StyledLabelText
+            as='span'
+            id={`${props.id}_label`}
+            className='label-text'
+        >
+            {props.labelText}
+        </StyledLabelText>
+    </StyledWrapper>
 }
 
 Checkbox.propTypes = {

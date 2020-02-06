@@ -44,7 +44,7 @@ const Icon = (props) => {
     const SvgIcon = icons[props.icon]
     return (
         <StyledIconWrapper
-            className="icon-wrapper"
+            className='icon-wrapper'
             height={props.height}
             width={props.width}
             fillColor={props.fillColor}

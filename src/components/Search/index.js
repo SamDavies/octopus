@@ -12,7 +12,7 @@ const Search = props => {
                 selectedValue={props.selectedValue}
                 options={props.options}
                 handleSelectChange={props.onSelectChange}
-                customPlaceholder={true}
+                customPlaceholder
                 renderCustomPlaceholder={(title, isOpened) => (
                     <SearchInput
                         inputRef={title}
