@@ -11,18 +11,20 @@ const Panel = styled.div`
         border-bottom: 1px solid ${colors.grey8};
     
         @media (min-width: 576px) {
-            border-radius: 4px;
+            border-radius: 2px;
             border-right: 1px solid ${colors.grey8};
             border-left: 1px solid ${colors.grey8};
-        }`}
+        }
+    `}
         
-     ${props => !props.noPadding && `
-        padding: 20px`}
+    ${props => !props.noPadding && `
+        padding: 20px
+    `}
         
     ${props => !props.responsive && `
-        border-radius: 4px;
+        border-radius: 2px;
         border: 1px solid ${colors.grey8};
-        `}
+    `}
         
     ${props => props.mobileHidden && `
         @media (max-width: 576px) {

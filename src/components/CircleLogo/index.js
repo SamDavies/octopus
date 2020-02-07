@@ -58,7 +58,7 @@ const StyledLink = styled(Link)`
 `
 
 const CircleLogo = ({ inverted, link, size }) => (
-    <StyledCircleLogoWrapper inverted={inverted} size={size} className="logo-wrapper">
+    <StyledCircleLogoWrapper inverted={inverted} size={size} className='logo-wrapper'>
         <StyledLink to='/' link={link.toString()}>
             <LogoImage />
         </StyledLink>

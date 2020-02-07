@@ -62,7 +62,7 @@ import { Playground, Props } from 'docz'
                 </TableHeaderCell>
             </TableHeader>
             {rows.map(row => 
-                <TableRow key={row.id}>
+                <TableRow key={row.id} onClick={() => alert('Row clicked!')}>
                     <TableCell width="60px">
                         <Checkbox/>
                     </TableCell>

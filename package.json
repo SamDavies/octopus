@@ -1,6 +1,6 @@
 {
     "name": "@stylindex/octopus",
-    "version": "0.8.0",
+    "version": "0.8.2",
     "description": "",
     "author": "stylindex",
     "license": "MIT",
@@ -17,13 +17,13 @@
         "test:watch": "react-scripts test --env=jsdom",
         "build:package": "rollup -c",
         "start": "docz dev",
-        "lint": "eslint src",
         "eject": "react-scripts eject",
         "serve": "docz build && docs serve",
         "docz:dev": "docz dev",
         "docz:build": "docz build",
         "build": "yarn docz:build",
-        "lint-fix": "eslint src --fix",
+        "lint": "standardx \"src/**/*.js\" \"src/**/*.jsx\"",
+        "lint-fix": "standardx \"src/**/*.js\" \"src/**/*.jsx\" --fix",
         "storybook": "start-storybook -p 9009",
         "build-storybook": "build-storybook"
     },
