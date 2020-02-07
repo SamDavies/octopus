@@ -70,7 +70,7 @@ const Tooltip = props => {
         ? props.renderTrigger(props)
         : props.renderTrigger
 
-    if (props.disableTooltip) return props.renderTrigger
+    if (props.disableTooltip) return tooltipTrigger
 
     return <TooltipTrigger
         placement={props.position}
