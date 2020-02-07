@@ -5,14 +5,14 @@ route: '/styles/colors'
 ---
 
 
-import { colors, accentColors, uiColors, primaryColors } from './';
+import { colors, accentColors, uiColors, legacyColors } from './';
 import ColorBox from '../docs/components/ColorBox'
 
 # Colors 
 
-### Primary 
+### Legacy 
 <div>
-{Object.entries(primaryColors).map(([name, hex]) => (
+{Object.entries(legacyColors).map(([name, hex]) => (
     <ColorBox name={name} hex={hex} />
 ))}
 </div>

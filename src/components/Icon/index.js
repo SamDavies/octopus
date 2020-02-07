@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import SVG from 'react-inlinesvg'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import config from '../../config'
 import { colors } from '../../styles'
 
@@ -15,33 +15,48 @@ export const StyledIconWrapper = styled.span`
         `}
     }
 
-    ${({ fillColor }) => fillColor && `
+
+    ${({ fillColor, hoverFillColor }) => {
+        const fill = colors[fillColor] || fillColor
+        const hoverFill = colors[hoverFillColor] || hoverFillColor || fill
+
+        return css`
         .fill-color {
-            fill:  ${fillColor === 'none' ? fillColor : colors[fillColor]};
-        }
-    `}
+            fill: ${fill};
+            transition: fill 0.25s;
+            &:hover {
+                fill: ${hoverFill};
+            }
+        }`
+    }}
 
-    ${({ strokeColor }) => strokeColor && `
+    ${({ strokeColor, hoverStrokeColor }) => {
+        const stroke = colors[strokeColor] || strokeColor
+        const hoverStroke = colors[hoverStrokeColor] || hoverStrokeColor || stroke
+
+        return css`
         .stroke-color {
-            stroke:  ${strokeColor === 'none' ? strokeColor : colors[strokeColor]};
-        }
-
-    `}
+            stroke: ${stroke};
+            transition: stroke 0.25s;
+            &:hover {
+                stroke: ${hoverStroke};
+            }
+        }`
+    }}
 `
 
-const Icon = (props) => {
-    return (
-        <StyledIconWrapper
-            className='icon-wrapper'
-            height={props.height}
-            width={props.width}
-            fillColor={props.fillColor}
-            strokeColor={props.strokeColor}
-        >
-            <SVG src={`${config.staticUrl}/icons/${props.icon}.svg`} />
-        </StyledIconWrapper>
-    )
-}
+const Icon = (props) =>
+    <StyledIconWrapper
+        className='icon-wrapper'
+        height={props.height}
+        width={props.width}
+        fillColor={props.fillColor}
+        strokeColor={props.strokeColor}
+        hoverStrokeColor={props.hoverStrokeColor}
+        hoverFillColor={props.hoverFillColor}
+    >
+        <SVG src={`${config.staticUrl}/icons/${props.icon}.svg`} />
+    </StyledIconWrapper>
 
 Icon.propTypes = {
     icon: PropTypes.string.isRequired,
@@ -50,7 +65,9 @@ Icon.propTypes = {
     /** Number of pixels for width */
     width: PropTypes.number,
     fillColor: PropTypes.string,
-    strokeColor: PropTypes.string
+    strokeColor: PropTypes.string,
+    hoverStrokeColor: PropTypes.string,
+    hoverFillColor: PropTypes.string
 }
 
 Icon.defaultProps = {

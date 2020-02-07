@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { colors, device } from '../../../styles'
-import Icon, { iconNames } from './Icon'
+import Icon from '../../../components/Icon'
+import { iconNames } from './Icon'
 
 const StyledWrapper = styled.div`
     display: grid;
@@ -24,12 +25,13 @@ const StyledWrapper = styled.div`
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 `
+
 const IconDisplay = () => (
     <StyledWrapper>
         {iconNames.map(key => (
             <div key={key} className='icon-block'>
                 <div className='icon-label'>{key}</div>
-                <Icon icon={key} strokeColor='none' />
+                <Icon icon={key} hoverFillColor='black' fillColor='salmon' strokeColor='none' />
             </div>
         ))}
     </StyledWrapper>
