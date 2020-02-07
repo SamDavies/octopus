@@ -70,6 +70,8 @@ const Tooltip = props => {
         ? props.renderTrigger(props)
         : props.renderTrigger
 
+    if (disableTooltip) return renderTrigger
+
     return <TooltipTrigger
         placement={props.position}
         trigger='hover'
@@ -114,13 +116,7 @@ Tooltip.propTypes = {
             PropTypes.oneOfType([PropTypes.string, PropTypes.element])
         )
     ]).isRequired,
-    children: PropTypes.oneOfType([
-        PropTypes.element,
-        PropTypes.string,
-        PropTypes.arrayOf(
-            PropTypes.oneOfType([PropTypes.string, PropTypes.element])
-        )
-    ]).isRequired,
+    disableTooltip: PropTypes.bool,
     position: PropTypes.oneOf(['left', 'right', 'bottom', 'top'])
 }
 
