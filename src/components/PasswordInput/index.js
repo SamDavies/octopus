@@ -74,8 +74,7 @@ const PasswordInput = (props) => {
         name,
         onChange,
         error,
-        label,
-        hideLabel
+        label
     } = props
     const [buttonVisible, setButtonVisible] = useState(false)
     const [passwordVisible, setPasswordVisible] = useState(false)
@@ -99,7 +98,6 @@ const PasswordInput = (props) => {
                 placeholder={placeholder}
                 error={error}
                 label={label}
-                hideLabel={hideLabel}
                 onFocus={() => {
                     togglePasswordButton(password)
                 }}
