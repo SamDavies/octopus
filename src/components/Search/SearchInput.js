@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { colors } from '../../styles'
 import Icon from '../Icon'
-import Input, { StyledInput } from '../Input'
+import Input from '../Input'
 
 export const InputWrapper = styled.div`
     width: 100%;
@@ -14,7 +14,7 @@ export const InputWrapper = styled.div`
         top: 18px;
     }
 
-    ${StyledInput} {
+    ${Input} {
         padding-left: 23px;
         ${({ hasDropdown }) => hasDropdown && `
             &:active {
@@ -48,33 +48,36 @@ export const InputWrapper = styled.div`
 
 const SearchInput = props => {
     const [status, setStatus] = useState('')
-    return (
-        <InputWrapper ref={props.inputRef} hasOptions={!!props.hasOptions} hasDropdown={props.hasDropdown} isOpened={props.isOpened} status={status}>
-            <Input
-                placeholder={props.placeholder}
-                data-testid={props.name}
-                name={props.name}
-                id={props.name}
-                value={props.value}
-                disabled={props.disabled}
-                onChange={props.onChange}
-                hideLabel={false}
-                onKeyPress={(e) => {
-                    setStatus('active')
-                    props.onKeyPress(e)
-                }}
-                onFocus={(e) => {
-                    setStatus('focus')
-                    props.onFocus(e)
-                }}
-                onBlur={(e) => {
-                    setStatus('')
-                    props.onBlur(e)
-                }}
-            />
-            <Icon icon='search' width={15} height={15} />
-        </InputWrapper>
-    )
+    return <InputWrapper
+        ref={props.inputRef}
+        hasOptions={!!props.hasOptions}
+        hasDropdown={props.hasDropdown}
+        isOpened={props.isOpened}
+        status={status}
+    >
+        <Input
+            placeholder={props.placeholder}
+            data-testid={props.name}
+            name={props.name}
+            id={props.name}
+            value={props.value}
+            disabled={props.disabled}
+            onChange={props.onChange}
+            onKeyPress={(e) => {
+                setStatus('active')
+                props.onKeyPress(e)
+            }}
+            onFocus={(e) => {
+                setStatus('focus')
+                props.onFocus(e)
+            }}
+            onBlur={(e) => {
+                setStatus('')
+                props.onBlur(e)
+            }}
+        />
+        <Icon icon='search' width={15} height={15} />
+    </InputWrapper>
 }
 
 SearchInput.propTypes = {
