@@ -1,0 +1,44 @@
+---
+name: Label
+menu: Components
+route: '/components/Label'
+---
+
+
+
+import Label from './'
+import { useState, Fragment } from 'react'
+import BlockContainer from '../../docs/components/BlockContainer'
+import { Playground, Props } from 'docz'
+
+# Label
+
+Label component. 
+ 
+## Properties
+<Props of={Label} />
+
+## Basic usage
+
+### Primary style
+<Playground>
+     <BlockContainer>
+        <Label>
+            Normal Label
+        </Label>
+    </BlockContainer>
+    <BlockContainer>
+        <Label
+            disabled
+        >
+            Disabled Label
+        </Label>
+    </BlockContainer>
+    <BlockContainer>
+        <Label
+            error
+        >
+            Error Label
+        </Label>
+    </BlockContainer>
+</Playground>

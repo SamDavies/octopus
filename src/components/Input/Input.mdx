@@ -7,8 +7,10 @@ route: '/components/Input'
 
 
 import Input from './'
+import Label from '../Label'
 import { useState, Fragment } from 'react'
 import BlockContainer from '../../docs/components/BlockContainer'
+import FlexContainer from '../../docs/components/FlexContainer'
 import { Playground, Props } from 'docz'
 
 # Input
@@ -27,17 +29,30 @@ Input component.
     const [value2, setValue2] = useState('')
     const [value3, setValue3] = useState('')
     const [nullValue, setNullValue] = useState('')
-    return (
-        <Fragment>
-         <BlockContainer>
+    return <Fragment>
+        <FlexContainer>
+            <Label for="1">
+                Some Label
+            </Label>
             <Input
-                id='functional_Input'
+                id='1'
                 name='functional_Input'
                 value={nullValue}
                 onChange={e => setNullValue(e.target.value)}
-                label='Normal Input'
             />
-        </BlockContainer>
+        </FlexContainer>
+        <FlexContainer>
+            <Label for="1">
+                Full Border Label
+            </Label>
+            <Input
+                fullBorder
+                id='1'
+                name='functional_Input'
+                value={nullValue}
+                onChange={e => setNullValue(e.target.value)}
+            />
+        </FlexContainer>
         <BlockContainer>
             <Input
                 id='functional_Input2'
@@ -45,33 +60,28 @@ Input component.
                 value={value2}
                 placeholder="Input with placeholder"
                 onChange={e => setValue2(e.target.value)}
-                label='Input with placeholder'
             />
         </BlockContainer>
         <BlockContainer>
             <Input
                 disabled
-                id='functional_Input2'
-                name='functional_Input2'
-                value={value2}
+                id='functional_Input3'
+                name='functional_Input3'
+                value={value3}
                 placeholder="Disabled input"
-                onChange={e => setValue2(e.target.value)}
-                label='Disabled input'
+                onChange={e => setValue3(e.target.value)}
             />
         </BlockContainer>
-          <BlockContainer>
+        <BlockContainer>
             <Input
-                error="There is an error"
+                error
                 value=''
-                resetvalue={() =>  {}}
                 onChange={() => {}}
                 id='empty_Input'
                 name='empty_Input'
                 value='Incorrect value'
-                label='Input with error'
             />
-            </BlockContainer>
-        </Fragment>
-    )    
+        </BlockContainer>
+    </Fragment>
 }}
 </Playground>
