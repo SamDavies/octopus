@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
-import Input, { StyledInput } from '../Input'
+import Input from '../Input'
 import Select from '../Select'
 import { StyledFilter } from '../Select/styles'
 
@@ -9,7 +9,7 @@ const StyledWrapper = styled.div`
     width: 100%;
     position: relative;
     
-    ${StyledInput} {
+    ${Input} {
         padding-right: 110px;
     }
 
@@ -17,7 +17,7 @@ const StyledWrapper = styled.div`
         position: absolute;
         width: 40%;
         max-width: 100px;
-        top: 14px;
+        bottom: -2px;
         right: 0%;
     }
 `
