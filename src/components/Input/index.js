@@ -16,7 +16,7 @@ export const Input = styled.input`
     border-bottom: 2px solid;
     border-bottom-color: ${({ error }) => error ? colors.scarlet : colors.black};
     font-size: 14px;
-    font-family: ${fonts.literata};
+    font-family: ${fonts.cera};
     line-height: 1.5;
     color: ${({ error }) => error ? colors.scarlet : colors.black};
     min-height: 40px;
@@ -30,7 +30,7 @@ export const Input = styled.input`
     &::placeholder {
         text-decoration: none;
         color: ${colors.lightGray};
-        font-family: ${fonts.literata};
+        font-family: ${fonts.cera};
         ${({ hideLabel, name }) => hideLabel && !name && `
             opacity: 0;
         `}
@@ -42,7 +42,7 @@ export const Input = styled.input`
     &:-webkit-autofill:focus, 
     &:-webkit-autofill:active  {
         -webkit-box-shadow: 0 0 0 30px white inset !important;
-        font-family: ${fonts.literata};
+        font-family: ${fonts.cera};
     }
     
     &:disabled {
