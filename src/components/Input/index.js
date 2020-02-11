@@ -25,12 +25,6 @@ export const StyledLabel = styled.label`
     margin-left: 2px;
     color: ${colors.scarlet};
   }
-
-  ${({ isPlaceholder, hasValue }) => isPlaceholder && `
-    top: 25px;
-    color: ${colors.black};
-    opacity: ${hasValue ? 0 : 0.5}; 
-  `}
   
   ${({ disabled }) => disabled && `
     color: ${colors.lightGray};
@@ -104,16 +98,15 @@ export const StyledInput = styled.input`
 
 const Input = props => (
     <StyledInputSection>
-        <StyledLabel
+        {props.label && <StyledLabel
             htmlFor={props.name}
-            isPlaceholder={props.hideLabel}
             hasValue={!!props.value}
             disabled={props.disabled}
             error={props.error}
         >
             {props.label}
             {props.required ? <span>*</span> : ''}
-        </StyledLabel>
+        </StyledLabel>}
 
         <StyledInput
             data-testid={props.name}
@@ -126,7 +119,6 @@ const Input = props => (
             placeholder={props.placeholder}
             disabled={props.disabled}
             onChange={props.onChange}
-            hideLabel={props.hideLabel}
             onKeyDown={props.onKeyDown}
             onClick={props.onClick}
             onFocus={props.onFocus}
@@ -166,8 +158,6 @@ Input.propTypes = {
     onClick: PropTypes.func,
     /** input name */
     name: PropTypes.string.isRequired,
-    /** is label hidden */
-    hideLabel: PropTypes.bool,
     /** is field required */
     required: PropTypes.bool,
     /** is readOnly required */
