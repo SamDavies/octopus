@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { colors, fonts } from '../../styles'
 
 const Label = styled.label`
+    margin-top: 20px;
     color: ${colors.black};
     font-family: ${fonts.cera};
     font-size: 13px;
