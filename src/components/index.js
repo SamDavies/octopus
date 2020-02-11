@@ -10,13 +10,9 @@ export {
 export { default as Heading, StyledHeading } from './Heading'
 export { default as Icon } from './Icon'
 export { default as ImagePlaceholder } from './ImagePlaceholder'
-export {
-    default as Input,
-    StyledInput,
-    StyledInputSection,
-    StyledLabel
-} from './Input'
+export { default as Input, StyledInputSection } from './Input'
 export { default as InputWithDropdown } from './InputWithDropdown'
+export { default as Label } from './Label'
 export { default as Link, StyledLink } from './Link'
 export { default as Logo } from './Logo'
 export { default as Modal } from './Modal'
