@@ -1,8 +1,10 @@
+import noop from 'lodash/noop'
 import PropTypes from 'prop-types'
+import React from 'react'
 import styled from 'styled-components'
 import { fonts } from '../../styles'
 
-const TableCell = styled.div`
+const StyledTableCell = styled.div`
     ${props => props.flex && `
         flex: ${props.flex}
     `}
@@ -19,14 +21,27 @@ const TableCell = styled.div`
     align-items: center;
 `
 
+const TableCell = props => {
+    const onClick = e => {
+        e.stopPropagation()
+        props.onClick(e)
+    }
+    return <StyledTableCell
+        {...props}
+        onClick={onClick}
+    />
+}
+
 TableCell.propTypes = {
     flex: PropTypes.number,
-    width: PropTypes.number
+    width: PropTypes.number,
+    onClick: PropTypes.func
 }
 
 TableCell.defaultProps = {
     flex: null,
-    width: null
+    width: null,
+    onClick: noop
 }
 
 export default TableCell
