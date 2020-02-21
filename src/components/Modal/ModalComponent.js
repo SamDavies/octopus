@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import styled, { css, keyframes } from 'styled-components'
 import { colors, device, headerHeight, headerMobileHeight } from '../../styles'
-import Button, { StyledButton } from '../Button'
+import Button from '../Button'
 import Heading, { StyledHeading } from '../Heading'
 import Icon from '../Icon'
 import Logo from '../Logo'
@@ -142,13 +142,6 @@ const CloseButton = styled.button`
   }
 `
 
-const SecondaryButton = styled(StyledButton).attrs(() => ({
-    buttonType: 'secondary'
-}))`
-    color: ${colors.salmon};
-    border-color: transparent;
-`
-
 export const StyledModalHead = styled.div`
   display: none;
   @media ${device.tablet} {
@@ -223,19 +216,20 @@ const ModalComponent = props => {
                         <ModalActions>
                             {props.primaryButton && (
                                 <Button
-                                    buttonType='primary'
+                                    type='primary'
                                     disabled={props.primaryButton.disabled || false}
                                     onClick={props.primaryButton.onClick}>
                                     {props.primaryButton.children}
                                 </Button>
                             )}
                             {props.secondaryButton && (
-                                <SecondaryButton
+                                <Button
+                                    type='ghost'
                                     onClick={props.secondaryButton.onClick}
                                     disabled={props.secondaryButton.disabled || false}
                                 >
                                     {props.secondaryButton.children}
-                                </SecondaryButton>
+                                </Button>
                             )}
                         </ModalActions>
                     )}
