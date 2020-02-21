@@ -69,7 +69,7 @@ export const ValidateTitle = styled.span`
 const PasswordInput = (props) => {
     const [passwordVisible, setPasswordVisible] = useState(false)
 
-    return <PasswordWrapper data-testid={`${name}-wrapper`}>
+    return <PasswordWrapper>
         <Input
             {...props}
             type={passwordVisible ? 'text' : 'password'}
