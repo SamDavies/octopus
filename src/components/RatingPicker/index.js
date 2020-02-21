@@ -44,22 +44,31 @@ export const StyledClearButton = styled.p`
     cursor: pointer;
 `
 
-const ratingTitles = ['Sucks big time', 'Kinda bad', 'Meh', 'Pretty good', 'Awesome']
+const ratingTitles = [
+    'Do not hire',
+    'Unprofessional',
+    'Just OK',
+    'Good',
+    'Awesome'
+].reverse()
 
 const RatingPicker = ({ onChange, rating, inputName }) => (
     <StyledRatingInner>
         <StyledFieldset role='group' aria-label='Star Rating'>
             <div>
-                {[1, 2, 3, 4, 5].reverse().map((number, i) => (
-                    <StarInput
-                        key={number}
-                        number={number}
-                        inputName={inputName}
-                        title={ratingTitles[i]}
-                        onChange={e => onChange(+e.target.value)}
-                        isChecked={rating === number}
-                    />
-                ))}
+                {ratingTitles.map((title, i, arr) => {
+                    const number = arr.length - i
+                    return (
+                        <StarInput
+                            key={number}
+                            number={number}
+                            inputName={inputName}
+                            title={title}
+                            onChange={e => onChange(Number(e.target.value))}
+                            isChecked={rating === number}
+                        />
+                    )
+                })}
             </div>
 
         </StyledFieldset>
@@ -79,7 +88,8 @@ RatingPicker.propTypes = {
 
 RatingPicker.defaultProps = {
     inputName: 'rating',
-    onChange: () => {}
+    onChange: () => {},
+    rating: 0
 }
 
 export default RatingPicker
