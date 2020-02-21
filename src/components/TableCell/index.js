@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { fonts } from '../../styles'
 
-export const TableCell = styled.div`
+const TableCell = styled.div`
     ${props => props.flex && `
         flex: ${props.flex}
     `}
