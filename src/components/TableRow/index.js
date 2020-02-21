@@ -8,11 +8,12 @@ export const TableRow = styled.div`
         border-bottom: none; 
     }
     
+    &:hover {
+        background-color: ${colors.grey10}
+    }
+    
     ${props => props.onClick && `
         cursor: pointer;
-        &:hover {
-            background-color: ${colors.grey10}
-        }
     `}
 `
 
