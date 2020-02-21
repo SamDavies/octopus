@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { TableCell } from '../TableCell'
+import TableCell from '../TableCell'
 
 export const TableHeaderCell = styled(TableCell)`
     font-weight: 600;

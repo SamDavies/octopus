@@ -1,195 +1,145 @@
 import PropTypes from 'prop-types'
-import React from 'react'
-import styled, { css } from 'styled-components'
-import { colors, device, fonts } from '../../styles'
+import styled from 'styled-components'
+import { colors } from '../../styles'
 
-const sizesStyles = {
-    small: css`
-        padding: 0.5rem 0.15rem;
-        max-height: 1.5rem;
-        min-height: 0;
-        letter-spacing: 0px;
-        line-height: 0.42;
-    `,
-    normal: css`
-        line-height: 16px;
-        padding: 0.35rem 0.5rem;
-        max-height: 2rem;
-    `,
-    large: css`
-        font-size: 16px;
-        line-height: 24px;
-        border-width: 4px;
-        padding: 0.25rem 0.5rem;
-    `
-}
-
-const inverseStyle = css`
-    ${props => props.inverse && `
-            background: transparent;
-            color: ${colors.coral};
-            border-width: 2px;
-            @media ${device.tablet} {
-                border-width: 0;
-            }
-        `}
-`
-
-export const StyledButton = styled.button`
-  line-height: 1.55;
-  font-size: 13px;
-  text-align: center;
-  height: auto;
-  letter-spacing: 2px;
-  position: relative;
-  padding: 0.35rem;
-  border: 2px solid;
-  color: ${colors.white};
-  background: ${colors.salmon};
-  border-color: ${colors.salmon};
-  font-family: ${fonts.cera};
-  font-weight: bold;
-  cursor: pointer;
-  width: 100%;
-  max-width: 300px;
-  padding: 0 0.35rem;
-  min-height: 2rem;
-  outline: none;
-  border-radius: 0;
-  transition: all 0.1s ease-in;
-  cursor: pointer;
-  text-transform: uppercase;
-  &:focus {
-    box-shadow: 0 0 0 2px ${colors.aqua};
-  }
-  &:hover, &:focus {
-    background: ${colors.lightSalmon};
-    border-color: ${colors.lightSalmon};
-  }
-  &:active {
-    background: ${colors.coral};
-    border-color: ${colors.coral};
-  }
-  &:disabled {
-    background: ${colors.cloud};
-    border-color: ${colors.cloud};
-  }
-
-  ${({ size }) => sizesStyles[size]};
-
-  ${({ buttonType }) => buttonType === 'secondary' && `
-    background: ${colors.white} !important;
-    color: ${colors.black};
-    border-color: ${colors.black};
-    &:hover, &:focus {
-        color: ${colors.lightSalmon};
-    }
-    &:active {
-        color: ${colors.coral};
-    }
-    &:disabled {
-        color: ${colors.cloud};
-    }
-  `}
-
-  ${({ buttonType, size }) => buttonType === 'underlined' && `
-        position: relative;
-        padding: 0.35rem;
-        color: ${colors.black};
-        background: ${colors.white};
-        cursor: pointer;
-        border: none;
-
-        &:after {
-            content: '';
-            height: ${size === 'small' ? '1px' : '0.15rem'};
-            background: ${colors.black};
-            position: absolute;
-            bottom: ${size === 'small' ? 0 : 5}px;
-            left: 0px;
-            right: 0;
-            width: auto;
-            display: inline-block;
-            @media ${device.desktop} {
-                bottom: ${size === 'small' ? 2 : 5}px;
-            }
-        }
-        &:focus {
-            box-shadow: none;
-            color: ${colors.black};
-            background: ${colors.lightAqua};
-        }
-  `}
-
-  ${props => props.buttonType === 'coral' && `
-        position: relative;
-        color: ${colors.white};
-        background: ${colors.coral};
-        border-color: ${colors.coral};
-
-        &:disabled {
-            background: ${colors.cloud};
-            border-color: ${colors.cloud};
-        }
-
-        ${inverseStyle}
-
-        &:active {
-            background: ${colors.black};
-            border-color: ${colors.coral};
-        }
-  `}
-
- ${({ buttonType }) => buttonType === 'contained' && `
-    letter-spacing: 0.4px;
-    background-color: ${colors.black};
+const Button = styled.button`
+    ${props => props.fullWidth && `
+        width: 100%;
+    `}
+    
+    // font
+    text-transform: uppercase;
+    line-height: 18px;
+    font-size: 18px;
+    font-align: center;
+    font-weight: 700;
     color: ${colors.white};
-    border-color: ${colors.black};
-    &:focus {
-        background: ${colors.black};
+    
+    appearance: none;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    min-width: 200px;
+    height: 36px;;
+    padding: 0 25px 0 25px;
+    flex-shrink: 0;
+    margin: 0;
+    background-color: ${colors.black};
+    border: 2px solid ${colors.black};
+    transition: all 0.2s ease;
+    user-select: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    
+    &:hover {
         color: ${colors.white};
+        background-color: ${colors.grey2};
+        border-color: ${colors.grey2};
     }
-
-    &:hover,
-    &:active {
+    
+    ${props => props.size === 'small' && `
+        min-width: auto;
+        height: 24px;
+        line-height: 12px;
+        font-size: 12px;
+    `}
+    
+    ${props => props.size === 'medium' && `
+        min-width: auto;
+        height: 32px;
+        line-height: 14px;
+        font-size: 14px;
+        font-weight: 600;
+    `}
+    
+    ${props => props.type === 'secondary' && `
+        color: ${colors.black};
+        background-color: ${colors.white};
+        border-color: ${colors.black};
+        
+        &:hover {
+            color: ${colors.grey4};
+            background-color: ${colors.white};
+            border-color: ${colors.grey5};
+        }
+    `}
+    
+    ${props => props.type === 'salmon' && `
         color: ${colors.white};
-        background-color: ${colors.black};
-    }
- `}
+        background-color: ${colors.salmon};
+        border-color: ${colors.salmon};
+        
+        &:hover {
+            color: ${colors.white};
+            background-color: ${colors.lightSalmon};
+            border-color: ${colors.lightSalmon};
+        }
+    `}
+    
+    ${props => props.type === 'ghost' && `
+        color: ${colors.grey3};
+        background-color: transparent;
+        border-color: transparent;
+    
+        &:hover {
+            color: ${colors.grey5};
+            background-color: transparent;
+            border-color: transparent;
+        }
+    `}
+    
+    ${props => props.type === 'danger' && `
+        color: ${colors.black};
+        background-color: ${colors.white};
+        border-color: ${colors.salmon};
+        
+        &:hover {
+            color: ${colors.black};
+            background-color: ${colors.white};
+            border-color: ${colors.lightSalmon};
+        }
+    `}
+    
+    ${props => props.disabled && `
+        color: ${colors.grey5};
+        background-color: ${colors.white};
+        border-color: ${colors.grey7};
+        cursor: not-allowed;
+        
+        &:hover {
+            color: ${colors.grey5};
+            background-color: ${colors.white};
+            border-color: ${colors.grey7};
+        }
+    `}
+    
+    ${props => props.loading && `
+        background: ${colors.grey9};
+        border-color: ${colors.grey7};
+        color: ${colors.grey5};
+        cursor: default;
+        pointer-events: none;
+        filter: grayscale(1);
+    `}
 `
-
-const Button = ({ children, ...buttonProps }) => (
-    <StyledButton {...buttonProps}>
-        {children}
-    </StyledButton>
-)
 
 Button.propTypes = {
-    children: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node
-    ]).isRequired,
+    type: PropTypes.oneOf(['primary', 'secondary', 'salmon', 'ghost', 'danger']),
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
     disabled: PropTypes.bool,
-    inverse: PropTypes.bool,
-    buttonType: PropTypes.oneOf([
-        'primary',
-        'secondary',
-        'underlined',
-        'coral',
-        'contained'
-    ]),
-    size: PropTypes.oneOf(['small', 'normal', 'large']),
-    onClick: PropTypes.func
+    fullWidth: PropTypes.bool
 }
 
 Button.defaultProps = {
-    uppercase: true,
-    size: 'normal',
+    type: 'primary',
+    size: 'large',
     disabled: false,
-    inverse: false,
-    buttonType: 'primary',
-    onClick: () => {}
+    fullWidth: false
 }
 
 export default Button
