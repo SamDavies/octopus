@@ -5,6 +5,10 @@ import styled from 'styled-components'
 import isFunction from 'lodash/isFunction'
 import { colors, fonts } from '../../styles'
 
+const StyledSpan = styled.div`
+    width: 100%;
+`
+
 export const StyledTooltip = styled.div`
     width: 100%;
     font-family: ${fonts.cera};
@@ -88,13 +92,13 @@ const Tooltip = props => {
         )}
     >
         {trigger =>
-            <span
+            <StyledSpan
                 {...trigger.getTriggerProps({
                     ref: trigger.triggerRef
                 })}
             >
                 {tooltipTrigger}
-            </span>
+            </StyledSpan>
         }
     </TooltipTrigger>
 }
@@ -123,7 +127,6 @@ Tooltip.propTypes = {
 Tooltip.defaultProps = {
     hideTip: false,
     position: 'top'
-
 }
 
 export default Tooltip

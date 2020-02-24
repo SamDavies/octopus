@@ -7,8 +7,8 @@ route: '/components/tooltip'
 
 import { Fragment } from 'react'
 import Tooltip, { StyledTooltip } from './'
+import Button from '../Button'
 import { Playground, Props } from 'docz'
-import Button from '../../docs/components/Button'
 import Image from '../../docs/components/Image'
 
 # Tooltip
@@ -21,35 +21,25 @@ This is a wrapper that adds a tooltip to a child element.
 ## Basic usage
 
 <Playground>
-  <ul>
-    <li>
-        <Tooltip
-            renderTrigger={'some normal text with a tooltip'}
-            renderContent={'and some normal text in the tooltip'}
-            position='top'
-        />
-    </li>
-    <li>
-        <Tooltip
-            renderTrigger={<Button text="a demo tooltip with more complex content and trigger" />}
-            renderContent={<Image src='https://lesbaa.github.io/img/z-loki.gif' text='an image!' />}
-            position='right'
-        />
-    </li>
-    <li>
-        <Tooltip
-            renderTrigger={<Button text="a demo tooltip with a function render prop" />}
-            renderContent={() => <Image src='https://lesbaa.github.io/img/z-loki.gif' text='an image but in a functional render prop!' />}
-            position='right'
-        />
-    </li>
-    <li>
-        <Tooltip
-            renderTrigger={<Button text="a demo tooltip with the tooltip disabled" />}
-            renderContent={() => <Image src='https://lesbaa.github.io/img/z-loki.gif' text='an image but in a functional render prop!' />}
-            position='right'
-            disableTooltip
-        />
-    </li>
-  </ul>
+    <Tooltip
+        renderTrigger={() => <div>some normal text with a tooltip</div>}
+        renderContent={'and some normal text in the tooltip'}
+        position='top'
+    />
+    <Tooltip
+        renderTrigger={<Button fullWidth>a demo tooltip with more complex content and trigger</Button>}
+        renderContent={<Image src='https://lesbaa.github.io/img/z-loki.gif' text='an image!' />}
+        position='right'
+    />
+    <Tooltip
+        renderTrigger={<Button>a demo tooltip with a function render prop</Button>}
+        renderContent={() => <Image src='https://lesbaa.github.io/img/z-loki.gif' text='an image but in a functional render prop!' />}
+        position='right'
+    />
+    <Tooltip
+        renderTrigger={<Button>a demo tooltip with the tooltip disabled</Button>}
+        renderContent={() => <Image src='https://lesbaa.github.io/img/z-loki.gif' text='an image but in a functional render prop!' />}
+        position='right'
+        disableTooltip
+    />
 </Playground>
