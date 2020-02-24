@@ -1,4 +1,4 @@
-export { default as Button, StyledButton } from './Button'
+export { default as Button } from './Button'
 export { default as Checkbox } from './Checkbox'
 export { default as CircleLogo } from './CircleLogo'
 export {
