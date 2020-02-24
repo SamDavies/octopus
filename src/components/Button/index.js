@@ -94,7 +94,6 @@ const Button = styled.button`
         font-weight: 600;
     `}
     
-    
     ${props => getStyles(props)}
     
     ${props => props.disabled && `
@@ -102,6 +101,10 @@ const Button = styled.button`
         background-color: ${colors.white};
         border-color: ${colors.grey7};
         cursor: not-allowed;
+        
+        &:hover {
+            opacity: 1;
+        }
     `}
     
     ${props => props.loading && `
