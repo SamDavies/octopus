@@ -2,6 +2,51 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { colors } from '../../styles'
 
+const getStyles = props => {
+    const primaryColours = {
+        black: colors.black,
+        salmon: colors.salmon,
+        red: colors.scarlet,
+        grey: colors.grey3
+    }
+
+    const primaryColour = primaryColours[props.colour]
+
+    if (props.kind === 'secondary') {
+        return `
+            background-color: ${colors.white};
+            color: ${primaryColour};
+            border: 2px solid ${primaryColour};
+            
+            &:hover {
+                opacity: 0.8;
+            }
+        `
+    }
+
+    if (props.kind === 'ghost') {
+        return `
+            color: ${primaryColour};
+            background-color: transparent;
+            border-color: transparent;
+            
+            &:hover {
+                opacity: 0.8;
+            }
+        `
+    }
+
+    return `
+        color: ${colors.white};
+        background-color: ${primaryColour};
+        border: 2px solid ${primaryColour};
+        
+        &:hover {
+            opacity: 0.8;
+        }
+    `
+}
+
 const Button = styled.button`
     ${props => props.fullWidth && `
         width: 100%;
@@ -13,8 +58,8 @@ const Button = styled.button`
     font-size: 18px;
     font-align: center;
     font-weight: 700;
-    color: ${colors.white};
     
+    // default styles
     appearance: none;
     position: relative;
     display: inline-flex;
@@ -24,23 +69,15 @@ const Button = styled.button`
     text-decoration: none;
     white-space: nowrap;
     min-width: 200px;
-    height: 36px;;
+    height: 36px;
     padding: 0 25px 0 25px;
     flex-shrink: 0;
     margin: 0;
-    background-color: ${colors.black};
-    border: 2px solid ${colors.black};
     transition: all 0.2s ease;
     user-select: none;
     cursor: pointer;
     overflow: hidden;
     outline: none;
-    
-    &:hover {
-        color: ${colors.white};
-        background-color: ${colors.grey2};
-        border-color: ${colors.grey2};
-    }
     
     ${props => props.size === 'small' && `
         min-width: auto;
@@ -57,53 +94,7 @@ const Button = styled.button`
         font-weight: 600;
     `}
     
-    ${props => props.type === 'secondary' && `
-        color: ${colors.black};
-        background-color: ${colors.white};
-        border-color: ${colors.black};
-        
-        &:hover {
-            color: ${colors.grey4};
-            background-color: ${colors.white};
-            border-color: ${colors.grey5};
-        }
-    `}
-    
-    ${props => props.type === 'salmon' && `
-        color: ${colors.white};
-        background-color: ${colors.salmon};
-        border-color: ${colors.salmon};
-        
-        &:hover {
-            color: ${colors.white};
-            background-color: ${colors.lightSalmon};
-            border-color: ${colors.lightSalmon};
-        }
-    `}
-    
-    ${props => props.type === 'ghost' && `
-        color: ${colors.grey3};
-        background-color: transparent;
-        border-color: transparent;
-    
-        &:hover {
-            color: ${colors.grey5};
-            background-color: transparent;
-            border-color: transparent;
-        }
-    `}
-    
-    ${props => props.type === 'danger' && `
-        color: ${colors.black};
-        background-color: ${colors.white};
-        border-color: ${colors.salmon};
-        
-        &:hover {
-            color: ${colors.black};
-            background-color: ${colors.white};
-            border-color: ${colors.lightSalmon};
-        }
-    `}
+    ${props => getStyles(props)}
     
     ${props => props.disabled && `
         color: ${colors.grey5};
@@ -112,9 +103,7 @@ const Button = styled.button`
         cursor: not-allowed;
         
         &:hover {
-            color: ${colors.grey5};
-            background-color: ${colors.white};
-            border-color: ${colors.grey7};
+            opacity: 1;
         }
     `}
     
@@ -129,14 +118,16 @@ const Button = styled.button`
 `
 
 Button.propTypes = {
-    type: PropTypes.oneOf(['primary', 'secondary', 'salmon', 'ghost', 'danger']),
+    kind: PropTypes.oneOf(['primary', 'secondary', 'ghost']),
+    colour: PropTypes.oneOf(['black', 'salmon', 'red', 'grey']),
     size: PropTypes.oneOf(['small', 'medium', 'large']),
     disabled: PropTypes.bool,
     fullWidth: PropTypes.bool
 }
 
 Button.defaultProps = {
-    type: 'primary',
+    kind: 'primary',
+    colour: 'black',
     size: 'large',
     disabled: false,
     fullWidth: false
