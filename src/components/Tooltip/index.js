@@ -14,8 +14,8 @@ export const StyledTooltip = styled.div`
     font-family: ${fonts.cera};
     font-weight: bold;
     font-size: 12px;
-    background: ${colors.black};
-    color: ${colors.white};
+    background: ${({ invert }) => invert ? colors.white : colors.black};
+    color: ${({ invert }) => invert ? colors.black : colors.white};
     max-width: 200px;
     position: relative;
     padding: 1rem;
@@ -29,30 +29,30 @@ export const StyledTooltip = styled.div`
         position: absolute;
         width: 0;
         height: 0;
-        ${({ position }) => position === 'top' && `
-            border-top: 8px solid ${colors.black};
+        ${({ position, invert }) => position === 'top' && `
+            border-top: 8px solid ${invert ? colors.white : colors.black};
             border-right: 8px solid transparent;
             border-left: 8px solid transparent;
             left: calc(50% - 9px);
             top: calc(100% - 1px);
 
         `}
-        ${({ position }) => position === 'bottom' && `
-            border-bottom: 8px solid ${colors.black};
+        ${({ position, invert }) => position === 'bottom' && `
+            border-bottom: 8px solid ${invert ? colors.white : colors.black};
             border-right: 8px solid transparent;
             border-left: 8px solid transparent;
             left: calc(50% - 9px);
             bottom: calc(100% - 1px);
         `}
-        ${({ position }) => position === 'right' && `
-            border-right: 8px solid ${colors.black};
+        ${({ position, invert }) => position === 'right' && `
+            border-right: 8px solid ${invert ? colors.white : colors.black};
             border-top: 8px solid transparent;
             border-bottom: 8px solid transparent;
             bottom: calc(50% - 9px);
             right: calc(100% - 1px);
         `}
-        ${({ position }) => position === 'left' && `
-            border-left: 8px solid ${colors.black};
+        ${({ position, invert }) => position === 'left' && `
+            border-left: 8px solid ${invert ? colors.white : colors.black};
             border-top: 8px solid transparent;
             border-bottom: 8px solid transparent;
             bottom: calc(50% - 9px);
@@ -81,6 +81,7 @@ const Tooltip = props => {
         trigger='hover'
         tooltip={tooltip => (
             <StyledTooltip
+                invert={props.invert}
                 {...tooltip.getTooltipProps({
                     ref: tooltip.tooltipRef,
                     className: 'tooltip-container',
@@ -113,6 +114,7 @@ Tooltip.propTypes = {
             PropTypes.oneOfType([PropTypes.string, PropTypes.element])
         )
     ]).isRequired,
+    invert: PropTypes.bool,
     renderTrigger: PropTypes.oneOfType([
         PropTypes.element,
         PropTypes.string,
