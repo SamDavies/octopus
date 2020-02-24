@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import Button, { StyledButton } from '../../../components/Button'
+import Button from '../../../components/Button'
 import BlockContainer from '../BlockContainer'
 
 const ModalBlockWrapper = styled(BlockContainer)`
-    ${StyledButton} {
+    ${Button} {
         max-height: 100%;
     }
 
