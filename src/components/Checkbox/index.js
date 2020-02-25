@@ -10,6 +10,7 @@ const StyledCustomCheckbox = styled.span`
     border: 2px solid ${colors.black};
     height: 14px;
     width: 14px;
+    min-width: 14px;
     transition: 60ms ease-in;
     &:after {
         content: "";
