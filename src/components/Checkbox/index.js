@@ -91,6 +91,7 @@ const Checkbox = props => {
     return <StyledWrapper htmlFor={props.id}>
         <input
             type={props.inputType}
+            data-testid='octopus-checkbox'
             id={props.id}
             name={props.name}
             value={props.value}
