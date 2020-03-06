@@ -23,7 +23,7 @@ const StyledTableCell = styled.div`
 
 const TableCell = props => {
     const onClick = e => {
-        e.stopPropagation()
+        props.stopPropagation && e.stopPropagation()
         props.onClick(e)
     }
     return <StyledTableCell
@@ -35,13 +35,15 @@ const TableCell = props => {
 TableCell.propTypes = {
     flex: PropTypes.number,
     width: PropTypes.number,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    stopPropagation: PropTypes.bool
 }
 
 TableCell.defaultProps = {
     flex: null,
     width: null,
-    onClick: noop
+    onClick: noop,
+    stopPropagation: false
 }
 
 export default TableCell
