@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { colors, device } from '../../../styles'
+import { colors, device } from '../../../'
 import Icon, { iconNames } from './Icon'
 
 const StyledWrapper = styled.div`

@@ -3,7 +3,7 @@ import React from 'react'
 import TooltipTrigger from 'react-popper-tooltip'
 import styled from 'styled-components'
 import isFunction from 'lodash/isFunction'
-import { colors, fonts } from '../../styles'
+import { colors, fonts } from '../../'
 
 const StyledSpan = styled.div`
     width: 100%;

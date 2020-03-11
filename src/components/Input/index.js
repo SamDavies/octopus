@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { colors, device, fonts } from '../../styles'
+import { colors, device, fonts } from '../../'
 
 export const StyledInputSection = styled.div`
     position: relative;

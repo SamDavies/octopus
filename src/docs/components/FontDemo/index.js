@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
-import { fonts } from '../../../styles'
+import { fonts } from '../../../'
 
 const StyledWrapper = styled.div`
     font-family: ${props => fonts[props.fontFamily]};

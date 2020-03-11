@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { colors, device, fonts } from '../../styles'
+import { colors, device, fonts } from '../../'
 import Input from '../Input'
 import { StyledLink } from '../Link'
 
