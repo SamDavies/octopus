@@ -1,38 +1,23 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { colors } from '../../styles'
-import StarInput from './StarInput'
 
-export const StyledFieldset = styled.fieldset`
-    margin: 0;
-    padding: 0;
-    border: none;
-    display: block;
-`
-
-export const StyledRatingInner = styled.div`
-    display: flex;
-    flex-flow: row wrap;
-    width: 100%;
+const RatingWrapper = styled.div`
+    display: ${({ inline }) => inline ? 'inline-flex' : 'flex'};
     align-items: center;
-
-    label:hover ~ label {
-        color: ${colors.lightSalmon};
-
-        &:before {
-            content: "★";
-        }
-    }
-
-
-    div {
-        display: flex;
-        flex-direction: row-reverse;
-    }
 `
 
-export const StyledClearButton = styled.p`
+const Svg = styled.svg`
+    stroke: ${colors.black};
+    fill: transparent;
+`
+
+const Path = styled.path`
+    ${({ isStatic }) => isStatic && `cursor: pointer`};
+`
+
+export const StyledClearButton = styled.span`
     color: ${colors.black};
     font-size: 10px;
     text-decoration: underline;
@@ -40,7 +25,7 @@ export const StyledClearButton = styled.p`
     text-transform: uppercase;
     font-weight: bold;
     display: inline-block;
-    margin-left: 15px;
+    margin: 2px 0 0 8px;
     cursor: pointer;
 `
 
@@ -50,46 +35,87 @@ const ratingTitles = [
     'Just OK',
     'Good',
     'Awesome'
-].reverse()
+]
 
-const RatingPicker = ({ onChange, rating, inputName }) => (
-    <StyledRatingInner>
-        <StyledFieldset role='group' aria-label='Star Rating'>
-            <div>
+const getFillColor = (rating, hovered, i) => {
+    if (i <= hovered) return colors.salmon
+    if (i <= rating) return colors.black
+    return 'inherit'
+}
+
+const getStrokeColor = (rating, hovered, i) => {
+    if (i <= hovered) return colors.salmon
+    return colors.black
+}
+
+const RatingPicker = ({ onChange, rating, inputName, isStatic, size, inline }) => {
+    const [hovered, setHovered] = useState(-1)
+    return (
+        <RatingWrapper inline={inline}>
+            <Svg
+                width={ratingTitles.length * (size + 4)}
+                version='1.1'
+                xmlns='http://www.w3.org/2000/svg'
+                xmlnsXlink='http://www.w3.org/1999/xlink'
+                preserveAspectRatio='xMidYMid meet'
+                {...(!isStatic && {
+                    role: 'group',
+                    'aria-label': 'Star Rating'
+                })}
+                aria-valuenow={`${ratingTitles[rating]}; ${rating} out of ${ratingTitles.length} stars`}
+                viewBox={`0 0 ${ratingTitles.length * (size + 4)} ${size}`}
+            >
+                <defs>
+                    <Path
+                        isStatic={isStatic}
+                        d='M26.18 13.16L40 15.27L30 25.52L32.36 40L20 33.16L7.64 40L10 25.52L0 15.27L13.82 13.16L20 0L26.18 13.16Z'
+                        id='star-shape'
+                        transform={`scale(${size / 40})`}
+                    />
+                </defs>
                 {ratingTitles.map((title, i, arr) => {
-                    const number = arr.length - i
+                    const value = i + 1
                     return (
-                        <StarInput
-                            key={number}
-                            number={number}
-                            inputName={inputName}
+                        <use
+                            {...(!isStatic && { tabIndex: '-1' })}
+                            role='radio'
+                            xlinkHref='#star-shape'
+                            key={title}
+                            x={i * (size + 4)}
                             title={title}
-                            onChange={e => onChange(Number(e.target.value))}
-                            isChecked={rating === number}
+                            onMouseEnter={() => !isStatic && setHovered(value)}
+                            onMouseLeave={() => setHovered(0)}
+                            onClick={() => !isStatic && onChange(value)}
+                            fill={getFillColor(rating, hovered, value)}
+                            stroke={getStrokeColor(rating, hovered, value)}
+                            strokeWidth='1.5'
                         />
                     )
                 })}
-            </div>
-
-        </StyledFieldset>
-        {rating && <StyledClearButton
-            onClick={() => onChange(null)}
-        >
+            </Svg>
+            {rating > 0 && !isStatic && <StyledClearButton
+                onClick={() => onChange(0)}
+            >
                 Clear
-        </StyledClearButton>}
-    </StyledRatingInner>
-)
+            </StyledClearButton>}
+        </RatingWrapper>
+    )
+}
 
 RatingPicker.propTypes = {
     onChange: PropTypes.func.isRequired,
     inputName: PropTypes.string,
-    rating: PropTypes.number
+    rating: PropTypes.number,
+    isStatic: PropTypes.bool,
+    inline: PropTypes.bool,
+    size: PropTypes.number
 }
 
 RatingPicker.defaultProps = {
     inputName: 'rating',
     onChange: () => {},
-    rating: 0
+    rating: 0,
+    size: 20
 }
 
 export default RatingPicker
