@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { colors } from '../../'
 import { StyledText } from '../Text'
 
 const StyledCustomCheckbox = styled.span`

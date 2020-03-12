@@ -2,7 +2,7 @@ import noop from 'lodash/noop'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
-import fonts from '../../styles/fonts'
+import { fonts } from '../../'
 import Icon from '../Icon'
 
 export const StyledInput = styled.input`
