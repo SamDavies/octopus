@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { colors, fonts } from '../../styles'
+import { colors, fonts } from '../../'
 
 const UnavailableItem = `
     position: relative;

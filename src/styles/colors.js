@@ -59,6 +59,4 @@ const colors = {
     ...accentColors
 }
 
-export const colorNames = Object.keys(colors)
-
 export default colors

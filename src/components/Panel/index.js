@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { colors } from '../../'
 
 const Panel = styled.div`
     flex: 1;
