@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../'
+import colors from '../../styles/colors'
 
 export const TableHeader = styled.div`
     display: flex;

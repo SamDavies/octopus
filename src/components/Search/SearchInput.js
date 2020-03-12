@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { colors } from '../../'
+import colors from '../../styles/colors'
 import Icon from '../Icon'
 import Input from '../Input'
 
