@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { colors } from '../../'
+import colors from '../../styles/colors'
 
 const RatingWrapper = styled.div`
     display: ${({ inline }) => inline ? 'inline-flex' : 'flex'};

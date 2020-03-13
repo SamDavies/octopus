@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
-import { colors, fonts } from '../../'
+import colors from '../../styles/colors'
+import fonts from '../../styles/fonts'
 import { StyledText } from '../Text'
 
 export const StyledErrorMessage = styled(StyledText).attrs(() => ({

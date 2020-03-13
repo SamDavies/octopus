@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
-import { colors } from '../../../'
+import colors from '../../../styles/colors'
 
 // Instead of using svgr to generate per component icons, create generic icon
 // component and icon hash using create-react-scripts included svgr webpack
