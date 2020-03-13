@@ -1,3 +1,31 @@
+import colors from './styles/colors'
+import fonts from './styles/fonts'
+import {
+    defaultTransition,
+    antEasing,
+    antEasingFast,
+    imagesPath
+} from './styles/misc'
+import {
+    device,
+    breakpoints,
+    fontSizes,
+    defaultIndent,
+    indents,
+    headerMobileHeight,
+    headerHeight,
+    headerTabletHeight,
+    headerPadding,
+    navbarHeaderHeight,
+    navbarHeaderHeightTablet,
+    navbarWidth,
+    navbarWidthHamburger,
+    navbarHeight,
+    paddingMobile,
+    paddingTablet,
+    paddingDesktop
+} from './styles/sizes'
+
 import Button from './components/Button'
 import Checkbox from './components/Checkbox'
 import CircleLogo from './components/CircleLogo'
@@ -39,34 +67,6 @@ import UserAvatar, {
     StyledImageAvatar,
     StyledTextAvatar
 } from './components/UserAvatar'
-
-import colors from './styles/colors'
-import fonts from './styles/fonts'
-import {
-    defaultTransition,
-    antEasing,
-    antEasingFast,
-    imagesPath
-} from './styles/misc'
-import {
-    device,
-    breakpoints,
-    fontSizes,
-    defaultIndent,
-    indents,
-    headerMobileHeight,
-    headerHeight,
-    headerTabletHeight,
-    headerPadding,
-    navbarHeaderHeight,
-    navbarHeaderHeightTablet,
-    navbarWidth,
-    navbarWidthHamburger,
-    navbarHeight,
-    paddingMobile,
-    paddingTablet,
-    paddingDesktop
-} from './styles/sizes'
 
 export {
     device,

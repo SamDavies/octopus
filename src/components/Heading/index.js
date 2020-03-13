@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { colors, device, fonts } from '../../'
+import { device } from '../../styles/sizes'
+import colors from '../../styles/colors'
+import fonts from '../../styles/fonts'
 
 const headingStyles = {
     h1: css`
