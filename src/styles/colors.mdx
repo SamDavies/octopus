@@ -5,29 +5,14 @@ route: '/styles/colors'
 ---
 
 
-import { colors, accentColors, uiColors, primaryColors } from './';
+import colors from './colors';
 import ColorBox from '../docs/components/ColorBox'
 import toPairs from 'lodash/toPairs'
 
 # Colors 
 
-### Primary 
 <div>
-{toPairs(primaryColors).map(([name, hex]) => (
-    <ColorBox name={name} hex={hex} />
-))}
-</div>
-
-### UI
-<div>
-{toPairs(uiColors).map(([name, hex]) => (
-    <ColorBox name={name} hex={hex} />
-))}
-</div>
-
-### Accent
-<div>
-{toPairs(accentColors).map(([name, hex]) => (
+{toPairs(colors).map(([name, hex]) => (
     <ColorBox name={name} hex={hex} />
 ))}
 </div>

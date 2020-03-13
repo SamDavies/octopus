@@ -3,7 +3,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 import { ReactComponent as LogoImage } from '../../static/images/logo.svg'
-import { colors } from '../../'
+import colors from '../../styles/colors'
 
 const logoSizes = {
     default: css`
