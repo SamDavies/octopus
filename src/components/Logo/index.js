@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Link } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 import { ReactComponent as LogoImage } from '../../static/images/logo.svg'
 import colors from '../../styles/colors'
@@ -31,15 +30,14 @@ const StyledLogoWrapper = styled.div`
   }
 `
 
-const StyledLink = styled(Link)`
+const StyledLink = styled.div`
   line-height: 1;
   display: block;
-  pointer-events: ${({ link }) => (link === 'true' ? 'auto' : 'none')};
 `
 
-const Logo = ({ color, link, size }) => (
+const Logo = ({ color, size }) => (
     <StyledLogoWrapper size={size} color={color}>
-        <StyledLink to='/' link={link.toString()}>
+        <StyledLink>
             <LogoImage />
         </StyledLink>
     </StyledLogoWrapper>
@@ -49,15 +47,12 @@ Logo.propTypes = {
     /** Logo size */
     size: PropTypes.oneOf(['default', 'normal', 'header']),
     /** Render inverted svg icon  */
-    color: PropTypes.string,
-    /** Is link available */
-    link: PropTypes.bool
+    color: PropTypes.string
 }
 
 Logo.defaultProps = {
     size: 'default',
-    color: 'black',
-    link: true
+    color: 'black'
 }
 
 export default Logo
