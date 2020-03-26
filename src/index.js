@@ -40,7 +40,6 @@ import ImagePlaceholder from './components/ImagePlaceholder'
 import Input, { StyledInputSection } from './components/Input'
 import InputWithDropdown from './components/InputWithDropdown'
 import Label from './components/Label'
-import Link, { StyledLink } from './components/Link'
 import Logo from './components/Logo'
 import Modal from './components/Modal'
 import Notification from './components/Notification'
@@ -107,8 +106,6 @@ export {
     StyledInputSection,
     InputWithDropdown,
     Label,
-    Link,
-    StyledLink,
     Logo,
     Modal,
     Notification,
