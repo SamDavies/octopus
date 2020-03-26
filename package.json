@@ -1,6 +1,6 @@
 {
     "name": "@stylindex/octopus",
-    "version": "0.12.6",
+    "version": "0.12.7",
     "description": "",
     "author": "stylindex",
     "license": "MIT",
@@ -60,7 +60,6 @@
         "prop-types": "^15.5.4",
         "react": "^16.0.0",
         "react-dom": "^16.0.0",
-        "react-router-dom": "^5.1.2",
         "styled-components": "^4.4.1"
     },
     "devDependencies": {
@@ -90,7 +89,6 @@
         "opn": "^6.0.0",
         "react": "^16.4.1",
         "react-dom": "^16.4.1",
-        "react-router-dom": "^5.1.2",
         "react-scripts": "^1.1.4",
         "rollup": "^1.31.0",
         "rollup-plugin-babel": "^4.3.3",
