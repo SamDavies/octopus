@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Link } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 import { ReactComponent as LogoImage } from '../../static/images/logo_stacked.svg'
 import colors from '../../styles/colors'
@@ -51,15 +50,14 @@ const StyledCircleLogoWrapper = styled.div`
   
 `
 
-const StyledLink = styled(Link)`
+const StyledLink = styled.div`
   line-height: 1;
   display: block;
-  pointer-events: ${({ link }) => (link === 'true' ? 'auto' : 'none')};
 `
 
-const CircleLogo = ({ inverted, link, size }) => (
+const CircleLogo = ({ inverted, size }) => (
     <StyledCircleLogoWrapper inverted={inverted} size={size} className='logo-wrapper'>
-        <StyledLink to='/' link={link.toString()}>
+        <StyledLink>
             <LogoImage />
         </StyledLink>
     </StyledCircleLogoWrapper>
@@ -67,13 +65,11 @@ const CircleLogo = ({ inverted, link, size }) => (
 
 CircleLogo.propTypes = {
     inverted: PropTypes.bool,
-    link: PropTypes.bool,
     size: PropTypes.oneOf(['small', 'medium', 'large'])
 }
 
 CircleLogo.defaultProps = {
     inverted: false,
-    link: true,
     size: 'large'
 }
 
