@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { device } from '../../styles/sizes'
-import colors from '../../styles/colors'
+import { device } from '../../../styles/sizes'
+import colors from '../../../styles/colors'
 import Icon, { iconNames } from './Icon'
 
 const StyledWrapper = styled.div`
