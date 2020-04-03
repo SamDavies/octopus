@@ -1,9 +1,16 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
+import { fonts } from '../../index'
 import Input from '../Input'
 import Select from '../Select'
-import { StyledFilter } from '../Select/styles'
+
+const StyledFilter = styled.div`
+    min-width: 0;
+    position: relative;
+    font-family: ${fonts.cera};
+    letter-spacing: 0.8px;
+`
 
 const StyledWrapper = styled.div`
     width: 100%;

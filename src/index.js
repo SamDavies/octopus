@@ -48,12 +48,7 @@ import Panel from './components/Panel'
 import PasswordInput from './components/PasswordInput'
 import RatingPicker from './components/RatingPicker'
 import Search from './components/Search'
-import Select, {
-    StyledControlDropdown,
-    StyledControlItem,
-    StyledControlPlaceholder,
-    StyledFilter
-} from './components/Select'
+import Select from './components/Select'
 import TableCell from './components/TableCell'
 import TableHeader from './components/TableHeader'
 import TableHeaderCell from './components/TableHeaderCell'
@@ -115,10 +110,6 @@ export {
     RatingPicker,
     Search,
     Select,
-    StyledControlDropdown,
-    StyledControlItem,
-    StyledControlPlaceholder,
-    StyledFilter,
     TableCell,
     TableHeader,
     TableHeaderCell,
