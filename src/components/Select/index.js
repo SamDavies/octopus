@@ -171,13 +171,17 @@ const StyledButton = styled(Button)`
 
 const StyledText = styled.div`
     flex: 1;
-    color: ${props => props.colour};
+    ${props => props.colour && `
+        color: ${props.colour};
+    `};
 `
 
 const StyledIcon = styled.div`
     & > * {
         .fill-color {
-            fill: ${colors.coral};
+            ${props => props.colour && `
+                fill: ${props.colour};
+            `};
         }
     }
 `
@@ -226,88 +230,86 @@ const Select = props => {
         }
     })
 
-    return (
-        <StyledFilter>
-            <StyledControlItem
-                ref={control}
-                isFetching={props.isFetching}
-                role='option'
-                tabIndex={0}
-                id={`dropdown__${props.id}`}
-                data-role='dropdown-filter'
+    return <StyledFilter>
+        <StyledControlItem
+            ref={control}
+            isFetching={props.isFetching}
+            role='option'
+            tabIndex={0}
+            id={`dropdown__${props.id}`}
+            data-role='dropdown-filter'
+        >
+            <StyledButton
+                kind={selectedFilterName ? 'primary' : 'secondary'}
+                fullWidth
+                data-testid={`selected-${selectedFilterName}`}
+                ref={title}
+                data-role='dropdown-value-display'
+                data-opened={isOpened}
+                isFilterSelected={selectedFilterName}
             >
-                <StyledButton
-                    kind='secondary'
-                    fullWidth
-                    data-testid={`selected-${selectedFilterName}`}
-                    ref={title}
-                    data-role='dropdown-value-display'
-                    data-opened={isOpened}
-                    isFilterSelected={selectedFilterName}
-                >
-                    <StyledText colour={isOpened ? 'salmon' : 'black'}>
-                        {selectedFilterName || props.label}
-                    </StyledText>
-                    <StyledIcon>
-                        <Icon icon='dropdown-arrow' width={22} height={22} />
-                    </StyledIcon>
-                </StyledButton>
-                <StyledControlDropdown offset={offset + 45} isVisible={isOpened}>
-                    {showViewAll && (
-                        <StyledViewAllOption
-                            role='option'
-                            tabIndex={0}
-                            key='reset'
-                            value='@@resetFilter'
-                            onClick={handleResetItem}
-                        >
-                            View all
-                        </StyledViewAllOption>
-                    )}
-                    {props.options.length ? (
-                        props.options.reduce((acc, option) => {
-                            if (option) {
-                                const { name, id: optionId, ids } = option
-                                const value = ids || String(optionId)
-                                acc.push(
-                                    <StyledDefaultOption
-                                        key={value}
-                                        data-testid={`option-${value}`}
-                                        role='option'
-                                        tabIndex={0}
-                                        bordered={false}
-                                        selected={value === props.selectedValue}
-                                        onClick={() =>
-                                            props.handleSelectChange(props.filterId, value, option)
-                                        }
-                                        data-role='dropdown-option'
-                                    >
-                                        {name}
-                                        {props.showResetControls && value === props.selectedValue && (
-                                            <div
-                                                onClick={handleResetItem}
-                                                data-testid={`cancel-${value}`}
-                                            >
-                                                <Icon
-                                                    width={10}
-                                                    height={10}
-                                                    fillColor='white'
-                                                    icon='close'
-                                                />
-                                            </div>
-                                        )}
-                                    </StyledDefaultOption>
-                                )
-                            }
-                            return acc
-                        }, [])
-                    ) : (
-                        <StyledEmptyOption>None</StyledEmptyOption>
-                    )}
-                </StyledControlDropdown>
-            </StyledControlItem>
-        </StyledFilter>
-    )
+                <StyledText colour={isOpened && 'salmon'}>
+                    {selectedFilterName || props.label}
+                </StyledText>
+                <StyledIcon colour={selectedFilterName ? colors.white : colors.coral}>
+                    <Icon icon='dropdown-arrow' width={22} height={22} />
+                </StyledIcon>
+            </StyledButton>
+            <StyledControlDropdown offset={offset + 45} isVisible={isOpened}>
+                {showViewAll && (
+                    <StyledViewAllOption
+                        role='option'
+                        tabIndex={0}
+                        key='reset'
+                        value='@@resetFilter'
+                        onClick={handleResetItem}
+                    >
+                        View all
+                    </StyledViewAllOption>
+                )}
+                {props.options.length ? (
+                    props.options.reduce((acc, option) => {
+                        if (option) {
+                            const { name, id: optionId, ids } = option
+                            const value = ids || String(optionId)
+                            acc.push(
+                                <StyledDefaultOption
+                                    key={value}
+                                    data-testid={`option-${value}`}
+                                    role='option'
+                                    tabIndex={0}
+                                    bordered={false}
+                                    selected={value === props.selectedValue}
+                                    onClick={() =>
+                                        props.handleSelectChange(props.filterId, value, option)
+                                    }
+                                    data-role='dropdown-option'
+                                >
+                                    {name}
+                                    {props.showResetControls && value === props.selectedValue && (
+                                        <div
+                                            onClick={handleResetItem}
+                                            data-testid={`cancel-${value}`}
+                                        >
+                                            <Icon
+                                                width={10}
+                                                height={10}
+                                                fillColor='white'
+                                                icon='close'
+                                            />
+                                        </div>
+                                    )}
+                                </StyledDefaultOption>
+                            )
+                        }
+                        return acc
+                    }, [])
+                ) : (
+                    <StyledEmptyOption>None</StyledEmptyOption>
+                )}
+            </StyledControlDropdown>
+        </StyledControlItem>
+    </StyledFilter>
 }
 
 Select.propTypes = {
