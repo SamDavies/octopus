@@ -171,16 +171,20 @@ const StyledButton = styled(Button)`
 
 const StyledText = styled.div`
     flex: 1;
-    ${props => props.colour && `
-        color: ${props.colour};
+    color: ${colors.black};
+    ${props => props.isFilterSelected && `
+        color: ${colors.white};
     `};
 `
 
 const StyledIcon = styled.div`
+    display: flex;
+    align-items: center;
     & > * {
         .fill-color {
-            ${props => props.colour && `
-                fill: ${props.colour};
+            fill: ${colors.coral};
+            ${props => props.isFilterSelected && `
+                fill: ${colors.white};
             `};
         }
     }
@@ -248,10 +252,10 @@ const Select = props => {
                 data-opened={isOpened}
                 isFilterSelected={selectedFilterName}
             >
-                <StyledText colour={isOpened && 'salmon'}>
+                <StyledText isFilterSelected={!!selectedFilterName}>
                     {selectedFilterName || props.label}
                 </StyledText>
-                <StyledIcon colour={selectedFilterName ? colors.white : colors.coral}>
+                <StyledIcon isFilterSelected={!!selectedFilterName}>
                     <Icon icon='dropdown-arrow' width={22} height={22} />
                 </StyledIcon>
             </StyledButton>
