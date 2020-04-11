@@ -4,13 +4,14 @@ import styled from 'styled-components'
 import { fonts } from '../../'
 
 export const StyledText = styled.div`
-  position: relative;
-  font-family: ${({ font }) => fonts[font]};
-  font-weight: ${({ bold }) => (bold ? 800 : 500)};
-  font-style: ${({ italic }) => (italic ? 'italic' : 'normal')};
-  font-stretch: normal;
-  letter-spacing: normal;
-  text-transform: ${({ uppercase }) => (uppercase ? 'uppercase' : 'none')};
+    position: relative;
+    line-height: 150%;
+    font-family: ${({ font }) => fonts[font]};
+    font-weight: ${({ bold }) => (bold ? 800 : 500)};
+    font-style: ${({ italic }) => (italic ? 'italic' : 'normal')};
+    font-stretch: normal;
+    letter-spacing: normal;
+    text-transform: ${({ uppercase }) => (uppercase ? 'uppercase' : 'none')};
 `
 
 const Text1 = styled(StyledText)`
