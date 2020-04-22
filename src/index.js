@@ -58,7 +58,6 @@ import Textarea from './components/Textarea'
 import Tooltip from './components/Tooltip'
 import HorizontalScroll from './components/HorizontalScroll'
 import Tab from './components/Tab'
-import Tabs from './components/Tabs'
 import UserAvatar, {
     StyledImageAvatar,
     StyledTextAvatar
@@ -113,7 +112,6 @@ export {
     Select,
     HorizontalScroll,
     Tab,
-    Tabs,
     TableCell,
     TableHeader,
     TableHeaderCell,

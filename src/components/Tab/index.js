@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import { colors } from '../..'
 
 const StyledContainer = styled.div`
     text-decoration: none;
     text-transform: uppercase;
-    color: inherit;
+    color: ${colors.black};
     padding-right: 30px;
     cursor: pointer;
 `

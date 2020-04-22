@@ -1,13 +1,13 @@
 ---
-name: Tabs
+name: Tab
 menu: Components
-route: '/components/Tabs'
+route: '/components/Tab'
 ---
 
 import { useState, Fragment } from 'react'
 import BlockContainer from '../../docs/components/BlockContainer'
 import Tab from '../Tab'
-import Tabs from '../Tabs'
+import HorizontalScroll from '../HorizontalScroll'
 import { Playground, Props } from 'docz'
 
 # Table
@@ -17,7 +17,7 @@ import { Playground, Props } from 'docz'
 <Playground>
     {() => {
         const [selected, setSelected] = useState('tab-1')
-        return (<Tabs>
+        return (<HorizontalScroll>
             <Tab
                 isSelected={selected === 'tab-1'}
                 onClick={() => setSelected('tab-1')}
@@ -66,6 +66,6 @@ import { Playground, Props } from 'docz'
             >
                 Tab 8
             </Tab>
-        </Tabs>)
+        </HorizontalScroll>)
     }}
 </Playground>
