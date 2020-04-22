@@ -7,20 +7,6 @@ import postcss from 'rollup-plugin-postcss'
 import url from 'rollup-plugin-url'
 import pkg from './package.json'
 
-const createCssFileConfig = (file) => ({
-    input: `src/static/css/${file}.css`,
-    output: {
-        file: `lib/${file}.css`,
-        format: 'es'
-    },
-    plugins: [
-        postcss({
-            minimize: true,
-            extract: true
-        })
-    ]
-})
-
 export default [
     {
         input: 'src/index.js',
@@ -52,6 +38,5 @@ export default [
             }),
             commonjs()
         ]
-    },
-    ...['reset', 'styles'].map(createCssFileConfig)
+    }
 ]
