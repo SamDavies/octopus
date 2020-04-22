@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import GlobalBody from './GlobalBody'
+import GlobalTypography from './GlobalTypography'
 import GlobalFonts from './GlobalFonts'
 import GlobalReset from './GlobalReset'
 
@@ -7,9 +7,9 @@ const GlobalStyles = () =>
     <Fragment>
         <GlobalFonts />
         <GlobalReset />
-        <GlobalBody />
+        <GlobalTypography />
     </Fragment>
 
 export default GlobalStyles
 
-export { GlobalFonts, GlobalReset, GlobalBody }
+export { GlobalFonts, GlobalReset, GlobalTypography }
