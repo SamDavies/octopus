@@ -40,7 +40,6 @@ import ImagePlaceholder from './components/ImagePlaceholder'
 import Input, { StyledInputSection } from './components/Input'
 import InputWithDropdown from './components/InputWithDropdown'
 import Label from './components/Label'
-import Logo from './components/Logo'
 import Modal from './components/Modal'
 import Notification from './components/Notification'
 import PageHeading from './components/PageHeading'
@@ -57,6 +56,9 @@ import TableSearchCell from './components/TableSearchCell'
 import Text, { StyledText } from './components/Text'
 import Textarea from './components/Textarea'
 import Tooltip from './components/Tooltip'
+import HorizontalScroll from './components/HorizontalScroll'
+import Tab from './components/Tab'
+import Tabs from './components/Tabs'
 import UserAvatar, {
     StyledImageAvatar,
     StyledTextAvatar
@@ -101,7 +103,6 @@ export {
     StyledInputSection,
     InputWithDropdown,
     Label,
-    Logo,
     Modal,
     Notification,
     PageHeading,
@@ -110,6 +111,9 @@ export {
     RatingPicker,
     Search,
     Select,
+    HorizontalScroll,
+    Tab,
+    Tabs,
     TableCell,
     TableHeader,
     TableHeaderCell,
