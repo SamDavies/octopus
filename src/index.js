@@ -30,7 +30,7 @@ import Button from './components/Button'
 import Checkbox from './components/Checkbox'
 import CircleLogo from './components/CircleLogo'
 import GlobalStyles, {
-    GlobalBody,
+    GlobalTypography,
     GlobalFonts,
     GlobalReset
 } from './components/GlobalStyles'
@@ -91,7 +91,7 @@ export {
     Checkbox,
     CircleLogo,
     GlobalStyles,
-    GlobalBody,
+    GlobalTypography,
     GlobalFonts,
     GlobalReset,
     Heading,
