@@ -7,7 +7,6 @@ import { device, headerHeight, headerMobileHeight } from '../../styles/sizes'
 import Button from '../Button'
 import Heading, { StyledHeading } from '../Heading'
 import Icon from '../Icon'
-import Logo from '../Logo'
 
 const modalContentStyles = {
     default: css`
@@ -194,13 +193,6 @@ const ModalComponent = props => {
 
     return createPortal(
         <ModalWrapper id='modalWrapper'>
-            {props.modalType === 'withLogo' && (
-                <StyledModalHead>
-                    <StyledLogoContainer>
-                        <Logo color='white' link={false} />
-                    </StyledLogoContainer>
-                </StyledModalHead>
-            )}
             <ModalContent {...props}>
                 {props.onClose && (
                     <CloseButton onClick={props.onClose} type='button'>
@@ -249,7 +241,6 @@ ModalComponent.propTypes = {
     /** Modal type. Mostly varies in width and padding, but `withLogo` also renders a logo at the top of the page */
     modalType: PropTypes.oneOf([
         'default',
-        'withLogo',
         'invisible',
         'minimal',
         'contact'
