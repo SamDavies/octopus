@@ -6,7 +6,9 @@ const StyledContainer = styled.div`
     text-decoration: none;
     text-transform: uppercase;
     color: ${colors.black};
-    padding-right: 30px;
+    &:not(:last-child) {
+        padding-right: 30px;
+    }
     cursor: pointer;
 `
 
