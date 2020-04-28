@@ -22,7 +22,7 @@ const HorizontalScroll = styled.div`
     display: flex;
     
     ${props => props.mobileOnly && `
-        @media (max-width: 425px) {
+        @media (max-width: ${device.mobile}) {
             ${StyledScroll}
         }
         
