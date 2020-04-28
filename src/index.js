@@ -8,6 +8,7 @@ import {
 } from './styles/misc'
 import {
     device,
+    size,
     breakpoints,
     fontSizes,
     defaultIndent,
@@ -65,6 +66,7 @@ import UserAvatar, {
 
 export {
     device,
+    size,
     breakpoints,
     fontSizes,
     defaultIndent,
