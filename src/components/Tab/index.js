@@ -15,6 +15,10 @@ const StyledContainer = styled.div`
 const StyledTab = styled.div`
     padding-bottom: 12px;
     border-bottom: 2px solid ${props => props.isSelected ? colors.black : 'transparent'};
+    
+    &:hover {
+        border-bottom: 2px solid ${colors.salmon};
+    }
 `
 
 const Tab = props =>
