@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { device } from '../../styles/sizes'
+import { device, size } from '../../styles/sizes'
 
 // https://iamsteve.me/blog/entry/using-flexbox-for-horizontal-scrolling-navigation
 const StyledScroll = css`
@@ -22,7 +22,7 @@ const HorizontalScroll = styled.div`
     display: flex;
     
     ${props => props.mobileOnly && `
-        @media (max-width: ${device.mobile}) {
+        @media (max-width: ${size.mobile}) {
             ${StyledScroll}
         }
         
