@@ -11,6 +11,8 @@ const StyledTableCell = styled.div`
     ${props => props.width && `
         width: ${props.width}
     `}
+    min-width: 0;
+    overflow: scroll;
     padding-top: 12px;
     padding-left: 10px;
     padding-right: 10px;
