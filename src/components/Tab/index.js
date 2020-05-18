@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { colors } from '../..'
+import colours from '../../constants/colours'
 
 const StyledContainer = styled.div`
     text-decoration: none;
     text-transform: uppercase;
-    color: ${colors.black};
+    color: ${colours.black};
     &:not(:last-child) {
         padding-right: 30px;
     }
@@ -14,10 +14,10 @@ const StyledContainer = styled.div`
 
 const StyledTab = styled.div`
     padding-bottom: 12px;
-    border-bottom: 2px solid ${props => props.isSelected ? colors.black : 'transparent'};
+    border-bottom: 2px solid ${props => props.isSelected ? colours.black : 'transparent'};
     
     &:hover {
-        border-bottom: 2px solid ${colors.salmon};
+        border-bottom: 2px solid ${colours.salmon};
     }
 `
 

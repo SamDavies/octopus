@@ -2,14 +2,14 @@ import noop from 'lodash/noop'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
-import { fonts } from '../../'
+import fonts from '../../constants/fonts'
 
 const StyledTableCell = styled.div`
     ${props => props.flex && `
-        flex: ${props.flex}
+        flex: ${props.flex};
     `}
     ${props => props.width && `
-        width: ${props.width}
+        width: ${props.width};
     `}
     min-width: 0;
     overflow: scroll;

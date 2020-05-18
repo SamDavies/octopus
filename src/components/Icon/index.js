@@ -3,7 +3,7 @@ import React from 'react'
 import SVG from 'react-inlinesvg'
 import styled from 'styled-components'
 import config from '../../config'
-import colors from '../../styles/colors'
+import colours from '../../constants/colours'
 
 export const StyledIconWrapper = styled.span`
     display: inline-block;
@@ -17,13 +17,13 @@ export const StyledIconWrapper = styled.span`
 
     ${({ fillColor }) => fillColor && `
         .fill-color {
-            fill:  ${fillColor === 'none' ? fillColor : colors[fillColor]};
+            fill:  ${fillColor === 'none' ? fillColor : colours[fillColor]};
         }
     `}
 
     ${({ strokeColor }) => strokeColor && `
         .stroke-color {
-            stroke:  ${strokeColor === 'none' ? strokeColor : colors[strokeColor]};
+            stroke:  ${strokeColor === 'none' ? strokeColor : colours[strokeColor]};
         }
 
     `}

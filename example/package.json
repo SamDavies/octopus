@@ -1,0 +1,25 @@
+{
+    "name": "octopus-example",
+    "homepage": "https://octopus.stylindex.com",
+    "version": "0.0.0",
+    "license": "MIT",
+    "private": true,
+    "scripts": {
+        "build": "next build",
+        "start": "next",
+        "serve": "next start",
+        "test": "react-scripts test",
+        "lint": "standardx \"src/**/*.js\" \"src/**/*.jsx\"",
+        "lint-fix": "standardx \"src/**/*.js\" \"src/**/*.jsx\" --fix"
+    },
+    "dependencies": {
+        "@stylindex/octopus": "link:..",
+        "prop-types": "^15.6.2",
+        "next": "^9.3.0",
+        "react": "link:../node_modules/react",
+        "react-dom": "link:../node_modules/react-dom",
+        "react-scripts": "^1.1.4",
+        "styled-components": "link:../node_modules/styled-components",
+        "react-inlinesvg": "link:../node_modules/react-inlinesvg"
+    }
+}

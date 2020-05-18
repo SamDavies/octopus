@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
-import colors from '../../styles/colors'
-import { StyledText } from '../Text'
+import colours from '../../constants/colours'
+import Heading from '../Heading'
 
 const StyledCustomCheckbox = styled.span`
     display: flex;
     position: relative;
-    border: 2px solid ${colors.black};
+    border: 2px solid ${colours.black};
     height: 14px;
     width: 14px;
     min-width: 14px;
@@ -19,7 +19,7 @@ const StyledCustomCheckbox = styled.span`
         display: inline-block;
         width: 6px;
         height: 6px;
-        background: ${colors.salmon};
+        background: ${colours.salmon};
         opacity: 0;
     }
 
@@ -33,22 +33,20 @@ const StyledCustomCheckbox = styled.span`
     }
 
     input:enabled ~ &:focus {
-        border-color: ${colors.lightSalmon};
+        border-color: ${colours.lightSalmon};
         + span {
-            color: ${colors.lightSalmon};
+            color: ${colours.lightSalmon};
         }
     }
 `
 
-const StyledLabelText = styled(StyledText).attrs(() => ({
-    font: 'cera',
+const StyledLabelText = styled(Heading).attrs(() => ({
     bold: true,
     size: 'normal',
     uppercase: true
 }))`
     display: inline-block;
     margin: auto 0 auto 10px;
-    letter-spacing: 0.8px;
     transition: 150ms ease-in;
 
 `
@@ -64,8 +62,8 @@ const StyledWrapper = styled.label`
     }
     &:hover {
         input:enabled ~ span {
-            border-color: ${colors.lightSalmon};
-            color: ${colors.lightSalmon};
+            border-color: ${colours.lightSalmon};
+            color: ${colours.lightSalmon};
         }
     }
     outline: none;

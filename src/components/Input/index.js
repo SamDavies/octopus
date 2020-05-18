@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { device } from '../../styles/sizes'
-import colors from '../../styles/colors'
-import fonts from '../../styles/fonts'
+import {device} from '../../constants/sizes'
+import colours from '../../constants/colours'
+import fonts from '../../constants/fonts'
 
 export const StyledInputSection = styled.div`
     position: relative;
@@ -16,11 +16,11 @@ export const Input = styled.input`
     box-sizing: border-box;
     border: none;
     border-bottom: 2px solid;
-    border-bottom-color: ${({ error }) => error ? colors.scarlet : colors.black};
+    border-bottom-color: ${({ error }) => error ? colours.scarlet : colours.black};
     font-size: 14px;
     font-family: ${fonts.literata};
     line-height: 1.5;
-    color: ${({ error }) => error ? colors.scarlet : colors.black};
+    color: ${({ error }) => error ? colours.scarlet : colours.black};
     min-height: 40px;
     width: 100%;
     outline: none;
@@ -31,7 +31,7 @@ export const Input = styled.input`
     
     &::placeholder {
         text-decoration: none;
-        color: ${colors.lightGray};
+        color: ${colours.lightGray};
         font-family: ${fonts.literata};
         ${({ hideLabel, name }) => hideLabel && !name && `
             opacity: 0;
@@ -48,10 +48,10 @@ export const Input = styled.input`
     }
     
     &:disabled {
-    border-color: ${colors.lightGray};
-    color: ${colors.lightGray};
+    border-color: ${colours.lightGray};
+    color: ${colours.lightGray};
     &::placeholder {
-        color: ${colors.lightGray};
+        color: ${colours.lightGray};
     }
     
     }
@@ -59,7 +59,7 @@ export const Input = styled.input`
     ${({ fullBorder }) => fullBorder && `
         margin-top: 10px;
         padding: 11px;
-        border: 2px solid ${colors.black};
+        border: 2px solid ${colours.black};
     `}
     
     ${({ uppercase }) => uppercase && `
@@ -67,7 +67,7 @@ export const Input = styled.input`
     `};
     
     &:focus {
-        border-color: ${colors.lightSalmon};
+        border-color: ${colours.lightSalmon};
     }
 `
 

@@ -1,21 +1,22 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { colors, fonts } from '../../'
+import colours from '../../constants/colours'
+import fonts from '../../constants/fonts'
 
 const Label = styled.label`
     margin-top: 20px;
-    color: ${colors.black};
+    color: ${colours.black};
     font-family: ${fonts.cera};
     font-size: 13px;
     font-weight: bold;
     text-transform: uppercase;
     
     ${({ disabled }) => disabled && `
-        color: ${colors.lightGray};
+        color: ${colours.lightGray};
     `}
 
     ${({ error }) => error && `
-        color: ${colors.scarlet};
+        color: ${colours.scarlet};
     `}
 `
 

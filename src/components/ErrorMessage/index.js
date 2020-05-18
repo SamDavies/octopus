@@ -1,27 +1,20 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
-import colors from '../../styles/colors'
-import fonts from '../../styles/fonts'
-import { StyledText } from '../Text'
+import Heading from '../Heading'
+import colors from '../../../old/src/styles/colors'
 
-export const StyledErrorMessage = styled(StyledText).attrs(() => ({
-    font: 'literata',
-    size: 'small'
-}))`
-  font-size: 12px;
-  font-family: ${fonts.literata};
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 18px;
-  color: ${colors.scarlet};
-  margin: 16.22px 0;
-  text-align: left;
+export const StyledErrorMessage = styled(Heading)`
+    color: ${colors.scarlet};
 `
 
-const ErrorMessage = ({ children }) => (
-    <StyledErrorMessage>{children}</StyledErrorMessage>
-)
+const ErrorMessage = props =>
+    <StyledErrorMessage
+        font='literata'
+        level={6}
+    >
+        {props.children}
+    </StyledErrorMessage>
 
 ErrorMessage.propTypes = {
     children: PropTypes.oneOfType([

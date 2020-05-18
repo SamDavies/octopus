@@ -1,82 +1,34 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
-import { fonts } from '../../'
+import AbstractText from '../AbstractText'
 
-export const StyledText = styled.div`
-    position: relative;
-    line-height: 150%;
-    font-family: ${({ font }) => fonts[font]};
-    font-weight: ${({ bold }) => (bold ? 800 : 500)};
-    font-style: ${({ italic }) => (italic ? 'italic' : 'normal')};
-    font-stretch: normal;
-    letter-spacing: normal;
-    text-transform: ${({ uppercase }) => (uppercase ? 'uppercase' : 'none')};
-`
-
-const Text1 = styled(StyledText)`
-    font-size: 42px;
-`
-
-const Text2 = styled(StyledText)`
-    font-size: 32px
-`
-
-const Text3 = styled(StyledText)`
-    font-size: 28px
-`
-
-const Text4 = styled(StyledText)`
-    font-size: 24px;
-`
-
-const Text5 = styled(StyledText)`
+const Normal = styled.div`
+    ${AbstractText}
     font-size: 16px;
 `
 
-const Text6 = styled(StyledText)`
+const Small = styled.div`
+    ${AbstractText}
     font-size: 13px;
 `
 
 const Text = props => {
-    if (props.level === 1) {
-        return <Text1 {...props}>
+    if (props.size === 'small') {
+        return <Small {...props}>
             {props.children}
-        </Text1>
+        </Small>
     }
 
-    if (props.level === 2) {
-        return <Text2 {...props}>
-            {props.children}
-        </Text2>
-    }
-
-    if (props.level === 3) {
-        return <Text3 {...props}>
-            {props.children}
-        </Text3>
-    }
-
-    if (props.level === 4) {
-        return <Text4 {...props}>
-            {props.children}
-        </Text4>
-    }
-
-    if (props.level === 6) {
-        return <Text6 {...props}>
-            {props.children}
-        </Text6>
-    }
-
-    return <Text5 {...props}>
+    return <Normal {...props}>
         {props.children}
-    </Text5>
+    </Normal>
 }
 
 Text.propTypes = {
-    level: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
+    size: PropTypes.oneOf(['normal', 'small']),
     font: PropTypes.oneOf(['cera', 'literata']),
+    spacing: PropTypes.oneOf(['normal', 'wide']),
     bold: PropTypes.bool,
     uppercase: PropTypes.bool,
     italic: PropTypes.bool,
@@ -89,6 +41,7 @@ Text.propTypes = {
 Text.defaultProps = {
     size: 'normal',
     font: 'cera',
+    spacing: 'normal',
     bold: false,
     italic: false,
     uppercase: false

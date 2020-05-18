@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
-import { colors, fonts } from '../../index'
+import colours from '../../constants/colours'
+import fonts from '../../constants/fonts'
 import Button from '../Button'
 import Icon from '../Icon'
 
@@ -22,8 +23,8 @@ const StyledControlItem = styled.div`
   font-size: 18px;
   font-weight: bold;
   text-transform: uppercase;
-  color: ${colors.black};
-  border: 2px solid ${colors.black};
+  color: ${colours.black};
+  border: 2px solid ${colours.black};
   height: 36px;
   line-height: 32px;
   border: none;
@@ -47,10 +48,10 @@ const StyledControlDropdown = styled.div`
   border-top: none;
   position: relative;
   top: -2px;
-  border: 2px solid ${colors.black};
+  border: 2px solid ${colours.black};
   border-radius: 0;
   transition: none;
-  background-color: ${colors.white};
+  background-color: ${colours.white};
   overflow: auto;
   opacity: 0;
   visibility: hidden;
@@ -64,7 +65,7 @@ const StyledControlDropdown = styled.div`
     left: 8px;
     right: 8px;
     height: 2px;
-    background-color: ${colors.black};
+    background-color: ${colours.black};
     z-index: 10;
   }
 
@@ -79,7 +80,7 @@ const StyledEmptyOption = styled.div`
   font-size: 13px;
   height: 32px;
   line-height: 32px;
-  color: ${colors.black};
+  color: ${colours.black};
   padding: 1px 16px 0;
   font-weight: bold;
   text-align: left;
@@ -88,8 +89,8 @@ const StyledEmptyOption = styled.div`
   pointer-events: none;
 
   &:hover {
-    background-color: ${colors.black};
-    color: ${colors.white};
+    background-color: ${colours.black};
+    color: ${colours.white};
   }
 `
 
@@ -100,16 +101,16 @@ const StyledViewAllOption = styled.div`
   line-height: 32px;
   padding: 1px 16px 0;
   font-weight: bold;
-  color: ${colors.black};
+  color: ${colours.black};
   text-align: left;
   cursor: pointer;
   transition: all 0.15s ease-in;
-  border-bottom: 2px solid ${colors.black};
+  border-bottom: 2px solid ${colours.black};
   font-size: 16px;
   outline: none;
   &:hover {
-    background-color: ${colors.black};
-    color: ${colors.white};
+    background-color: ${colours.black};
+    color: ${colours.white};
   }
 `
 
@@ -117,7 +118,7 @@ const StyledDefaultOption = styled.div`
   text-transform: uppercase;
   position: relative;
   font-size: 13px;
-  color: ${colors.black};
+  color: ${colours.black};
   height: 32px;
   line-height: 32px;
   padding: 1px 16px 0;
@@ -130,15 +131,15 @@ const StyledDefaultOption = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   border-bottom: ${({ bordered }) =>
-        bordered ? `2px solid ${colors.black}` : 'none'};
+        bordered ? `2px solid ${colours.black}` : 'none'};
   ${({ selected }) => selected && `
-    background-color: ${colors.black};
-    color: ${colors.white};
+    background-color: ${colours.black};
+    color: ${colours.white};
 `};
 
   &:hover {
-    background-color: ${colors.black};
-    color: ${colors.white};
+    background-color: ${colours.black};
+    color: ${colours.white};
   }
 
   .icon-wrapper {
@@ -171,9 +172,9 @@ const StyledButton = styled(Button)`
 
 const StyledText = styled.div`
     flex: 1;
-    color: ${colors.black};
+    color: ${colours.black};
     ${props => props.isFilterSelected && `
-        color: ${colors.white};
+        color: ${colours.white};
     `};
 `
 
@@ -182,9 +183,9 @@ const StyledIcon = styled.div`
     align-items: center;
     & > * {
         .fill-color {
-            fill: ${colors.coral};
+            fill: ${colours.coral};
             ${props => props.isFilterSelected && `
-                fill: ${colors.white};
+                fill: ${colours.white};
             `};
         }
     }

@@ -14,8 +14,8 @@ COPY gatsby-config.js gatsby-config.js
 COPY webpack.config.js webpack.config.js
 COPY .babelrc .babelrc
 COPY rollup.config.js rollup.config.js
-COPY ./src src/
-COPY ./public public/
+COPY old/src src/
+COPY old/public public/
 
 ########
 # Lint #
@@ -40,7 +40,7 @@ ENV NPM_TOKEN=$NPM_TOKEN
 
 RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
 
-CMD ["npm", "publish"]
+CMD ["npm", "publish", "--access", "public"]
 
 #################
 # Deploy Static #
