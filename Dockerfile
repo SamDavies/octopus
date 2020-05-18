@@ -61,6 +61,6 @@ RUN yarn install-example && yarn build-example && yarn build-example
 ARG NOW_TOKEN
 ENV NOW_TOKEN=$NOW_TOKEN
 
-CMD cd exmple && now --token $NOW_TOKEN --prod
+CMD cd example && now --token $NOW_TOKEN --prod
 
 
