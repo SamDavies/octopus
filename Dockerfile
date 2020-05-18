@@ -3,21 +3,15 @@ FROM node:11 as base
 WORKDIR app
 COPY package.json package.json
 COPY yarn.lock yarn.lock
-RUN yarn install
-
 COPY .eslintignore .eslintignore
 COPY .eslintrc .eslintrc
-COPY now-static.json now-static.json
-COPY now-docs.json now-docs.json
-COPY .doczrc.js .doczrc.js
-COPY gatsby-config.js gatsby-config.js
-COPY webpack.config.js webpack.config.js
 COPY .babelrc .babelrc
 COPY rollup.config.js rollup.config.js
 COPY example/src example/src
 COPY example/now.json example/now.json
 COPY example/package.json example/package.json
 COPY example/yarn.lock example/yarn.lock
+RUN yarn install
 
 ########
 # Lint #
