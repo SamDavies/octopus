@@ -7,6 +7,7 @@ COPY .eslintignore .eslintignore
 COPY .eslintrc .eslintrc
 COPY .babelrc .babelrc
 COPY rollup.config.js rollup.config.js
+COPY src src
 COPY example/src example/src
 COPY example/now.json example/now.json
 COPY example/package.json example/package.json
