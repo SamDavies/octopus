@@ -14,8 +14,10 @@ COPY gatsby-config.js gatsby-config.js
 COPY webpack.config.js webpack.config.js
 COPY .babelrc .babelrc
 COPY rollup.config.js rollup.config.js
-COPY old/src src/
-COPY old/public public/
+COPY example/src example/src
+COPY example/now.json example/now.json
+COPY example/package.json example/package.json
+COPY example/yarn.lock example/yarn.lock
 
 ########
 # Lint #
@@ -59,10 +61,11 @@ CMD now --token $NOW_TOKEN -A now-static.json --prod
 #################
 FROM base as deploy-docs
 RUN yarn global add now@16.7.3
+RUN yarn install-example && yarn build-example && yarn build-example
 
 ARG NOW_TOKEN
 ENV NOW_TOKEN=$NOW_TOKEN
 
-CMD now --token $NOW_TOKEN -A now-docs.json --prod
+CMD cd exmple && now --token $NOW_TOKEN --prod
 
 

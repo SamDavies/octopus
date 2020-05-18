@@ -1,0 +1,8 @@
+{
+    "version": 2,
+    "name": "octopus",
+    "scope": "stylindex",
+    "alias": [
+        "octopus.stylindex.com"
+    ]
+}

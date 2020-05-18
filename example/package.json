@@ -6,6 +6,7 @@
     "private": true,
     "scripts": {
         "build": "next build",
+        "export": "next export",
         "start": "next",
         "serve": "next start",
         "test": "react-scripts test",
