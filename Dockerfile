@@ -56,7 +56,7 @@ CMD now --token $NOW_TOKEN -A now-static.json --prod
 #################
 FROM base as deploy-docs
 RUN yarn global add now@16.7.3
-RUN yarn install-example && yarn build-example && yarn build-example
+RUN yarn install-example && yarn build-example && yarn export-example
 
 ARG NOW_TOKEN
 ENV NOW_TOKEN=$NOW_TOKEN
