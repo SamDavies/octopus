@@ -1,9 +1,12 @@
+import CircleLogo from './components/CircleLogo'
+
 export { default as colors } from './constants/colors'
 export { default as fonts } from './constants/fonts'
 export { size, device } from './constants/sizes'
 export { default as Button } from './components/Button'
 export { default as Box } from './components/Box'
 export { default as Checkbox } from './components/Checkbox'
+export { default as CircleLogo } from './components/CircleLogo'
 export { default as Heading } from './components/Heading'
 export { default as GlobalStyles } from './components/GlobalStyles'
 export { default as HorizontalScroll } from './components/HorizontalScroll'
