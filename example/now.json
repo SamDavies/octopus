@@ -1,0 +1,23 @@
+{
+    "version": 2,
+    "name": "octopus",
+    "scope": "stylindex",
+    "alias": [
+        "octopus.stylindex.com"
+    ],
+    "builds": [
+        {
+            "src": "/out/**/*",
+            "use": "@now/static"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "headers": {
+                "cache-control": "s-maxage=31536000,immutable"
+            },
+            "dest": "/out/$1"
+        }
+    ]
+}

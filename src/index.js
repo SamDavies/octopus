@@ -1,129 +1,28 @@
-import colors from './styles/colors'
-import fonts from './styles/fonts'
-import {
-    defaultTransition,
-    antEasing,
-    antEasingFast,
-    imagesPath
-} from './styles/misc'
-import {
-    device,
-    size,
-    breakpoints,
-    fontSizes,
-    defaultIndent,
-    indents,
-    headerMobileHeight,
-    headerHeight,
-    headerTabletHeight,
-    headerPadding,
-    navbarHeaderHeight,
-    navbarHeaderHeightTablet,
-    navbarWidth,
-    navbarWidthHamburger,
-    navbarHeight,
-    paddingMobile,
-    paddingTablet,
-    paddingDesktop
-} from './styles/sizes'
-
-import Button from './components/Button'
-import Checkbox from './components/Checkbox'
-import CircleLogo from './components/CircleLogo'
-import GlobalStyles, {
-    GlobalTypography,
-    GlobalFonts,
-    GlobalReset
-} from './components/GlobalStyles'
-import Heading, { StyledHeading } from './components/Heading'
-import Icon from './components/Icon'
-import ImagePlaceholder from './components/ImagePlaceholder'
-import Input, { StyledInputSection } from './components/Input'
-import InputWithDropdown from './components/InputWithDropdown'
-import Label from './components/Label'
-import Modal from './components/Modal'
-import Notification from './components/Notification'
-import PageHeading from './components/PageHeading'
-import Panel from './components/Panel'
-import PasswordInput from './components/PasswordInput'
-import RatingPicker from './components/RatingPicker'
-import Search from './components/Search'
-import Select from './components/Select'
-import TableCell from './components/TableCell'
-import TableHeader from './components/TableHeader'
-import TableHeaderCell from './components/TableHeaderCell'
-import TableRow from './components/TableRow'
-import TableSearchCell from './components/TableSearchCell'
-import Text, { StyledText } from './components/Text'
-import Textarea from './components/Textarea'
-import Tooltip from './components/Tooltip'
-import HorizontalScroll from './components/HorizontalScroll'
-import Tab from './components/Tab'
-import UserAvatar, {
-    StyledImageAvatar,
-    StyledTextAvatar
-} from './components/UserAvatar'
-
-export {
-    device,
-    size,
-    breakpoints,
-    fontSizes,
-    defaultIndent,
-    indents,
-    headerMobileHeight,
-    headerHeight,
-    headerTabletHeight,
-    headerPadding,
-    navbarHeaderHeight,
-    navbarHeaderHeightTablet,
-    navbarWidth,
-    navbarWidthHamburger,
-    navbarHeight,
-    paddingMobile,
-    paddingTablet,
-    paddingDesktop,
-    defaultTransition,
-    antEasing,
-    antEasingFast,
-    imagesPath,
-    colors,
-    fonts,
-    Button,
-    Checkbox,
-    CircleLogo,
-    GlobalStyles,
-    GlobalTypography,
-    GlobalFonts,
-    GlobalReset,
-    Heading,
-    StyledHeading,
-    Icon,
-    ImagePlaceholder,
-    Input,
-    StyledInputSection,
-    InputWithDropdown,
-    Label,
-    Modal,
-    Notification,
-    PageHeading,
-    Panel,
-    PasswordInput,
-    RatingPicker,
-    Search,
-    Select,
-    HorizontalScroll,
-    Tab,
-    TableCell,
-    TableHeader,
-    TableHeaderCell,
-    TableRow,
-    TableSearchCell,
-    Text,
-    StyledText,
-    Textarea,
-    Tooltip,
-    UserAvatar,
-    StyledImageAvatar,
-    StyledTextAvatar
-}
+export { default as colors } from './constants/colors'
+export { default as fonts } from './constants/fonts'
+export { size, device } from './constants/sizes'
+export { default as Button } from './components/Button'
+export { default as Box } from './components/Box'
+export { default as Checkbox } from './components/Checkbox'
+export { default as CircleLogo } from './components/CircleLogo'
+export { default as Heading } from './components/Heading'
+export { default as GlobalStyles } from './components/GlobalStyles'
+export { default as HorizontalScroll } from './components/HorizontalScroll'
+export { default as Input } from './components/Input'
+export { default as Label } from './components/Label'
+export { default as Modal } from './components/Modal'
+export { default as Notification } from './components/Notification'
+export { default as PasswordInput } from './components/PasswordInput'
+export { default as Panel } from './components/Panel'
+export { default as StarRating } from './components/StarRating'
+export { default as Select } from './components/Select'
+export { default as Tab } from './components/Tab'
+export { default as TableCell } from './components/TableCell'
+export { default as TableHeader } from './components/TableHeader'
+export { default as TableHeaderCell } from './components/TableHeaderCell'
+export { default as TableRow } from './components/TableRow'
+export { default as TableSearchCell } from './components/TableSearchCell'
+export { default as Text } from './components/Text'
+export { default as Textarea } from './components/Textarea'
+export { default as Tooltip } from './components/Tooltip'
+export { default as UserAvatar } from './components/UserAvatar'

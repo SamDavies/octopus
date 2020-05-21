@@ -2,7 +2,7 @@ import noop from 'lodash/noop'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
-import { fonts } from '../../'
+import fonts from '../../constants/fonts'
 import Icon from '../Icon'
 
 export const StyledInput = styled.input`
@@ -21,10 +21,10 @@ export const StyledInput = styled.input`
 
 export const StyledTableSearchCell = styled.div`
     ${props => props.flex && `
-        flex: ${props.flex}
+        flex: ${props.flex};
     `}
     ${props => props.width && `
-        width: ${props.width}
+        width: ${props.width};
     `}
     padding-left: 10px;
     padding-right: 10px;

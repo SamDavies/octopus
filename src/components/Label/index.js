@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { colors, fonts } from '../../'
+import colors from '../../constants/colors'
+import fonts from '../../constants/fonts'
 
 const Label = styled.label`
     margin-top: 20px;

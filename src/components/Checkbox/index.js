@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
-import colors from '../../styles/colors'
-import { StyledText } from '../Text'
+import colors from '../../constants/colors'
+import Heading from '../Heading'
 
 const StyledCustomCheckbox = styled.span`
     display: flex;
@@ -40,15 +40,13 @@ const StyledCustomCheckbox = styled.span`
     }
 `
 
-const StyledLabelText = styled(StyledText).attrs(() => ({
-    font: 'cera',
+const StyledLabelText = styled(Heading).attrs(() => ({
     bold: true,
     size: 'normal',
     uppercase: true
 }))`
     display: inline-block;
     margin: auto 0 auto 10px;
-    letter-spacing: 0.8px;
     transition: 150ms ease-in;
 
 `

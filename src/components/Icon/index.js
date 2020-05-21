@@ -3,7 +3,7 @@ import React from 'react'
 import SVG from 'react-inlinesvg'
 import styled from 'styled-components'
 import config from '../../config'
-import colors from '../../styles/colors'
+import colors from '../../constants/colors'
 
 export const StyledIconWrapper = styled.span`
     display: inline-block;
