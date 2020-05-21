@@ -1,4 +1,4 @@
-import { UserAvatar, Tooltip, Text, colors } from '@stylindex/octopus'
+import { colors, Notification, Text, Tooltip, UserAvatar } from '@stylindex/octopus'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -43,6 +43,10 @@ const OtherExample = () => {
                 position='top'
             />
         </StyledTooltip>
+
+        <Notification type="success" text="Success message"/>
+        <Notification type="warning" text="warning message"/>
+        <Notification type="error" text="error message"/>
     </StyledColumn>
 }
 
