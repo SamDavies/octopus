@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import { FaStar } from 'react-icons/fa'
+import { FaStar, FaRegStar } from 'react-icons/fa'
 import Rating from 'react-rating'
 import styled from 'styled-components'
 import noop from 'lodash/noop'
@@ -9,28 +9,28 @@ import Button from '../Button'
 
 const StyledContainer = styled.div`
     display: flex;
-    flex-direction: column
+    align-items: center;
 `
 
-const StyledIcon = `
-    font-size: ${props => props.size}px;
+const StyledClear = styled.div`
+    margin-right: 0px;
 `
 
-const StyledStarOpen = styled(FaStar)`
+const StyledIcon = props => `
+    font-size: ${props.size};
+`
+
+const StyledStarOpen = styled(FaRegStar)`
     ${StyledIcon}
-    color: ${colors.grey6}
+    color: ${colors.black};
 `
 
 const StyledStarClosed = styled(FaStar)`
     ${StyledIcon}
-    color: ${props => props.isHovering ? colors.salmon : colors.lightSalmon}
+    color: ${props => props.isHovering ? colors.salmon : colors.black}
 `
 
 const sizeToPixels = size => {
-    if (size === 'small') {
-        return '10px'
-    }
-
     if (size === 'medium') {
         return '20px'
     }
@@ -38,47 +38,48 @@ const sizeToPixels = size => {
     return '30px'
 }
 
-const RatingPicker = props => {
+const StarRating = props => {
     const [isHovering, setIsHovering] = useState(false)
     const size = sizeToPixels(props.size)
     return <StyledContainer>
         <Rating
             initialRating={props.rating}
-            fractions={2}
             emptySymbol={<StyledStarOpen
-                sizeToPixels={size}
+                size={size}
             />}
             fullSymbol={<StyledStarClosed
-                sizeToPixels={size}
+                size={size}
                 isHovering={isHovering}
             />}
             onHover={value => setIsHovering(!!value)}
             onClick={props.onChange}
         />
-        {props.rating > 0 && !props.isStatic && <Button
-            size='small'
-            kind='ghost'
-            onClick={() => props.onChange(0)}
-        >
-            Clear
-        </Button>}
+        {props.rating > 0 && !props.isStatic && <StyledClear>
+            <Button
+                size='small'
+                kind='ghost'
+                onClick={() => props.onChange(0)}
+            >
+                Clear
+            </Button>
+        </StyledClear>}
     </StyledContainer>
 }
 
-RatingPicker.propTypes = {
+StarRating.propTypes = {
     onChange: PropTypes.func,
     inputName: PropTypes.string,
     rating: PropTypes.number,
     isStatic: PropTypes.bool,
     inline: PropTypes.bool,
-    size: PropTypes.oneOf(['small', 'medium', 'large'])
+    size: PropTypes.oneOf(['medium', 'large'])
 }
 
-RatingPicker.defaultProps = {
+StarRating.defaultProps = {
     inputName: 'rating',
     onChange: noop,
     rating: 0,
     size: 'medium'
 }
 
-export default RatingPicker
+export default StarRating

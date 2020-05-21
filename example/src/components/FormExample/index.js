@@ -1,7 +1,6 @@
-import { Checkbox, device, Input, Textarea, Label, PasswordInput, Select } from '@stylindex/octopus'
+import { Checkbox, device, Input, Textarea, Label, PasswordInput, Select, StarRating } from '@stylindex/octopus'
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import RatingPicker from '../../../../src/components/RatingPicker'
 
 const StyledSpacing = styled.div`
     display: flex;
@@ -77,11 +76,28 @@ const FormExample = () => {
             value={description}
             maxLength={100}
         />
-        <RatingPicker
-            inputName="rating1"
-            rating={rating}
-            onChange={value => setRating(value)}
-        />
+        <div>
+            <Label>
+                Medium Star Rating
+            </Label>
+            <StarRating
+                size='medium'
+                inputName="rating1"
+                rating={rating}
+                onChange={value => setRating(value)}
+            />
+        </div>
+        <div>
+            <Label>
+                Large Star Rating
+            </Label>
+            <StarRating
+                size='large'
+                inputName="rating1"
+                rating={rating}
+                onChange={value => setRating(value)}
+            />
+        </div>
     </StyledSpacing>
 }
 
