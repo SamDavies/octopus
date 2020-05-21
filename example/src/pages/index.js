@@ -3,7 +3,8 @@ import React from 'react'
 import styled from 'styled-components'
 import FormExample from '../components/FormExample'
 import ModalExample from '../components/ModalExample'
-import TabExample from '../components/TabExample'
+import TabExample from '../components/NavigationExample'
+import OtherExample from '../components/OtherExample'
 import TableExample from '../components/TableExample'
 
 const StyledContainer = styled.div`
@@ -195,6 +196,15 @@ const Page = () =>
             </Heading>
             <Box>
                 <TabExample/>
+            </Box>
+        </StyledSection>
+
+        <StyledSection>
+            <Heading level={3}>
+                Other
+            </Heading>
+            <Box>
+                <OtherExample/>
             </Box>
         </StyledSection>
     </StyledContainer>

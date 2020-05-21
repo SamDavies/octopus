@@ -47,7 +47,7 @@ import PageHeading from './components/PageHeading'
 import Panel from './components/Panel'
 import PasswordInput from '../../src/components/PasswordInput'
 import RatingPicker from './components/RatingPicker'
-import Search from './components/Search'
+import Search from '../../src/components/Search'
 import Select from '../../src/components/Select'
 import TableCell from './components/TableCell'
 import TableHeader from './components/TableHeader'
@@ -62,7 +62,7 @@ import Tab from '../../src/components/Tab'
 import UserAvatar, {
     StyledImageAvatar,
     StyledTextAvatar
-} from './components/UserAvatar'
+} from '../../src/components/UserAvatar'
 
 export {
     device,

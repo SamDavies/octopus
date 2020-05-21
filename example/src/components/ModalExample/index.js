@@ -15,9 +15,8 @@ const StyledSpacing = styled.div`
     }
 `
 
-const OtherExample = () => {
-
-    return <StyledSpacing>
+const ModalExample = () =>
+    <StyledSpacing>
         <Modal
             renderTrigger={({ onOpen }) =>
                 <Button
@@ -43,6 +42,5 @@ const OtherExample = () => {
             }
         />
     </StyledSpacing>
-}
 
-export default OtherExample
+export default ModalExample
