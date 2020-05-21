@@ -45,7 +45,7 @@ const Modal = props => {
     }
     return <Fragment>
         {show && <StyledContainer>
-            <GlobalBodyHidden/>
+            <GlobalBodyHidden />
             <Inner>
                 <Box>
                     {props.renderModal({ onOpen, onClose })}

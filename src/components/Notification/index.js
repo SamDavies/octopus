@@ -47,9 +47,9 @@ const StyledError = styled(FaTimes)`
 
 const Notification = (props) =>
     <StyledContainer>
-        {props.type === 'success' && <StyledSuccess/>}
-        {props.type === 'warning' && <StyledWarning/>}
-        {props.type === 'error' && <StyledError/>}
+        {props.type === 'success' && <StyledSuccess />}
+        {props.type === 'warning' && <StyledWarning />}
+        {props.type === 'error' && <StyledError />}
         <StyledContext>
             <Text
                 colour={colors.white}

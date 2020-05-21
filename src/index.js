@@ -1,5 +1,3 @@
-import CircleLogo from './components/CircleLogo'
-
 export { default as colors } from './constants/colors'
 export { default as fonts } from './constants/fonts'
 export { size, device } from './constants/sizes'

@@ -8,44 +8,44 @@ env:
   NOW_TOKEN: ${{ secrets.NOW_TOKEN }}
 
 jobs:
-#  lint-and-test:
-#    timeout-minutes: 30
-#    runs-on: ubuntu-latest
-#
-#    steps:
-#      - uses: actions/checkout@v1
-#      - run: make lint
-##      - run: make test
-#
-#
-#  publish:
-#    timeout-minutes: 30
-#    if: github.ref == 'refs/heads/release'
-#    runs-on: ubuntu-latest
-#    needs:
-#      - lint-and-test
-#
-#    steps:
-#      - uses: actions/checkout@v1
-#      - run: NPM_TOKEN=$NPM_TOKEN make publish
+  lint-and-test:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
 
-#  deploy-static:
-#    timeout-minutes: 30
-#    if: github.ref == 'refs/heads/release'
-#    runs-on: ubuntu-latest
-#    needs:
-#      - lint-and-test
-#
-#    steps:
-#      - uses: actions/checkout@v1
-#      - run: NOW_TOKEN=$NOW_TOKEN make deploy-static
+    steps:
+      - uses: actions/checkout@v1
+      - run: make lint
+#      - run: make test
+
+
+  publish:
+    timeout-minutes: 30
+    if: github.ref == 'refs/heads/release'
+    runs-on: ubuntu-latest
+    needs:
+      - lint-and-test
+
+    steps:
+      - uses: actions/checkout@v1
+      - run: NPM_TOKEN=$NPM_TOKEN make publish
+
+  deploy-static:
+    timeout-minutes: 30
+    if: github.ref == 'refs/heads/release'
+    runs-on: ubuntu-latest
+    needs:
+      - lint-and-test
+
+    steps:
+      - uses: actions/checkout@v1
+      - run: NOW_TOKEN=$NOW_TOKEN make deploy-static
 
   deploy-docs:
     timeout-minutes: 30
-#    if: github.ref == 'refs/heads/release'
+    if: github.ref == 'refs/heads/release'
     runs-on: ubuntu-latest
-#    needs:
-#      - lint-and-test
+    needs:
+      - lint-and-test
 
     steps:
       - uses: actions/checkout@v1
