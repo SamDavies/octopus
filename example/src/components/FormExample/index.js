@@ -1,6 +1,7 @@
 import { Checkbox, device, Input, Textarea, Label, PasswordInput, Select } from '@stylindex/octopus'
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import RatingPicker from '../../../../src/components/RatingPicker'
 
 const StyledSpacing = styled.div`
     display: flex;
@@ -21,6 +22,7 @@ const FormExample = () => {
     const [password, setPassword] = useState(null)
     const [selectValue, setSelectValue] = useState('')
     const [description, setDescription] = useState('')
+    const [rating, setRating] = useState(0)
     const selectOptions = [1, 2, 3].map(num => ({
         name: String(num),
         id: String(num),
@@ -74,6 +76,11 @@ const FormExample = () => {
             name="description"
             value={description}
             maxLength={100}
+        />
+        <RatingPicker
+            inputName="rating1"
+            rating={rating}
+            onChange={value => setRating(value)}
         />
     </StyledSpacing>
 }

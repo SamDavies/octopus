@@ -2,7 +2,7 @@ import initials from 'initials'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
-import colours from '../../constants/colours'
+import colors from '../../constants/colors'
 import fonts from '../../constants/fonts'
 
 const sizes = {
@@ -15,7 +15,7 @@ const avatarStyles = (size, bordered, borderColor) => `
   width: ${sizes[size]};
   height: ${sizes[size]};
   border-radius: 50%;
-  border: ${bordered ? `2px solid ${colours[borderColor]}` : 0};
+  border: ${bordered ? `2px solid ${colors[borderColor]}` : 0};
 `
 
 export const StyledImageAvatar = styled.div`
@@ -39,8 +39,8 @@ export const StyledTextAvatar = styled.div`
   letter-spacing: normal;
   text-align: center;
   cursor: pointer;
-  color: ${colours.white};
-  background-color: ${({ bgColor }) => colours[bgColor]};
+  color: ${colors.white};
+  background-color: ${({ bgColor }) => colors[bgColor]};
 `
 
 const StyledAvatarWrapper = styled.div`

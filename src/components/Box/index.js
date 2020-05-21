@@ -1,10 +1,10 @@
-import colors from '../../constants/colours'
+import colors from '../../constants/colors'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const Box = styled.div`
     background-color: #ffffff;
-    border: solid 4px ${colors.black};
+    border: solid 2px ${colors.black};
         
     ${props => !props.noPadding && `
         padding: 20px;

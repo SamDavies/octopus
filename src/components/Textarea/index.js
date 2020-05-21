@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
-import colours from '../../constants/colours'
+import colors from '../../constants/colors'
 import { device } from '../../constants/sizes'
 import AbstractText from '../AbstractText'
 import ErrorMessage from '../ErrorMessage'
@@ -19,24 +19,24 @@ const StyledTextarea = styled.textarea`
     padding: 20px;
     border: 2px solid;
     ${({ error }) => `
-        border-color: ${error ? colours.scarlet : colours.black};
+        border-color: ${error ? colors.scarlet : colors.black};
     `}
-    color: ${colours.black};
-    background-color: ${colours.white};
+    color: ${colors.black};
+    background-color: ${colors.white};
     resize: none;
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5);
     transition: all 0.15s ease-in;
     @media ${device.tablet} {height: 120px}
     &::placeholder {
-        color: ${colours.lightGray};
+        color: ${colors.lightGray};
     }
     &:focus {
-        border-color: ${colours.lightSalmon};
+        border-color: ${colors.lightSalmon};
         outline: none;
     }
     &:disabled {
-        color: ${colours.cloud};
-        border-color: ${colours.cloud};
+        color: ${colors.cloud};
+        border-color: ${colors.cloud};
     }
 `
 

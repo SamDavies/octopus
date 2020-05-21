@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import colors from '../../constants/colours'
+import colors from '../../constants/colors'
 
 const getStyles = props => {
     const primaryColours = {

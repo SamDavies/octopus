@@ -2,10 +2,10 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
 import Heading from '../Heading'
-import colours from '../../constants/colours'
+import colors from '../../constants/colors'
 
 export const StyledErrorMessage = styled(Heading)`
-    color: ${colours.scarlet};
+    color: ${colors.scarlet};
 `
 
 const ErrorMessage = props =>

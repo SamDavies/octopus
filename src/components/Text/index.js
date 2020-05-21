@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
+import colors from '../../constants/colors'
 import AbstractText from '../AbstractText'
 
 const Normal = styled.div`
@@ -29,6 +30,7 @@ Text.propTypes = {
     size: PropTypes.oneOf(['normal', 'small']),
     font: PropTypes.oneOf(['cera', 'literata']),
     spacing: PropTypes.oneOf(['normal', 'wide']),
+    colour: PropTypes.string,
     bold: PropTypes.bool,
     uppercase: PropTypes.bool,
     italic: PropTypes.bool,
@@ -39,6 +41,7 @@ Text.propTypes = {
 }
 
 Text.defaultProps = {
+    colour: colors.black,
     size: 'normal',
     font: 'cera',
     spacing: 'normal',

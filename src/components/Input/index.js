@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {device} from '../../constants/sizes'
-import colours from '../../constants/colours'
+import colors from '../../constants/colors'
 import fonts from '../../constants/fonts'
 
 export const StyledInputSection = styled.div`
@@ -16,11 +16,11 @@ export const Input = styled.input`
     box-sizing: border-box;
     border: none;
     border-bottom: 2px solid;
-    border-bottom-color: ${({ error }) => error ? colours.scarlet : colours.black};
+    border-bottom-color: ${({ error }) => error ? colors.scarlet : colors.black};
     font-size: 14px;
     font-family: ${fonts.literata};
     line-height: 1.5;
-    color: ${({ error }) => error ? colours.scarlet : colours.black};
+    color: ${({ error }) => error ? colors.scarlet : colors.black};
     min-height: 40px;
     width: 100%;
     outline: none;
@@ -31,7 +31,7 @@ export const Input = styled.input`
     
     &::placeholder {
         text-decoration: none;
-        color: ${colours.lightGray};
+        color: ${colors.lightGray};
         font-family: ${fonts.literata};
         ${({ hideLabel, name }) => hideLabel && !name && `
             opacity: 0;
@@ -48,10 +48,10 @@ export const Input = styled.input`
     }
     
     &:disabled {
-    border-color: ${colours.lightGray};
-    color: ${colours.lightGray};
+    border-color: ${colors.lightGray};
+    color: ${colors.lightGray};
     &::placeholder {
-        color: ${colours.lightGray};
+        color: ${colors.lightGray};
     }
     
     }
@@ -59,7 +59,7 @@ export const Input = styled.input`
     ${({ fullBorder }) => fullBorder && `
         margin-top: 10px;
         padding: 11px;
-        border: 2px solid ${colours.black};
+        border: 2px solid ${colors.black};
     `}
     
     ${({ uppercase }) => uppercase && `
@@ -67,7 +67,7 @@ export const Input = styled.input`
     `};
     
     &:focus {
-        border-color: ${colours.lightSalmon};
+        border-color: ${colors.lightSalmon};
     }
 `
 

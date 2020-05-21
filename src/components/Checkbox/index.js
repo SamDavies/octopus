@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
-import colours from '../../constants/colours'
+import colors from '../../constants/colors'
 import Heading from '../Heading'
 
 const StyledCustomCheckbox = styled.span`
     display: flex;
     position: relative;
-    border: 2px solid ${colours.black};
+    border: 2px solid ${colors.black};
     height: 14px;
     width: 14px;
     min-width: 14px;
@@ -19,7 +19,7 @@ const StyledCustomCheckbox = styled.span`
         display: inline-block;
         width: 6px;
         height: 6px;
-        background: ${colours.salmon};
+        background: ${colors.salmon};
         opacity: 0;
     }
 
@@ -33,9 +33,9 @@ const StyledCustomCheckbox = styled.span`
     }
 
     input:enabled ~ &:focus {
-        border-color: ${colours.lightSalmon};
+        border-color: ${colors.lightSalmon};
         + span {
-            color: ${colours.lightSalmon};
+            color: ${colors.lightSalmon};
         }
     }
 `
@@ -62,8 +62,8 @@ const StyledWrapper = styled.label`
     }
     &:hover {
         input:enabled ~ span {
-            border-color: ${colours.lightSalmon};
-            color: ${colours.lightSalmon};
+            border-color: ${colors.lightSalmon};
+            color: ${colors.lightSalmon};
         }
     }
     outline: none;

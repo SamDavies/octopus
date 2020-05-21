@@ -1,6 +1,7 @@
 import fonts from '../../constants/fonts'
 
 const AbstractText = props => `
+    color: ${props.colour};
     position: relative;
     line-height: 150%;
     font-family: ${fonts[props.font]};

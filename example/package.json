@@ -21,6 +21,7 @@
         "react": "link:../node_modules/react",
         "react-dom": "link:../node_modules/react-dom",
         "react-scripts": "^1.1.4",
+        "react-popper-tooltip": "link:../node_modules/react-popper-tooltip",
         "styled-components": "link:../node_modules/styled-components",
         "react-inlinesvg": "link:../node_modules/react-inlinesvg"
     }
