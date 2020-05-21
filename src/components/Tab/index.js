@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { colors } from '../..'
+import colors from '../../constants/colors'
 
 const StyledContainer = styled.div`
     text-decoration: none;

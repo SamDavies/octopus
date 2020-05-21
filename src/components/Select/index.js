@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
-import { colors, fonts } from '../../index'
+import colors from '../../constants/colors'
+import fonts from '../../constants/fonts'
 import Button from '../Button'
 import Icon from '../Icon'
 

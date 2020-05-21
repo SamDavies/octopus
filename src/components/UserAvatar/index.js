@@ -2,7 +2,8 @@ import initials from 'initials'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
-import { colors, fonts } from '../../'
+import colors from '../../constants/colors'
+import fonts from '../../constants/fonts'
 
 const sizes = {
     small: '1.5rem',

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import colors from '../../styles/colors'
+import colors from '../../constants/colors'
 
 export const TableRow = styled.div`
     display: flex;

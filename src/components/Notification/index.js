@@ -1,74 +1,63 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import { FaCheck, FaExclamation, FaTimes } from 'react-icons/fa'
 import styled from 'styled-components'
-import { colors, fonts } from '../../'
-import Icon from '../Icon'
-import { StyledText } from '../Text'
+import colors from '../../constants/colors'
+import Text from '../Text'
 
-const NotificationContainer = styled.div`
+const StyledContainer = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
     background-color: ${colors.black};
     padding: 5px 25px;
     max-width: 400px;
-    line-height: 15px;
     min-height: 50px;
-    font-family: ${fonts.cera};
-
-    .icon-wrapper {
-        padding: 5px;
-        display: inherit;
-        align-items: center;
-        justify-content: center;
-        background: ${({ background }) => colors[background]};
-        border-radius: 100%;
-
-    }
 `
 
-const NotificationText = styled(StyledText).attrs(() => ({
-    color: 'white',
-    size: 'normal',
-    bold: true,
-    uppercase: true,
-    font: 'cera'
-}))`
-    margin: 0 0 0 8px;
-    font-size: 14px;
-    line-height: 15px;
-    letter-spacing: 1px;
-    overflow-wrap: break-word;
-
+const StyledContext = styled.div`
+    margin-left: 20px;
 `
 
-const notificationIcons = {
-    success: {
-        icon: 'check',
-        background: 'kiwi'
-    },
-    warning: {
-        icon: 'warning',
-        fillColor: 'black',
-        background: 'lemon'
-    },
-    error: {
-        icon: 'close',
-        background: 'scarlet',
-        fillColor: 'white'
-    }
-}
+const StyledIcon = `
+    font-size: 20px;
+    padding: 5px;
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+`
 
-const Notification = (props) => {
-    const data = notificationIcons[props.type]
+const StyledSuccess = styled(FaCheck)`
+    ${StyledIcon}
+    color: ${colors.black};
+    background-color: ${colors.kiwi};
+`
 
-    return (
-        <NotificationContainer background={data.background}>
-            <Icon icon={data.icon} fillColor={data.fillColor || 'white'} height={13} width={13} />
-            <NotificationText>{props.text}</NotificationText>
-        </NotificationContainer>
-    )
-}
+const StyledWarning = styled(FaExclamation)`
+    ${StyledIcon}
+    color: ${colors.black};
+    background-color: ${colors.lemon};
+`
+
+const StyledError = styled(FaTimes)`
+    ${StyledIcon}
+    color: ${colors.white};
+    background-color: ${colors.scarlet};
+`
+
+const Notification = (props) =>
+    <StyledContainer>
+        {props.type === 'success' && <StyledSuccess />}
+        {props.type === 'warning' && <StyledWarning />}
+        {props.type === 'error' && <StyledError />}
+        <StyledContext>
+            <Text
+                colour={colors.white}
+            >
+                {props.text}
+            </Text>
+        </StyledContext>
+    </StyledContainer>
 
 Notification.propTypes = {
     type: PropTypes.string,

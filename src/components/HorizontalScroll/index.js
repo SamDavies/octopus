@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { device, size } from '../../styles/sizes'
+import { device, size } from '../../constants/sizes'
 
 // https://iamsteve.me/blog/entry/using-flexbox-for-horizontal-scrolling-navigation
 const StyledScroll = css`

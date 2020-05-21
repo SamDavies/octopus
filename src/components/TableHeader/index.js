@@ -1,10 +1,9 @@
 import styled from 'styled-components'
-import colors from '../../styles/colors'
+import colors from '../../constants/colors'
 
 export const TableHeader = styled.div`
     display: flex;
-    background-color: ${colors.grey9};
-    border-bottom: 1px solid ${colors.grey8};
+    border-bottom: 2px solid ${colors.black};
     &:last-child { 
         border-bottom: none; 
     }

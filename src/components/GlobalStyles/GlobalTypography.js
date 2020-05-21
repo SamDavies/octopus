@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
-import { colors, fonts } from '../..'
+import colors from '../../constants/colors'
+import fonts from '../../constants/fonts'
 
 const GlobalTypography = createGlobalStyle`
     html, div, button, a {

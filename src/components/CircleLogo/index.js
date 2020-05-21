@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { ReactComponent as LogoImage } from '../../static/images/logo_stacked.svg'
-import colors from '../../styles/colors'
+import colors from '../../constants/colors'
 
 const logoSizes = {
     small: css`
@@ -74,8 +74,3 @@ CircleLogo.defaultProps = {
 }
 
 export default CircleLogo
-
-export const Foo = styled(CircleLogo)`
-  background: red;
-
-`
