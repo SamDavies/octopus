@@ -52,6 +52,7 @@ Heading.propTypes = {
     font: PropTypes.oneOf(['cera', 'literata']),
     spacing: PropTypes.oneOf(['normal', 'wide']),
     bold: PropTypes.bool,
+    center: PropTypes.bool,
     uppercase: PropTypes.bool,
     italic: PropTypes.bool,
     children: PropTypes.oneOfType([
@@ -65,6 +66,7 @@ Heading.defaultProps = {
     font: 'cera',
     spacing: 'normal',
     bold: false,
+    center: false,
     italic: false,
     uppercase: false
 }

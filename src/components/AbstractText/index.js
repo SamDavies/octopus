@@ -10,6 +10,7 @@ const AbstractText = props => `
     font-stretch: normal;
     letter-spacing: ${props.spacing === 'normal' ? 'normal' : '16px'};
     text-transform: ${props.uppercase ? 'uppercase' : 'none'};
+    text-align: ${props.center ? 'center' : 'left'};
 `
 
 export default AbstractText

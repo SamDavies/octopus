@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef, useState } from 'react'
+import { FaCaretDown, FaTimes } from 'react-icons/fa'
 import styled from 'styled-components'
 import colors from '../../constants/colors'
 import fonts from '../../constants/fonts'
 import Button from '../Button'
-import Icon from '../Icon'
 
 const UnavailableItem = `
     position: relative;
@@ -178,17 +178,12 @@ const StyledText = styled.div`
     `};
 `
 
-const StyledIcon = styled.div`
-    display: flex;
-    align-items: center;
-    & > * {
-        .fill-color {
-            fill: ${colors.coral};
-            ${props => props.isFilterSelected && `
-                fill: ${colors.white};
-            `};
-        }
-    }
+const StyledArrow = styled(FaCaretDown)`
+    font-size: 30px;
+    color: ${colors.coral};
+    ${props => props.isFilterSelected && `
+        color: ${colors.white};
+    `};
 `
 
 const Select = props => {
@@ -256,9 +251,7 @@ const Select = props => {
                 <StyledText isFilterSelected={!!selectedFilterName}>
                     {selectedFilterName || props.label}
                 </StyledText>
-                <StyledIcon isFilterSelected={!!selectedFilterName}>
-                    <Icon icon='dropdown-arrow' width={22} height={22} />
-                </StyledIcon>
+                <StyledArrow isFilterSelected={!!selectedFilterName}/>
             </StyledButton>
             <StyledControlDropdown offset={offset + 45} isVisible={isOpened}>
                 {showViewAll && (
@@ -296,11 +289,8 @@ const Select = props => {
                                             onClick={handleResetItem}
                                             data-testid={`cancel-${value}`}
                                         >
-                                            <Icon
-                                                width={10}
-                                                height={10}
-                                                fillColor='white'
-                                                icon='close'
+                                            <FaTimes
+                                                color={colors.white}
                                             />
                                         </div>
                                     )}

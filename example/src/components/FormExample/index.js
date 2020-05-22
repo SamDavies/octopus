@@ -56,6 +56,7 @@ const FormExample = () => {
             options={selectOptions}
             id='select'
             selectedValue={selectValue}
+            showResetControls
             resetSelectedValue={() => setSelectValue(null)}
             handleSelectChange={(_, val) => setSelectValue(val)}
             label='select'
