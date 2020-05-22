@@ -1,9 +1,9 @@
 import noop from 'lodash/noop'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { FaSearch } from 'react-icons/fa'
 import styled from 'styled-components'
 import fonts from '../../constants/fonts'
-import Icon from '../Icon'
 
 export const StyledInput = styled.input`
     width: 100%;
@@ -34,7 +34,7 @@ export const StyledTableSearchCell = styled.div`
 
 const TableSearchCell = props =>
     <StyledTableSearchCell {...props}>
-        <Icon fillColor='grey5' icon='search' width={15} height={15} />
+        <FaSearch/>
         <StyledInput
             value={props.value}
             placeholder={props.placeholder}
