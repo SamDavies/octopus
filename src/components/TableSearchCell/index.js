@@ -1,7 +1,7 @@
 import noop from 'lodash/noop'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { FaSearch } from 'react-icons/fa'
+import { IoIosSearch } from 'react-icons/io'
 import styled from 'styled-components'
 import fonts from '../../constants/fonts'
 
@@ -34,7 +34,7 @@ export const StyledTableSearchCell = styled.div`
 
 const TableSearchCell = props =>
     <StyledTableSearchCell {...props}>
-        <FaSearch/>
+        <IoIosSearch />
         <StyledInput
             value={props.value}
             placeholder={props.placeholder}
