@@ -34,7 +34,7 @@ export const StyledTableSearchCell = styled.div`
 
 const TableSearchCell = props =>
     <StyledTableSearchCell {...props}>
-        <IoIosSearch/>
+        <IoIosSearch />
         <StyledInput
             value={props.value}
             placeholder={props.placeholder}

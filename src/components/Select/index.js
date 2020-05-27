@@ -251,7 +251,7 @@ const Select = props => {
                 <StyledText isFilterSelected={!!selectedFilterName}>
                     {selectedFilterName || props.label}
                 </StyledText>
-                <StyledArrow isFilterSelected={!!selectedFilterName}/>
+                <StyledArrow isFilterSelected={!!selectedFilterName} />
             </StyledButton>
             <StyledControlDropdown offset={offset + 45} isVisible={isOpened}>
                 {showViewAll && (

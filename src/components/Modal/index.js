@@ -68,7 +68,7 @@ const Modal = props => {
     }
     return <Fragment>
         {show && <StyledContainer>
-            <GlobalBodyHidden/>
+            <GlobalBodyHidden />
             <Inner>
                 <StyledBox>
                     <StyledCrossContainer>

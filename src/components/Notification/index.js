@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { IoMdCheckmark, IoIosClose } from 'react-icons/io'
-import { FaExclamation} from 'react-icons/fa'
+import { FaExclamation } from 'react-icons/fa'
 import styled from 'styled-components'
 import colors from '../../constants/colors'
 import Text from '../Text'
