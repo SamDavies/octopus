@@ -3,6 +3,7 @@ import noop from 'lodash/noop'
 import React, { Fragment, useState } from 'react'
 import { IoIosClose } from 'react-icons/io'
 import styled, { createGlobalStyle } from 'styled-components'
+import { device } from '../../constants/sizes'
 import Box from '../Box'
 import Button from '../Button'
 
@@ -31,9 +32,20 @@ const StyledContainer = styled.div`
 const Inner = styled.div`
     width: 600px;
     z-index: 2000;
+    
+    ${props => props.fullWidth && `
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        
+        @media ${device.desktop} {
+            padding: 40px;
+        }
+    `}
 `
 
 const StyledBox = styled(Box)`
+    height: 100%;
     position: relative;
 `
 
@@ -69,7 +81,7 @@ const Modal = props => {
     return <Fragment>
         {show && <StyledContainer>
             <GlobalBodyHidden />
-            <Inner>
+            <Inner fullWidth={props.fullWidth}>
                 <StyledBox>
                     <StyledCrossContainer>
                         <StyledCrossButton
@@ -99,11 +111,13 @@ const Modal = props => {
 Modal.propTypes = {
     renderModal: PropTypes.any.isRequired,
     renderTrigger: PropTypes.func.isRequired,
+    fullWidth: PropTypes.bool,
     onOpen: PropTypes.func,
     onClose: PropTypes.func
 }
 
 Modal.defaultProps = {
+    fullWidth: false,
     onOpen: noop,
     onClose: noop
 }
