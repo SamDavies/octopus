@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef, useState } from 'react'
-import { FaCaretDown, FaTimes } from 'react-icons/fa'
+import { IoMdArrowDropdown, IoIosClose } from 'react-icons/io'
 import styled from 'styled-components'
 import colors from '../../constants/colors'
 import fonts from '../../constants/fonts'
@@ -178,7 +178,7 @@ const StyledText = styled.div`
     `};
 `
 
-const StyledArrow = styled(FaCaretDown)`
+const StyledArrow = styled(IoMdArrowDropdown)`
     font-size: 30px;
     color: ${colors.coral};
     ${props => props.isFilterSelected && `
@@ -289,7 +289,7 @@ const Select = props => {
                                             onClick={handleResetItem}
                                             data-testid={`cancel-${value}`}
                                         >
-                                            <FaTimes
+                                            <IoIosClose
                                                 color={colors.white}
                                             />
                                         </div>

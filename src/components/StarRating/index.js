@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import { FaStar, FaRegStar } from 'react-icons/fa'
+import { IoIosStar, IoIosStarOutline } from 'react-icons/io'
 import Rating from 'react-rating'
 import styled from 'styled-components'
 import noop from 'lodash/noop'
@@ -20,12 +20,12 @@ const StyledIcon = props => `
     font-size: ${props.size};
 `
 
-const StyledStarOpen = styled(FaRegStar)`
+const StyledStarOpen = styled(IoIosStarOutline)`
     ${StyledIcon}
     color: ${colors.black};
 `
 
-const StyledStarClosed = styled(FaStar)`
+const StyledStarClosed = styled(IoIosStar)`
     ${StyledIcon}
     color: ${props => props.isHovering ? colors.salmon : colors.black}
 `

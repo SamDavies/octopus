@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { FaCheck, FaExclamation, FaTimes } from 'react-icons/fa'
+import { IoMdCheckmark, IoIosClose } from 'react-icons/io'
+import { FaExclamation} from 'react-icons/fa'
 import styled from 'styled-components'
 import colors from '../../constants/colors'
 import Text from '../Text'
@@ -27,7 +28,7 @@ const StyledIcon = `
     border-radius: 30px;
 `
 
-const StyledSuccess = styled(FaCheck)`
+const StyledSuccess = styled(IoMdCheckmark)`
     ${StyledIcon}
     color: ${colors.black};
     background-color: ${colors.kiwi};
@@ -39,7 +40,7 @@ const StyledWarning = styled(FaExclamation)`
     background-color: ${colors.lemon};
 `
 
-const StyledError = styled(FaTimes)`
+const StyledError = styled(IoIosClose)`
     ${StyledIcon}
     color: ${colors.white};
     background-color: ${colors.scarlet};
