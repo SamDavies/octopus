@@ -15,30 +15,46 @@ const StyledSpacing = styled.div`
     }
 `
 
+const ExampleModalInner = props =>
+    <div>
+        <Heading>
+            Hello
+        </Heading>
+        <Heading level={3}>
+            This is a modal component
+        </Heading>
+        <Button
+            onClick={props.onClose}
+        >
+            Close Modal
+        </Button>
+    </div>
+
 const ModalExample = () =>
     <StyledSpacing>
         <Modal
             renderTrigger={({ onOpen }) =>
-                <Button
-                    onClick={onOpen}
-                >
-                    Open Modal
+                <Button onClick={onOpen} >
+                    Normal Modal
                 </Button>
             }
             renderModal={({ onClose }) =>
-                <div>
-                    <Heading>
-                        Hello
-                    </Heading>
-                    <Heading level={3}>
-                        This is a modal component
-                    </Heading>
-                    <Button
-                        onClick={onClose}
-                    >
-                        Close Modal
-                    </Button>
-                </div>
+                <ExampleModalInner
+                    onClose={onClose}
+                />
+            }
+        />
+        <Modal
+            fullWidth
+            renderTrigger={({ onOpen }) =>
+                <Button onClick={onOpen} >
+                    Full Width Modal
+                </Button>
+            }
+            renderModal={({ onClose }) =>
+                <ExampleModalInner
+                    onClose={onClose}
+                />
             }
         />
     </StyledSpacing>
