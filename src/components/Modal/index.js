@@ -34,13 +34,15 @@ const Inner = styled.div`
     width: 600px;
     z-index: 2000;
     max-height: 100%;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 10px;
+    
+    @media ${device.desktop} {
+        padding: 20px;
+    }
     
     ${props => props.fullWidth && `
         width: 100%;
         height: 100%;
-        padding: 20px;
         
         @media ${device.desktop} {
             padding: 40px;
