@@ -21,7 +21,7 @@ const PasswordInput = (props) => {
 
         <Button
             kind='ghost'
-            colour='salmon'
+            color='salmon'
             size='small'
             onClick={() => setPasswordVisible(!passwordVisible)}
         >

@@ -30,7 +30,7 @@ Text.propTypes = {
     size: PropTypes.oneOf(['normal', 'small']),
     font: PropTypes.oneOf(['cera', 'literata']),
     spacing: PropTypes.oneOf(['normal', 'wide']),
-    colour: PropTypes.string,
+    color: PropTypes.string,
     bold: PropTypes.bool,
     uppercase: PropTypes.bool,
     italic: PropTypes.bool,
@@ -41,7 +41,7 @@ Text.propTypes = {
 }
 
 Text.defaultProps = {
-    colour: colors.black,
+    color: colors.black,
     size: 'normal',
     font: 'cera',
     spacing: 'normal',
