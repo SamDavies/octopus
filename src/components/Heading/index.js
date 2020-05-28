@@ -66,7 +66,7 @@ Heading.defaultProps = {
     level: 1,
     font: 'cera',
     spacing: 'normal',
-    colour: colors.black,
+    color: colors.black,
     bold: false,
     center: false,
     italic: false,

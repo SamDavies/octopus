@@ -53,7 +53,7 @@ const Notification = (props) =>
         {props.type === 'error' && <StyledError />}
         <StyledContext>
             <Text
-                colour={colors.white}
+                color={colors.white}
             >
                 {props.text}
             </Text>
