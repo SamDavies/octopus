@@ -34,7 +34,7 @@ const ModalExample = () =>
     <StyledSpacing>
         <Modal
             renderTrigger={({ onOpen }) =>
-                <Button onClick={onOpen} >
+                <Button onClick={onOpen}>
                     Normal Modal
                 </Button>
             }
@@ -45,9 +45,34 @@ const ModalExample = () =>
             }
         />
         <Modal
+            renderTrigger={({ onOpen }) =>
+                <Button onClick={onOpen}>
+                    Overflow Example
+                </Button>
+            }
+            renderModal={() =>
+                <div>
+                    <Heading> Hello </Heading>
+                    <Heading> Hello </Heading>
+                    <Heading> Hello </Heading>
+                    <Heading> Hello </Heading>
+                    <Heading> Hello </Heading>
+                    <Heading> Hello </Heading>
+                    <Heading> Hello </Heading>
+                    <Heading> Hello </Heading>
+                    <Heading> Hello </Heading>
+                    <Heading> Hello </Heading>
+                    <Heading> Hello </Heading>
+                    <Heading> Hello </Heading>
+                    <Heading> Hello </Heading>
+                    <Heading> Hello </Heading>
+                </div>
+            }
+        />
+        <Modal
             fullWidth
             renderTrigger={({ onOpen }) =>
-                <Button onClick={onOpen} >
+                <Button onClick={onOpen}>
                     Full Width Modal
                 </Button>
             }

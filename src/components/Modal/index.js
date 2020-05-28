@@ -27,11 +27,15 @@ const StyledContainer = styled.div`
     z-index: 1000;
     background: rgba(255,255,255, 0.5);
     backdrop-filter: blur(8px);
+    overflow: scroll;
 `
 
 const Inner = styled.div`
     width: 600px;
     z-index: 2000;
+    max-height: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
     
     ${props => props.fullWidth && `
         width: 100%;
