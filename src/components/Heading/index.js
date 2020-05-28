@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
+import colors from '../../constants/colors'
 import AbstractText from '../AbstractText'
 
 const Heading1 = styled.h1`
@@ -65,6 +66,7 @@ Heading.defaultProps = {
     level: 1,
     font: 'cera',
     spacing: 'normal',
+    colour: colors.black,
     bold: false,
     center: false,
     italic: false,
