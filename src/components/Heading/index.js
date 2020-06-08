@@ -49,7 +49,7 @@ const Heading = props => {
 }
 
 Heading.propTypes = {
-    level: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
+    level: PropTypes.oneOf([1, 2, 3, 4]),
     font: PropTypes.oneOf(['cera', 'literata']),
     spacing: PropTypes.oneOf(['normal', 'wide']),
     bold: PropTypes.bool,
