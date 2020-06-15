@@ -119,6 +119,7 @@ const StyledDefaultOption = styled.div`
   position: relative;
   font-size: 13px;
   color: ${colors.black};
+  max-width: 100%;
   height: 32px;
   line-height: 32px;
   padding: 1px 16px 0;
@@ -157,6 +158,12 @@ const StyledDefaultOption = styled.div`
     position: relative;
     top: 1px;
   }
+  
+  span {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 `
 
 const StyledFilter = styled.div`
@@ -174,6 +181,9 @@ const StyledButton = styled(Button)`
 const StyledText = styled.div`
     flex: 1;
     color: ${colors.black};
+    max-width: calc(100% - 10px);
+    overflow: hidden;
+    text-overflow: ellipsis;
     ${props => props.isFilterSelected && `
         color: ${colors.white};
     `};
@@ -311,7 +321,7 @@ const Select = props => {
                                     }
                                     data-role='dropdown-option'
                                 >
-                                    {name}
+                                    <span>{name}</span>
                                     {props.showResetControls && isSelected && (
                                         <StyledCancel
                                             onClick={handleResetItem(value)}
