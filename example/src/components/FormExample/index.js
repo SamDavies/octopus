@@ -1,4 +1,4 @@
-import { Checkbox, device, Input, Textarea, Label, PasswordInput, Select, StarRating } from '@stylindex/octopus'
+import { Checkbox, device, Input, Label, PasswordInput, Select, StarRating, Textarea } from '@stylindex/octopus'
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
@@ -20,6 +20,7 @@ const FormExample = () => {
     const [name, setName] = useState(null)
     const [password, setPassword] = useState(null)
     const [selectValue, setSelectValue] = useState('')
+    const [multiSelect, setMultiSelect] = useState([])
     const [description, setDescription] = useState('')
     const [rating, setRating] = useState(0)
     const selectOptions = [1, 2, 3].map(num => ({
@@ -59,6 +60,16 @@ const FormExample = () => {
             showResetControls
             resetSelectedValue={() => setSelectValue(null)}
             handleSelectChange={(_, val) => setSelectValue(val)}
+            label='select'
+        />
+        <Select
+            options={selectOptions}
+            id='select'
+            selectedValue={multiSelect}
+            showResetControls
+            allowMultiSelect
+            resetSelectedValue={(value) => setMultiSelect(multiSelect.filter(item => item !== value))}
+            handleSelectChange={(_, val) => setMultiSelect([...multiSelect, val])}
             label='select'
         />
         <Checkbox
