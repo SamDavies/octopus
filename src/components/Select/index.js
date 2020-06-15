@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef, useState } from 'react'
-import { IoMdArrowDropdown, IoIosClose } from 'react-icons/io'
+import { IoIosClose, IoMdArrowDropdown } from 'react-icons/io'
 import styled from 'styled-components'
 import colors from '../../constants/colors'
 import fonts from '../../constants/fonts'
@@ -128,6 +128,7 @@ const StyledDefaultOption = styled.div`
   transition: all 0.15s ease-in;
   outline: none;
   white-space: nowrap;
+  display: flex;
   overflow: hidden;
   text-overflow: ellipsis;
   border-bottom: ${({ bordered }) =>
@@ -186,6 +187,15 @@ const StyledArrow = styled(IoMdArrowDropdown)`
     `};
 `
 
+const StyledCancel = styled.div`
+  display: flex;
+  margin-left: auto;
+  svg {
+      margin: auto;
+  }
+
+`
+
 const Select = props => {
     const [isOpened, setIsOpened] = useState(props.isOpened || false)
     const [selectedFilterName, setSelectedFilterName] = useState('')
@@ -201,23 +211,40 @@ const Select = props => {
         }
     }
 
-    const handleResetItem = e => {
-        e.stopPropagation()
-        props.resetSelectedValue(props.filterId)
+    const handleResetItem = (id) => {
+        return e => {
+            e.stopPropagation()
+            props.resetSelectedValue(id)
+        }
     }
 
     useEffect(() => {
         if (props.selectedValue && props.options.length) {
-            const name = props.options.find(
-                option =>
-                    option &&
-                    (String(option.id) === props.selectedValue ||
-                        (option.name &&
-                            option.name.toLowerCase() === props.selectedValue) ||
-                        (option && option.ids === props.selectedValue))
-            )
-
-            setSelectedFilterName(name ? name.name : '')
+            if (props.allowMultiSelect) {
+                const name = props.options.filter(
+                    option =>
+                        option &&
+                        (
+                            props.selectedValue.includes(String(option.id)) ||
+                            (
+                                option.name && props.selectedValue.includes(
+                                    option.name.toLowerCase()
+                                )
+                            )
+                        )
+                ).map(option => option.name).join(', ')
+                setSelectedFilterName(name || '')
+            } else {
+                const name = props.options.find(
+                    option =>
+                        option &&
+                        (String(option.id) === props.selectedValue ||
+                            (option.name &&
+                                option.name.toLowerCase() === props.selectedValue) ||
+                            (option && option.ids === props.selectedValue))
+                )
+                setSelectedFilterName(name ? name.name : '')
+            }
         } else {
             setSelectedFilterName('')
         }
@@ -260,7 +287,7 @@ const Select = props => {
                         tabIndex={0}
                         key='reset'
                         value='@@resetFilter'
-                        onClick={handleResetItem}
+                        onClick={handleResetItem(props.filterId)}
                     >
                         View all
                     </StyledViewAllOption>
@@ -270,6 +297,7 @@ const Select = props => {
                         if (option) {
                             const { name, id: optionId, ids } = option
                             const value = ids || String(optionId)
+                            const isSelected = props.allowMultiSelect ? props.selectedValue.includes(value) : props.selectedValue === value
                             acc.push(
                                 <StyledDefaultOption
                                     key={value}
@@ -277,22 +305,22 @@ const Select = props => {
                                     role='option'
                                     tabIndex={0}
                                     bordered={false}
-                                    selected={value === props.selectedValue}
+                                    selected={isSelected}
                                     onClick={() =>
                                         props.handleSelectChange(props.filterId, value, option)
                                     }
                                     data-role='dropdown-option'
                                 >
                                     {name}
-                                    {props.showResetControls && value === props.selectedValue && (
-                                        <div
-                                            onClick={handleResetItem}
+                                    {props.showResetControls && isSelected && (
+                                        <StyledCancel
+                                            onClick={handleResetItem(value)}
                                             data-testid={`cancel-${value}`}
                                         >
                                             <IoIosClose
                                                 color={colors.white}
                                             />
-                                        </div>
+                                        </StyledCancel>
                                     )}
                                 </StyledDefaultOption>
                             )
@@ -312,6 +340,7 @@ Select.propTypes = {
     /** Whether to render close icon and select all button */
     showResetControls: PropTypes.bool,
     label: PropTypes.string,
+    allowMultiSelect: PropTypes.bool,
     isOpened: PropTypes.bool,
     /** Options to be passed to dropdown */
     options: PropTypes.arrayOf(PropTypes.shape({
@@ -335,6 +364,7 @@ Select.propTypes = {
 
 Select.defaultProps = {
     showResetControls: true,
+    allowMultiSelect: false,
     customPlaceholder: false,
     selectedValue: '',
     isOpened: false,
