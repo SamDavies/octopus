@@ -158,6 +158,12 @@ const StyledDefaultOption = styled.div`
     position: relative;
     top: 1px;
   }
+  
+  span {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 `
 
 const StyledFilter = styled.div`
@@ -315,7 +321,7 @@ const Select = props => {
                                     }
                                     data-role='dropdown-option'
                                 >
-                                    {name}
+                                    <span>{name}</span>
                                     {props.showResetControls && isSelected && (
                                         <StyledCancel
                                             onClick={handleResetItem(value)}
