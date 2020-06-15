@@ -119,6 +119,7 @@ const StyledDefaultOption = styled.div`
   position: relative;
   font-size: 13px;
   color: ${colors.black};
+  max-width: 100%;
   height: 32px;
   line-height: 32px;
   padding: 1px 16px 0;
@@ -174,6 +175,9 @@ const StyledButton = styled(Button)`
 const StyledText = styled.div`
     flex: 1;
     color: ${colors.black};
+    max-width: calc(100% - 10px);
+    overflow: hidden;
+    text-overflow: ellipsis;
     ${props => props.isFilterSelected && `
         color: ${colors.white};
     `};
