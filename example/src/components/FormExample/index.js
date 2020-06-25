@@ -9,7 +9,7 @@ const StyledSpacing = styled.div`
         margin-right: 20px;
         width: 50%;
     }
-    
+
     & > *:not(:last-child) {
         margin-bottom: 40px;
     }
@@ -23,10 +23,9 @@ const FormExample = () => {
     const [multiSelect, setMultiSelect] = useState([])
     const [description, setDescription] = useState('')
     const [rating, setRating] = useState(0)
-    const selectOptions = [1, 2, 3].map(num => ({
-        name: String(num),
-        id: String(num),
-        value: String(num)
+    const selectOptions = [1, 2, 3].map(index => ({
+        id: String(index),
+        value: `value ${index}`
     }))
 
     return <StyledSpacing>
@@ -59,8 +58,8 @@ const FormExample = () => {
             selectedValue={selectValue}
             showResetControls
             resetSelectedValue={() => setSelectValue(null)}
-            handleSelectChange={(_, val) => setSelectValue(val)}
-            label='select'
+            onSelect={id => setSelectValue(id)}
+            label='Single Select'
         />
         <Select
             options={selectOptions}
@@ -68,9 +67,10 @@ const FormExample = () => {
             selectedValue={multiSelect}
             showResetControls
             allowMultiSelect
-            resetSelectedValue={(value) => setMultiSelect(multiSelect.filter(item => item !== value))}
-            handleSelectChange={(_, val) => setMultiSelect([...multiSelect, val])}
-            label='select'
+            onClear={() => setMultiSelect([])}
+            onDeselect={id => setMultiSelect(multiSelect.filter(item => item !== id))}
+            onSelect={id => setMultiSelect([...multiSelect, id])}
+            label='Multi Select'
         />
         <Checkbox
             id='check3'

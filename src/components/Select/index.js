@@ -1,6 +1,7 @@
+import noop from 'lodash/noop'
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef, useState } from 'react'
-import { IoIosClose, IoMdArrowDropdown } from 'react-icons/io'
+import { IoMdArrowDropdown } from 'react-icons/io'
 import styled from 'styled-components'
 import colors from '../../constants/colors'
 import fonts from '../../constants/fonts'
@@ -89,7 +90,7 @@ const StyledEmptyOption = styled.div`
   pointer-events: none;
 
   &:hover {
-    background-color: ${colors.black};
+    background-color: ${colors.salmon};
     color: ${colors.white};
   }
 `
@@ -109,7 +110,7 @@ const StyledViewAllOption = styled.div`
   font-size: 16px;
   outline: none;
   &:hover {
-    background-color: ${colors.black};
+    background-color: ${colors.salmon};
     color: ${colors.white};
   }
 `
@@ -132,15 +133,14 @@ const StyledDefaultOption = styled.div`
   display: flex;
   overflow: hidden;
   text-overflow: ellipsis;
-  border-bottom: ${({ bordered }) =>
-        bordered ? `2px solid ${colors.black}` : 'none'};
+  border-bottom: ${({ bordered }) => bordered ? `2px solid ${colors.black}` : 'none'};
   ${({ selected }) => selected && `
     background-color: ${colors.black};
     color: ${colors.white};
 `};
 
   &:hover {
-    background-color: ${colors.black};
+    background-color: ${colors.salmon};
     color: ${colors.white};
   }
 
@@ -158,7 +158,7 @@ const StyledDefaultOption = styled.div`
     position: relative;
     top: 1px;
   }
-  
+
   span {
     max-width: 100%;
     overflow: hidden;
@@ -197,15 +197,6 @@ const StyledArrow = styled(IoMdArrowDropdown)`
     `};
 `
 
-const StyledCancel = styled.div`
-  display: flex;
-  margin-left: auto;
-  svg {
-      margin: auto;
-  }
-
-`
-
 const Select = props => {
     const [isOpened, setIsOpened] = useState(props.isOpened || false)
     const [selectedFilterName, setSelectedFilterName] = useState('')
@@ -221,39 +212,41 @@ const Select = props => {
         }
     }
 
-    const handleResetItem = (id) => {
+    const onClear = (id) => {
         return e => {
             e.stopPropagation()
-            props.resetSelectedValue(id)
+            props.onClear(id)
         }
     }
 
     useEffect(() => {
         if (props.selectedValue && props.options.length) {
             if (props.allowMultiSelect) {
-                const name = props.options.filter(
+                // Join all selected items into 1 string
+                const value = props.options.filter(
                     option =>
                         option &&
                         (
                             props.selectedValue.includes(String(option.id)) ||
                             (
-                                option.name && props.selectedValue.includes(
-                                    option.name.toLowerCase()
+                                option.value && props.selectedValue.includes(
+                                    option.value.toLowerCase()
                                 )
                             )
                         )
-                ).map(option => option.name).join(', ')
-                setSelectedFilterName(name || '')
+                ).map(option => option.value).join(', ')
+                setSelectedFilterName(value || '')
             } else {
-                const name = props.options.find(
+                // Find the select value
+                const value = props.options.find(
                     option =>
                         option &&
                         (String(option.id) === props.selectedValue ||
-                            (option.name &&
-                                option.name.toLowerCase() === props.selectedValue) ||
+                            (option.value &&
+                                option.value.toLowerCase() === props.selectedValue) ||
                             (option && option.ids === props.selectedValue))
                 )
-                setSelectedFilterName(name ? name.name : '')
+                setSelectedFilterName(value ? value.value : '')
             }
         } else {
             setSelectedFilterName('')
@@ -297,7 +290,7 @@ const Select = props => {
                         tabIndex={0}
                         key='reset'
                         value='@@resetFilter'
-                        onClick={handleResetItem(props.filterId)}
+                        onClick={onClear(props.filterId)}
                     >
                         View all
                     </StyledViewAllOption>
@@ -305,33 +298,24 @@ const Select = props => {
                 {props.options.length ? (
                     props.options.reduce((acc, option) => {
                         if (option) {
-                            const { name, id: optionId, ids } = option
-                            const value = ids || String(optionId)
-                            const isSelected = props.allowMultiSelect ? props.selectedValue.includes(value) : props.selectedValue === value
+                            const isSelected =
+                                props.allowMultiSelect ? props.selectedValue.includes(option.id)
+                                    : props.selectedValue === option.id
                             acc.push(
                                 <StyledDefaultOption
-                                    key={value}
-                                    data-testid={`option-${value}`}
+                                    key={option.id}
+                                    data-testid={`option-${option.id}`}
                                     role='option'
                                     tabIndex={0}
                                     bordered={false}
                                     selected={isSelected}
                                     onClick={() =>
-                                        props.handleSelectChange(props.filterId, value, option)
+                                        isSelected ? props.onDeselect(option.id)
+                                            : props.onSelect(option.id)
                                     }
                                     data-role='dropdown-option'
                                 >
-                                    <span>{name}</span>
-                                    {props.showResetControls && isSelected && (
-                                        <StyledCancel
-                                            onClick={handleResetItem(value)}
-                                            data-testid={`cancel-${value}`}
-                                        >
-                                            <IoIosClose
-                                                color={colors.white}
-                                            />
-                                        </StyledCancel>
-                                    )}
+                                    <span>{option.value}</span>
                                 </StyledDefaultOption>
                             )
                         }
@@ -346,7 +330,7 @@ const Select = props => {
 }
 
 Select.propTypes = {
-    resetSelectedValue: PropTypes.func,
+    onClear: PropTypes.func,
     /** Whether to render close icon and select all button */
     showResetControls: PropTypes.bool,
     label: PropTypes.string,
@@ -354,25 +338,22 @@ Select.propTypes = {
     isOpened: PropTypes.bool,
     /** Options to be passed to dropdown */
     options: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.number
-        ]),
-        ids: PropTypes.any,
-        onClick: PropTypes.func,
-        name: PropTypes.string.isRequired
+        id: PropTypes.string.isRequired,
+        value: PropTypes.string.isRequired
     })).isRequired,
     selectedValue: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.arrayOf(PropTypes.string)
     ]),
-    handleSelectChange: PropTypes.func.isRequired,
+    onSelect: PropTypes.func.isRequired,
+    onDeselect: PropTypes.func,
     isFetching: PropTypes.bool,
     filterId: PropTypes.string,
     id: PropTypes.string
 }
 
 Select.defaultProps = {
+    onDeselect: noop,
     showResetControls: true,
     allowMultiSelect: false,
     customPlaceholder: false,
