@@ -11,7 +11,7 @@ const StyledContainer = styled.div`
     display: flex;
     flex-direction: column;
     margin: 20px;
-    
+
     @media ${device.tablet} {
         margin: 40px;
     }
@@ -29,7 +29,7 @@ const StyledSpacing = styled.div`
     @media ${device.tablet} {
         margin-right: 20px;
     }
-    
+
     & > *:not(:last-child) {
         margin-bottom: 10px;
     }
@@ -45,7 +45,7 @@ const StyledColumn = styled.div`
 const StyledGroup = styled.div`
     display: flex;
     flex-direction: column;
-    
+
     @media ${device.tablet} {
         flex-direction: row;
     }
@@ -77,16 +77,16 @@ const Page = () =>
                         </Button>
                     </StyledSpacing>
                     <StyledSpacing>
-                        <Button colour='black'>
+                        <Button color='black'>
                             Black
                         </Button>
-                        <Button colour='red'>
+                        <Button color='red'>
                             Red
                         </Button>
-                        <Button colour='salmon'>
+                        <Button color='salmon'>
                             Salmon
                         </Button>
-                        <Button colour='grey'>
+                        <Button color='grey'>
                             Grey
                         </Button>
                     </StyledSpacing>
