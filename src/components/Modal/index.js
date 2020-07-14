@@ -85,7 +85,7 @@ const Modal = props => {
         props.onOpen()
     }
     return <Fragment>
-        {show && <StyledContainer role="modal">
+        {show && <StyledContainer role='modal'>
             <GlobalBodyHidden />
             <Inner fullWidth={props.fullWidth}>
                 <StyledBox>
