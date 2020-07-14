@@ -1,8 +1,8 @@
+import isFunction from 'lodash/isFunction'
 import PropTypes from 'prop-types'
 import React from 'react'
 import TooltipTrigger from 'react-popper-tooltip'
 import styled from 'styled-components'
-import isFunction from 'lodash/isFunction'
 import colors from '../../constants/colors'
 import fonts from '../../constants/fonts'
 
@@ -82,6 +82,7 @@ const Tooltip = props => {
         trigger='hover'
         tooltip={tooltip => (
             <StyledTooltip
+                role='tooltip'
                 invert={props.invert}
                 {...tooltip.getTooltipProps({
                     ref: tooltip.tooltipRef,
@@ -95,6 +96,7 @@ const Tooltip = props => {
     >
         {trigger =>
             <StyledSpan
+                role='tooltip-trigger'
                 {...trigger.getTriggerProps({
                     ref: trigger.triggerRef
                 })}
