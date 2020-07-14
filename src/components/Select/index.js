@@ -184,7 +184,7 @@ const StyledText = styled.div`
     max-width: calc(100% - 10px);
     overflow: hidden;
     text-overflow: ellipsis;
-    ${props => props.isFilterSelected && `
+    ${props => props.$isFilterSelected && `
         color: ${colors.white};
     `};
 `
@@ -192,7 +192,7 @@ const StyledText = styled.div`
 const StyledArrow = styled(IoMdArrowDropdown)`
     font-size: 30px;
     color: ${colors.coral};
-    ${props => props.isFilterSelected && `
+    ${props => props.$isFilterSelected && `
         color: ${colors.white};
     `};
 `
@@ -276,12 +276,12 @@ const Select = props => {
                 ref={title}
                 data-role='dropdown-value-display'
                 data-opened={isOpened}
-                isFilterSelected={selectedFilterName}
+                $isFilterSelected={selectedFilterName}
             >
-                <StyledText isFilterSelected={!!selectedFilterName}>
+                <StyledText $isFilterSelected={!!selectedFilterName}>
                     {selectedFilterName || props.label}
                 </StyledText>
-                <StyledArrow isFilterSelected={!!selectedFilterName} />
+                <StyledArrow $isFilterSelected={!!selectedFilterName} />
             </StyledButton>
             <StyledControlDropdown offset={offset + 45} isVisible={isOpened}>
                 {showViewAll && (

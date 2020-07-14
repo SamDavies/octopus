@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
 import noop from 'lodash/noop'
+import PropTypes from 'prop-types'
 import React, { Fragment, useState } from 'react'
 import { IoIosClose } from 'react-icons/io'
 import styled, { createGlobalStyle } from 'styled-components'
@@ -85,7 +85,7 @@ const Modal = props => {
         props.onOpen()
     }
     return <Fragment>
-        {show && <StyledContainer>
+        {show && <StyledContainer role="modal">
             <GlobalBodyHidden />
             <Inner fullWidth={props.fullWidth}>
                 <StyledBox>
