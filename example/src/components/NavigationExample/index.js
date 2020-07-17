@@ -1,5 +1,13 @@
 import { HorizontalScroll, Tab } from '@stylindex/octopus'
 import React, { useState, Fragment } from 'react'
+import styled from 'styled-components'
+
+const StyledColumn = styled.div`
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+`
 
 const NavigationExample = () => {
     const [selected, setSelected] = useState('tab-1')
@@ -54,6 +62,36 @@ const NavigationExample = () => {
                 Tab 8
             </Tab>
         </HorizontalScroll>
+        <StyledColumn>
+            <Tab
+                direction={'VERTICAL'}
+                isSelected={selected === 'tab-1'}
+                onClick={() => setSelected('tab-1')}
+            >
+                Vertical Tab 1
+            </Tab>
+            <Tab
+                direction={'VERTICAL'}
+                isSelected={selected === 'tab-2'}
+                onClick={() => setSelected('tab-2')}
+            >
+                Vertical Tab 2
+            </Tab>
+            <Tab
+                direction={'VERTICAL'}
+                isSelected={selected === 'tab-3'}
+                onClick={() => setSelected('tab-3')}
+            >
+                Vertical Tab 3
+            </Tab>
+            <Tab
+                direction={'VERTICAL'}
+                isSelected={selected === 'tab-4'}
+                onClick={() => setSelected('tab-4')}
+            >
+                Vertical Tab 4
+            </Tab>
+        </StyledColumn>
     </Fragment>
 }
 
