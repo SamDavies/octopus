@@ -1,4 +1,5 @@
 import fonts from '../../constants/fonts'
+import { letterSpacing } from '../../constants/spacing'
 
 const AbstractText = props => `
     color: ${props.color};
@@ -8,7 +9,7 @@ const AbstractText = props => `
     font-weight: ${props.bold ? 800 : 500};
     font-style: ${props.italic ? 'italic' : 'normal'};
     font-stretch: normal;
-    letter-spacing: ${props.spacing === 'normal' ? 'normal' : '16px'};
+    letter-spacing: ${letterSpacing[props.spacing]};
     text-transform: ${props.uppercase ? 'uppercase' : 'none'};
     text-align: ${props.center ? 'center' : 'left'};
 `
