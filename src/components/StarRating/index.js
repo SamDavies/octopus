@@ -27,7 +27,7 @@ const StyledStarOpen = styled(IoIosStarOutline)`
 
 const StyledStarClosed = styled(IoIosStar)`
     ${StyledIcon}
-    color: ${props => props.$isHovering ? colors.salmon : colors.black}
+    color: ${props => props.$isHovering ? colors.salmon : colors.black};
 `
 
 const sizeToPixels = size => {

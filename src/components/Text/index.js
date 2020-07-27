@@ -29,7 +29,7 @@ const Text = props => {
 Text.propTypes = {
     size: PropTypes.oneOf(['normal', 'small']),
     font: PropTypes.oneOf(['cera', 'literata']),
-    spacing: PropTypes.oneOf(['normal', 'wide']),
+    spacing: PropTypes.oneOf(['normal', 'some', 'wide']),
     color: PropTypes.string,
     bold: PropTypes.bool,
     uppercase: PropTypes.bool,
