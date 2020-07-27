@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
-import colors from '../../constants/colors'
 import Heading from '../Heading'
+import Colors from "../../constants/colors";
 
 const StyledCustomCheckbox = styled.span`
     display: flex;
     position: relative;
-    border: 2px solid ${colors.black};
+    border: 2px solid ${Colors.black};
     height: 14px;
     width: 14px;
     min-width: 14px;
@@ -19,7 +19,7 @@ const StyledCustomCheckbox = styled.span`
         display: inline-block;
         width: 6px;
         height: 6px;
-        background: ${colors.salmon};
+        background: ${Colors.salmon};
         opacity: 0;
     }
 
@@ -29,13 +29,13 @@ const StyledCustomCheckbox = styled.span`
 
     &:focus {
         outline: none;
-      
+
     }
 
     input:enabled ~ &:focus {
-        border-color: ${colors.lightSalmon};
+        border-color: ${Colors.lightSalmon};
         + span {
-            color: ${colors.lightSalmon};
+            color: ${Colors.lightSalmon};
         }
     }
 `
@@ -62,8 +62,8 @@ const StyledWrapper = styled.label`
     }
     &:hover {
         input:enabled ~ span {
-            border-color: ${colors.lightSalmon};
-            color: ${colors.lightSalmon};
+            border-color: ${Colors.lightSalmon};
+            color: ${Colors.lightSalmon};
         }
     }
     outline: none;
@@ -73,7 +73,11 @@ const StyledWrapper = styled.label`
     }
 `
 
-const Checkbox = props => {
+type Props = {
+    noPadding: boolean
+}
+
+const Checkbox = (props: Props) => {
     const onClick = e => {
         e.stopPropagation()
     }

@@ -1,23 +1,22 @@
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import colors from '../../constants/colors'
+import Colors from '../../constants/colors'
 
-const getStyles = props => {
-    const primaryColours = {
-        black: colors.black,
-        salmon: colors.salmon,
-        red: colors.scarlet,
-        grey: colors.grey3
-    }
+type Props = {
+    color: Colors.black | Colors.salmon | Colors.scarlet | Colors.grey1
+    kind: 'primary' | 'secondary' | 'ghost'
+    size: 'small' | 'medium' | 'large'
+    disabled: boolean
+    loading: boolean
+    fullWidth: boolean
+}
 
-    const primaryColour = primaryColours[props.color]
-
+const getStyles = (props: Props): string => {
     if (props.kind === 'secondary') {
         return `
-            background-color: ${colors.white};
-            color: ${primaryColour};
-            border: 2px solid ${primaryColour};
-            
+            background-color: ${Colors.white};
+            color: ${props.color};
+            border: 2px solid ${props.color};
+
             &:hover {
                 opacity: 0.8;
             }
@@ -26,10 +25,10 @@ const getStyles = props => {
 
     if (props.kind === 'ghost') {
         return `
-            color: ${primaryColour};
+            color: ${props.color};
             background-color: transparent;
             border-color: transparent;
-            
+
             &:hover {
                 opacity: 0.8;
             }
@@ -37,28 +36,28 @@ const getStyles = props => {
     }
 
     return `
-        color: ${colors.white};
-        background-color: ${primaryColour};
-        border: 2px solid ${primaryColour};
-        
+        color: ${Colors.white};
+        background-color: ${props.color};
+        border: 2px solid ${props.color};
+
         &:hover {
             opacity: 0.8;
         }
     `
 }
 
-const Button = styled.button`
-    ${props => props.fullWidth && `
+const Button = styled.button<Props>`
+    ${(props): string | null => props.fullWidth ? `
         width: 100%;
-    `}
-    
+    `: null};
+
     // font
     text-transform: uppercase;
     line-height: 18px;
     font-size: 18px;
     font-align: center;
     font-weight: 700;
-    
+
     // default styles
     appearance: none;
     position: relative;
@@ -78,58 +77,51 @@ const Button = styled.button`
     cursor: pointer;
     overflow: hidden;
     outline: none;
-    
-    ${props => props.size === 'small' && `
+
+    ${(props): string | null => props.size === 'small' ? `
         min-width: auto;
         height: 24px;
         line-height: 12px;
         font-size: 12px;
-    `}
-    
-    ${props => props.size === 'medium' && `
+    `: null}
+
+    ${(props): string | null => props.size === 'medium' ? `
         min-width: auto;
         height: 32px;
         line-height: 14px;
         font-size: 14px;
         font-weight: 600;
-    `}
-    
-    ${props => getStyles(props)}
-    
-    ${props => props.disabled && `
-        color: ${colors.grey5};
-        background-color: ${colors.white};
-        border-color: ${colors.grey7};
+    `: null}
+
+    ${(props): string => getStyles(props)}
+
+    ${(props): string | null => props.disabled ? `
+        color: ${Colors.grey5};
+        background-color: ${Colors.white};
+        border-color: ${Colors.grey7};
         cursor: not-allowed;
-        
+
         &:hover {
             opacity: 1;
         }
-    `}
-    
-    ${props => props.loading && `
-        background: ${colors.grey9};
-        border-color: ${colors.grey7};
-        color: ${colors.grey5};
+    `: null}
+
+    ${(props): string | null => props.loading ? `
+        background: ${Colors.grey9};
+        border-color: ${Colors.grey7};
+        color: ${Colors.grey5};
         cursor: default;
         pointer-events: none;
         filter: grayscale(1);
-    `}
+    `: null}
 `
-
-Button.propTypes = {
-    kind: PropTypes.oneOf(['primary', 'secondary', 'ghost']),
-    color: PropTypes.oneOf(['black', 'salmon', 'red', 'grey']),
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
-    disabled: PropTypes.bool,
-    fullWidth: PropTypes.bool
-}
 
 Button.defaultProps = {
     kind: 'primary',
-    color: 'black',
+    color: Colors.black,
     size: 'large',
     disabled: false,
+    loading: false,
     fullWidth: false
 }
 
