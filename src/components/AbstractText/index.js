@@ -1,5 +1,10 @@
 import fonts from '../../constants/fonts'
-import { letterSpacing } from '../../constants/spacing'
+
+const letterSpacing = {
+    normal: 'normal',
+    some: '4.22px',
+    wide: '7.8px'
+}
 
 const AbstractText = props => `
     color: ${props.color};
