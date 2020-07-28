@@ -1,30 +1,40 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
-import colors from '../../constants/colors'
 import AbstractText from '../AbstractText'
+import Fonts from "../../constants/fonts";
+import Colors from '../../constants/colors';
 
-const Heading1 = styled.h1`
-    ${AbstractText}
+type Props = {
+    level: 1 | 2 | 3 | 4
+    font: Fonts
+    spacing: 'normal' | 'wide'
+    bold: boolean
+    center: boolean
+    uppercase: boolean
+    italic: boolean
+}
+
+const Heading1 = styled.h1<Props>`
+    ${AbstractText};
     font-size: 42px;
 `
 
-const Heading2 = styled.h2`
-    ${AbstractText}
+const Heading2 = styled.h2<Props>`
+    ${AbstractText};
     font-size: 32px
 `
 
-const Heading3 = styled.h3`
-    ${AbstractText}
+const Heading3 = styled.h3<Props>`
+    ${AbstractText};
     font-size: 28px
 `
 
-const Heading4 = styled.h4`
-    ${AbstractText}
+const Heading4 = styled.h4<Props>`
+    ${AbstractText};
     font-size: 24px;
 `
 
-const Heading = props => {
+const Heading: React.FC<Props> = props => {
     if (props.level === 2) {
         return <Heading2 {...props}>
             {props.children}
@@ -48,25 +58,11 @@ const Heading = props => {
     </Heading1>
 }
 
-Heading.propTypes = {
-    level: PropTypes.oneOf([1, 2, 3, 4]),
-    font: PropTypes.oneOf(['cera', 'literata']),
-    spacing: PropTypes.oneOf(['normal', 'wide']),
-    bold: PropTypes.bool,
-    center: PropTypes.bool,
-    uppercase: PropTypes.bool,
-    italic: PropTypes.bool,
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node
-    ]).isRequired
-}
-
 Heading.defaultProps = {
     level: 1,
-    font: 'cera',
+    font: Fonts.sanSerif,
     spacing: 'normal',
-    color: colors.black,
+    color: Colors.black,
     bold: false,
     center: false,
     italic: false,

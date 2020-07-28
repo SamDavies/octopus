@@ -1,8 +1,12 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { ReactComponent as LogoImage } from '../../static/images/logo_stacked.svg'
 import colors from '../../constants/colors'
+
+type Props = {
+    inverted: boolean
+    size: 'small' | 'medium' | 'large'
+}
 
 const logoSizes = {
     small: css`
@@ -24,12 +28,12 @@ const logoSizes = {
   `
 }
 
-const StyledCircleLogoWrapper = styled.div`
+const StyledCircleLogoWrapper = styled.div<Props>`
   position: relative;
   border: solid ${colors.black};
   box-sizing: border-box;
-  background: ${({ inverted }) => inverted ? colors.black : colors.white};
-  
+  background: ${props => props.inverted ? colors.black : colors.white};
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,12 +46,12 @@ const StyledCircleLogoWrapper = styled.div`
     max-width: 100%;
   }
 
-  ${({ size }) => size && logoSizes[size]}
-  
+  ${props => props.size && logoSizes[props.size]}
+
   .logo-text {
-    fill:  ${({ inverted }) => inverted ? colors.white : colors.black};
+    fill:  ${props => props.inverted ? colors.white : colors.black};
   }
-  
+
 `
 
 const StyledLink = styled.div`
@@ -55,18 +59,17 @@ const StyledLink = styled.div`
   display: block;
 `
 
-const CircleLogo = ({ inverted, size }) => (
-    <StyledCircleLogoWrapper inverted={inverted} size={size} className='logo-wrapper'>
+const CircleLogo: React.FC<Props> = props => (
+    <StyledCircleLogoWrapper
+        inverted={props.inverted}
+        size={props.size}
+        className='logo-wrapper'
+    >
         <StyledLink>
             <LogoImage />
         </StyledLink>
     </StyledCircleLogoWrapper>
 )
-
-CircleLogo.propTypes = {
-    inverted: PropTypes.bool,
-    size: PropTypes.oneOf(['small', 'medium', 'large'])
-}
 
 CircleLogo.defaultProps = {
     inverted: false,

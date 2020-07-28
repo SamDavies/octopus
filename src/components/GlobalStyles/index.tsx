@@ -3,7 +3,7 @@ import GlobalTypography from './GlobalTypography'
 import GlobalFonts from './GlobalFonts'
 import GlobalReset from './GlobalReset'
 
-const GlobalStyles = () =>
+const GlobalStyles: React.FC = () =>
     <Fragment>
         <GlobalFonts />
         <GlobalReset />
@@ -11,5 +11,3 @@ const GlobalStyles = () =>
     </Fragment>
 
 export default GlobalStyles
-
-export { GlobalFonts, GlobalReset, GlobalTypography }

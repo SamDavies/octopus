@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
 import Heading from '../Heading'
@@ -74,15 +73,22 @@ const StyledWrapper = styled.label`
 `
 
 type Props = {
-    noPadding: boolean
+    inputType: 'radio' | 'checkbox'
+    checked: boolean,
+    disabled: boolean,
+    name: string,
+    id: string,
+    value: string,
+    labelText: string,
+    onChange: () => void
 }
 
-const Checkbox = (props: Props) => {
-    const onClick = e => {
+const Checkbox: React.FC<Props> = props => {
+    const onClick = (e: React.MouseEvent<HTMLElement>) => {
         e.stopPropagation()
     }
 
-    const handleKeyPress = (e) => {
+    const handleKeyPress = (e: React.KeyboardEvent<HTMLElement>) => {
         e.stopPropagation()
         const enterOrSpace = e.key === 'Enter' || e.key === 'Space'
         if (enterOrSpace && !props.disabled) {
@@ -118,20 +124,6 @@ const Checkbox = (props: Props) => {
             {props.labelText}
         </StyledLabelText>
     </StyledWrapper>
-}
-
-Checkbox.propTypes = {
-    inputType: PropTypes.oneOf([
-        'radio',
-        'checkbox'
-    ]),
-    checked: PropTypes.bool.isRequired,
-    disabled: PropTypes.bool,
-    name: PropTypes.string,
-    id: PropTypes.string,
-    value: PropTypes.string,
-    labelText: PropTypes.string,
-    onChange: PropTypes.func
 }
 
 Checkbox.defaultProps = {
