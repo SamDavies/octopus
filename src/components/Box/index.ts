@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import Colors from "../../constants/colors";
 
 type Props = {
-    noPadding: boolean
+    noPadding?: boolean
 }
 
 const Box = styled.div<Props>`

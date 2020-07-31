@@ -2,7 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import colors from '../../constants/colors'
 
-const StyledContainer = styled.div`
+type Props = {
+    direction: string;
+    isSelected: boolean;
+}
+
+const StyledContainer = styled.div<Props>`
     text-decoration: none;
     text-transform: uppercase;
     color: ${colors.black};
@@ -14,7 +19,7 @@ const StyledContainer = styled.div`
     cursor: pointer;
 `
 
-const StyledTab = styled.div`
+const StyledTab = styled.div<Props>`
     ${props => props.direction === 'VERTICAL' && `
         border-left: 2px solid ${props.isSelected ? colors.black : 'transparent'};
         padding-left: 12px;
@@ -33,7 +38,7 @@ const StyledTab = styled.div`
     `};
 `
 
-const Tab = props =>
+const Tab: React.FC<Props> = (props: Props) =>
     <StyledContainer {...props}>
         <StyledTab {...props} />
     </StyledContainer>

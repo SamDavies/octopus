@@ -2,12 +2,12 @@ import styled from 'styled-components'
 import Colors from '../../constants/colors'
 
 type Props = {
-    color: Colors.black | Colors.salmon | Colors.scarlet | Colors.grey1
-    kind: 'primary' | 'secondary' | 'ghost'
-    size: 'small' | 'medium' | 'large'
-    disabled: boolean
-    loading: boolean
-    fullWidth: boolean
+    color?: Colors.black | Colors.salmon | Colors.scarlet | Colors.grey1
+    kind?: 'primary' | 'secondary' | 'ghost'
+    size?: 'small' | 'medium' | 'large'
+    disabled?: boolean
+    loading?: boolean
+    fullWidth?: boolean
 }
 
 const getStyles = (props: Props): string => {

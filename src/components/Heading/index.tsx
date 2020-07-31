@@ -5,13 +5,14 @@ import Fonts from "../../constants/fonts";
 import Colors from '../../constants/colors';
 
 type Props = {
-    level: 1 | 2 | 3 | 4
-    font: Fonts
-    spacing: 'normal' | 'wide'
-    bold: boolean
-    center: boolean
-    uppercase: boolean
-    italic: boolean
+    level?: 1 | 2 | 3 | 4
+    font?: Fonts
+    color?: Colors
+    spacing?: 'normal' | 'wide'
+    bold?: boolean
+    center?: boolean
+    uppercase?: boolean
+    italic?: boolean
 }
 
 const Heading1 = styled.h1<Props>`

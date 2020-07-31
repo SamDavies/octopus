@@ -1,11 +1,10 @@
 import noop from 'lodash/noop'
-import PropTypes from 'prop-types'
 import React, { Fragment, useState } from 'react'
 import { IoIosClose } from 'react-icons/io'
 import styled, { createGlobalStyle } from 'styled-components'
-import { device } from '../../constants/sizes'
 import Box from '../Box'
 import Button from '../Button'
+import {MediaQuery} from "../../constants/sizes";
 
 // Prevent the background from scrolling
 // https://stackoverflow.com/questions/9538868/prevent-body-from-scrolling-when-a-modal-is-opened
@@ -30,21 +29,25 @@ const StyledContainer = styled.div`
     overflow: scroll;
 `
 
-const Inner = styled.div`
+type InnerProps = {
+    fullWidth: boolean
+}
+
+const Inner = styled.div<InnerProps>`
     width: 600px;
     z-index: 2000;
     max-height: 100%;
     padding: 10px;
-    
-    @media ${device.desktop} {
+
+    @media ${MediaQuery.desktop} {
         padding: 20px;
     }
-    
+
     ${props => props.fullWidth && `
         width: 100%;
         height: 100%;
-        
-        @media ${device.desktop} {
+
+        @media ${MediaQuery.desktop} {
             padding: 40px;
         }
     `}
@@ -72,15 +75,28 @@ const StyledCrossButton = styled(Button)`
     padding: 0;
 `
 
-const Modal = props => {
-    const [show, setShow] = useState()
+type CallbackProps = {
+    onOpen: () => void
+    onClose: () => void
+}
 
-    const onClose = () => {
+type Props = {
+    renderModal: (props: CallbackProps) => JSX.Element,
+    renderTrigger: (props: CallbackProps) => JSX.Element,
+    fullWidth: boolean,
+    onOpen: () => void
+    onClose: () => void
+}
+
+const Modal: React.FC<Props> = (props: Props) => {
+    const [show, setShow] = useState<boolean>(false)
+
+    const onClose = (): void => {
         setShow(false)
         props.onClose()
     }
 
-    const onOpen = () => {
+    const onOpen = (): void => {
         setShow(true)
         props.onOpen()
     }
@@ -112,14 +128,6 @@ const Modal = props => {
             onClose
         })}
     </Fragment>
-}
-
-Modal.propTypes = {
-    renderModal: PropTypes.any.isRequired,
-    renderTrigger: PropTypes.func.isRequired,
-    fullWidth: PropTypes.bool,
-    onOpen: PropTypes.func,
-    onClose: PropTypes.func
 }
 
 Modal.defaultProps = {

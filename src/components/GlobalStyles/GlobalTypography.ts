@@ -1,16 +1,16 @@
 import { createGlobalStyle } from 'styled-components'
-import colors from '../../constants/colors'
-import fonts from '../../constants/fonts'
+import Colors from "../../constants/colors";
+import Fonts from "../../constants/fonts";
 
 const GlobalTypography = createGlobalStyle`
     html, div, button, a {
         line-height: 1.5rem;
-        color: ${colors.black};
+        color: ${Colors.black};
         font-size: 16px;
-        font-family: ${fonts.cera};
+        font-family: ${Fonts.sanSerif};
         text-decoration: none;
     }
-    
+
     h1, h2, h3, h4, h5, h6 {
         line-height: 100%;
     }

@@ -1,22 +1,30 @@
 import isFunction from 'lodash/isFunction'
-import PropTypes from 'prop-types'
 import React from 'react'
 import TooltipTrigger from 'react-popper-tooltip'
 import styled from 'styled-components'
-import colors from '../../constants/colors'
-import fonts from '../../constants/fonts'
+import Colors from "../../constants/colors";
+import Fonts from "../../constants/fonts";
+import PopperJS from "popper.js";
+import {GetTooltipPropsArg} from "react-popper-tooltip/dist/types";
 
 const StyledSpan = styled.div`
     width: 100%;
 `
 
-export const StyledTooltip = styled.div`
+
+interface StyledTooltipProps extends GetTooltipPropsArg{
+    disableTooltip: boolean;
+    invert: boolean;
+    position: PopperJS.Placement;
+}
+
+export const StyledTooltip = styled.div<StyledTooltipProps>`
     width: 100%;
-    font-family: ${fonts.cera};
+    font-family: ${Fonts.serif};
     font-weight: bold;
     font-size: 12px;
-    background: ${({ invert }) => invert ? colors.white : colors.black};
-    color: ${({ invert }) => invert ? colors.black : colors.white};
+    background: ${props => props.invert ? Colors.white : Colors.black};
+    color: ${props => props.invert ? Colors.black : Colors.white};
     max-width: 200px;
     position: relative;
     padding: 1rem;
@@ -30,30 +38,30 @@ export const StyledTooltip = styled.div`
         position: absolute;
         width: 0;
         height: 0;
-        ${({ position, invert }) => position === 'top' && `
-            border-top: 8px solid ${invert ? colors.white : colors.black};
+        ${props => props.position === 'top' && `
+            border-top: 8px solid ${props.invert ? Colors.white : Colors.black};
             border-right: 8px solid transparent;
             border-left: 8px solid transparent;
             left: calc(50% - 9px);
             top: calc(100% - 1px);
 
         `}
-        ${({ position, invert }) => position === 'bottom' && `
-            border-bottom: 8px solid ${invert ? colors.white : colors.black};
+        ${props => props.position === 'bottom' && `
+            border-bottom: 8px solid ${props.invert ? Colors.white : Colors.black};
             border-right: 8px solid transparent;
             border-left: 8px solid transparent;
             left: calc(50% - 9px);
             bottom: calc(100% - 1px);
         `}
-        ${({ position, invert }) => position === 'right' && `
-            border-right: 8px solid ${invert ? colors.white : colors.black};
+        ${props => props.position === 'right' && `
+            border-right: 8px solid ${props.invert ? Colors.white : Colors.black};
             border-top: 8px solid transparent;
             border-bottom: 8px solid transparent;
             bottom: calc(50% - 9px);
             right: calc(100% - 1px);
         `}
-        ${({ position, invert }) => position === 'left' && `
-            border-left: 8px solid ${invert ? colors.white : colors.black};
+        ${props => props.position === 'left' && `
+            border-left: 8px solid ${props.invert ? Colors.white : Colors.black};
             border-top: 8px solid transparent;
             border-bottom: 8px solid transparent;
             bottom: calc(50% - 9px);
@@ -66,13 +74,21 @@ export const StyledTooltip = styled.div`
     }
 `
 
-const Tooltip = props => {
+type Props = {
+    renderContent: React.ReactElement | string,
+    renderTrigger: React.ReactElement | string,
+    disableTooltip: boolean
+    invert: boolean
+    position: PopperJS.Placement
+}
+
+const Tooltip: React.FC<Props> = (props: Props) => {
     const tooltipContent = isFunction(props.renderContent)
-        ? props.renderContent(props)
+        ? props.renderContent()
         : props.renderContent
 
     const tooltipTrigger = isFunction(props.renderTrigger)
-        ? props.renderTrigger(props)
+        ? props.renderTrigger()
         : props.renderTrigger
 
     if (props.disableTooltip) return tooltipTrigger
@@ -107,30 +123,7 @@ const Tooltip = props => {
     </TooltipTrigger>
 }
 
-Tooltip.propTypes = {
-    /* Hides the tooltip */
-    hideTip: PropTypes.bool,
-    renderContent: PropTypes.oneOfType([
-        PropTypes.element,
-        PropTypes.string,
-        PropTypes.arrayOf(
-            PropTypes.oneOfType([PropTypes.string, PropTypes.element])
-        )
-    ]).isRequired,
-    invert: PropTypes.bool,
-    renderTrigger: PropTypes.oneOfType([
-        PropTypes.element,
-        PropTypes.string,
-        PropTypes.arrayOf(
-            PropTypes.oneOfType([PropTypes.string, PropTypes.element])
-        )
-    ]).isRequired,
-    disableTooltip: PropTypes.bool,
-    position: PropTypes.oneOf(['left', 'right', 'bottom', 'top'])
-}
-
 Tooltip.defaultProps = {
-    hideTip: false,
     position: 'top'
 }
 

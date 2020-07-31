@@ -1,11 +1,10 @@
 import noop from 'lodash/noop'
-import PropTypes from 'prop-types'
 import React, { useEffect, useRef, useState } from 'react'
 import { IoMdArrowDropdown } from 'react-icons/io'
 import styled from 'styled-components'
-import colors from '../../constants/colors'
-import fonts from '../../constants/fonts'
 import Button from '../Button'
+import Colors from "../../constants/colors";
+import Fonts from "../../constants/fonts";
 
 const UnavailableItem = `
     position: relative;
@@ -18,14 +17,18 @@ const dropdownVisible = `
     visibility: visible;
 `
 
-const StyledControlItem = styled.div`
+type StyledControlItemProps = {
+    isFetching: boolean
+}
+
+const StyledControlItem = styled.div<StyledControlItemProps>`
   position: relative;
   width: 100%;
   font-size: 18px;
   font-weight: bold;
   text-transform: uppercase;
-  color: ${colors.black};
-  border: 2px solid ${colors.black};
+  color: ${Colors.black};
+  border: 2px solid ${Colors.black};
   height: 36px;
   line-height: 32px;
   border: none;
@@ -33,31 +36,33 @@ const StyledControlItem = styled.div`
   transition: 0.5s;
   outline: none;
 
-  ${({ isFetching }) => isFetching && UnavailableItem};
+  ${props => props.isFetching && UnavailableItem};
 `
 
-const StyledControlDropdown = styled.div`
+type StyledControlDropdownProps = {
+    offset: number
+    isVisible: boolean
+}
+
+const StyledControlDropdown = styled.div<StyledControlDropdownProps>`
   padding-left: 9px;
   padding-right: 11px;
-  border-top-width: 0;
   box-shadow: none;
   padding-bottom: 10px;
-  font-family: ${fonts.cera};
+  font-family: ${Fonts.serif};
   position: relative;
   padding-top: 10px;
   z-index: 99;
-  border-top: none;
-  position: relative;
   top: -2px;
-  border: 2px solid ${colors.black};
+  border: 2px solid ${Colors.black};
   border-radius: 0;
   transition: none;
-  background-color: ${colors.white};
+  background-color: ${Colors.white};
   overflow: auto;
   opacity: 0;
   visibility: hidden;
-  max-height: ${({ offset }) => `calc(100vh - ${offset}px)`};
-  ${({ isVisible }) => isVisible && dropdownVisible};
+  max-height: ${props => `calc(100vh - ${props.offset}px)`};
+  ${props => props.isVisible && dropdownVisible};
 
   &:before {
     content: '';
@@ -66,7 +71,7 @@ const StyledControlDropdown = styled.div`
     left: 8px;
     right: 8px;
     height: 2px;
-    background-color: ${colors.black};
+    background-color: ${Colors.black};
     z-index: 10;
   }
 
@@ -81,7 +86,7 @@ const StyledEmptyOption = styled.div`
   font-size: 13px;
   height: 32px;
   line-height: 32px;
-  color: ${colors.black};
+  color: ${Colors.black};
   padding: 1px 16px 0;
   font-weight: bold;
   text-align: left;
@@ -90,8 +95,8 @@ const StyledEmptyOption = styled.div`
   pointer-events: none;
 
   &:hover {
-    background-color: ${colors.salmon};
-    color: ${colors.white};
+    background-color: ${Colors.salmon};
+    color: ${Colors.white};
   }
 `
 
@@ -102,24 +107,29 @@ const StyledViewAllOption = styled.div`
   line-height: 32px;
   padding: 1px 16px 0;
   font-weight: bold;
-  color: ${colors.black};
+  color: ${Colors.black};
   text-align: left;
   cursor: pointer;
   transition: all 0.15s ease-in;
-  border-bottom: 2px solid ${colors.black};
+  border-bottom: 2px solid ${Colors.black};
   font-size: 16px;
   outline: none;
   &:hover {
-    background-color: ${colors.salmon};
-    color: ${colors.white};
+    background-color: ${Colors.salmon};
+    color: ${Colors.white};
   }
 `
 
-const StyledDefaultOption = styled.div`
+type StyledDefaultOptionProps = {
+    bordered: boolean
+    selected: boolean
+}
+
+const StyledDefaultOption = styled.div<StyledDefaultOptionProps>`
   text-transform: uppercase;
   position: relative;
   font-size: 13px;
-  color: ${colors.black};
+  color: ${Colors.black};
   max-width: 100%;
   height: 32px;
   line-height: 32px;
@@ -133,15 +143,15 @@ const StyledDefaultOption = styled.div`
   display: flex;
   overflow: hidden;
   text-overflow: ellipsis;
-  border-bottom: ${({ bordered }) => bordered ? `2px solid ${colors.black}` : 'none'};
-  ${({ selected }) => selected && `
-    background-color: ${colors.black};
-    color: ${colors.white};
+  border-bottom: ${props => props.bordered ? `2px solid ${Colors.black}` : 'none'};
+  ${props => props.selected && `
+    background-color: ${Colors.black};
+    color: ${Colors.white};
 `};
 
   &:hover {
-    background-color: ${colors.salmon};
-    color: ${colors.white};
+    background-color: ${Colors.salmon};
+    color: ${Colors.white};
   }
 
   .icon-wrapper {
@@ -169,7 +179,7 @@ const StyledDefaultOption = styled.div`
 const StyledFilter = styled.div`
     min-width: 0;
     position: relative;
-    font-family: ${fonts.cera};
+    font-family: ${Fonts.sanSerif};
     letter-spacing: 0.8px;
 `
 
@@ -178,42 +188,70 @@ const StyledButton = styled(Button)`
     padding-right: 10px;
 `
 
-const StyledText = styled.div`
+type StyledTextProps = {
+    $isFilterSelected: boolean
+}
+
+const StyledText = styled.div<StyledTextProps>`
     flex: 1;
-    color: ${colors.black};
+    color: ${Colors.black};
     max-width: calc(100% - 10px);
     overflow: hidden;
     text-overflow: ellipsis;
     ${props => props.$isFilterSelected && `
-        color: ${colors.white};
+        color: ${Colors.white};
     `};
 `
 
-const StyledArrow = styled(IoMdArrowDropdown)`
+type StyledArrowProps = {
+    $isFilterSelected: boolean
+}
+
+const StyledArrow = styled(IoMdArrowDropdown)<StyledArrowProps>`
     font-size: 30px;
-    color: ${colors.coral};
+    color: ${Colors.coral};
     ${props => props.$isFilterSelected && `
-        color: ${colors.white};
+        color: ${Colors.white};
     `};
 `
 
-const Select = props => {
+type Option = {
+    id: string
+    value: string
+}
+
+type Props = {
+    onClear: (id: string) => void
+    showResetControls: boolean
+    label: string
+    allowMultiSelect: boolean
+    isOpened: boolean
+    options: Option[],
+    selectedValue: string | string[]
+    onSelect: (id: string) => void
+    onDeselect: (id: string) => void,
+    isFetching: boolean,
+    filterId: string,
+    id: string
+}
+
+const Select: React.FC<Props> = (props: Props) => {
     const [isOpened, setIsOpened] = useState(props.isOpened || false)
     const [selectedFilterName, setSelectedFilterName] = useState('')
-    const control = useRef()
-    const title = useRef()
+    const control = useRef<HTMLInputElement>(null)
+    const title = useRef<HTMLButtonElement>(null)
     const showViewAll = props.showResetControls && props.selectedValue
-    const offset = control.current ? control.current.offsetTop : 0
-    const handleUserClick = e => {
-        if (!isOpened && title.current.contains(e.target)) {
+    const offset: number = control.current?.offsetTop || 0
+    const handleUserClick = (e: MouseEvent) => {
+        if (!isOpened && title.current?.contains(e.target as Node)) {
             setIsOpened(true)
         } else if (isOpened) {
             setIsOpened(false)
         }
     }
 
-    const onClear = (id) => {
-        return e => {
+    const onClear = (id: string) => {
+        return (e: React.MouseEvent<HTMLElement>) => {
             e.stopPropagation()
             props.onClear(id)
         }
@@ -243,8 +281,7 @@ const Select = props => {
                         option &&
                         (String(option.id) === props.selectedValue ||
                             (option.value &&
-                                option.value.toLowerCase() === props.selectedValue) ||
-                            (option && option.ids === props.selectedValue))
+                                option.value.toLowerCase() === props.selectedValue))
                 )
                 setSelectedFilterName(value ? value.value : '')
             }
@@ -276,7 +313,6 @@ const Select = props => {
                 ref={title}
                 data-role='dropdown-value-display'
                 data-opened={isOpened}
-                $isFilterSelected={selectedFilterName}
             >
                 <StyledText $isFilterSelected={!!selectedFilterName}>
                     {selectedFilterName || props.label}
@@ -289,14 +325,13 @@ const Select = props => {
                         role='option'
                         tabIndex={0}
                         key='reset'
-                        value='@@resetFilter'
                         onClick={onClear(props.filterId)}
                     >
                         View all
                     </StyledViewAllOption>
                 )}
                 {props.options.length ? (
-                    props.options.reduce((acc, option) => {
+                    props.options.reduce((acc: React.ReactElement[], option) => {
                         if (option) {
                             const isSelected =
                                 props.allowMultiSelect ? props.selectedValue.includes(option.id)
@@ -329,34 +364,10 @@ const Select = props => {
     </StyledFilter>
 }
 
-Select.propTypes = {
-    onClear: PropTypes.func,
-    /** Whether to render close icon and select all button */
-    showResetControls: PropTypes.bool,
-    label: PropTypes.string,
-    allowMultiSelect: PropTypes.bool,
-    isOpened: PropTypes.bool,
-    /** Options to be passed to dropdown */
-    options: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        value: PropTypes.string.isRequired
-    })).isRequired,
-    selectedValue: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.arrayOf(PropTypes.string)
-    ]),
-    onSelect: PropTypes.func.isRequired,
-    onDeselect: PropTypes.func,
-    isFetching: PropTypes.bool,
-    filterId: PropTypes.string,
-    id: PropTypes.string
-}
-
 Select.defaultProps = {
     onDeselect: noop,
     showResetControls: true,
     allowMultiSelect: false,
-    customPlaceholder: false,
     selectedValue: '',
     isOpened: false,
     isFetching: false,

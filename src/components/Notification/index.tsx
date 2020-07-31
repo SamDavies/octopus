@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 import { IoMdCheckmark, IoIosClose } from 'react-icons/io'
 import { FaExclamation } from 'react-icons/fa'
@@ -46,7 +45,12 @@ const StyledError = styled(IoIosClose)`
     background-color: ${colors.scarlet};
 `
 
-const Notification = (props) =>
+type Props = {
+    type: 'success' | 'warning' | 'error',
+    text: string
+}
+
+const Notification: React.FC<Props> = (props: Props) =>
     <StyledContainer>
         {props.type === 'success' && <StyledSuccess />}
         {props.type === 'warning' && <StyledWarning />}
@@ -59,10 +63,5 @@ const Notification = (props) =>
             </Text>
         </StyledContext>
     </StyledContainer>
-
-Notification.propTypes = {
-    type: PropTypes.string,
-    text: PropTypes.string
-}
 
 export default Notification

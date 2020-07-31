@@ -110,7 +110,7 @@ const Checkbox: React.FC<Props> = props => {
         />
         <StyledCustomCheckbox
             role='checkbox'
-            tabIndex={props.disabled ? '-1' : '0'}
+            tabIndex={props.disabled ? -1 : 0}
             onKeyDown={handleKeyPress}
             aria-checked={props.checked}
             aria-labelledby={`${props.id}_label`}

@@ -1,16 +1,15 @@
 import noop from 'lodash/noop'
-import PropTypes from 'prop-types'
 import React from 'react'
 import { IoIosSearch } from 'react-icons/io'
 import styled from 'styled-components'
-import fonts from '../../constants/fonts'
+import Fonts from "../../constants/fonts";
 
 export const StyledInput = styled.input`
     width: 100%;
     border: none;
     height: 100%;
     font-size: 14px;
-    font-family: ${fonts.cera};
+    font-family: ${Fonts.sanSerif};
     padding-top: 12px;
     padding-left: 4px;
     padding-bottom: 8px;
@@ -19,7 +18,12 @@ export const StyledInput = styled.input`
     outline: none;
 `
 
-export const StyledTableSearchCell = styled.div`
+type StyledTableSearchCellProps = {
+    flex: number | null,
+    width: number | null,
+}
+
+export const StyledTableSearchCell = styled.div<StyledTableSearchCellProps>`
     ${props => props.flex && `
         flex: ${props.flex};
     `}
@@ -32,8 +36,19 @@ export const StyledTableSearchCell = styled.div`
     align-items: center;
 `
 
-const TableSearchCell = props =>
-    <StyledTableSearchCell {...props}>
+type Props = {
+    flex: number | null,
+    width: number | null,
+    value: string | (readonly string[] & string),
+    onChange: (e: React.ChangeEvent<HTMLElement>) => void;
+    placeholder: string | (readonly string[] & string);
+}
+
+const TableSearchCell: React.FC<Props> = (props: Props) =>
+    <StyledTableSearchCell
+        flex={props.flex}
+        width={props.width}
+    >
         <IoIosSearch />
         <StyledInput
             value={props.value}
@@ -41,14 +56,6 @@ const TableSearchCell = props =>
             onChange={props.onChange}
         />
     </StyledTableSearchCell>
-
-TableSearchCell.propTypes = {
-    flex: PropTypes.number,
-    width: PropTypes.number,
-    value: PropTypes.string,
-    onChange: PropTypes.func,
-    placeholder: PropTypes.string
-}
 
 TableSearchCell.defaultProps = {
     flex: null,

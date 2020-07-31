@@ -1,5 +1,4 @@
 import noop from 'lodash/noop'
-import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { IoIosStar, IoIosStarOutline } from 'react-icons/io'
 import Rating from 'react-rating'
@@ -16,21 +15,30 @@ const StyledClear = styled.div`
     margin-right: 0px;
 `
 
-const StyledIcon = props => `
+type StyledIconProps = {
+    size: string;
+}
+
+const StyledIcon = (props: StyledIconProps) => `
     font-size: ${props.size};
 `
 
 const StyledStarOpen = styled(IoIosStarOutline)`
-    ${StyledIcon}
+    ${StyledIcon};
     color: ${colors.black};
 `
 
-const StyledStarClosed = styled(IoIosStar)`
-    ${StyledIcon}
+type StyledStarClosedProps = {
+    size: string;
+    $isHovering: boolean;
+}
+
+const StyledStarClosed = styled(IoIosStar)<StyledStarClosedProps>`
+    ${StyledIcon};
     color: ${props => props.$isHovering ? colors.salmon : colors.black}
 `
 
-const sizeToPixels = size => {
+const sizeToPixels = (size: string) => {
     if (size === 'medium') {
         return '20px'
     }
@@ -38,7 +46,16 @@ const sizeToPixels = size => {
     return '30px'
 }
 
-const StarRating = props => {
+type Props = {
+    onChange: (value: number) => void,
+    inputName: string,
+    rating: number,
+    isStatic: boolean,
+    inline: boolean,
+    size: 'medium' | 'large'
+}
+
+const StarRating: React.FC<Props> = (props: Props) => {
     const [isHovering, setIsHovering] = useState(false)
     const size = sizeToPixels(props.size)
     return <StyledContainer>
@@ -64,15 +81,6 @@ const StarRating = props => {
             </Button>
         </StyledClear>}
     </StyledContainer>
-}
-
-StarRating.propTypes = {
-    onChange: PropTypes.func,
-    inputName: PropTypes.string,
-    rating: PropTypes.number,
-    isStatic: PropTypes.bool,
-    inline: PropTypes.bool,
-    size: PropTypes.oneOf(['medium', 'large'])
 }
 
 StarRating.defaultProps = {

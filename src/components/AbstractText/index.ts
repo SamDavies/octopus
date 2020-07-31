@@ -1,16 +1,37 @@
-import fonts from '../../constants/fonts'
+import Fonts from '../../constants/fonts'
+import Colors from "../../constants/colors";
 
-const AbstractText = props => `
-    color: ${props.color};
+type Props = {
+    font?: string | undefined
+    color?: string | undefined
+    spacing?: 'normal' | 'wide' | undefined
+    bold?: boolean | undefined
+    center?: boolean | undefined
+    uppercase?: boolean | undefined
+    italic?: boolean | undefined
+}
+
+const AbstractText = (
+    {
+        font = Fonts.sanSerif,
+        color = Colors.black,
+        spacing = 'normal',
+        bold = false,
+        center = false,
+        uppercase = false,
+        italic = false,
+    }: Props
+): string => `
+    color: ${color};
     position: relative;
     line-height: 150%;
-    font-family: ${fonts[props.font]};
-    font-weight: ${props.bold ? 800 : 500};
-    font-style: ${props.italic ? 'italic' : 'normal'};
+    font-family: ${font};
+    font-weight: ${bold ? 800 : 500};
+    font-style: ${italic ? 'italic' : 'normal'};
     font-stretch: normal;
-    letter-spacing: ${props.spacing === 'normal' ? 'normal' : '16px'};
-    text-transform: ${props.uppercase ? 'uppercase' : 'none'};
-    text-align: ${props.center ? 'center' : 'left'};
+    letter-spacing: ${spacing === 'normal' ? 'normal' : '16px'};
+    text-transform: ${uppercase ? 'uppercase' : 'none'};
+    text-align: ${center ? 'center' : 'left'};
 `
 
 export default AbstractText

@@ -1,10 +1,15 @@
 import noop from 'lodash/noop'
-import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
-import fonts from '../../constants/fonts'
+import Fonts from "../../constants/fonts";
 
-const StyledTableCell = styled.div`
+type StyledTableCellProps = {
+    flex: number | null,
+    width: number | null,
+    stopPropagation: boolean
+}
+
+const StyledTableCell = styled.div<StyledTableCellProps>`
     ${props => props.flex && `
         flex: ${props.flex};
     `}
@@ -17,14 +22,21 @@ const StyledTableCell = styled.div`
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 8px;
-    font-family: ${fonts.cera};
+    font-family: ${Fonts.sanSerif};
     font-size: 14px;
     display: flex;
     align-items: center;
 `
 
-const TableCell = props => {
-    const onClick = e => {
+type Props = {
+    flex: number | null,
+    width: number | null,
+    onClick: (e: React.MouseEvent<HTMLElement>) => void,
+    stopPropagation: boolean
+}
+
+const TableCell: React.FC<Props> = (props: Props) => {
+    const onClick = (e: React.MouseEvent<HTMLElement>) => {
         props.stopPropagation && e.stopPropagation()
         props.onClick(e)
     }
@@ -32,13 +44,6 @@ const TableCell = props => {
         {...props}
         onClick={onClick}
     />
-}
-
-TableCell.propTypes = {
-    flex: PropTypes.number,
-    width: PropTypes.number,
-    onClick: PropTypes.func,
-    stopPropagation: PropTypes.bool
 }
 
 TableCell.defaultProps = {
