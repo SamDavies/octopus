@@ -33,7 +33,7 @@ const HorizontalScroll = styled.div<Props>`
             width: 100%;
         }
     ` : ''}
-    ${(props): string => !props.mobileOnly ? StyledScroll : ''}
+    ${(props): string => !props.mobileOnly ? `${StyledScroll}` : ''}
 `
 
 HorizontalScroll.defaultProps = {
