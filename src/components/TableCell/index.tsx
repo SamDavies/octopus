@@ -1,21 +1,21 @@
 import noop from 'lodash/noop'
 import React from 'react'
 import styled from 'styled-components'
-import Font from "../../constants/fonts";
+import Font from '../../constants/fonts'
 
 type StyledTableCellProps = {
-    flex: number | null,
-    width: number | null,
-    stopPropagation: boolean
+    flex: number | null;
+    width: number | null;
+    stopPropagation: boolean;
 }
 
 const StyledTableCell = styled.div<StyledTableCellProps>`
-    ${props => props.flex && `
+    ${(props): string => props.flex ? `
         flex: ${props.flex};
-    `}
-    ${props => props.width && `
+    ` : ''}
+    ${(props): string => props.width ? `
         width: ${props.width};
-    `}
+    ` : ''}
     min-width: 0;
     overflow-y: auto;
     padding-top: 12px;
@@ -29,14 +29,14 @@ const StyledTableCell = styled.div<StyledTableCellProps>`
 `
 
 type Props = {
-    flex: number | null,
-    width: number | null,
-    onClick: (e: React.MouseEvent<HTMLElement>) => void,
-    stopPropagation: boolean
+    flex: number | null;
+    width: number | null;
+    onClick: (e: React.MouseEvent<HTMLElement>) => void;
+    stopPropagation: boolean;
 }
 
 const TableCell: React.FC<Props> = (props: Props) => {
-    const onClick = (e: React.MouseEvent<HTMLElement>) => {
+    const onClick = (e: React.MouseEvent<HTMLElement>): void => {
         props.stopPropagation && e.stopPropagation()
         props.onClick(e)
     }

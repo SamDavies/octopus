@@ -1,12 +1,12 @@
 import styled from 'styled-components'
-import Color from "../../constants/colors";
-import Font from "../../constants/fonts";
-import {MediaQuery} from "../../constants/sizes";
+import Color from '../../constants/colors'
+import Font from '../../constants/fonts'
+import { MediaQuery } from '../../constants/sizes'
 
 type Props = {
-    error: boolean,
-    fullBorder: boolean,
-    uppercase: boolean
+    error: boolean;
+    fullBorder: boolean;
+    uppercase: boolean;
 }
 
 export const Input = styled.input<Props>`
@@ -15,11 +15,11 @@ export const Input = styled.input<Props>`
     box-sizing: border-box;
     border: none;
     border-bottom: 2px solid;
-    border-bottom-color: ${({ error }) => error ? Color.scarlet : Color.black};
+    border-bottom-color: ${(props): string => props.error ? Color.scarlet : Color.black};
     font-size: 14px;
     font-family: ${Font.serif};
     line-height: 1.5;
-    color: ${({ error }) => error ? Color.scarlet : Color.black};
+    color: ${(props): string => props.error ? Color.scarlet : Color.black};
     min-height: 40px;
     width: 100%;
     outline: none;
@@ -52,15 +52,15 @@ export const Input = styled.input<Props>`
 
     }
 
-    ${({ fullBorder }) => fullBorder && `
+    ${(props): string => props.fullBorder ? `
         margin-top: 10px;
         padding: 11px;
         border: 2px solid ${Color.black};
-    `}
+    ` : ''}
 
-    ${({ uppercase }) => uppercase && `
+    ${(props): string => props.uppercase ? `
         text-transform: uppercase;
-    `};
+    ` : ''};
 
     &:focus {
         border-color: ${Color.lightSalmon};

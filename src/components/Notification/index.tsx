@@ -46,8 +46,8 @@ const StyledError = styled(IoIosClose)`
 `
 
 type Props = {
-    type: 'success' | 'warning' | 'error',
-    text: string
+    type: 'success' | 'warning' | 'error';
+    text: string;
 }
 
 const Notification: React.FC<Props> = (props: Props) =>

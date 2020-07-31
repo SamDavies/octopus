@@ -1,18 +1,18 @@
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 import styled from 'styled-components'
 import AbstractText from '../AbstractText'
-import Font from "../../constants/fonts";
-import Color from '../../constants/colors';
+import Font from '../../constants/fonts'
+import Color from '../../constants/colors'
 
 type Props = {
-    level?: 1 | 2 | 3 | 4
-    font?: Font
-    color?: Color
-    spacing?: 'normal' | 'wide'
-    bold?: boolean
-    center?: boolean
-    uppercase?: boolean
-    italic?: boolean
+    level?: 1 | 2 | 3 | 4;
+    font?: Font;
+    color?: Color;
+    spacing?: 'normal' | 'wide';
+    bold?: boolean;
+    center?: boolean;
+    uppercase?: boolean;
+    italic?: boolean;
 }
 
 const Heading1 = styled.h1<Props>`
@@ -35,7 +35,7 @@ const Heading4 = styled.h4<Props>`
     font-size: 24px;
 `
 
-const Heading: React.FC<Props> = props => {
+const Heading: React.FC<Props> = (props: PropsWithChildren<Props>) => {
     if (props.level === 2) {
         return <Heading2 {...props}>
             {props.children}

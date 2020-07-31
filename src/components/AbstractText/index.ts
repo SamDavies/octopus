@@ -1,14 +1,14 @@
 import Font from '../../constants/fonts'
-import Color from "../../constants/colors";
+import Color from '../../constants/colors'
 
 type Props = {
-    font?: string | undefined
-    color?: string | undefined
-    spacing?: 'normal' | 'wide' | undefined
-    bold?: boolean | undefined
-    center?: boolean | undefined
-    uppercase?: boolean | undefined
-    italic?: boolean | undefined
+    font?: string | undefined;
+    color?: string | undefined;
+    spacing?: 'normal' | 'wide' | undefined;
+    bold?: boolean | undefined;
+    center?: boolean | undefined;
+    uppercase?: boolean | undefined;
+    italic?: boolean | undefined;
 }
 
 const AbstractText = (
@@ -19,7 +19,7 @@ const AbstractText = (
         bold = false,
         center = false,
         uppercase = false,
-        italic = false,
+        italic = false
     }: Props
 ): string => `
     color: ${color};

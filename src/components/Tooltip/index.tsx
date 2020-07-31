@@ -2,15 +2,14 @@ import isFunction from 'lodash/isFunction'
 import React from 'react'
 import TooltipTrigger from 'react-popper-tooltip'
 import styled from 'styled-components'
-import Color from "../../constants/colors";
-import Font from "../../constants/fonts";
-import PopperJS from "popper.js";
-import {GetTooltipPropsArg} from "react-popper-tooltip/dist/types";
+import Color from '../../constants/colors'
+import Font from '../../constants/fonts'
+import PopperJS from 'popper.js'
+import { GetTooltipPropsArg } from 'react-popper-tooltip/dist/types'
 
 const StyledSpan = styled.div`
     width: 100%;
 `
-
 
 interface StyledTooltipProps extends GetTooltipPropsArg{
     disableTooltip: boolean;
@@ -23,8 +22,8 @@ export const StyledTooltip = styled.div<StyledTooltipProps>`
     font-family: ${Font.serif};
     font-weight: bold;
     font-size: 12px;
-    background: ${props => props.invert ? Color.white : Color.black};
-    color: ${props => props.invert ? Color.black : Color.white};
+    background: ${(props): string => props.invert ? Color.white : Color.black};
+    color: ${(props): string => props.invert ? Color.black : Color.white};
     max-width: 200px;
     position: relative;
     padding: 1rem;
@@ -38,35 +37,35 @@ export const StyledTooltip = styled.div<StyledTooltipProps>`
         position: absolute;
         width: 0;
         height: 0;
-        ${props => props.position === 'top' && `
+        ${(props): string => props.position === 'top' ? `
             border-top: 8px solid ${props.invert ? Color.white : Color.black};
             border-right: 8px solid transparent;
             border-left: 8px solid transparent;
             left: calc(50% - 9px);
             top: calc(100% - 1px);
 
-        `}
-        ${props => props.position === 'bottom' && `
+        ` : ''}
+        ${(props): string => props.position === 'bottom' ? `
             border-bottom: 8px solid ${props.invert ? Color.white : Color.black};
             border-right: 8px solid transparent;
             border-left: 8px solid transparent;
             left: calc(50% - 9px);
             bottom: calc(100% - 1px);
-        `}
-        ${props => props.position === 'right' && `
+        ` : ''}
+        ${(props): string => props.position === 'right' ? `
             border-right: 8px solid ${props.invert ? Color.white : Color.black};
             border-top: 8px solid transparent;
             border-bottom: 8px solid transparent;
             bottom: calc(50% - 9px);
             right: calc(100% - 1px);
-        `}
-        ${props => props.position === 'left' && `
+        ` : ''}
+        ${(props): string => props.position === 'left' ? `
             border-left: 8px solid ${props.invert ? Color.white : Color.black};
             border-top: 8px solid transparent;
             border-bottom: 8px solid transparent;
             bottom: calc(50% - 9px);
             left: calc(100% - 1px);
-        `}
+        ` : ''}
     }
 
     p {
@@ -75,11 +74,11 @@ export const StyledTooltip = styled.div<StyledTooltipProps>`
 `
 
 type Props = {
-    renderContent: React.ReactElement | string,
-    renderTrigger: React.ReactElement | string,
-    disableTooltip: boolean
-    invert: boolean
-    position: PopperJS.Placement
+    renderContent: React.ReactElement | string;
+    renderTrigger: React.ReactElement | string;
+    disableTooltip: boolean;
+    invert: boolean;
+    position: PopperJS.Placement;
 }
 
 const Tooltip: React.FC<Props> = (props: Props) => {
@@ -96,7 +95,7 @@ const Tooltip: React.FC<Props> = (props: Props) => {
     return <TooltipTrigger
         placement={props.position}
         trigger='hover'
-        tooltip={tooltip => (
+        tooltip={(tooltip): React.ReactElement => (
             <StyledTooltip
                 role='tooltip'
                 invert={props.invert}
@@ -110,7 +109,7 @@ const Tooltip: React.FC<Props> = (props: Props) => {
             </StyledTooltip>
         )}
     >
-        {trigger =>
+        {(trigger): React.ReactElement =>
             <StyledSpan
                 role='tooltip-trigger'
                 {...trigger.getTriggerProps({

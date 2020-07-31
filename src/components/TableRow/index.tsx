@@ -12,9 +12,9 @@ export const TableRow = styled.div`
         background-color: ${Color.grey10}
     }
 
-    ${props => props.onClick && `
+    ${(props): string => props.onClick ? `
         cursor: pointer;
-    `}
+    ` : ''}
 `
 
 export default TableRow

@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import Color from "../../constants/colors";
-import Font from "../../constants/fonts";
+import Color from '../../constants/colors'
+import Font from '../../constants/fonts'
 
 type Props = {
-    error: boolean
-    disabled: boolean
+    error: boolean;
+    disabled: boolean;
 }
 
 const Label = styled.label<Props>`
@@ -15,13 +15,13 @@ const Label = styled.label<Props>`
     font-weight: bold;
     text-transform: uppercase;
 
-    ${({ disabled }) => disabled && `
+    ${(props): string => props.disabled ? `
         color: ${Color.lightGray};
-    `}
+    ` : ''}
 
-    ${({ error }) => error && `
+    ${(props): string => props.error ? `
         color: ${Color.scarlet};
-    `}
+    ` : ''}
 `
 
 Label.defaultProps = {

@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import Color from "../../constants/colors";
+import Color from '../../constants/colors'
 
 type Props = {
-    noPadding?: boolean
+    noPadding?: boolean;
 }
 
 const Box = styled.div<Props>`
@@ -11,7 +11,7 @@ const Box = styled.div<Props>`
 
     ${(props): string | null => !props.noPadding ? `
         padding: 20px;
-    `: null}
+    ` : null}
 `
 
 Box.defaultProps = {

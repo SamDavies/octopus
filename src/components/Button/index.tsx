@@ -2,12 +2,12 @@ import styled from 'styled-components'
 import Color from '../../constants/colors'
 
 type Props = {
-    color?: Color.black | Color.salmon | Color.scarlet | Color.grey1
-    kind?: 'primary' | 'secondary' | 'ghost'
-    size?: 'small' | 'medium' | 'large'
-    disabled?: boolean
-    loading?: boolean
-    fullWidth?: boolean
+    color?: Color.black | Color.salmon | Color.scarlet | Color.grey1;
+    kind?: 'primary' | 'secondary' | 'ghost';
+    size?: 'small' | 'medium' | 'large';
+    disabled?: boolean;
+    loading?: boolean;
+    fullWidth?: boolean;
 }
 
 const getStyles = (props: Props): string => {
@@ -49,7 +49,7 @@ const getStyles = (props: Props): string => {
 const Button = styled.button<Props>`
     ${(props): string | null => props.fullWidth ? `
         width: 100%;
-    `: null};
+    ` : null};
 
     // font
     text-transform: uppercase;
@@ -83,7 +83,7 @@ const Button = styled.button<Props>`
         height: 24px;
         line-height: 12px;
         font-size: 12px;
-    `: null}
+    ` : null}
 
     ${(props): string | null => props.size === 'medium' ? `
         min-width: auto;
@@ -91,7 +91,7 @@ const Button = styled.button<Props>`
         line-height: 14px;
         font-size: 14px;
         font-weight: 600;
-    `: null}
+    ` : null}
 
     ${(props): string => getStyles(props)}
 
@@ -104,7 +104,7 @@ const Button = styled.button<Props>`
         &:hover {
             opacity: 1;
         }
-    `: null}
+    ` : null}
 
     ${(props): string | null => props.loading ? `
         background: ${Color.grey9};
@@ -113,7 +113,7 @@ const Button = styled.button<Props>`
         cursor: default;
         pointer-events: none;
         filter: grayscale(1);
-    `: null}
+    ` : null}
 `
 
 Button.defaultProps = {

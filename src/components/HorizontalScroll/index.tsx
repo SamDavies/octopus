@@ -18,13 +18,13 @@ const StyledScroll = css`
 `
 
 type Props = {
-    mobileOnly: boolean
+    mobileOnly: boolean;
 }
 
 const HorizontalScroll = styled.div<Props>`
     display: flex;
 
-    ${props => props.mobileOnly && `
+    ${(props): string => props.mobileOnly ? `
         @media (max-width: ${Size.mobile}) {
             ${StyledScroll}
         }
@@ -32,8 +32,8 @@ const HorizontalScroll = styled.div<Props>`
         @media ${MediaQuery.tablet} {
             width: 100%;
         }
-    `}
-    ${props => !props.mobileOnly && StyledScroll}
+    ` : ''}
+    ${(props): string => !props.mobileOnly ? StyledScroll : ''}
 `
 
 HorizontalScroll.defaultProps = {

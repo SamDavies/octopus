@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Button from '../Button'
 import Input from '../Input'
-import Color from "../../constants/colors";
+import Color from '../../constants/colors'
 
 export const PasswordWrapper = styled.div`
     position: relative;
@@ -12,12 +12,12 @@ export const PasswordWrapper = styled.div`
 `
 
 type Props = {
-    error: boolean,
-    fullBorder: boolean,
-    uppercase: boolean
+    error: boolean;
+    fullBorder: boolean;
+    uppercase: boolean;
 }
 
-const PasswordInput = (props: Props) => {
+const PasswordInput: React.FC<Props> = (props: Props) => {
     const [passwordVisible, setPasswordVisible] = useState(false)
 
     return <PasswordWrapper>
@@ -30,7 +30,7 @@ const PasswordInput = (props: Props) => {
             kind='ghost'
             color={Color.salmon}
             size='small'
-            onClick={() => setPasswordVisible(!passwordVisible)}
+            onClick={(): void => setPasswordVisible(!passwordVisible)}
         >
             {passwordVisible ? 'Hide' : 'Show'}
         </Button>

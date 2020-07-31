@@ -3,8 +3,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import { IoMdArrowDropdown } from 'react-icons/io'
 import styled from 'styled-components'
 import Button from '../Button'
-import Color from "../../constants/colors";
-import Font from "../../constants/fonts";
+import Color from '../../constants/colors'
+import Font from '../../constants/fonts'
 
 const UnavailableItem = `
     position: relative;
@@ -18,7 +18,7 @@ const dropdownVisible = `
 `
 
 type StyledControlItemProps = {
-    isFetching: boolean
+    isFetching: boolean;
 }
 
 const StyledControlItem = styled.div<StyledControlItemProps>`
@@ -36,12 +36,12 @@ const StyledControlItem = styled.div<StyledControlItemProps>`
   transition: 0.5s;
   outline: none;
 
-  ${props => props.isFetching && UnavailableItem};
+  ${(props): string => props.isFetching ? UnavailableItem : ''};
 `
 
 type StyledControlDropdownProps = {
-    offset: number
-    isVisible: boolean
+    offset: number;
+    isVisible: boolean;
 }
 
 const StyledControlDropdown = styled.div<StyledControlDropdownProps>`
@@ -61,8 +61,8 @@ const StyledControlDropdown = styled.div<StyledControlDropdownProps>`
   overflow: auto;
   opacity: 0;
   visibility: hidden;
-  max-height: ${props => `calc(100vh - ${props.offset}px)`};
-  ${props => props.isVisible && dropdownVisible};
+  max-height: ${(props): string => `calc(100vh - ${props.offset}px)`};
+  ${(props): string => props.isVisible ? dropdownVisible : ''};
 
   &:before {
     content: '';
@@ -121,40 +121,40 @@ const StyledViewAllOption = styled.div`
 `
 
 type StyledDefaultOptionProps = {
-    bordered: boolean
-    selected: boolean
+    bordered: boolean;
+    selected: boolean;
 }
 
 const StyledDefaultOption = styled.div<StyledDefaultOptionProps>`
-  text-transform: uppercase;
-  position: relative;
-  font-size: 13px;
-  color: ${Color.black};
-  max-width: 100%;
-  height: 32px;
-  line-height: 32px;
-  padding: 1px 16px 0;
-  font-weight: bold;
-  text-align: left;
-  cursor: pointer;
-  transition: all 0.15s ease-in;
-  outline: none;
-  white-space: nowrap;
-  display: flex;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  border-bottom: ${props => props.bordered ? `2px solid ${Color.black}` : 'none'};
-  ${props => props.selected && `
-    background-color: ${Color.black};
-    color: ${Color.white};
-`};
+    text-transform: uppercase;
+    position: relative;
+    font-size: 13px;
+    color: ${Color.black};
+    max-width: 100%;
+    height: 32px;
+    line-height: 32px;
+    padding: 1px 16px 0;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.15s ease-in;
+    outline: none;
+    white-space: nowrap;
+    display: flex;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-bottom: ${(props): string => props.bordered ? `2px solid ${Color.black}` : 'none'};
+    ${(props): string => props.selected ? `
+        background-color: ${Color.black};
+        color: ${Color.white};
+    ` : ''};
 
-  &:hover {
+    &:hover {
     background-color: ${Color.salmon};
     color: ${Color.white};
-  }
+    }
 
-  .icon-wrapper {
+    .icon-wrapper {
     position: absolute;
     top: 0;
     right: 0;
@@ -162,18 +162,18 @@ const StyledDefaultOption = styled.div<StyledDefaultOptionProps>`
     height: 100%;
     display: flex;
     align-items: center;
-  }
+    }
 
-  .icon-container {
+    .icon-container {
     position: relative;
     top: 1px;
-  }
+    }
 
-  span {
+    span {
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
+    }
 `
 
 const StyledFilter = styled.div`
@@ -189,7 +189,7 @@ const StyledButton = styled(Button)`
 `
 
 type StyledTextProps = {
-    $isFilterSelected: boolean
+    $isFilterSelected: boolean;
 }
 
 const StyledText = styled.div<StyledTextProps>`
@@ -198,41 +198,41 @@ const StyledText = styled.div<StyledTextProps>`
     max-width: calc(100% - 10px);
     overflow: hidden;
     text-overflow: ellipsis;
-    ${props => props.$isFilterSelected && `
+    ${(props): string => props.$isFilterSelected ? `
         color: ${Color.white};
-    `};
+    ` : ''};
 `
 
 type StyledArrowProps = {
-    $isFilterSelected: boolean
+    $isFilterSelected: boolean;
 }
 
 const StyledArrow = styled(IoMdArrowDropdown)<StyledArrowProps>`
     font-size: 30px;
     color: ${Color.coral};
-    ${props => props.$isFilterSelected && `
+    ${(props): string => props.$isFilterSelected ? `
         color: ${Color.white};
-    `};
+    ` : ''};
 `
 
 type Option = {
-    id: string
-    value: string
+    id: string;
+    value: string;
 }
 
 type Props = {
-    onClear: (id: string) => void
-    showResetControls: boolean
-    label: string
-    allowMultiSelect: boolean
-    isOpened: boolean
-    options: Option[],
-    selectedValue: string | string[]
-    onSelect: (id: string) => void
-    onDeselect: (id: string) => void,
-    isFetching: boolean,
-    filterId: string,
-    id: string
+    onClear: (id: string) => void;
+    showResetControls: boolean;
+    label: string;
+    allowMultiSelect: boolean;
+    isOpened: boolean;
+    options: Option[];
+    selectedValue: string | string[];
+    onSelect: (id: string) => void;
+    onDeselect: (id: string) => void;
+    isFetching: boolean;
+    filterId: string;
+    id: string;
 }
 
 const Select: React.FC<Props> = (props: Props) => {
@@ -242,7 +242,7 @@ const Select: React.FC<Props> = (props: Props) => {
     const title = useRef<HTMLButtonElement>(null)
     const showViewAll = props.showResetControls && props.selectedValue
     const offset: number = control.current?.offsetTop || 0
-    const handleUserClick = (e: MouseEvent) => {
+    const handleUserClick = (e: MouseEvent): void => {
         if (!isOpened && title.current?.contains(e.target as Node)) {
             setIsOpened(true)
         } else if (isOpened) {
@@ -251,7 +251,7 @@ const Select: React.FC<Props> = (props: Props) => {
     }
 
     const onClear = (id: string) => {
-        return (e: React.MouseEvent<HTMLElement>) => {
+        return (e: React.MouseEvent<HTMLElement>): void => {
             e.stopPropagation()
             props.onClear(id)
         }
@@ -292,7 +292,7 @@ const Select: React.FC<Props> = (props: Props) => {
 
     useEffect(() => {
         window.addEventListener('click', handleUserClick)
-        return () => {
+        return (): void => {
             window.removeEventListener('click', handleUserClick)
         }
     })
@@ -344,7 +344,7 @@ const Select: React.FC<Props> = (props: Props) => {
                                     tabIndex={0}
                                     bordered={false}
                                     selected={isSelected}
-                                    onClick={() =>
+                                    onClick={(): void =>
                                         isSelected ? props.onDeselect(option.id)
                                             : props.onSelect(option.id)
                                     }

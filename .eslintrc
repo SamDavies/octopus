@@ -1,33 +1,25 @@
 {
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
     "extends": [
         "standard",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
     ],
-    "env": {
-        "browser": true,
-        "es6": true,
-        "jest": true
-    },
-    "globals": {
-        "NODE_ENV": true
-    },
-    "parser": "babel-eslint",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        }
-    },
-    "plugins": ["react"],
-    "settings": {
-        "react": {
-            "version": "detect"
-        }
-    },
+    "parser": "@typescript-eslint/parser",
     "rules": {
         "no-console": [
             "warn",
             {
-                "allow": ["log", "warn", "info", "error"]
+                "allow": [
+                    "log",
+                    "warn",
+                    "info",
+                    "error"
+                ]
             }
         ],
         // Indent with 4 spaces
@@ -39,6 +31,10 @@
         "react/jsx-indent": [
             "error",
             4
+        ],
+        "jsx-quotes": [
+            "error",
+            "prefer-single"
         ],
         // Indent props with 4 spaces
         "react/jsx-indent-props": [

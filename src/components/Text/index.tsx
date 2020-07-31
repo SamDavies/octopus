@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 import styled from 'styled-components'
 import AbstractText from '../AbstractText'
-import Color from "../../constants/colors";
-import Font from "../../constants/fonts";
+import Color from '../../constants/colors'
+import Font from '../../constants/fonts'
 
 const Normal = styled.div`
     ${AbstractText};
@@ -15,16 +15,16 @@ const Small = styled.div`
 `
 
 type Props = {
-    size?: 'normal' | 'small',
-    font?: Font,
-    spacing?: 'normal' | 'wide',
-    color?: Color,
-    bold?: boolean,
-    uppercase?: boolean,
-    italic?: boolean,
+    size?: 'normal' | 'small';
+    font?: Font;
+    spacing?: 'normal' | 'wide';
+    color?: Color;
+    bold?: boolean;
+    uppercase?: boolean;
+    italic?: boolean;
 }
 
-const Text: React.FC<Props> = (props) => {
+const Text: React.FC<Props> = (props: PropsWithChildren<Props>) => {
     if (props.size === 'small') {
         return <Small {...props}>
             {props.children}

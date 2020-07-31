@@ -4,7 +4,7 @@ import { IoIosClose } from 'react-icons/io'
 import styled, { createGlobalStyle } from 'styled-components'
 import Box from '../Box'
 import Button from '../Button'
-import {MediaQuery} from "../../constants/sizes";
+import { MediaQuery } from '../../constants/sizes'
 
 // Prevent the background from scrolling
 // https://stackoverflow.com/questions/9538868/prevent-body-from-scrolling-when-a-modal-is-opened
@@ -30,7 +30,7 @@ const StyledContainer = styled.div`
 `
 
 type InnerProps = {
-    fullWidth: boolean
+    fullWidth: boolean;
 }
 
 const Inner = styled.div<InnerProps>`
@@ -43,14 +43,14 @@ const Inner = styled.div<InnerProps>`
         padding: 20px;
     }
 
-    ${props => props.fullWidth && `
+    ${(props): string => props.fullWidth ? `
         width: 100%;
         height: 100%;
 
         @media ${MediaQuery.desktop} {
             padding: 40px;
         }
-    `}
+    ` : ''}
 `
 
 const StyledBox = styled(Box)`
@@ -76,16 +76,16 @@ const StyledCrossButton = styled(Button)`
 `
 
 type CallbackProps = {
-    onOpen: () => void
-    onClose: () => void
+    onOpen: () => void;
+    onClose: () => void;
 }
 
 type Props = {
-    renderModal: (props: CallbackProps) => JSX.Element,
-    renderTrigger: (props: CallbackProps) => JSX.Element,
-    fullWidth: boolean,
-    onOpen: () => void
-    onClose: () => void
+    renderModal: (props: CallbackProps) => JSX.Element;
+    renderTrigger: (props: CallbackProps) => JSX.Element;
+    fullWidth: boolean;
+    onOpen: () => void;
+    onClose: () => void;
 }
 
 const Modal: React.FC<Props> = (props: Props) => {

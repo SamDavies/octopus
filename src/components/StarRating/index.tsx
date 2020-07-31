@@ -19,7 +19,7 @@ type StyledIconProps = {
     size: string;
 }
 
-const StyledIcon = (props: StyledIconProps) => `
+const StyledIcon = (props: StyledIconProps): string => `
     font-size: ${props.size};
 `
 
@@ -35,10 +35,10 @@ type StyledStarClosedProps = {
 
 const StyledStarClosed = styled(IoIosStar)<StyledStarClosedProps>`
     ${StyledIcon};
-    color: ${props => props.$isHovering ? colors.salmon : colors.black}
+    color: ${(props): string => props.$isHovering ? colors.salmon : colors.black}
 `
 
-const sizeToPixels = (size: string) => {
+const sizeToPixels = (size: string): string => {
     if (size === 'medium') {
         return '20px'
     }
@@ -47,12 +47,12 @@ const sizeToPixels = (size: string) => {
 }
 
 type Props = {
-    onChange: (value: number) => void,
-    inputName: string,
-    rating: number,
-    isStatic: boolean,
-    inline: boolean,
-    size: 'medium' | 'large'
+    onChange: (value: number) => void;
+    inputName: string;
+    rating: number;
+    isStatic: boolean;
+    inline: boolean;
+    size: 'medium' | 'large';
 }
 
 const StarRating: React.FC<Props> = (props: Props) => {
@@ -68,14 +68,14 @@ const StarRating: React.FC<Props> = (props: Props) => {
                 size={size}
                 $isHovering={isHovering}
             />}
-            onHover={value => setIsHovering(!!value)}
+            onHover={(value): void => setIsHovering(!!value)}
             onClick={props.onChange}
         />
         {props.rating > 0 && !props.isStatic && <StyledClear>
             <Button
                 size='small'
                 kind='ghost'
-                onClick={() => props.onChange(0)}
+                onClick={(): void => props.onChange(0)}
             >
                 Clear
             </Button>

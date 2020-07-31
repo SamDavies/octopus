@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 import styled from 'styled-components'
 import Heading from '../Heading'
-import Color from "../../constants/colors";
+import Color from '../../constants/colors'
+import noop from 'lodash/noop'
 
 const StyledCustomCheckbox = styled.span`
     display: flex;
@@ -73,22 +74,22 @@ const StyledWrapper = styled.label`
 `
 
 type Props = {
-    inputType: 'radio' | 'checkbox'
-    checked: boolean,
-    disabled: boolean,
-    name: string,
-    id: string,
-    value: string,
-    labelText: string,
-    onChange: () => void
+    inputType: 'radio' | 'checkbox';
+    checked: boolean;
+    disabled: boolean;
+    name: string;
+    id: string;
+    value: string;
+    labelText: string;
+    onChange: () => void;
 }
 
-const Checkbox: React.FC<Props> = props => {
-    const onClick = (e: React.MouseEvent<HTMLElement>) => {
+const Checkbox: React.FC<Props> = (props: PropsWithChildren<Props>) => {
+    const onClick = (e: React.MouseEvent<HTMLElement>): void => {
         e.stopPropagation()
     }
 
-    const handleKeyPress = (e: React.KeyboardEvent<HTMLElement>) => {
+    const handleKeyPress = (e: React.KeyboardEvent<HTMLElement>): void => {
         e.stopPropagation()
         const enterOrSpace = e.key === 'Enter' || e.key === 'Space'
         if (enterOrSpace && !props.disabled) {
@@ -127,7 +128,7 @@ const Checkbox: React.FC<Props> = props => {
 }
 
 Checkbox.defaultProps = {
-    onChange: () => {},
+    onChange: noop,
     disabled: false,
     inputType: 'checkbox',
     value: ''

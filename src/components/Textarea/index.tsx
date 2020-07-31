@@ -4,17 +4,17 @@ import colors from '../../constants/colors'
 import AbstractText from '../AbstractText'
 import ErrorMessage from '../ErrorMessage'
 import Text from '../Text'
-import Font from "../../constants/fonts";
-import {MediaQuery} from "../../constants/sizes";
+import Font from '../../constants/fonts'
+import { MediaQuery } from '../../constants/sizes'
 
 const TextareaContainer = styled.div`
   display: block;
 `
 
 type StyledTextareaProps = {
-    error: boolean,
-    font?: Font,
-    spacing: 'normal'
+    error: boolean;
+    font?: Font;
+    spacing: 'normal';
 }
 
 const StyledTextarea = styled.textarea<StyledTextareaProps>`
@@ -57,11 +57,11 @@ type Props = {
     value: string;
     onChange: (e: string) => void;
     placeholder: string;
-    maxLength?: number | undefined,
-    id: string,
-    name: string,
-    error: string,
-    disabled: boolean
+    maxLength?: number | undefined;
+    id: string;
+    name: string;
+    error: string;
+    disabled: boolean;
 }
 
 const Textarea: React.FC<Props> = (props: Props) => (
@@ -75,7 +75,7 @@ const Textarea: React.FC<Props> = (props: Props) => (
             disabled={props.disabled}
             maxLength={props.maxLength}
             placeholder={props.placeholder}
-            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => props.onChange(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>): void => props.onChange(e.target.value)}
             error={!!props.error && !props.disabled}
         />
         {props.error && !props.disabled && <ErrorMessage>

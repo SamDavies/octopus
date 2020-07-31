@@ -4,7 +4,7 @@ export enum Size {
     desktop = '1024px'
 }
 
-export enum MediaQuery  {
+export enum MediaQuery {
     mobile = '(min-width: 425px)',
     tablet = '(min-width: 768px)',
     desktop = '(min-width: 1024px)'

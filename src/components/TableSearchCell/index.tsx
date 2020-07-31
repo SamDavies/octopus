@@ -2,7 +2,7 @@ import noop from 'lodash/noop'
 import React from 'react'
 import { IoIosSearch } from 'react-icons/io'
 import styled from 'styled-components'
-import Font from "../../constants/fonts";
+import Font from '../../constants/fonts'
 
 export const StyledInput = styled.input`
     width: 100%;
@@ -19,17 +19,17 @@ export const StyledInput = styled.input`
 `
 
 type StyledTableSearchCellProps = {
-    flex: number | null,
-    width: number | null,
+    flex: number | null;
+    width: number | null;
 }
 
 export const StyledTableSearchCell = styled.div<StyledTableSearchCellProps>`
-    ${props => props.flex && `
+    ${(props): string => props.flex ? `
         flex: ${props.flex};
-    `}
-    ${props => props.width && `
+    ` : ''}
+    ${(props): string => props.width ? `
         width: ${props.width};
-    `}
+    ` : ''}
     padding-left: 10px;
     padding-right: 10px;
     display: flex;
@@ -37,9 +37,9 @@ export const StyledTableSearchCell = styled.div<StyledTableSearchCellProps>`
 `
 
 type Props = {
-    flex: number | null,
-    width: number | null,
-    value: string | (readonly string[] & string),
+    flex: number | null;
+    width: number | null;
+    value: string | (readonly string[] & string);
     onChange: (e: React.ChangeEvent<HTMLElement>) => void;
     placeholder: string | (readonly string[] & string);
 }
