@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import Heading from '../Heading'
-import Colors from "../../constants/colors";
+import Color from "../../constants/colors";
 
 const StyledCustomCheckbox = styled.span`
     display: flex;
     position: relative;
-    border: 2px solid ${Colors.black};
+    border: 2px solid ${Color.black};
     height: 14px;
     width: 14px;
     min-width: 14px;
@@ -18,7 +18,7 @@ const StyledCustomCheckbox = styled.span`
         display: inline-block;
         width: 6px;
         height: 6px;
-        background: ${Colors.salmon};
+        background: ${Color.salmon};
         opacity: 0;
     }
 
@@ -32,9 +32,9 @@ const StyledCustomCheckbox = styled.span`
     }
 
     input:enabled ~ &:focus {
-        border-color: ${Colors.lightSalmon};
+        border-color: ${Color.lightSalmon};
         + span {
-            color: ${Colors.lightSalmon};
+            color: ${Color.lightSalmon};
         }
     }
 `
@@ -61,8 +61,8 @@ const StyledWrapper = styled.label`
     }
     &:hover {
         input:enabled ~ span {
-            border-color: ${Colors.lightSalmon};
-            color: ${Colors.lightSalmon};
+            border-color: ${Color.lightSalmon};
+            color: ${Color.lightSalmon};
         }
     }
     outline: none;

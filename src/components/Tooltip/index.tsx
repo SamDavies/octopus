@@ -2,8 +2,8 @@ import isFunction from 'lodash/isFunction'
 import React from 'react'
 import TooltipTrigger from 'react-popper-tooltip'
 import styled from 'styled-components'
-import Colors from "../../constants/colors";
-import Fonts from "../../constants/fonts";
+import Color from "../../constants/colors";
+import Font from "../../constants/fonts";
 import PopperJS from "popper.js";
 import {GetTooltipPropsArg} from "react-popper-tooltip/dist/types";
 
@@ -20,11 +20,11 @@ interface StyledTooltipProps extends GetTooltipPropsArg{
 
 export const StyledTooltip = styled.div<StyledTooltipProps>`
     width: 100%;
-    font-family: ${Fonts.serif};
+    font-family: ${Font.serif};
     font-weight: bold;
     font-size: 12px;
-    background: ${props => props.invert ? Colors.white : Colors.black};
-    color: ${props => props.invert ? Colors.black : Colors.white};
+    background: ${props => props.invert ? Color.white : Color.black};
+    color: ${props => props.invert ? Color.black : Color.white};
     max-width: 200px;
     position: relative;
     padding: 1rem;
@@ -39,7 +39,7 @@ export const StyledTooltip = styled.div<StyledTooltipProps>`
         width: 0;
         height: 0;
         ${props => props.position === 'top' && `
-            border-top: 8px solid ${props.invert ? Colors.white : Colors.black};
+            border-top: 8px solid ${props.invert ? Color.white : Color.black};
             border-right: 8px solid transparent;
             border-left: 8px solid transparent;
             left: calc(50% - 9px);
@@ -47,21 +47,21 @@ export const StyledTooltip = styled.div<StyledTooltipProps>`
 
         `}
         ${props => props.position === 'bottom' && `
-            border-bottom: 8px solid ${props.invert ? Colors.white : Colors.black};
+            border-bottom: 8px solid ${props.invert ? Color.white : Color.black};
             border-right: 8px solid transparent;
             border-left: 8px solid transparent;
             left: calc(50% - 9px);
             bottom: calc(100% - 1px);
         `}
         ${props => props.position === 'right' && `
-            border-right: 8px solid ${props.invert ? Colors.white : Colors.black};
+            border-right: 8px solid ${props.invert ? Color.white : Color.black};
             border-top: 8px solid transparent;
             border-bottom: 8px solid transparent;
             bottom: calc(50% - 9px);
             right: calc(100% - 1px);
         `}
         ${props => props.position === 'left' && `
-            border-left: 8px solid ${props.invert ? Colors.white : Colors.black};
+            border-left: 8px solid ${props.invert ? Color.white : Color.black};
             border-top: 8px solid transparent;
             border-bottom: 8px solid transparent;
             bottom: calc(50% - 9px);

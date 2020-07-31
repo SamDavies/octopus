@@ -2,14 +2,14 @@ import noop from 'lodash/noop'
 import React from 'react'
 import { IoIosSearch } from 'react-icons/io'
 import styled from 'styled-components'
-import Fonts from "../../constants/fonts";
+import Font from "../../constants/fonts";
 
 export const StyledInput = styled.input`
     width: 100%;
     border: none;
     height: 100%;
     font-size: 14px;
-    font-family: ${Fonts.sanSerif};
+    font-family: ${Font.sanSerif};
     padding-top: 12px;
     padding-left: 4px;
     padding-bottom: 8px;

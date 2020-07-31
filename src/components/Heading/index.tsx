@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import AbstractText from '../AbstractText'
-import Fonts from "../../constants/fonts";
-import Colors from '../../constants/colors';
+import Font from "../../constants/fonts";
+import Color from '../../constants/colors';
 
 type Props = {
     level?: 1 | 2 | 3 | 4
-    font?: Fonts
-    color?: Colors
+    font?: Font
+    color?: Color
     spacing?: 'normal' | 'wide'
     bold?: boolean
     center?: boolean
@@ -61,9 +61,9 @@ const Heading: React.FC<Props> = props => {
 
 Heading.defaultProps = {
     level: 1,
-    font: Fonts.sanSerif,
+    font: Font.sanSerif,
     spacing: 'normal',
-    color: Colors.black,
+    color: Color.black,
     bold: false,
     center: false,
     italic: false,

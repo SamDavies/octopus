@@ -1,8 +1,8 @@
 import initials from 'initials'
 import React from 'react'
 import styled from 'styled-components'
-import Colors from "../../constants/colors";
-import Fonts from "../../constants/fonts";
+import Color from "../../constants/colors";
+import Font from "../../constants/fonts";
 
 enum sizes {
     small= '1.5rem',
@@ -11,7 +11,7 @@ enum sizes {
 }
 
 
-const avatarStyles = (size: sizes, bordered: boolean, borderColor: Colors) => `
+const avatarStyles = (size: sizes, bordered: boolean, borderColor: Color) => `
   width: ${size};
   height: ${size};
   border-radius: 50%;
@@ -22,7 +22,7 @@ const avatarStyles = (size: sizes, bordered: boolean, borderColor: Colors) => `
 type StyledImageAvatarProps = {
     size: sizes,
     bordered: boolean,
-    borderColor: Colors,
+    borderColor: Color,
     src: string,
 }
 
@@ -35,8 +35,8 @@ export const StyledImageAvatar = styled.div<StyledImageAvatarProps>`
 type StyledTextAvatarProps = {
     size: sizes,
     bordered: boolean,
-    borderColor: Colors,
-    bgColor: Colors,
+    borderColor: Color,
+    bgColor: Color,
 }
 
 export const StyledTextAvatar = styled.div<StyledTextAvatarProps>`
@@ -45,7 +45,7 @@ export const StyledTextAvatar = styled.div<StyledTextAvatarProps>`
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  font-family: ${Fonts.sanSerif};
+  font-family: ${Font.sanSerif};
   font-size: ${props => (props.size === sizes.small ? '0.5rem' : '1rem')};
   font-weight: 500;
   font-style: normal;
@@ -54,7 +54,7 @@ export const StyledTextAvatar = styled.div<StyledTextAvatarProps>`
   letter-spacing: normal;
   text-align: center;
   cursor: pointer;
-  color: ${Colors.white};
+  color: ${Color.white};
   background-color: ${props => props.bgColor};
 `
 
@@ -67,8 +67,8 @@ type Props = {
     text: string,
     src: string,
     bordered: boolean,
-    borderColor: Colors,
-    bgColor: Colors,
+    borderColor: Color,
+    bgColor: Color,
 }
 
 const UserAvatar: React.FC<Props> = (props: Props) => (
@@ -98,8 +98,8 @@ UserAvatar.defaultProps = {
     text: '',
     size: sizes.normal,
     bordered: false,
-    borderColor: Colors.white,
-    bgColor: Colors.black
+    borderColor: Color.white,
+    bgColor: Color.black
 }
 
 export default UserAvatar

@@ -1,5 +1,5 @@
-import Fonts from '../../constants/fonts'
-import Colors from "../../constants/colors";
+import Font from '../../constants/fonts'
+import Color from "../../constants/colors";
 
 type Props = {
     font?: string | undefined
@@ -13,8 +13,8 @@ type Props = {
 
 const AbstractText = (
     {
-        font = Fonts.sanSerif,
-        color = Colors.black,
+        font = Font.sanSerif,
+        color = Color.black,
         spacing = 'normal',
         bold = false,
         center = false,

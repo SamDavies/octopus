@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import Colors from "../../constants/colors";
-import Fonts from "../../constants/fonts";
+import Color from "../../constants/colors";
+import Font from "../../constants/fonts";
 
 type Props = {
     error: boolean
@@ -9,18 +9,18 @@ type Props = {
 
 const Label = styled.label<Props>`
     margin-top: 20px;
-    color: ${Colors.black};
-    font-family: ${Fonts.sanSerif};
+    color: ${Color.black};
+    font-family: ${Font.sanSerif};
     font-size: 13px;
     font-weight: bold;
     text-transform: uppercase;
 
     ${({ disabled }) => disabled && `
-        color: ${Colors.lightGray};
+        color: ${Color.lightGray};
     `}
 
     ${({ error }) => error && `
-        color: ${Colors.scarlet};
+        color: ${Color.scarlet};
     `}
 `
 

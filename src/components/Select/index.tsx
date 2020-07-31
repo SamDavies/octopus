@@ -3,8 +3,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import { IoMdArrowDropdown } from 'react-icons/io'
 import styled from 'styled-components'
 import Button from '../Button'
-import Colors from "../../constants/colors";
-import Fonts from "../../constants/fonts";
+import Color from "../../constants/colors";
+import Font from "../../constants/fonts";
 
 const UnavailableItem = `
     position: relative;
@@ -27,8 +27,8 @@ const StyledControlItem = styled.div<StyledControlItemProps>`
   font-size: 18px;
   font-weight: bold;
   text-transform: uppercase;
-  color: ${Colors.black};
-  border: 2px solid ${Colors.black};
+  color: ${Color.black};
+  border: 2px solid ${Color.black};
   height: 36px;
   line-height: 32px;
   border: none;
@@ -49,15 +49,15 @@ const StyledControlDropdown = styled.div<StyledControlDropdownProps>`
   padding-right: 11px;
   box-shadow: none;
   padding-bottom: 10px;
-  font-family: ${Fonts.serif};
+  font-family: ${Font.serif};
   position: relative;
   padding-top: 10px;
   z-index: 99;
   top: -2px;
-  border: 2px solid ${Colors.black};
+  border: 2px solid ${Color.black};
   border-radius: 0;
   transition: none;
-  background-color: ${Colors.white};
+  background-color: ${Color.white};
   overflow: auto;
   opacity: 0;
   visibility: hidden;
@@ -71,7 +71,7 @@ const StyledControlDropdown = styled.div<StyledControlDropdownProps>`
     left: 8px;
     right: 8px;
     height: 2px;
-    background-color: ${Colors.black};
+    background-color: ${Color.black};
     z-index: 10;
   }
 
@@ -86,7 +86,7 @@ const StyledEmptyOption = styled.div`
   font-size: 13px;
   height: 32px;
   line-height: 32px;
-  color: ${Colors.black};
+  color: ${Color.black};
   padding: 1px 16px 0;
   font-weight: bold;
   text-align: left;
@@ -95,8 +95,8 @@ const StyledEmptyOption = styled.div`
   pointer-events: none;
 
   &:hover {
-    background-color: ${Colors.salmon};
-    color: ${Colors.white};
+    background-color: ${Color.salmon};
+    color: ${Color.white};
   }
 `
 
@@ -107,16 +107,16 @@ const StyledViewAllOption = styled.div`
   line-height: 32px;
   padding: 1px 16px 0;
   font-weight: bold;
-  color: ${Colors.black};
+  color: ${Color.black};
   text-align: left;
   cursor: pointer;
   transition: all 0.15s ease-in;
-  border-bottom: 2px solid ${Colors.black};
+  border-bottom: 2px solid ${Color.black};
   font-size: 16px;
   outline: none;
   &:hover {
-    background-color: ${Colors.salmon};
-    color: ${Colors.white};
+    background-color: ${Color.salmon};
+    color: ${Color.white};
   }
 `
 
@@ -129,7 +129,7 @@ const StyledDefaultOption = styled.div<StyledDefaultOptionProps>`
   text-transform: uppercase;
   position: relative;
   font-size: 13px;
-  color: ${Colors.black};
+  color: ${Color.black};
   max-width: 100%;
   height: 32px;
   line-height: 32px;
@@ -143,15 +143,15 @@ const StyledDefaultOption = styled.div<StyledDefaultOptionProps>`
   display: flex;
   overflow: hidden;
   text-overflow: ellipsis;
-  border-bottom: ${props => props.bordered ? `2px solid ${Colors.black}` : 'none'};
+  border-bottom: ${props => props.bordered ? `2px solid ${Color.black}` : 'none'};
   ${props => props.selected && `
-    background-color: ${Colors.black};
-    color: ${Colors.white};
+    background-color: ${Color.black};
+    color: ${Color.white};
 `};
 
   &:hover {
-    background-color: ${Colors.salmon};
-    color: ${Colors.white};
+    background-color: ${Color.salmon};
+    color: ${Color.white};
   }
 
   .icon-wrapper {
@@ -179,7 +179,7 @@ const StyledDefaultOption = styled.div<StyledDefaultOptionProps>`
 const StyledFilter = styled.div`
     min-width: 0;
     position: relative;
-    font-family: ${Fonts.sanSerif};
+    font-family: ${Font.sanSerif};
     letter-spacing: 0.8px;
 `
 
@@ -194,12 +194,12 @@ type StyledTextProps = {
 
 const StyledText = styled.div<StyledTextProps>`
     flex: 1;
-    color: ${Colors.black};
+    color: ${Color.black};
     max-width: calc(100% - 10px);
     overflow: hidden;
     text-overflow: ellipsis;
     ${props => props.$isFilterSelected && `
-        color: ${Colors.white};
+        color: ${Color.white};
     `};
 `
 
@@ -209,9 +209,9 @@ type StyledArrowProps = {
 
 const StyledArrow = styled(IoMdArrowDropdown)<StyledArrowProps>`
     font-size: 30px;
-    color: ${Colors.coral};
+    color: ${Color.coral};
     ${props => props.$isFilterSelected && `
-        color: ${Colors.white};
+        color: ${Color.white};
     `};
 `
 

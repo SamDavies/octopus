@@ -1,7 +1,7 @@
 import noop from 'lodash/noop'
 import React from 'react'
 import styled from 'styled-components'
-import Fonts from "../../constants/fonts";
+import Font from "../../constants/fonts";
 
 type StyledTableCellProps = {
     flex: number | null,
@@ -22,7 +22,7 @@ const StyledTableCell = styled.div<StyledTableCellProps>`
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 8px;
-    font-family: ${Fonts.sanSerif};
+    font-family: ${Font.sanSerif};
     font-size: 14px;
     display: flex;
     align-items: center;

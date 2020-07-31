@@ -1,5 +1,5 @@
-export { default as Colors } from './constants/colors'
-export { default as Fonts } from './constants/fonts'
+export { default as Color } from './constants/colors'
+export { default as Font } from './constants/fonts'
 export { Size, MediaQuery } from './constants/sizes'
 export { default as Button } from './components/Button'
 export { default as Box } from './components/Box'

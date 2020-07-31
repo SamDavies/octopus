@@ -1,4 +1,4 @@
-enum Colors {
+enum Color {
     white = '#fff',
     grey10 = '#fafafa',
     grey9 = '#f3f3f3',
@@ -24,4 +24,4 @@ enum Colors {
     lemon = '#FAFF53'
 }
 
-export default Colors
+export default Color

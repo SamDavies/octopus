@@ -1,4 +1,4 @@
-import { Box, Button, device, Heading, Text } from '@stylindex/octopus'
+import { Box, Button, MediaQuery, Heading, Text } from '@stylindex/octopus'
 import React from 'react'
 import styled from 'styled-components'
 import FormExample from '../components/FormExample'
@@ -12,7 +12,7 @@ const StyledContainer = styled.div`
     flex-direction: column;
     margin: 20px;
 
-    @media ${device.tablet} {
+    @media ${MediaQuery.tablet} {
         margin: 40px;
     }
 `
@@ -26,7 +26,7 @@ const StyledSection = styled.div`
 const StyledSpacing = styled.div`
     display: flex;
     flex-direction: column;
-    @media ${device.tablet} {
+    @media ${MediaQuery.tablet} {
         margin-right: 20px;
     }
 
@@ -46,7 +46,7 @@ const StyledGroup = styled.div`
     display: flex;
     flex-direction: column;
 
-    @media ${device.tablet} {
+    @media ${MediaQuery.tablet} {
         flex-direction: row;
     }
 `

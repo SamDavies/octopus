@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import Colors from '../../constants/colors'
+import Color from '../../constants/colors'
 
 type Props = {
-    color?: Colors.black | Colors.salmon | Colors.scarlet | Colors.grey1
+    color?: Color.black | Color.salmon | Color.scarlet | Color.grey1
     kind?: 'primary' | 'secondary' | 'ghost'
     size?: 'small' | 'medium' | 'large'
     disabled?: boolean
@@ -13,7 +13,7 @@ type Props = {
 const getStyles = (props: Props): string => {
     if (props.kind === 'secondary') {
         return `
-            background-color: ${Colors.white};
+            background-color: ${Color.white};
             color: ${props.color};
             border: 2px solid ${props.color};
 
@@ -36,7 +36,7 @@ const getStyles = (props: Props): string => {
     }
 
     return `
-        color: ${Colors.white};
+        color: ${Color.white};
         background-color: ${props.color};
         border: 2px solid ${props.color};
 
@@ -96,9 +96,9 @@ const Button = styled.button<Props>`
     ${(props): string => getStyles(props)}
 
     ${(props): string | null => props.disabled ? `
-        color: ${Colors.grey5};
-        background-color: ${Colors.white};
-        border-color: ${Colors.grey7};
+        color: ${Color.grey5};
+        background-color: ${Color.white};
+        border-color: ${Color.grey7};
         cursor: not-allowed;
 
         &:hover {
@@ -107,9 +107,9 @@ const Button = styled.button<Props>`
     `: null}
 
     ${(props): string | null => props.loading ? `
-        background: ${Colors.grey9};
-        border-color: ${Colors.grey7};
-        color: ${Colors.grey5};
+        background: ${Color.grey9};
+        border-color: ${Color.grey7};
+        color: ${Color.grey5};
         cursor: default;
         pointer-events: none;
         filter: grayscale(1);
@@ -118,7 +118,7 @@ const Button = styled.button<Props>`
 
 Button.defaultProps = {
     kind: 'primary',
-    color: Colors.black,
+    color: Color.black,
     size: 'large',
     disabled: false,
     loading: false,

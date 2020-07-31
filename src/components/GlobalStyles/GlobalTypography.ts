@@ -1,13 +1,13 @@
 import { createGlobalStyle } from 'styled-components'
-import Colors from "../../constants/colors";
-import Fonts from "../../constants/fonts";
+import Color from "../../constants/colors";
+import Font from "../../constants/fonts";
 
 const GlobalTypography = createGlobalStyle`
     html, div, button, a {
         line-height: 1.5rem;
-        color: ${Colors.black};
+        color: ${Color.black};
         font-size: 16px;
-        font-family: ${Fonts.sanSerif};
+        font-family: ${Font.sanSerif};
         text-decoration: none;
     }
 

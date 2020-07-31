@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import AbstractText from '../AbstractText'
-import Colors from "../../constants/colors";
-import Fonts from "../../constants/fonts";
+import Color from "../../constants/colors";
+import Font from "../../constants/fonts";
 
 const Normal = styled.div`
     ${AbstractText};
@@ -16,9 +16,9 @@ const Small = styled.div`
 
 type Props = {
     size?: 'normal' | 'small',
-    font?: Fonts,
+    font?: Font,
     spacing?: 'normal' | 'wide',
-    color?: Colors,
+    color?: Color,
     bold?: boolean,
     uppercase?: boolean,
     italic?: boolean,
@@ -37,9 +37,9 @@ const Text: React.FC<Props> = (props) => {
 }
 
 Text.defaultProps = {
-    color: Colors.black,
+    color: Color.black,
     size: 'normal',
-    font: Fonts.sanSerif,
+    font: Font.sanSerif,
     spacing: 'normal',
     bold: false,
     italic: false,

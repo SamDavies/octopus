@@ -1,15 +1,15 @@
 import styled from 'styled-components'
-import Colors from '../../constants/colors'
+import Color from '../../constants/colors'
 
 export const TableRow = styled.div`
     display: flex;
-    border-bottom: 1px solid ${Colors.grey8};
+    border-bottom: 1px solid ${Color.grey8};
     &:last-child {
         border-bottom: none;
     }
 
     &:hover {
-        background-color: ${Colors.grey10}
+        background-color: ${Color.grey10}
     }
 
     ${props => props.onClick && `

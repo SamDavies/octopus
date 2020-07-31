@@ -1,11 +1,11 @@
-import { Checkbox, device, Input, Label, PasswordInput, Select, StarRating, Textarea } from '@stylindex/octopus'
+import { Checkbox, MediaQuery, Input, Label, PasswordInput, Select, StarRating, Textarea } from '@stylindex/octopus'
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const StyledSpacing = styled.div`
     display: flex;
     flex-direction: column;
-    @media ${device.tablet} {
+    @media ${MediaQuery.tablet} {
         margin-right: 20px;
         width: 50%;
     }

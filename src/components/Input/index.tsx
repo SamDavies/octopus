@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import Colors from "../../constants/colors";
-import Fonts from "../../constants/fonts";
+import Color from "../../constants/colors";
+import Font from "../../constants/fonts";
 import {MediaQuery} from "../../constants/sizes";
 
 type Props = {
@@ -15,11 +15,11 @@ export const Input = styled.input<Props>`
     box-sizing: border-box;
     border: none;
     border-bottom: 2px solid;
-    border-bottom-color: ${({ error }) => error ? Colors.scarlet : Colors.black};
+    border-bottom-color: ${({ error }) => error ? Color.scarlet : Color.black};
     font-size: 14px;
-    font-family: ${Fonts.serif};
+    font-family: ${Font.serif};
     line-height: 1.5;
-    color: ${({ error }) => error ? Colors.scarlet : Colors.black};
+    color: ${({ error }) => error ? Color.scarlet : Color.black};
     min-height: 40px;
     width: 100%;
     outline: none;
@@ -30,8 +30,8 @@ export const Input = styled.input<Props>`
 
     &::placeholder {
         text-decoration: none;
-        color: ${Colors.lightGray};
-        font-family: ${Fonts.serif};
+        color: ${Color.lightGray};
+        font-family: ${Font.serif};
     }
 
 
@@ -40,14 +40,14 @@ export const Input = styled.input<Props>`
     &:-webkit-autofill:focus,
     &:-webkit-autofill:active  {
         -webkit-box-shadow: 0 0 0 30px white inset !important;
-        font-family: ${Fonts.serif};
+        font-family: ${Font.serif};
     }
 
     &:disabled {
-    border-color: ${Colors.lightGray};
-    color: ${Colors.lightGray};
+    border-color: ${Color.lightGray};
+    color: ${Color.lightGray};
     &::placeholder {
-        color: ${Colors.lightGray};
+        color: ${Color.lightGray};
     }
 
     }
@@ -55,7 +55,7 @@ export const Input = styled.input<Props>`
     ${({ fullBorder }) => fullBorder && `
         margin-top: 10px;
         padding: 11px;
-        border: 2px solid ${Colors.black};
+        border: 2px solid ${Color.black};
     `}
 
     ${({ uppercase }) => uppercase && `
@@ -63,7 +63,7 @@ export const Input = styled.input<Props>`
     `};
 
     &:focus {
-        border-color: ${Colors.lightSalmon};
+        border-color: ${Color.lightSalmon};
     }
 `
 

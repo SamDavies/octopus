@@ -4,7 +4,7 @@ import colors from '../../constants/colors'
 import AbstractText from '../AbstractText'
 import ErrorMessage from '../ErrorMessage'
 import Text from '../Text'
-import Fonts from "../../constants/fonts";
+import Font from "../../constants/fonts";
 import {MediaQuery} from "../../constants/sizes";
 
 const TextareaContainer = styled.div`
@@ -13,7 +13,7 @@ const TextareaContainer = styled.div`
 
 type StyledTextareaProps = {
     error: boolean,
-    font?: Fonts,
+    font?: Font,
     spacing: 'normal'
 }
 
@@ -67,7 +67,7 @@ type Props = {
 const Textarea: React.FC<Props> = (props: Props) => (
     <TextareaContainer>
         <StyledTextarea
-            font={Fonts.serif}
+            font={Font.serif}
             spacing='normal'
             id={props.id}
             name={props.name}
