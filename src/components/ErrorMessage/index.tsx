@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Heading from '../Heading'
 import Fonts from "../../constants/fonts";
+import Colors from "../../constants/colors";
 
 type StyledErrorMessageProps = {
     size?: 'small' | 'medium' | 'large';
@@ -9,7 +10,7 @@ type StyledErrorMessageProps = {
 }
 
 export const StyledErrorMessage = styled(Heading)<StyledErrorMessageProps>`
-    color: ${colors.scarlet};
+    color: ${Colors.scarlet};
 `
 
 type Props = {
