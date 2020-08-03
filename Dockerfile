@@ -7,7 +7,6 @@ COPY .eslintignore .eslintignore
 COPY .eslintrc .eslintrc
 COPY tsconfig.test.json tsconfig.test.json
 COPY tsconfig.json tsconfig.json
-COPY rollup.config.js rollup.config.js
 COPY src src
 COPY example/src example/src
 COPY example/now.json example/now.json
