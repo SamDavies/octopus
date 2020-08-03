@@ -1,7 +1,7 @@
 # Octopus
 Stylindex Component Library
 
-This is a library for the miscellaneous base components used throughout the Stylindex site with designs from the brand style guide. Documentation for the various components can be accessed at https://octopus-docs.stylindex.now.sh. The library documentation also details the various brand fonts and colors.
+This is a library for the miscellaneous base components used throughout the Stylindex site with designs from the brand style guide. Documentation for the various components can be accessed at https://octopus.stylindex.com/. The library documentation also details the various brand fonts and colors.
 
 ## Using fonts and styles
 In addition to components, this repo contains two CSS files - one with reset styles and the other general styles with font imports - that can be imported by using `@stylindex/octopus/lib/reset.css` or `@stylindex/octopus/lib/styles.css`.
