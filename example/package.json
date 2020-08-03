@@ -10,8 +10,9 @@
         "start": "next",
         "serve": "next start",
         "test": "react-scripts test",
-        "lint": "standardx \"src/**/*.js\" \"src/**/*.jsx\"",
-        "lint-fix": "standardx \"src/**/*.js\" \"src/**/*.jsx\" --fix"
+        "lint": "eslint \"src/**/*.ts\" \"src/**/*.tsx\"",
+        "lint-fix": "eslint \"src/**/*.ts\" \"src/**/*.tsx\" --fix",
+        "type": "tsc"
     },
     "dependencies": {
         "@stylindex/octopus": "link:..",
@@ -24,5 +25,24 @@
         "react-popper-tooltip": "link:../node_modules/react-popper-tooltip",
         "styled-components": "link:../node_modules/styled-components",
         "react-inlinesvg": "link:../node_modules/react-inlinesvg"
+    },
+    "devDependencies": {
+        "@types/jest": "^25.1.4",
+        "@types/node": "^12.12.38",
+        "@types/react": "^16.9.27",
+        "@types/react-dom": "^16.9.7",
+        "@types/styled-components": "^5.1.0",
+        "@typescript-eslint/eslint-plugin": "^2.26.0",
+        "@typescript-eslint/parser": "^2.26.0",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.7.0",
+        "eslint-config-standard": "^14.1.0",
+        "eslint-config-standard-react": "^9.2.0",
+        "eslint-plugin-import": "^2.18.2",
+        "eslint-plugin-node": "^11.0.0",
+        "eslint-plugin-prettier": "^3.1.1",
+        "eslint-plugin-promise": "^4.2.1",
+        "eslint-plugin-react": "^7.17.0",
+        "eslint-plugin-standard": "^4.0.1"
     }
 }
