@@ -1,15 +1,15 @@
-import { Button, device, Heading, Modal } from '@stylindex/octopus'
+import { Button, MediaQuery, Heading, Modal } from '@stylindex/octopus'
 import React from 'react'
 import styled from 'styled-components'
 
 const StyledSpacing = styled.div`
     display: flex;
     flex-direction: column;
-    @media ${device.tablet} {
+    @media ${MediaQuery.tablet} {
         margin-right: 20px;
         width: 50%;
     }
-    
+
     & > *:not(:last-child) {
         margin-bottom: 40px;
     }
