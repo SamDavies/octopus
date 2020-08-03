@@ -1,4 +1,4 @@
-import { Box, Button, MediaQuery, Heading, Text } from '@stylindex/octopus'
+import { Box, Button, MediaQuery, Heading, Text, Font } from '@stylindex/octopus'
 import React from 'react'
 import styled from 'styled-components'
 import FormExample from '../components/FormExample'
@@ -132,22 +132,22 @@ const Page: React.FC = () =>
                         </Text>
                     </StyledColumn>
                     <StyledColumn>
-                        <Heading level={1} font='literata'>
+                        <Heading level={1} font={Font.serif}>
                             Serif 1
                         </Heading>
-                        <Heading level={2} font='literata'>
+                        <Heading level={2} font={Font.serif}>
                             Serif 2
                         </Heading>
-                        <Heading level={3} font='literata'>
+                        <Heading level={3} font={Font.serif}>
                             Serif 3
                         </Heading>
-                        <Heading level={4} font='literata'>
+                        <Heading level={4} font={Font.serif}>
                             Serif 4
                         </Heading>
-                        <Text font='literata'>
+                        <Text font={Font.serif}>
                             Serif 5
                         </Text>
-                        <Text size='small' font='literata'>
+                        <Text size='small' font={Font.serif}>
                             Serif 6
                         </Text>
                     </StyledColumn>

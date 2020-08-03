@@ -1,9 +1,13 @@
-import Document, {DocumentContext, Head, Html, Main, NextScript} from 'next/document'
+import Document, {DocumentContext, DocumentInitialProps, Head, Html, Main, NextScript} from 'next/document'
 import React from 'react'
 import { ServerStyleSheet } from 'styled-components'
 
+interface CustomDocumentContext extends DocumentInitialProps {
+    styles: React.ReactElement
+}
+
 class MyDocument extends Document {
-    static async getInitialProps (ctx: DocumentContext): Promise<DocumentContext> {
+    static async getInitialProps (ctx: DocumentContext): Promise<CustomDocumentContext> {
         const sheet = new ServerStyleSheet()
         const originalRenderPage = ctx.renderPage
 
