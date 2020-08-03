@@ -32,7 +32,7 @@ CMD ["yarn", "test"]
 # Publish #
 ###########
 FROM base as publish
-RUN yarn build:package
+RUN yarn build-package
 
 ARG NPM_TOKEN
 ENV NPM_TOKEN=$NPM_TOKEN
