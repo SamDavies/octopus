@@ -1,8 +1,20 @@
 import styled from 'styled-components'
 import Color from '../../constants/colors'
 
+const buttonColors: {
+    black: string,
+    salmon: string,
+    red: string,
+    grey: string,
+} = {
+    black: Color.black,
+    salmon: Color.salmon,
+    red: Color.scarlet,
+    grey: Color.scarlet
+}
+
 type Props = {
-    color?: Color.black | Color.salmon | Color.scarlet | Color.grey1;
+    color?: 'black' | 'salmon' | 'red' | 'grey' | undefined;
     kind?: 'primary' | 'secondary' | 'ghost';
     size?: 'small' | 'medium' | 'large';
     disabled?: boolean;
@@ -11,11 +23,13 @@ type Props = {
 }
 
 const getStyles = (props: Props): string => {
+    const primaryColor: string = props.color ? buttonColors[props.color] : Color.black
+
     if (props.kind === 'secondary') {
         return `
             background-color: ${Color.white};
-            color: ${props.color};
-            border: 2px solid ${props.color};
+            color: ${primaryColor};
+            border: 2px solid ${primaryColor};
 
             &:hover {
                 opacity: 0.8;
@@ -25,7 +39,7 @@ const getStyles = (props: Props): string => {
 
     if (props.kind === 'ghost') {
         return `
-            color: ${props.color};
+            color: ${primaryColor};
             background-color: transparent;
             border-color: transparent;
 
@@ -37,8 +51,8 @@ const getStyles = (props: Props): string => {
 
     return `
         color: ${Color.white};
-        background-color: ${props.color};
-        border: 2px solid ${props.color};
+        background-color: ${primaryColor};
+        border: 2px solid ${primaryColor};
 
         &:hover {
             opacity: 0.8;
@@ -118,7 +132,7 @@ const Button = styled.button<Props>`
 
 Button.defaultProps = {
     kind: 'primary',
-    color: Color.black,
+    color: 'black',
     size: 'large',
     disabled: false,
     loading: false,

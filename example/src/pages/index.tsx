@@ -51,7 +51,7 @@ const StyledGroup = styled.div`
     }
 `
 
-const Page = () =>
+const Page: React.FC = () =>
     <StyledContainer>
         <Heading level={1} uppercase spacing='wide'>
             Octopus

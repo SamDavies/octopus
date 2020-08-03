@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Button from '../Button'
 import Input from '../Input'
-import Color from '../../constants/colors'
 
 export const PasswordWrapper = styled.div`
     position: relative;
@@ -28,7 +27,7 @@ const PasswordInput: React.FC<Props> = (props: Props) => {
 
         <Button
             kind='ghost'
-            color={Color.salmon}
+            color='salmon'
             size='small'
             onClick={(): void => setPasswordVisible(!passwordVisible)}
         >

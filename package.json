@@ -21,7 +21,8 @@
         "build-example": "cd example && yarn build",
         "export-example": "cd example && yarn export",
         "lint": "eslint \"src/**/*.ts\" \"src/**/*.tsx\"",
-        "lint-fix": "eslint \"src/**/*.ts\" \"src/**/*.tsx\" --fix"
+        "lint-fix": "eslint \"src/**/*.ts\" \"src/**/*.tsx\" --fix",
+        "type": "tsc"
     },
     "peerDependencies": {
         "initials": "^3.1.0",
