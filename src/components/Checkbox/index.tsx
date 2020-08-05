@@ -74,12 +74,12 @@ const StyledWrapper = styled.label`
 `
 
 type Props = {
-    inputType: 'radio' | 'checkbox';
+    inputType?: 'radio' | 'checkbox';
     checked: boolean;
-    disabled: boolean;
+    disabled?: boolean;
     name?: string;
     id?: string;
-    value: string;
+    value?: string;
     labelText?: string;
     onChange: () => void;
 }
