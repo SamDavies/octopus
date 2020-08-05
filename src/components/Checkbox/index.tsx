@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react'
+import React, {PropsWithChildren} from 'react'
 import styled from 'styled-components'
 import Heading from '../Heading'
 import Color from '../../constants/colors'
@@ -77,14 +77,25 @@ type Props = {
     inputType: 'radio' | 'checkbox';
     checked: boolean;
     disabled: boolean;
-    name: string;
-    id: string;
+    name?: string;
+    id?: string;
     value: string;
-    labelText: string;
+    labelText?: string;
     onChange: () => void;
 }
 
-const Checkbox: React.FC<Props> = (props: PropsWithChildren<Props>) => {
+const Checkbox: React.FC<Props> = (
+    {
+        inputType = 'checkbox',
+        checked,
+        disabled = false,
+        name,
+        id,
+        value = '',
+        labelText,
+        onChange = noop
+    }: PropsWithChildren<Props>
+) => {
     const onClick = (e: React.MouseEvent<HTMLElement>): void => {
         e.stopPropagation()
     }
@@ -92,46 +103,39 @@ const Checkbox: React.FC<Props> = (props: PropsWithChildren<Props>) => {
     const handleKeyPress = (e: React.KeyboardEvent<HTMLElement>): void => {
         e.stopPropagation()
         const enterOrSpace = e.key === 'Enter' || e.key === 'Space'
-        if (enterOrSpace && !props.disabled) {
-            return props.onChange()
+        if (enterOrSpace && !disabled) {
+            return onChange()
         }
     }
 
-    return <StyledWrapper htmlFor={props.id}>
+    return <StyledWrapper htmlFor={id}>
         <input
-            type={props.inputType}
+            type={inputType}
             data-testid='octopus-checkbox'
-            id={props.id}
-            name={props.name}
-            value={props.value}
-            disabled={props.disabled}
-            checked={props.checked}
-            onChange={props.onChange}
+            id={id}
+            name={name}
+            value={value}
+            disabled={disabled}
+            checked={checked}
+            onChange={onChange}
             onClick={onClick}
         />
         <StyledCustomCheckbox
             role='checkbox'
-            tabIndex={props.disabled ? -1 : 0}
+            tabIndex={disabled ? -1 : 0}
             onKeyDown={handleKeyPress}
-            aria-checked={props.checked}
-            aria-labelledby={`${props.id}_label`}
+            aria-checked={checked}
+            aria-labelledby={`${id}_label`}
             onClick={onClick}
         />
         <StyledLabelText
             as='span'
-            id={`${props.id}_label`}
+            id={`${id}_label`}
             className='label-text'
         >
-            {props.labelText}
+            {labelText}
         </StyledLabelText>
     </StyledWrapper>
-}
-
-Checkbox.defaultProps = {
-    onChange: noop,
-    disabled: false,
-    inputType: 'checkbox',
-    value: ''
 }
 
 export default Checkbox
