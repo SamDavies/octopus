@@ -2,10 +2,10 @@ import styled from 'styled-components'
 import Color from '../../constants/colors'
 
 const buttonColors: {
-    black: string,
-    salmon: string,
-    red: string,
-    grey: string,
+    black: string;
+    salmon: string;
+    red: string;
+    grey: string;
 } = {
     black: Color.black,
     salmon: Color.salmon,

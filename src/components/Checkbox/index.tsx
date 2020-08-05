@@ -1,4 +1,4 @@
-import React, {PropsWithChildren} from 'react'
+import React, { PropsWithChildren } from 'react'
 import styled from 'styled-components'
 import Heading from '../Heading'
 import Color from '../../constants/colors'
