@@ -215,7 +215,7 @@ const StyledArrow = styled(IoMdArrowDropdown)<StyledArrowProps>`
     ` : ''};
 `
 
-type Option = {
+export type Option = {
     id: string;
     value: string;
 }
