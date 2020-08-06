@@ -40,7 +40,7 @@ type Props = {
     flex?: number;
     width?: number;
     value: string | (readonly string[] & string);
-    onChange?: (e: React.ChangeEvent<HTMLElement>) => void;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     placeholder?: string | (readonly string[] & string);
 }
 
