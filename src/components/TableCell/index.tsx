@@ -29,7 +29,7 @@ const StyledTableCell = styled.div<StyledTableCellProps>`
 
 type Props = {
     flex?: number;
-    width?: number;
+    width?: string;
     onClick?: (e: React.MouseEvent<HTMLElement>) => void;
     stopPropagation?: boolean;
 }
