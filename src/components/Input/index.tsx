@@ -4,9 +4,9 @@ import Font from '../../constants/fonts'
 import { MediaQuery } from '../../constants/sizes'
 
 type Props = {
-    error: boolean;
-    fullBorder: boolean;
-    uppercase: boolean;
+    error?: boolean;
+    fullBorder?: boolean;
+    uppercase?: boolean;
 }
 
 export const Input = styled.input<Props>`

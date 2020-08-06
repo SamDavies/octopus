@@ -19,8 +19,8 @@ export const StyledInput = styled.input`
 `
 
 type StyledTableSearchCellProps = {
-    flex: number | null;
-    width: number | null;
+    flex?: number;
+    width?: number;
 }
 
 export const StyledTableSearchCell = styled.div<StyledTableSearchCellProps>`
@@ -37,32 +37,32 @@ export const StyledTableSearchCell = styled.div<StyledTableSearchCellProps>`
 `
 
 type Props = {
-    flex: number | null;
-    width: number | null;
+    flex?: number;
+    width?: number;
     value: string | (readonly string[] & string);
-    onChange: (e: React.ChangeEvent<HTMLElement>) => void;
-    placeholder: string | (readonly string[] & string);
+    onChange?: (e: React.ChangeEvent<HTMLElement>) => void;
+    placeholder?: string | (readonly string[] & string);
 }
 
-const TableSearchCell: React.FC<Props> = (props: Props) =>
+const TableSearchCell: React.FC<Props> = (
+    {
+        flex,
+        width,
+        value = '',
+        onChange = noop,
+        placeholder = ''
+    }: Props
+) =>
     <StyledTableSearchCell
-        flex={props.flex}
-        width={props.width}
+        flex={flex}
+        width={width}
     >
-        <IoIosSearch />
+        <IoIosSearch/>
         <StyledInput
-            value={props.value}
-            placeholder={props.placeholder}
-            onChange={props.onChange}
+            value={value}
+            placeholder={placeholder}
+            onChange={onChange}
         />
     </StyledTableSearchCell>
-
-TableSearchCell.defaultProps = {
-    flex: null,
-    width: null,
-    value: '',
-    onChange: noop,
-    placeholder: ''
-}
 
 export default TableSearchCell

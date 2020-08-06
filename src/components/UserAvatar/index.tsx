@@ -61,43 +61,43 @@ const StyledAvatarWrapper = styled.div`
 `
 
 type Props = {
-    size: sizes;
-    text: string;
-    src: string;
-    bordered: boolean;
-    borderColor: Color;
-    bgColor: Color;
+    size?: sizes;
+    text?: string;
+    src?: string;
+    bordered?: boolean;
+    borderColor?: Color;
+    bgColor?: Color;
 }
 
-const UserAvatar: React.FC<Props> = (props: Props) => (
+const UserAvatar: React.FC<Props> = (
+    {
+        size = sizes.normal,
+        text = '',
+        src = '',
+        bordered = false,
+        borderColor = Color.white,
+        bgColor = Color.black
+    }: Props
+) => (
     <StyledAvatarWrapper className='avatar-wrapper'>
-        {props.src ? (
+        {src ? (
             <StyledImageAvatar
-                size={props.size}
-                src={props.src}
-                bordered={props.bordered}
-                borderColor={props.borderColor}
+                size={size}
+                src={src}
+                bordered={bordered}
+                borderColor={borderColor}
             />
         ) : (
             <StyledTextAvatar
-                size={props.size}
-                bordered={props.bordered}
-                borderColor={props.borderColor}
-                bgColor={props.bgColor}
+                size={size}
+                bordered={bordered}
+                borderColor={borderColor}
+                bgColor={bgColor}
             >
-                {initials(props.text)}
+                {initials(text)}
             </StyledTextAvatar>
         )}
     </StyledAvatarWrapper>
 )
-
-UserAvatar.defaultProps = {
-    src: '',
-    text: '',
-    size: sizes.normal,
-    bordered: false,
-    borderColor: Color.white,
-    bgColor: Color.black
-}
 
 export default UserAvatar

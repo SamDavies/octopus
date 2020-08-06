@@ -2,13 +2,13 @@ import Font from '../../constants/fonts'
 import Color from '../../constants/colors'
 
 type Props = {
-    font?: string | undefined;
-    color?: string | undefined;
-    spacing?: 'normal' | 'wide' | undefined;
-    bold?: boolean | undefined;
-    center?: boolean | undefined;
-    uppercase?: boolean | undefined;
-    italic?: boolean | undefined;
+    font?: string;
+    color?: string;
+    spacing?: 'normal' | 'wide';
+    bold?: boolean;
+    center?: boolean;
+    uppercase?: boolean;
+    italic?: boolean;
 }
 
 const AbstractText = (

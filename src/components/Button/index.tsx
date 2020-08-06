@@ -14,7 +14,7 @@ const buttonColors: {
 }
 
 type Props = {
-    color?: 'black' | 'salmon' | 'red' | 'grey' | undefined;
+    color?: 'black' | 'salmon' | 'red' | 'grey';
     kind?: 'primary' | 'secondary' | 'ghost';
     size?: 'small' | 'medium' | 'large';
     disabled?: boolean;

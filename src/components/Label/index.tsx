@@ -3,8 +3,8 @@ import Color from '../../constants/colors'
 import Font from '../../constants/fonts'
 
 type Props = {
-    error: boolean;
-    disabled: boolean;
+    error?: boolean;
+    disabled?: boolean;
 }
 
 const Label = styled.label<Props>`
