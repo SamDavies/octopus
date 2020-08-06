@@ -5,7 +5,7 @@ import Font from '../../constants/fonts'
 
 type StyledTableCellProps = {
     flex?: number;
-    width?: number;
+    width?: string;
 }
 
 const StyledTableCell = styled.div<StyledTableCellProps>`
