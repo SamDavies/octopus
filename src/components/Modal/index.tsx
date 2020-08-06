@@ -30,7 +30,7 @@ const StyledContainer = styled.div`
 `
 
 type InnerProps = {
-    fullWidth: boolean;
+    fullWidth?: boolean;
 }
 
 const Inner = styled.div<InnerProps>`
@@ -84,56 +84,58 @@ type Props = {
     renderModal: (props: CallbackProps) => JSX.Element;
     renderTrigger: (props: CallbackProps) => JSX.Element;
     fullWidth: boolean;
-    onOpen: () => void;
-    onClose: () => void;
+    onOpen?: () => void;
+    onClose?: () => void;
 }
 
-const Modal: React.FC<Props> = (props: Props) => {
+const Modal: React.FC<Props> = (
+    {
+        renderModal,
+        renderTrigger,
+        fullWidth = false,
+        onOpen = noop,
+        onClose = noop
+    }: Props
+) => {
     const [show, setShow] = useState<boolean>(false)
 
-    const onClose = (): void => {
+    const handleOnClose = (): void => {
         setShow(false)
-        props.onClose()
+        onClose()
     }
 
-    const onOpen = (): void => {
+    const handleOnOpen = (): void => {
         setShow(true)
-        props.onOpen()
+        onOpen()
     }
     return <Fragment>
         {show && <StyledContainer role='modal'>
-            <GlobalBodyHidden />
-            <Inner fullWidth={props.fullWidth}>
+            <GlobalBodyHidden/>
+            <Inner fullWidth={fullWidth}>
                 <StyledBox>
                     <StyledCrossContainer>
                         <StyledCrossButton
                             kind='ghost'
                             size='medium'
-                            onClick={onClose}
+                            onClick={handleOnClose}
                         >
                             <IoIosClose
                                 fontSize={50}
                             />
                         </StyledCrossButton>
                     </StyledCrossContainer>
-                    {props.renderModal({
-                        onOpen,
-                        onClose
+                    {renderModal({
+                        onOpen: handleOnOpen,
+                        onClose: handleOnClose
                     })}
                 </StyledBox>
             </Inner>
         </StyledContainer>}
-        {props.renderTrigger({
-            onOpen,
-            onClose
+        {renderTrigger({
+            onOpen: handleOnOpen,
+            onClose: handleOnClose
         })}
     </Fragment>
-}
-
-Modal.defaultProps = {
-    fullWidth: false,
-    onOpen: noop,
-    onClose: noop
 }
 
 export default Modal

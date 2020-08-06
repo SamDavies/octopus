@@ -5,6 +5,7 @@ import AbstractText from '../AbstractText'
 import ErrorMessage from '../ErrorMessage'
 import Text from '../Text'
 import Font from '../../constants/fonts'
+import noop from 'lodash/noop'
 import { MediaQuery } from '../../constants/sizes'
 
 const TextareaContainer = styled.div`
@@ -55,47 +56,51 @@ const Remaining = styled.div`
 
 type Props = {
     value: string;
-    onChange: (e: string) => void;
+    onChange?: (e: string) => void;
     placeholder: string;
-    maxLength?: number | undefined;
-    id: string;
-    name: string;
-    error: string;
-    disabled: boolean;
+    maxLength?: number;
+    id?: string;
+    name?: string;
+    error?: string;
+    disabled?: boolean;
 }
 
-const Textarea: React.FC<Props> = (props: Props) => (
+const Textarea: React.FC<Props> = (
+    {
+        id,
+        name,
+        onChange = noop,
+        placeholder = '',
+        value = '',
+        error = '',
+        disabled = false,
+        maxLength
+    }: Props
+) => (
     <TextareaContainer>
         <StyledTextarea
             font={Font.serif}
             spacing='normal'
-            id={props.id}
-            name={props.name}
-            value={props.value}
-            disabled={props.disabled}
-            maxLength={props.maxLength}
-            placeholder={props.placeholder}
-            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>): void => props.onChange(e.target.value)}
-            error={!!props.error && !props.disabled}
+            id={id}
+            name={name}
+            value={value}
+            disabled={disabled}
+            maxLength={maxLength}
+            placeholder={placeholder}
+            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>): void => onChange(e.target.value)}
+            error={!!error && !disabled}
         />
-        {props.error && !props.disabled && <ErrorMessage>
-            {props.error}
+        {error && !disabled && <ErrorMessage>
+            {error}
         </ErrorMessage>}
-        {props.maxLength && (
+        {maxLength && (
             <Remaining>
                 <Text size='small'>
-                    {props.maxLength - props.value.length} characters remaining
+                    {maxLength - value.length} characters remaining
                 </Text>
             </Remaining>
         )}
     </TextareaContainer>
 )
-
-Textarea.defaultProps = {
-    placeholder: '',
-    value: '',
-    error: '',
-    disabled: false
-}
 
 export default Textarea

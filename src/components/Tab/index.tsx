@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import styled from 'styled-components'
 import colors from '../../constants/colors'
 
 type Props = {
-    direction: string;
-    isSelected: boolean;
+    direction?: 'HORIZONTAL' | 'VERTICAL';
+    isSelected?: boolean;
+    children?: ReactNode;
 }
 
 const StyledContainer = styled.div<Props>`
@@ -38,9 +39,23 @@ const StyledTab = styled.div<Props>`
     ` : ''};
 `
 
-const Tab: React.FC<Props> = (props: Props) =>
-    <StyledContainer {...props}>
-        <StyledTab {...props} />
+const Tab: React.FC<Props> = (
+    {
+        direction = 'HORIZONTAL',
+        isSelected = false,
+        children
+    }: Props
+) =>
+    <StyledContainer
+        direction={direction}
+        isSelected={isSelected}
+    >
+        <StyledTab
+            direction={direction}
+            isSelected={isSelected}
+        >
+            {children}
+        </StyledTab>
     </StyledContainer>
 
 export default Tab

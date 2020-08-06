@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react'
+import React, { ReactNode } from 'react'
 import styled from 'styled-components'
 import AbstractText from '../AbstractText'
 import Color from '../../constants/colors'
@@ -22,28 +22,44 @@ type Props = {
     bold?: boolean;
     uppercase?: boolean;
     italic?: boolean;
+    children?: ReactNode;
 }
 
-const Text: React.FC<Props> = (props: PropsWithChildren<Props>) => {
-    if (props.size === 'small') {
-        return <Small {...props}>
-            {props.children}
+const Text: React.FC<Props> = (
+    {
+        color = Color.black,
+        size = 'normal',
+        font = Font.sanSerif,
+        spacing = 'normal',
+        bold = false,
+        italic = false,
+        uppercase = false,
+        children
+    }: Props
+) => {
+    if (size === 'small') {
+        return <Small
+            color={color}
+            font={font}
+            spacing={spacing}
+            bold={bold}
+            italic={italic}
+            uppercase={uppercase}
+        >
+            {children}
         </Small>
     }
 
-    return <Normal {...props}>
-        {props.children}
+    return <Normal
+        color={color}
+        font={font}
+        spacing={spacing}
+        bold={bold}
+        italic={italic}
+        uppercase={uppercase}
+    >
+        {children}
     </Normal>
-}
-
-Text.defaultProps = {
-    color: Color.black,
-    size: 'normal',
-    font: Font.sanSerif,
-    spacing: 'normal',
-    bold: false,
-    italic: false,
-    uppercase: false
 }
 
 export default Text

@@ -4,9 +4,8 @@ import styled from 'styled-components'
 import Font from '../../constants/fonts'
 
 type StyledTableCellProps = {
-    flex: number | null;
-    width: number | null;
-    stopPropagation: boolean;
+    flex?: number;
+    width?: number;
 }
 
 const StyledTableCell = styled.div<StyledTableCellProps>`
@@ -29,28 +28,29 @@ const StyledTableCell = styled.div<StyledTableCellProps>`
 `
 
 type Props = {
-    flex: number | null;
-    width: number | null;
-    onClick: (e: React.MouseEvent<HTMLElement>) => void;
-    stopPropagation: boolean;
+    flex?: number;
+    width?: number;
+    onClick?: (e: React.MouseEvent<HTMLElement>) => void;
+    stopPropagation?: boolean;
 }
 
-const TableCell: React.FC<Props> = (props: Props) => {
-    const onClick = (e: React.MouseEvent<HTMLElement>): void => {
-        props.stopPropagation && e.stopPropagation()
-        props.onClick(e)
+const TableCell: React.FC<Props> = (
+    {
+        flex,
+        width,
+        onClick = noop,
+        stopPropagation = false
+    }: Props
+) => {
+    const handleOnClick = (e: React.MouseEvent<HTMLElement>): void => {
+        stopPropagation && e.stopPropagation()
+        onClick(e)
     }
     return <StyledTableCell
-        {...props}
-        onClick={onClick}
+        flex={flex}
+        width={width}
+        onClick={handleOnClick}
     />
-}
-
-TableCell.defaultProps = {
-    flex: null,
-    width: null,
-    onClick: noop,
-    stopPropagation: false
 }
 
 export default TableCell

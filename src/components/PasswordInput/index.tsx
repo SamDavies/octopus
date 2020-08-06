@@ -11,12 +11,14 @@ export const PasswordWrapper = styled.div`
 `
 
 type Props = {
-    error: boolean;
-    fullBorder: boolean;
-    uppercase: boolean;
+    error?: boolean;
+    fullBorder?: boolean;
+    uppercase?: boolean;
 }
 
-const PasswordInput: React.FC<Props> = (props: Props) => {
+const PasswordInput: React.FC<Props & React.ComponentProps<typeof Input>> = (
+    props: Props & React.ComponentProps<typeof Input>
+) => {
     const [passwordVisible, setPasswordVisible] = useState(false)
 
     return <PasswordWrapper>

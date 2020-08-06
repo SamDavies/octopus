@@ -48,46 +48,44 @@ const sizeToPixels = (size: string): string => {
 
 type Props = {
     onChange: (value: number) => void;
-    inputName: string;
     rating: number;
     isStatic: boolean;
-    inline: boolean;
     size: 'medium' | 'large';
 }
 
-const StarRating: React.FC<Props> = (props: Props) => {
+const StarRating: React.FC<Props> = (
+    {
+        isStatic,
+        onChange = noop,
+        rating = 0,
+        size = 'medium'
+    }: Props
+) => {
     const [isHovering, setIsHovering] = useState(false)
-    const size = sizeToPixels(props.size)
+    const pixelSize = sizeToPixels(size)
     return <StyledContainer>
         <Rating
-            initialRating={props.rating}
+            initialRating={rating}
             emptySymbol={<StyledStarOpen
-                size={size}
+                size={pixelSize}
             />}
             fullSymbol={<StyledStarClosed
-                size={size}
+                size={pixelSize}
                 $isHovering={isHovering}
             />}
             onHover={(value): void => setIsHovering(!!value)}
-            onClick={props.onChange}
+            onClick={onChange}
         />
-        {props.rating > 0 && !props.isStatic && <StyledClear>
+        {rating > 0 && !isStatic && <StyledClear>
             <Button
                 size='small'
                 kind='ghost'
-                onClick={(): void => props.onChange(0)}
+                onClick={(): void => onChange(0)}
             >
                 Clear
             </Button>
         </StyledClear>}
     </StyledContainer>
-}
-
-StarRating.defaultProps = {
-    inputName: 'rating',
-    onChange: noop,
-    rating: 0,
-    size: 'medium'
 }
 
 export default StarRating

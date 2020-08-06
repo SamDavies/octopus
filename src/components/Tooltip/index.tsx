@@ -76,29 +76,37 @@ export const StyledTooltip = styled.div<StyledTooltipProps>`
 type Props = {
     renderContent: React.ReactElement | string;
     renderTrigger: React.ReactElement | string;
-    disableTooltip: boolean;
-    invert: boolean;
+    disableTooltip?: boolean;
+    invert?: boolean;
     position: PopperJS.Placement;
 }
 
-const Tooltip: React.FC<Props> = (props: Props) => {
-    const tooltipContent = isFunction(props.renderContent)
-        ? props.renderContent()
-        : props.renderContent
+const Tooltip: React.FC<Props> = (
+    {
+        renderContent,
+        renderTrigger,
+        disableTooltip = false,
+        invert = false,
+        position = 'top'
+    }: Props
+) => {
+    const tooltipContent = isFunction(renderContent)
+        ? renderContent()
+        : renderContent
 
-    const tooltipTrigger = isFunction(props.renderTrigger)
-        ? props.renderTrigger()
-        : props.renderTrigger
+    const tooltipTrigger = isFunction(renderTrigger)
+        ? renderTrigger()
+        : renderTrigger
 
-    if (props.disableTooltip) return tooltipTrigger
+    if (disableTooltip) return tooltipTrigger
 
     return <TooltipTrigger
-        placement={props.position}
+        placement={position}
         trigger='hover'
         tooltip={(tooltip): React.ReactElement => (
             <StyledTooltip
                 role='tooltip'
-                invert={props.invert}
+                invert={invert}
                 {...tooltip.getTooltipProps({
                     ref: tooltip.tooltipRef,
                     className: 'tooltip-container',
@@ -120,10 +128,6 @@ const Tooltip: React.FC<Props> = (props: Props) => {
             </StyledSpan>
         }
     </TooltipTrigger>
-}
-
-Tooltip.defaultProps = {
-    position: 'top'
 }
 
 export default Tooltip

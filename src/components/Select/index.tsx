@@ -221,53 +221,66 @@ type Option = {
 }
 
 type Props = {
-    onClear: (id: string) => void;
-    showResetControls: boolean;
+    onClear?: () => void;
+    showResetControls?: boolean;
     label: string;
-    allowMultiSelect: boolean;
-    isOpened: boolean;
-    options: Option[];
-    selectedValue: string | string[];
+    allowMultiSelect?: boolean;
+    isOpened?: boolean;
+    options?: Option[];
+    selectedValue?: string | string[];
     onSelect: (id: string) => void;
-    onDeselect: (id: string) => void;
-    isFetching: boolean;
-    filterId: string;
+    onDeselect?: (id: string) => void;
+    isFetching?: boolean;
     id: string;
 }
 
-const Select: React.FC<Props> = (props: Props) => {
-    const [isOpened, setIsOpened] = useState(props.isOpened || false)
+const Select: React.FC<Props> = (
+    {
+        onSelect,
+        onClear = noop,
+        onDeselect = noop,
+        showResetControls = true,
+        allowMultiSelect = false,
+        selectedValue = '',
+        isOpened = false,
+        isFetching = false,
+        options = [],
+        label,
+        id = ''
+    }: Props
+) => {
+    const [isOpenedState, setIsOpened] = useState(isOpened || false)
     const [selectedFilterName, setSelectedFilterName] = useState('')
     const control = useRef<HTMLInputElement>(null)
     const title = useRef<HTMLButtonElement>(null)
-    const showViewAll = props.showResetControls && props.selectedValue
+    const showViewAll = showResetControls && selectedValue
     const offset: number = control.current?.offsetTop || 0
     const handleUserClick = (e: MouseEvent): void => {
-        if (!isOpened && title.current?.contains(e.target as Node)) {
+        if (!isOpenedState && title.current?.contains(e.target as Node)) {
             setIsOpened(true)
-        } else if (isOpened) {
+        } else if (isOpenedState) {
             setIsOpened(false)
         }
     }
 
-    const onClear = (id: string) => {
+    const handleOnClear = () => {
         return (e: React.MouseEvent<HTMLElement>): void => {
             e.stopPropagation()
-            props.onClear(id)
+            onClear()
         }
     }
 
     useEffect(() => {
-        if (props.selectedValue && props.options.length) {
-            if (props.allowMultiSelect) {
+        if (selectedValue && options.length) {
+            if (allowMultiSelect) {
                 // Join all selected items into 1 string
-                const value = props.options.filter(
+                const value = options.filter(
                     option =>
                         option &&
                         (
-                            props.selectedValue.includes(String(option.id)) ||
+                            selectedValue.includes(String(option.id)) ||
                             (
-                                option.value && props.selectedValue.includes(
+                                option.value && selectedValue.includes(
                                     option.value.toLowerCase()
                                 )
                             )
@@ -276,19 +289,19 @@ const Select: React.FC<Props> = (props: Props) => {
                 setSelectedFilterName(value || '')
             } else {
                 // Find the select value
-                const value = props.options.find(
+                const value = options.find(
                     option =>
                         option &&
-                        (String(option.id) === props.selectedValue ||
+                        (String(option.id) === selectedValue ||
                             (option.value &&
-                                option.value.toLowerCase() === props.selectedValue))
+                                option.value.toLowerCase() === selectedValue))
                 )
                 setSelectedFilterName(value ? value.value : '')
             }
         } else {
             setSelectedFilterName('')
         }
-    }, [props.options, props.selectedValue])
+    }, [options, selectedValue])
 
     useEffect(() => {
         window.addEventListener('click', handleUserClick)
@@ -300,10 +313,10 @@ const Select: React.FC<Props> = (props: Props) => {
     return <StyledFilter>
         <StyledControlItem
             ref={control}
-            isFetching={props.isFetching}
+            isFetching={isFetching}
             role='option'
             tabIndex={0}
-            id={`dropdown__${props.id}`}
+            id={`dropdown__${id}`}
             data-role='dropdown-filter'
         >
             <StyledButton
@@ -312,30 +325,30 @@ const Select: React.FC<Props> = (props: Props) => {
                 data-testid={`selected-${selectedFilterName}`}
                 ref={title}
                 data-role='dropdown-value-display'
-                data-opened={isOpened}
+                data-opened={isOpenedState}
             >
                 <StyledText $isFilterSelected={!!selectedFilterName}>
-                    {selectedFilterName || props.label}
+                    {selectedFilterName || label}
                 </StyledText>
-                <StyledArrow $isFilterSelected={!!selectedFilterName} />
+                <StyledArrow $isFilterSelected={!!selectedFilterName}/>
             </StyledButton>
-            <StyledControlDropdown offset={offset + 45} isVisible={isOpened}>
+            <StyledControlDropdown offset={offset + 45} isVisible={isOpenedState}>
                 {showViewAll && (
                     <StyledViewAllOption
                         role='option'
                         tabIndex={0}
                         key='reset'
-                        onClick={onClear(props.filterId)}
+                        onClick={handleOnClear()}
                     >
                         View all
                     </StyledViewAllOption>
                 )}
-                {props.options.length ? (
-                    props.options.reduce((acc: React.ReactElement[], option) => {
+                {options.length ? (
+                    options.reduce((acc: React.ReactElement[], option) => {
                         if (option) {
                             const isSelected =
-                                props.allowMultiSelect ? props.selectedValue.includes(option.id)
-                                    : props.selectedValue === option.id
+                                allowMultiSelect ? selectedValue.includes(option.id)
+                                    : selectedValue === option.id
                             acc.push(
                                 <StyledDefaultOption
                                     key={option.id}
@@ -345,8 +358,8 @@ const Select: React.FC<Props> = (props: Props) => {
                                     bordered={false}
                                     selected={isSelected}
                                     onClick={(): void =>
-                                        isSelected ? props.onDeselect(option.id)
-                                            : props.onSelect(option.id)
+                                        isSelected ? onDeselect(option.id)
+                                            : onSelect(option.id)
                                     }
                                     data-role='dropdown-option'
                                 >
@@ -362,16 +375,6 @@ const Select: React.FC<Props> = (props: Props) => {
             </StyledControlDropdown>
         </StyledControlItem>
     </StyledFilter>
-}
-
-Select.defaultProps = {
-    onDeselect: noop,
-    showResetControls: true,
-    allowMultiSelect: false,
-    selectedValue: '',
-    isOpened: false,
-    isFetching: false,
-    id: ''
 }
 
 export default Select

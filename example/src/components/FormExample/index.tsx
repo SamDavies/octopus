@@ -17,10 +17,10 @@ const StyledSpacing = styled.div`
 
 const FormExample = () => {
     const [isChecked, setIsChecked] = useState(false)
-    const [name, setName] = useState(null)
+    const [name, setName] = useState('')
     const [password, setPassword] = useState(null)
-    const [selectValue, setSelectValue] = useState('')
-    const [multiSelect, setMultiSelect] = useState([])
+    const [selectValue, setSelectValue] = useState<string>('')
+    const [multiSelect, setMultiSelect] = useState<string[]>([])
     const [description, setDescription] = useState('')
     const [rating, setRating] = useState(0)
     const selectOptions = [1, 2, 3].map(index => ({
@@ -46,7 +46,6 @@ const FormExample = () => {
                 Password
             </Label>
             <PasswordInput
-                placeholder="password"
                 id="password"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
@@ -57,7 +56,7 @@ const FormExample = () => {
             id='select'
             selectedValue={selectValue}
             showResetControls
-            resetSelectedValue={() => setSelectValue(null)}
+            onClear={() => setSelectValue('')}
             onSelect={id => setSelectValue(id)}
             label='Single Select'
         />
