@@ -81,7 +81,7 @@ type CallbackProps = {
 }
 
 type Props = {
-    key?: string
+    key?: string;
     renderModal: (props: CallbackProps) => JSX.Element;
     renderTrigger: (props: CallbackProps) => JSX.Element;
     fullWidth: boolean;
