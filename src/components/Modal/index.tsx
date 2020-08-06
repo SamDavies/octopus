@@ -81,6 +81,7 @@ type CallbackProps = {
 }
 
 type Props = {
+    key?: string
     renderModal: (props: CallbackProps) => JSX.Element;
     renderTrigger: (props: CallbackProps) => JSX.Element;
     fullWidth: boolean;
@@ -90,6 +91,7 @@ type Props = {
 
 const Modal: React.FC<Props> = (
     {
+        key,
         renderModal,
         renderTrigger,
         fullWidth = false,
@@ -108,7 +110,7 @@ const Modal: React.FC<Props> = (
         setShow(true)
         onOpen()
     }
-    return <Fragment>
+    return <Fragment key={key}>
         {show && <StyledContainer role='modal'>
             <GlobalBodyHidden/>
             <Inner fullWidth={fullWidth}>

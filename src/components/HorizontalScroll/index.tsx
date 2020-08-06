@@ -18,7 +18,7 @@ const StyledScroll = css`
 `
 
 type Props = {
-    mobileOnly: boolean;
+    mobileOnly?: boolean;
 }
 
 const HorizontalScroll = styled.div<Props>`

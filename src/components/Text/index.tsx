@@ -22,6 +22,7 @@ type Props = {
     bold?: boolean;
     uppercase?: boolean;
     italic?: boolean;
+    center?: boolean;
     children?: ReactNode;
 }
 
@@ -34,6 +35,7 @@ const Text: React.FC<Props> = (
         bold = false,
         italic = false,
         uppercase = false,
+        center = false,
         children
     }: Props
 ) => {
@@ -45,6 +47,7 @@ const Text: React.FC<Props> = (
             bold={bold}
             italic={italic}
             uppercase={uppercase}
+            center={center}
         >
             {children}
         </Small>
@@ -57,6 +60,7 @@ const Text: React.FC<Props> = (
         bold={bold}
         italic={italic}
         uppercase={uppercase}
+        center={center}
     >
         {children}
     </Normal>
