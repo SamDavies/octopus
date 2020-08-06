@@ -93,7 +93,6 @@ const FormExample = () => {
             </Label>
             <StarRating
                 size='medium'
-                inputName="rating1"
                 rating={rating}
                 onChange={value => setRating(value)}
             />
@@ -104,7 +103,6 @@ const FormExample = () => {
             </Label>
             <StarRating
                 size='large'
-                inputName="rating1"
                 rating={rating}
                 onChange={value => setRating(value)}
             />

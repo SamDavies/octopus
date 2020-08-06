@@ -47,15 +47,15 @@ const sizeToPixels = (size: string): string => {
 }
 
 type Props = {
-    onChange: (value: number) => void;
-    rating: number;
-    isStatic: boolean;
-    size: 'medium' | 'large';
+    onChange?: (value: number) => void;
+    rating?: number;
+    isStatic?: boolean;
+    size?: 'medium' | 'large';
 }
 
 const StarRating: React.FC<Props> = (
     {
-        isStatic,
+        isStatic = false,
         onChange = noop,
         rating = 0,
         size = 'medium'
