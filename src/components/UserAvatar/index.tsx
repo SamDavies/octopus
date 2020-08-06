@@ -4,21 +4,25 @@ import styled from 'styled-components'
 import Color from '../../constants/colors'
 import Font from '../../constants/fonts'
 
-enum sizes {
-    small= '1.5rem',
-    normal= '2rem',
-    large= '2.5rem'
+const sizes = {
+    small: '1.5rem',
+    normal: '2rem',
+    large: '2.5rem'
 }
 
-const avatarStyles = (size: sizes, bordered: boolean, borderColor: Color): string => `
-  width: ${size};
-  height: ${size};
+const avatarStyles = (
+    size: 'small' | 'normal' | 'large',
+    bordered: boolean,
+    borderColor: Color
+): string => `
+  width: ${sizes[size]};
+  height: ${sizes[size]};
   border-radius: 50%;
   border: ${bordered ? `2px solid ${borderColor}` : 0};
 `
 
 type StyledImageAvatarProps = {
-    size: sizes;
+    size: 'small' | 'normal' | 'large';
     bordered: boolean;
     borderColor: Color;
     src: string;
@@ -31,7 +35,7 @@ export const StyledImageAvatar = styled.div<StyledImageAvatarProps>`
 `
 
 type StyledTextAvatarProps = {
-    size: sizes;
+    size: 'small' | 'normal' | 'large';
     bordered: boolean;
     borderColor: Color;
     bgColor: Color;
@@ -61,7 +65,7 @@ const StyledAvatarWrapper = styled.div`
 `
 
 type Props = {
-    size?: sizes;
+    size?: 'small' | 'normal' | 'large';
     text?: string;
     src?: string;
     bordered?: boolean;
@@ -71,7 +75,7 @@ type Props = {
 
 const UserAvatar: React.FC<Props> = (
     {
-        size = sizes.normal,
+        size = 'normal',
         text = '',
         src = '',
         bordered = false,
