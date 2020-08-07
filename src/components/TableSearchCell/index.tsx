@@ -1,4 +1,3 @@
-import noop from 'lodash/noop'
 import React from 'react'
 import { IoIosSearch } from 'react-icons/io'
 import styled from 'styled-components'
@@ -45,23 +44,15 @@ type Props = {
 }
 
 const TableSearchCell: React.FC<Props> = (
-    {
-        flex,
-        width,
-        value = '',
-        onChange = noop,
-        placeholder = ''
-    }: Props
+    props: Props
 ) =>
     <StyledTableSearchCell
-        flex={flex}
-        width={width}
+        flex={props.flex}
+        width={props.width}
     >
         <IoIosSearch/>
         <StyledInput
-            value={value}
-            placeholder={placeholder}
-            onChange={onChange}
+            {...props}
         />
     </StyledTableSearchCell>
 
