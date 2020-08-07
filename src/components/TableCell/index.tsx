@@ -6,6 +6,7 @@ import Font from '../../constants/fonts'
 type StyledTableCellProps = {
     flex?: number;
     width?: string;
+    stopPropagation?: boolean;
 }
 
 const StyledTableCell = styled.div<StyledTableCellProps>`
@@ -35,22 +36,21 @@ type Props = {
 }
 
 const TableCell: React.FC<Props> = (
-    {
-        flex,
-        width,
-        onClick = noop,
-        stopPropagation = false
-    }: Props
+    props: Props
 ) => {
     const handleOnClick = (e: React.MouseEvent<HTMLElement>): void => {
-        stopPropagation && e.stopPropagation()
-        onClick(e)
+        props.stopPropagation && e.stopPropagation()
+        props.onClick && props.onClick(e)
     }
     return <StyledTableCell
-        flex={flex}
-        width={width}
+        {...props}
         onClick={handleOnClick}
     />
+}
+
+TableCell.defaultProps = {
+    onClick: noop,
+    stopPropagation: false
 }
 
 export default TableCell
